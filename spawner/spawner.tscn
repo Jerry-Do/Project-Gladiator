@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cio4svb8b44cm"]
+
+[ext_resource type="Script" path="res://spawner/Spawner.gd" id="1_m4xau"]
+
+[node name="Spawner" type="Node2D"]
+position = Vector2(566, 263)
+script = ExtResource("1_m4xau")
+enemies = ["res://Enemy/enemy.tscn"]
+interval = 1.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="s1" type="Node2D" parent="."]
+position = Vector2(-407, -121)
+
+[node name="s2" type="Node2D" parent="."]
+position = Vector2(366, -141)
+
+[node name="s3" type="Node2D" parent="."]
+position = Vector2(-376, 267)
+
+[node name="s4" type="Node2D" parent="."]
+position = Vector2(362, 280)
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
