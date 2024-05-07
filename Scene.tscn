@@ -230,8 +230,14 @@ weapons = ["res://Weapon/HandGun.tscn", "res://Weapon/MachineGun.tscn", "res://W
 maxKillCount = 4
 fameMultiTimeFrame = 3.0
 
+[node name="WeaponTimer" type="Timer" parent="Level"]
+unique_name_in_owner = true
+wait_time = 5.0
+
 [node name="FameMultiplierTimer" type="Timer" parent="Level"]
 unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="Level"]
 
 [node name="TileMap" type="TileMap" parent="Level"]
 tile_set = SubResource("TileSet_x7vu8")
@@ -241,12 +247,14 @@ layer_0/tile_data = PackedInt32Array(0, 393217, 4, 1, 393217, 4, 65537, 131073, 
 [node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
 
 [node name="Player" parent="Level" instance=ExtResource("3_lke7c")]
+position = Vector2(578, 279)
 
 [node name="HandGun" parent="Level" instance=ExtResource("6_o5tvf")]
+position = Vector2(366, 186)
 
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
 position = Vector2(577, 267)
-maxAllow = 4
+maxAllow = 1
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -260,6 +268,7 @@ position = Vector2(-465, 289)
 [node name="s4" parent="Level/Spawner" index="4"]
 position = Vector2(375, 245)
 
+[connection signal="timeout" from="Level/WeaponTimer" to="Level" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
 
 [editable path="Level/Spawner"]

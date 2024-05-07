@@ -1,8 +1,8 @@
-res://Level.gd
 res://Scene.tscn
 res://Player/Character.gd
 res://Player/Player.tscn
 res://UI/ui.tscn
 res://Weapon/Shotgun.tscn
-res://UI/UI.gd
+res://Level.gd
 res://spawner/Spawner.gd
+res://UI/UI.gd
