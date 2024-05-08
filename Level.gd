@@ -7,12 +7,13 @@ extends Node2D
 @export var fameMultiTimeFrame : float 
 
 var rng = RandomNumberGenerator.new()
-var maxFame: int = 1
+var maxFame: int = 10
 var currentFame: int
 var fameMultiplier: float = 1.0
 var killCount : int = 0
 var increaseMulti : bool 
 var newWeapon
+var oldWeapon
 func UpdateHealth(value):
 	ui.update_health_text(value)
 
@@ -34,6 +35,9 @@ func SpawnWeapon():
 	newWeapon = weapon.instantiate()
 	newWeapon.position = Vector2(player.global_position.x + 100, player.global_position.y + 100)
 	newWeapon.rotation = player.rotation
+	var oldWeapon = newWeapon
+	if oldWeapon:
+		remove_child(oldWeapon)
 	add_child(newWeapon)
 	$WeaponTimer.start()
 

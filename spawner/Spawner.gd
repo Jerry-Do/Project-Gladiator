@@ -13,11 +13,13 @@ var spawnFlag : bool = true
 var spawnCount : int = 0
 
 func _physics_process(delta):
-	if spawnFlag:
+	if spawnFlag && spawnCount < maxAllow:
 		spawnFlag = false
 		$SpawnTimer.start(interval)
-		spawnCount +=  1
-	
+		
+	if spawnCount >= maxAllow:
+		$SpawnTimer.stop()
+
 		
 	
 	
@@ -50,6 +52,5 @@ func _on_spawn_timer_timeout():
 	newEnemy.position = spawnPos
 	newEnemy.rotation = rotation
 	get_parent().add_child(newEnemy)
-	if spawnCount >= maxAllow:
-		spawnFlag = false
-		$SpawnTimer.stop()
+	spawnCount +=  1
+	spawnFlag = true

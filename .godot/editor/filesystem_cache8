@@ -1,10 +1,10 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1715111743
+::res://::1715193037
 icon.svg::CompressedTexture2D::601579858584515143::1708048132::1713744270::1::::<><>::
-Level.gd::GDScript::-1::1715051623::0::1::::<>Node2D<>::
+Level.gd::GDScript::-1::1715115946::0::1::::<>Node2D<>::
 README.md::TextFile::-1::1708048132::0::1::::<><>::
 README.ru.md::TextFile::-1::1708048132::0::1::::<><>::
-Scene.tscn::PackedScene::9192136629399209460::1715051683::0::1::::<><>::res://Level.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://j7b5738f8mjj::::res://Player/Player.tscn<>uid://dcv2kj34pxllo::::res://v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://dr2pu7glrsgda::::res://Weapon/HandGun.tscn
+Scene.tscn::PackedScene::9192136629399209460::1715116203::0::1::::<><>::res://Level.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://j7b5738f8mjj::::res://Player/Player.tscn<>uid://dcv2kj34pxllo::::res://v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://dr2pu7glrsgda::::res://Weapon/HandGun.tscn
 SoftCollision.gd::GDScript::-1::1714445985::0::1::::<>Area2D<>::
 soft_collision.tscn::PackedScene::775278827044099727::1714506723::0::1::::<><>::res://SoftCollision.gd
 ::res://addons/::1715111608
@@ -27,18 +27,18 @@ _importer_base.gd::GDScript::-1::1708048132::0::1::::<>EditorImportPlugin<>::
 Enemy.gd::GDScript::-1::1715034660::0::1::::Enemy<>CharacterBody2D<>::
 enemy.tscn::PackedScene::8817734413383746080::1715026051::0::1::::<><>::res://Enemy/Slime.gd<>uid://wy3wfrlclh2i::::res://v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png<>uid://d2ydh0uhfvq0e::::res://v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_spritesheeet.png<>uid://lbsy10cwro8n::::res://soft_collision.tscn
 Slime.gd::GDScript::-1::1715025479::0::1::::Slime<>Enemy<>::
-::res://Player/::1715111608
-Character.gd::GDScript::-1::1715049337::0::1::::<>CharacterBody2D<>::
+::res://Player/::1715116203
+Character.gd::GDScript::-1::1715111765::0::1::::<>CharacterBody2D<>::
 Character.tscn::PackedScene::8753365442066500842::1714773881::0::1::::<><>::res://Player/Character.gd
 Player.gd::GDScript::-1::1714963155::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::697875697191207779::1715051624::0::1::::<><>::res://Player/Player.gd<>uid://dweqnpr0abso6::::res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://ctbg333f2a7tp::::res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png
+Player.tscn::PackedScene::697875697191207779::1715116203::0::1::::<><>::res://Player/Player.gd<>uid://dweqnpr0abso6::::res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://ctbg333f2a7tp::::res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png
 PlayerStats.gd::GDScript::-1::1714964221::0::1::::<>Node<>::
 PlayerStats.tscn::PackedScene::6724956824135903098::1714868127::0::1::::<><>::uid://b2viddts03gyk::::res://Player/stats.tscn<>res://Player/PlayerStats.gd
 State.gd::GDScript::-1::1714021713::0::1::::<>RefCounted<>::
 stats.tscn::PackedScene::4325362675852765762::1714684271::0::1::::<><>::
 WeaponSlot.gd::GDScript::-1::1714860055::0::1::::<>Node2D<>::
-::res://spawner/::1715111608
-Spawner.gd::GDScript::-1::1715051683::0::1::::<>Node2D<>::
+::res://spawner/::1715114699
+Spawner.gd::GDScript::-1::1715114699::0::1::::<>Node2D<>::
 spawner.tscn::PackedScene::5365047448164849820::1714508997::0::1::::<><>::res://spawner/Spawner.gd
 ::res://Sprite/::1715111608
 ::res://Sprite/Player/::1715111608
@@ -46,9 +46,9 @@ Bullet.png::CompressedTexture2D::8130268142965368514::1708048132::1713744300::1:
 Enemy.png::CompressedTexture2D::5196476529186697300::1708048132::1713744300::1::::<><>::
 Gun.png::CompressedTexture2D::2781753590005916963::1708048132::1713744300::1::::<><>::
 PChar.png::CompressedTexture2D::5298400746430710784::1708048132::1713744300::1::::<><>::
-::res://UI/::1715111608
-UI.gd::GDScript::-1::1715050650::0::1::::UI<>CanvasLayer<>::
-ui.tscn::PackedScene::3039744360176307657::1715051624::0::1::::<><>::res://UI/UI.gd
+::res://UI/::1715116203
+UI.gd::GDScript::-1::1715116201::0::1::::UI<>CanvasLayer<>::
+ui.tscn::PackedScene::3039744360176307657::1715116203::0::1::::<><>::res://UI/UI.gd
 ::res://v1.1 dungeon crawler 16X16 pixel pack/::1715111609
 FSM.gd::GDScript::-1::1714020506::0::1::::FiniteStateMachine<>Node<>::
 full spritesheet.png::CompressedTexture2D::2077704676979206115::1713934877::1713934907::1::::<><>::
@@ -253,13 +253,13 @@ menu_button.png::CompressedTexture2D::2211886889265999436::1713934882::171393490
 menu_button_press.png::CompressedTexture2D::7603866601388575262::1713934882::1713934907::1::::<><>::
 pause_button.png::CompressedTexture2D::5094739625633456048::1713934882::1713934907::1::::<><>::
 pause_button_press.png::CompressedTexture2D::2444210060607913093::1713934882::1713934907::1::::<><>::
-::res://Weapon/::1715111609
+::res://Weapon/::1715116203
 gun.gd::GDScript::-1::1714862288::0::1::::<>Weapon<>::
 HandGun.tscn::PackedScene::8409158753594315518::1715026051::0::1::::<><>::res://Weapon/gun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 MachineGun.gd::GDScript::-1::1714514343::0::1::::MachineGun<>Weapon<>::
 MachineGun.tscn::PackedScene::7827775262756622896::1714868127::0::1::::<><>::res://Weapon/MachineGun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Shotgun.gd::GDScript::-1::1715025272::0::1::::<>Weapon<>::
-Shotgun.tscn::PackedScene::2359686463657296332::1715051624::0::1::::<><>::res://Weapon/Shotgun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
+Shotgun.tscn::PackedScene::2359686463657296332::1715116203::0::1::::<><>::res://Weapon/Shotgun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Sniper.gd::GDScript::-1::1714862323::0::1::::<>Weapon<>::
 Sniper.tscn::PackedScene::4102781667093446051::1714868128::0::1::::<><>::res://Weapon/Sniper.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Weapon.gd::GDScript::-1::1714868126::0::1::::Weapon<>Node2D<>::
