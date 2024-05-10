@@ -70,3 +70,6 @@ func Dash():
 		await get_tree().create_timer(3.0).timeout
 		canDash = true
 	
+func PickUpBomerang():
+	currentWeapon.currentAmmo += 1
+	currentWeapon.sprite.set_visible(true)

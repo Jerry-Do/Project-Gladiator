@@ -1,10 +1,12 @@
 res://Scene.tscn
 res://Player/Character.gd
 res://Player/Player.tscn
-res://UI/ui.tscn
 res://Weapon/Shotgun.tscn
-res://spawner/Spawner.gd
-res://Weapon/bullet/SniperBullet.tscn
 res://Weapon/bullet/ShotgunBullet.tscn
-res://Level.gd
+res://Weapon/bullet/bullet.tscn
+res://Weapon/bullet/BomerangBullet.tscn
+res://Weapon/Bomerang.gd
+res://Weapon/bullet/BomerangBullet.gd
+res://Weapon/Shotgun.gd
+res://Weapon/Bomerang.tscn
 res://Player/Player.gd

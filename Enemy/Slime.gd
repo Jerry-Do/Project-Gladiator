@@ -1,6 +1,6 @@
 extends Enemy
 
-class_name Slime
+
 var sHealth:int = 1
 var sSpeed: float = 300
 var sDamage: float = 1
