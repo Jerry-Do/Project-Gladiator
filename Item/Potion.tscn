@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://co6olduunqdg3"]
+
+[ext_resource type="PackedScene" uid="uid://m0sh08uhepa4" path="res://Item/BaseItem.tscn" id="1_ydvqx"]
+[ext_resource type="Texture2D" uid="uid://bjmujypyevm6j" path="res://Sprite/Player/potion.png" id="2_n4phu"]
+[ext_resource type="Script" path="res://Item/Potion.gd" id="2_w4oml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rqau"]
+size = Vector2(20, 23)
+
+[node name="Potion" instance=ExtResource("1_ydvqx")]
+script = ExtResource("2_w4oml")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(603, 338.5)
+shape = SubResource("RectangleShape2D_4rqau")
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2(608, 347)
+texture = ExtResource("2_n4phu")

@@ -20,14 +20,18 @@ func UpdateHealth(value):
 func UpdateAmmo(value):
 	ui.update_ammo_text(value)
 
+func UpdateItemSprite(spritePath):
+	ui.update_item_sprite(spritePath)
+
 func _process(delta):
 	ui.update_fame_text(currentFame, maxFame)
 	ui.update_fameMulti_text(fameMultiplier)
+
 	if %FameMultiplierTimer:
 		ui.update_fameMultiTimer_text(%FameMultiplierTimer.get_time_left())
 	if %WeaponTimer:
 		ui.update_WeaponTimer_text(%WeaponTimer.get_time_left())
-
+	
 func SpawnWeapon():
 	var player = get_node("/root/Game/Level/Player")
 	var randomNo = rng.randi_range(0, weapons.size() - 1)

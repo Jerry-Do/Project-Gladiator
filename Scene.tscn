@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=14 format=3 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_rqj78"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
 [ext_resource type="PackedScene" uid="uid://ib41yqhioduc" path="res://Weapon/Bomerang.tscn" id="6_1qycw"]
+[ext_resource type="PackedScene" uid="uid://co6olduunqdg3" path="res://Item/Potion.tscn" id="6_pn25s"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -251,6 +252,8 @@ unique_name_in_owner = true
 [node name="Player" parent="Level" instance=ExtResource("3_lke7c")]
 unique_name_in_owner = true
 position = Vector2(578, 279)
+
+[node name="Potion" parent="Level" instance=ExtResource("6_pn25s")]
 
 [node name="Bomerang" parent="Level" instance=ExtResource("6_1qycw")]
 position = Vector2(361, 289)
