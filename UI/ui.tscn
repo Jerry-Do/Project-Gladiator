@@ -10,18 +10,19 @@ script = ExtResource("1_clehj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_right = 241.0
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CurrentItem" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.214506
-anchor_right = 0.150174
-anchor_bottom = 0.365741
+anchor_left = 0.0124481
+anchor_top = 2.65306
+anchor_right = 0.73029
+anchor_bottom = 3.54082
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -37,13 +38,33 @@ unique_name_in_owner = true
 position = Vector2(183, 55.0001)
 scale = Vector2(3, 3)
 
+[node name="NewWeaponAlert" type="MarginContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.80498
+anchor_top = 0.969388
+anchor_right = 2.98755
+anchor_bottom = 1.85714
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="NewWeaponAlert" type="Label" parent="Control/NewWeaponAlert"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Weapon Just Dropped!!!
+"
+
 [node name="WeaponTimer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.782118
-anchor_top = 0.33179
-anchor_right = 0.91059
-anchor_bottom = 0.483025
+anchor_left = 5.29876
+anchor_top = 4.64286
+anchor_right = 5.91286
+anchor_bottom = 5.64286
 offset_left = -424.0
 offset_top = -183.0
 offset_right = -331.0
@@ -81,10 +102,9 @@ label_settings = SubResource("LabelSettings_pakyj")
 [node name="Ammo" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.000868056
-anchor_top = 0.125
-anchor_right = 0.12934
-anchor_bottom = 0.276235
+anchor_top = 1.2449
+anchor_right = 0.614108
+anchor_bottom = 2.2449
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -101,10 +121,10 @@ label_settings = SubResource("LabelSettings_pakyj")
 [node name="Fame" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.794271
-anchor_top = 0.0108025
-anchor_right = 0.922743
-anchor_bottom = 0.162037
+anchor_left = 3.99585
+anchor_top = 0.530612
+anchor_right = 4.55602
+anchor_bottom = 1.53061
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -121,10 +141,10 @@ label_settings = SubResource("LabelSettings_pakyj")
 [node name="FameMultiplier" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.692708
-anchor_top = 0.165123
-anchor_right = 0.913194
-anchor_bottom = 0.316358
+anchor_left = 3.48548
+anchor_top = 1.21429
+anchor_right = 4.53942
+anchor_bottom = 2.21429
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -141,10 +161,10 @@ label_settings = SubResource("LabelSettings_pakyj")
 [node name="FameMultiTimer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.782118
-anchor_top = 0.33179
-anchor_right = 0.91059
-anchor_bottom = 0.483025
+anchor_left = 3.93776
+anchor_top = 2.13265
+anchor_right = 4.51452
+anchor_bottom = 3.13265
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32

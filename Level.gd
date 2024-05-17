@@ -1,7 +1,7 @@
 #Game Manager: handles UI and game logics
 extends Node2D
 
-@onready var ui = get_node("/root/Game/Level/UI")
+@onready var ui = get_node("/root/Game/UI")
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float 
@@ -26,11 +26,14 @@ func UpdateItemSprite(spritePath):
 func _process(delta):
 	ui.update_fame_text(currentFame, maxFame)
 	ui.update_fameMulti_text(fameMultiplier)
-
-	if %FameMultiplierTimer:
+	
+	if %FameMultiplierTimer.is_stopped() == false:
 		ui.update_fameMultiTimer_text(%FameMultiplierTimer.get_time_left())
-	if %WeaponTimer:
+	if %WeaponTimer.is_stopped() == false:
 		ui.update_WeaponTimer_text(%WeaponTimer.get_time_left())
+		ui.set_new_weapon_alert_visibility(true)
+		await get_tree().create_timer(%WeaponTimer.get_time_left()).timeout
+		ui.set_new_weapon_alert_visibility(false)
 	
 func SpawnWeapon():
 	var player = get_node("/root/Game/Level/Player")
@@ -66,9 +69,6 @@ func IncreaseKillCount():
 func _on_fame_multiplier_timer_timeout():
 	%FameMultiplierTimer.stop()
 	killCount = 0
-
-
-
 
 func _on_weapon_timer_timeout():
 	$WeaponTimer.stop()

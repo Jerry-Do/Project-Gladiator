@@ -8,6 +8,7 @@ class_name  UI
 @onready var fameMultiTimerLabel = %FameMultiTimer
 @onready var WeaponTimerLabel = %WeaponTimer
 @onready var itemSprite = %ItemSprite
+@onready var newWeaponAlert = %NewWeaponAlert
 @onready var stats = PlayerStats
 	
 func update_health_text(value):
@@ -35,6 +36,9 @@ func update_item_sprite(spritePath):
 		itemSprite.texture = load(spritePath)
 	else:
 		itemSprite.texture = null
+
+func set_new_weapon_alert_visibility(flag):
+	newWeaponAlert.visible = flag
 
 func FormatString(value, format : String):
 	var formatString = format

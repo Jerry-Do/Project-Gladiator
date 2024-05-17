@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot Projects"
-run/main_scene="res://Scene.tscn"
+run/main_scene="res://title.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ PlayerStats="*res://Player/PlayerStats.gd"
 
 [display]
 
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [dotnet]
