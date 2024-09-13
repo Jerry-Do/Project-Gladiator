@@ -24,8 +24,3 @@ func shoot():
 		shootFlag = false
 		sprite.set_visible(false)
 		$Cooldown.start(self.rateOfFire)
-
-
-
-
-

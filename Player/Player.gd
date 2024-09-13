@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var itemNode: Node2D = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var healthBar = get_node("../../UI/Control/Healthbar")
 @export var max_speed: int = 1000
 var currentWeapon: Node2D
 var direction : Vector2
@@ -18,11 +19,14 @@ enum{
 	ATTACK
 }
 
+	
 func _ready():
 	self.stats.connect("no_health", queue_free)
+	healthBar.init_health(stats.ReturnHealth())
+	
 func _physics_process(delta):
 	
-	level.UpdateHealth(stats.ReturnHealth())
+	#level.UpdateHealth(stats.ReturnHealth())
 	var mouseDirection: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
@@ -69,11 +73,11 @@ func PickUpItem(item : Node2D):
 
 func MinusHealth(amount : int):
 	stats.SetHealth(amount)
+	healthBar._set_health(stats.ReturnHealth())
 	
 
 
-func _on_hitbox_area_entered(area):
-	pass # Replace with function body.
+
 
 func Dash():
 	if Input.is_action_just_pressed("dash") && canDash:

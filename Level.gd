@@ -14,9 +14,8 @@ var killCount : int = 0
 var increaseMulti : bool 
 var newWeapon
 var oldWeapon
-func UpdateHealth(value):
-	ui.update_health_text(value)
 
+	
 func UpdateAmmo(value):
 	ui.update_ammo_text(value)
 

@@ -1,0 +1,16 @@
+res://UI/ui.tscn
+res://Weapon/script/Shotgun.gd
+res://Scene.tscn
+res://Weapon/HandGun.tscn
+res://Weapon/Bomerang.tscn
+res://Weapon/Sniper.tscn
+res://Player/Player.tscn
+res://title.tscn
+res://Enemy/enemy.tscn
+res://spawner/spawner.tscn
+res://UI/Bars/Healthbar.tscn
+res://UI/Bars/healthbar.gd
+res://UI/UI.gd
+res://Player/PlayerStats.gd
+res://Level.gd
+res://Player/Player.gd

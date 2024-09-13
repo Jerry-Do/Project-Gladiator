@@ -22,9 +22,3 @@ func shoot():
 			shootFlag = false		
 		currentAmmo -=1
 		$Cooldown.start(self.rateOfFire)
-
-
-
-
-
-

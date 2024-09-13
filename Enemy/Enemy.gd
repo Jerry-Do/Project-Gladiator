@@ -5,7 +5,7 @@ var speed: float
 var damage: float
 var fameAmount : int
 var chase: bool
-var player: Node2D
+@onready var player = get_node("../Player")
 @onready var navAgent = $NavigationAgent2D 
 @onready var softCollision = $SoftCollision
 @onready var spawner = get_node("../Spawner")
@@ -44,12 +44,7 @@ func take_damage(amount : int):
 	health -= amount
 	
 
-func _on_detection_area_body_entered(body):
-	player = body
-	
-func _on_detection_area_body_exited(body):
-	player = null
-	$AnimatedSprite2D.play("idle")
+
 
 func _on_timer_timeout():
 	MakePath()

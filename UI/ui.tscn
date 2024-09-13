@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjkqe7gy0n4gr"]
+[gd_scene load_steps=4 format=3 uid="uid://bjkqe7gy0n4gr"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_clehj"]
+[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="2_g042w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pakyj"]
 font_size = 24
@@ -82,23 +83,6 @@ text = "Weapon Timer:
 "
 label_settings = SubResource("LabelSettings_pakyj")
 
-[node name="Health" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.122396
-anchor_bottom = 0.151235
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-metadata/_edit_use_anchors_ = true
-
-[node name="Health" type="Label" parent="Control/Health"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Health"
-label_settings = SubResource("LabelSettings_pakyj")
-
 [node name="Ammo" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
@@ -177,3 +161,11 @@ layout_mode = 2
 text = "Timer:
 "
 label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Healthbar" parent="Control" instance=ExtResource("2_g042w")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 389.0
+offset_bottom = 49.0

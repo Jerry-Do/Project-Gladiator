@@ -13,8 +13,10 @@ func _physics_process(delta):
 	super._physics_process(delta)	
 
 func _process(delta):
-	mousePosition = get_local_mouse_position()
-	queue_redraw()
+	if pickedUpFlag:
+		mousePosition = get_local_mouse_position()
+		queue_redraw()
+	
 func shoot():
 	if(currentAmmo > 0 && shootFlag):
 		var BULLET = load(self.bulletName)
@@ -29,6 +31,3 @@ func shoot():
 
 func _draw():
 	draw_line(%Shootingpoint.position, mousePosition, Color.RED)
-
-
-

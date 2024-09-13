@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name  UI
 
-@onready var healthLabel = %Health
+#@onready var healthLabel = %Health
 @onready var ammoLabel = %Ammo
 @onready var fameLabel = %Fame
 @onready var fameMultiLabel = %FameMultiplier
@@ -10,9 +10,10 @@ class_name  UI
 @onready var itemSprite = %ItemSprite
 @onready var newWeaponAlert = %NewWeaponAlert
 @onready var stats = PlayerStats
+
 	
-func update_health_text(value):
-	healthLabel.text = "Health: " + str(value)
+#func update_health_text(value):
+	#healthLabel.text = "Health: " + str(value)
 	
 func update_ammo_text(value):
 	ammoLabel.text = "Ammo: " + str(value)

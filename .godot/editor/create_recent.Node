@@ -1,3 +1,5 @@
+Timer
+ProgressBar
 BoxContainer
 HBoxContainer
 MarginContainer
@@ -11,5 +13,3 @@ Button
 Node2D
 Label
 Sprite2D
-Node
-CollisionShape2D

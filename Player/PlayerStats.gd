@@ -5,6 +5,7 @@ var baseSpeed = 600
 var baseCritChance = 0
 var baseCritDamage = 0
 var maxExperience = 0
+
 var stats = {
 	"Health": maxHealth,
 	"CritChance": baseCritChance,
@@ -14,6 +15,10 @@ var stats = {
 }
 signal no_health
 
+
+	
+	
+	
 func SetHealth(value):
 	stats.Health += value
 	if stats.Health <= 0:
@@ -39,6 +44,3 @@ func SetCritDamage(value):
 
 func ReturnCritDamage():
 	return stats.CritDamage
-
-
-

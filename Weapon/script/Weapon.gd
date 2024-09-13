@@ -7,7 +7,7 @@ var rateOfFire = 0
 var reloadTime = 0
 var maxAmmo = 0
 var bulletName:String
-
+var pickedUpFlag : bool
 
 
 
@@ -64,4 +64,5 @@ func _on_player_detector_body_entered(body):
 		playerDetector.set_collision_mask_value(3, false)
 		body.PickUpWeapon(self)
 		position = Vector2.ZERO
+		pickedUpFlag = true
 	

@@ -23,8 +23,3 @@ func shoot():
 		shootFlag = false
 		$Cooldown.start(self.rateOfFire)
 		
-
-
-
-
-
