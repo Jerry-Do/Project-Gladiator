@@ -9,10 +9,10 @@ var  mousePosition : Vector2
 func _init():
 	super._init("res://Weapon/bullet/SniperBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
 	
-func _physics_process(delta):
-	super._physics_process(delta)	
+	
 
 func _process(delta):
+	super._process(delta)	
 	if pickedUpFlag:
 		mousePosition = get_local_mouse_position()
 		queue_redraw()

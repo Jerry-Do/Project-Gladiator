@@ -9,23 +9,22 @@ extends CharacterBody2D
 @export var max_speed: int = 1000
 var currentWeapon: Node2D
 var direction : Vector2
-var canDash = true
-var dashing = false
 var stats = PlayerStats
 var currentItem: Node2D
-
+var invincibleState : bool = false
 @onready 
 var state_machine = $StateControl
 
+@onready 
+var movement_component = $MovementComponent
 
 	
 func _ready():
 	self.stats.connect("no_health", queue_free)
 	healthBar.init_health(stats.ReturnHealth())
-	state_machine.init(self)
+	state_machine.init(self, movement_component)
+	
 func _physics_process(delta):
-	
-	
 	state_machine.process_physics(delta)
 	if currentWeapon:
 		currentWeapon.look_at(get_global_mouse_position())
@@ -64,19 +63,11 @@ func PickUpItem(item : Node2D):
 	level.UpdateItemSprite(currentItem.GetSpritePath())
 
 func MinusHealth(amount : int):
-	stats.SetHealth(amount)
-	healthBar._set_health(stats.ReturnHealth())
-	
+	if !invincibleState:
+		stats.SetHealth(amount)
+		healthBar._set_health(stats.ReturnHealth())
 
 
-
-
-func Dash():
-	if Input.is_action_just_pressed("dash") && canDash:
-		velocity *= 50
-		canDash = false
-		await get_tree().create_timer(3.0).timeout
-		canDash = true
 	
 func PickUpBomerang():
 	currentWeapon.currentAmmo += 1

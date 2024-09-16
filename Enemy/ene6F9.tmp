@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=26 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" path="res://Enemy/Slime.gd" id="1_rewm4"]
 [ext_resource type="Texture2D" uid="uid://wy3wfrlclh2i" path="res://v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png" id="2_w3smp"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://States/enemy/MoveEnemy.gd" id="6_unpk8"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_3wpao"]
 [ext_resource type="Script" path="res://Enemy/Movement_getter_enemy.gd" id="7_utsu7"]
-[ext_resource type="Script" path="res://States/enemy/Stun.gd" id="8_e327v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
 radius = 48.1016
@@ -174,19 +173,14 @@ shape = SubResource("CircleShape2D_3cush")
 script = ExtResource("5_jyo3d")
 starting_state = NodePath("Move")
 
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state")]
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state")]
 script = ExtResource("6_unpk8")
 dead_state = NodePath("../Dead")
-stun_state = NodePath("../Stun")
-move_state = NodePath(".")
 
 [node name="Dead" type="Node" parent="StateControl"]
 script = ExtResource("7_3wpao")
 
-[node name="Stun" type="Node" parent="StateControl"]
-script = ExtResource("8_e327v")
-
-[node name="Timer" type="Timer" parent="."]
+[node name="Attack" type="Node" parent="StateControl"]
 
 [node name="MovementController" type="Node" parent="."]
 script = ExtResource("7_utsu7")

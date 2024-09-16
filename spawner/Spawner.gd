@@ -12,7 +12,7 @@ var rng = RandomNumberGenerator.new()
 var spawnFlag : bool = true
 var spawnCount : int = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if spawnFlag && spawnCount < maxAllow:
 		spawnFlag = false
 		$SpawnTimer.start(interval)
@@ -52,5 +52,6 @@ func _on_spawn_timer_timeout():
 	newEnemy.position = spawnPos
 	newEnemy.rotation = rotation
 	get_parent().add_child(newEnemy)
+	
 	spawnCount +=  1
 	spawnFlag = true

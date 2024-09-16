@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="1_clp3u"]
 [ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="2_cd6hr"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
-[ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
-[ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
-[ext_resource type="Script" path="res://States/player/Dash.gd" id="7_44754"]
-[ext_resource type="Script" path="res://States/player/Movement_getter.gd" id="8_w4ebw"]
+[ext_resource type="Script" path="res://States/Idle.gd" id="4_wngjq"]
+[ext_resource type="Script" path="res://States/Move.gd" id="6_8bmt5"]
+[ext_resource type="Script" path="res://States/Dash.gd" id="7_44754"]
+[ext_resource type="Script" path="res://States/Movement_getter.gd" id="8_w4ebw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aumms"]
 
@@ -194,9 +194,6 @@ position = Vector2(-62, -29)
 collision_layer = 5
 script = ExtResource("1_ascps")
 
-[node name="MovementComponent" type="Node" parent="."]
-script = ExtResource("8_w4ebw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource("CanvasItemMaterial_aumms")
 position = Vector2(1, 0.5)
@@ -241,6 +238,12 @@ idle_state = NodePath("../Idle")
 script = ExtResource("7_44754")
 move_state = NodePath("../Move")
 idle_state = NodePath("../Idle")
+animation_name = null
+movement_speed = null
+
+[node name="MovementComponent" type="Node" parent="StateControl"]
+unique_name_in_owner = true
+script = ExtResource("8_w4ebw")
 
 [node name="Timer" type="Node" parent="."]
 

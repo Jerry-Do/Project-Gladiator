@@ -4,15 +4,13 @@ extends Node
 @export 
 var animation_name : String
 
-@export
-var movement_speed : float = 800
 
-var parent : Player
+var parent : CharacterBody2D
+
+var movement_component
 
 func enter() -> void:
-	#parent.animations.play(animation_name)
 	parent = get_parent().get_parent()
-
 func exit() -> void:
 	pass
 
@@ -24,3 +22,6 @@ func process_frame(delta: float) -> State:
 
 func process_physics(delta: float) -> State:
 	return null
+
+func get_movement_direction() -> Vector2:
+	return movement_component.get_movement_direction()

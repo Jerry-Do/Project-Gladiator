@@ -9,8 +9,8 @@ var _cReloadTime = 2
 func _init():
 	super._init("res://Weapon/bullet/bullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
 	
-func _physics_process(delta):
-	super._physics_process(delta)	
+func _process(delta):
+	super._process(delta)	
 
 func shoot():
 	if(currentAmmo > 0 && shootFlag):

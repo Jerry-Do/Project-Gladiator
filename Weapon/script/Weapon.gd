@@ -8,9 +8,6 @@ var reloadTime = 0
 var maxAmmo = 0
 var bulletName:String
 var pickedUpFlag : bool
-
-
-
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 var currentAmmo = 0
@@ -28,27 +25,11 @@ var shootFlag = true
 var reloadFlag = false
 
 		
-func _physics_process(delta):
-	
+func _process(delta):
 	if(currentAmmo <= 0 && !reloadFlag):
 		reloadFlag = true
 		$ReloadTimer.start(reloadTime)
 		print("Reloading")
-	
-
-		
-		 
-func shoot():
-	if(currentAmmo > 0 && shootFlag):
-		var BULLET = load(self.bulletName)
-		var new_bullet = BULLET.instantiate()
-		new_bullet.global_position = %Shootingpoint.global_position
-		new_bullet.global_rotation = %Shootingpoint.global_rotation
-		%Shootingpoint.add_child(new_bullet)
-		currentAmmo -=1
-		shootFlag = false
-
-		$Cooldown.start(self.rateOfFire)
 
 func _on_reload_timer_timeout():
 	currentAmmo = maxAmmo
