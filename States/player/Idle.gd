@@ -11,4 +11,9 @@ func process_input(event : InputEvent) -> State:
 	if get_movement_direction().length() != 0:
 		return move_state
 	return null
+	
+func process_physics(delta: float):
+	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime():
+		parent.stats.SetDashTime(delta)
+		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 		

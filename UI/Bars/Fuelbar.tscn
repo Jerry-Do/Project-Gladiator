@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d33f6q17cdc2p"]
+
+[ext_resource type="Script" path="res://UI/Bars/Fuelbar.gd" id="1_v7wd5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qscc7"]
+bg_color = Color(0.00820202, 0.00820203, 0.00820202, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oknd6"]
+bg_color = Color(0.850716, 0.804599, 0.0919839, 1)
+
+[node name="Fuelbar" type="ProgressBar"]
+z_index = 1
+offset_right = 240.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qscc7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oknd6")
+value = 60.0
+show_percentage = false
+script = ExtResource("1_v7wd5")

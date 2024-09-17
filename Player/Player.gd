@@ -6,12 +6,15 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var healthBar = get_node("../../UI/Control/Healthbar")
+@onready var fuelBar = get_node("../../UI/Control/Fuelbar")
 @export var max_speed: int = 1000
+var dashTime = 2
 var currentWeapon: Node2D
 var direction : Vector2
 var stats = PlayerStats
 var currentItem: Node2D
 var invincibleState : bool = false
+var recharge_flag : bool = false
 @onready 
 var state_machine = $StateControl
 
@@ -22,6 +25,7 @@ var movement_component = $MovementComponent
 func _ready():
 	self.stats.connect("no_health", queue_free)
 	healthBar.init_health(stats.ReturnHealth())
+	fuelBar.init_fuel(dashTime)
 	state_machine.init(self, movement_component)
 	
 func _physics_process(delta):
@@ -35,8 +39,6 @@ func _process(delta):
 	
 func _unhandled_input(event):
 	state_machine.process_input(event)
-
-func _input(event):
 	if currentWeapon:
 		if event.is_action_pressed("left_click"):			
 			currentWeapon.shoot()	
@@ -48,6 +50,8 @@ func _input(event):
 			currentItem.queue_free()
 			currentItem = null
 			level.UpdateItemSprite(null)
+
+	
 			
 func PickUpWeapon(weapon: Node2D):
 	weapon.get_parent().call_deferred("remove_child", weapon)

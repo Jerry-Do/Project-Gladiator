@@ -12,7 +12,7 @@ var playerHitBox : Node2D
 
 func _init():
 	super._init(sHealth, sSpeed, sDamage, sFameAmount)
-
+	
 
 	
 func _physics_process(delta):

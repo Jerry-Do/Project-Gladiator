@@ -1,5 +1,6 @@
-Node
 Timer
+Sprite2D
+Node
 ProgressBar
 BoxContainer
 HBoxContainer
@@ -11,4 +12,3 @@ ColorRect
 AnimationPlayer
 AnimationTree
 Button
-Node2D
