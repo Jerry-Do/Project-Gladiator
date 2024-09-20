@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://j7b5738f8mjj"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ascps"]
-[ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="1_clp3u"]
-[ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="2_cd6hr"]
+[ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="1_clp3u"]
+[ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="2_cd6hr"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
 [ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
 [ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
@@ -12,7 +12,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aumms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grncj"]
-size = Vector2(51.7382, 63)
+size = Vector2(28.854, 29)
 
 [sub_resource type="Animation" id="Animation_2pclc"]
 length = 0.001
@@ -199,8 +199,8 @@ script = ExtResource("8_w4ebw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource("CanvasItemMaterial_aumms")
-position = Vector2(1, 0.5)
-scale = Vector2(1.00506, 1)
+position = Vector2(1, 3)
+scale = Vector2(1.00506, 0.809524)
 shape = SubResource("RectangleShape2D_grncj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -248,8 +248,14 @@ unique_name_in_owner = true
 
 [node name="GhostTimer" type="Timer" parent="Timer"]
 unique_name_in_owner = true
-wait_time = 0.03
+wait_time = 0.05
+autostart = true
+
+[node name="OverheatTimer" type="Timer" parent="Timer"]
+unique_name_in_owner = true
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer/DashTimer" to="StateControl/Dash" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/GhostTimer" to="StateControl/Dash" method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="Timer/OverheatTimer" to="StateControl/Dash" method="_on_overheat_timer_timeout"]

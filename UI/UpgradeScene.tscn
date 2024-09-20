@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://crqrm13wssg8b"]
+
+[ext_resource type="PackedScene" uid="uid://buvg61hesrl0q" path="res://UI/Button.tscn" id="1_druwq"]
+
+[node name="UpgradeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrade1" parent="." instance=ExtResource("1_druwq")]
+layout_mode = 1
+offset_left = 852.0
+offset_top = 156.0
+offset_right = 852.0
+offset_bottom = 156.0
+
+[node name="Upgrade2" parent="." instance=ExtResource("1_druwq")]
+layout_mode = 1
+offset_top = 151.0
+offset_bottom = 151.0
+
+[node name="Upgrade3" parent="." instance=ExtResource("1_druwq")]
+layout_mode = 1
+offset_left = 433.0
+offset_top = 147.0
+offset_right = 433.0
+offset_bottom = 147.0

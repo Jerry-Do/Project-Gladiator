@@ -7,6 +7,7 @@ position = Vector2(566, 263)
 script = ExtResource("1_m4xau")
 enemies = ["res://Enemy/enemy.tscn"]
 interval = 1.0
+maxAllow = 1
 
 [node name="SpawnTimer" type="Timer" parent="."]
 

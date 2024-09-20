@@ -5,6 +5,8 @@ extends Node2D
 class_name Weapon
 var rateOfFire = 0
 var reloadTime = 0
+var shootFlag = true
+var reloadFlag = false
 var maxAmmo = 0
 var bulletName:String
 var pickedUpFlag : bool
@@ -21,11 +23,9 @@ func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime):
 	currentAmmo = maxAmmo
 
 
-var shootFlag = true
-var reloadFlag = false
 
 		
-func _process(delta):
+func _process(_delta):
 	if(currentAmmo <= 0 && !reloadFlag):
 		reloadFlag = true
 		$ReloadTimer.start(reloadTime)

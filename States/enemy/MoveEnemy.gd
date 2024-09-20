@@ -17,10 +17,10 @@ func process_input(event : InputEvent) -> State:
 		
 func process_physics(delta: float) -> State:
 	MakePath()
-	var direction = parent.to_local(parent.navAgent.get_next_path_position()).normalized()
+	direction = parent.to_local(parent.navAgent.get_next_path_position()).normalized()
 	parent.velocity = direction * parent.speed
 	if parent.softCollision.IsColliding():
-		parent.velocity += parent.softCollision.GetPushVector() * 10000 * delta	
+		parent.velocity = parent.softCollision.GetPushVector() * 100
 	if parent.health <= 0:
 		return dead_state
 	parent.move_and_slide()

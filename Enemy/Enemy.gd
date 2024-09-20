@@ -8,13 +8,17 @@ var chase: bool
 @onready 
 var player = get_node("../Player")
 
+@onready 
+var game_manager = get_node("../GameManager")
+
 @onready
 var navAgent = $NavigationAgent2D 
 
 @onready
 var softCollision = $SoftCollision
 
-@onready var spawner = get_node("../Spawner")
+@onready 
+var spawner = get_node("../Spawner")
 
 @onready 
 var sprite = $AnimatedSprite2D
@@ -51,3 +55,12 @@ func take_damage(amount : int):
 
 func ReturnFame():
 	return fameAmount
+
+func _on_ghost_timer_timeout():
+	if game_manager.timeSlowFlag:
+		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
+		get_parent().add_child(this_ghost)
+		this_ghost.position = position
+		this_ghost.texture = sprite.sprite_frames.get_frame_texture("run",sprite.frame)
+		this_ghost.flip_h = sprite.flip_h
+		this_ghost.scale = sprite.scale

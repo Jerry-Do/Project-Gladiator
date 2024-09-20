@@ -1,6 +1,6 @@
 class_name Player
 extends CharacterBody2D
-@onready var level = get_node("/root/Game/Level")
+@onready var game_manager = get_node("../GameManager")
 @onready var weaponNode: Node2D = get_node("Weapon")
 @onready var itemNode: Node2D = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var healthBar = get_node("../../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../../UI/Control/Fuelbar")
 @export var max_speed: int = 1000
+var shield : int
 var dashTime = 2
 var currentWeapon: Node2D
 var direction : Vector2
@@ -32,7 +33,7 @@ func _physics_process(delta):
 	state_machine.process_physics(delta)
 	if currentWeapon:
 		currentWeapon.look_at(get_global_mouse_position())
-		level.UpdateAmmo(currentWeapon.currentAmmo)
+		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 
 func _process(delta):
 	state_machine.process_frame(delta)
@@ -42,14 +43,14 @@ func _unhandled_input(event):
 	if currentWeapon:
 		if event.is_action_pressed("left_click"):			
 			currentWeapon.shoot()	
-			level.UpdateAmmo(currentWeapon.currentAmmo)
+			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 	if currentItem: 
 		if event.is_action_pressed("ui_use_relic"):
 			currentItem.Use()
 			itemNode.remove_child(currentItem)
 			currentItem.queue_free()
 			currentItem = null
-			level.UpdateItemSprite(null)
+			game_manager.UpdateItemSprite(null)
 
 	
 			
@@ -64,7 +65,7 @@ func PickUpItem(item : Node2D):
 	itemNode.call_deferred("remove_child", currentItem)
 	itemNode.call_deferred("add_child", item)
 	currentItem = item
-	level.UpdateItemSprite(currentItem.GetSpritePath())
+	game_manager.UpdateItemSprite(currentItem.GetSpritePath())
 
 func MinusHealth(amount : int):
 	if !invincibleState:

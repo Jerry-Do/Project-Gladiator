@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://d370fajn62la7"]
 
-[ext_resource type="Script" path="res://Level.gd" id="1_rqj78"]
+[ext_resource type="Script" path="res://GameManager.gd" id="1_rqj78"]
 [ext_resource type="Script" path="res://PlayerSpawner.gd" id="2_08of0"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
-[ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
+[ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
-[ext_resource type="PackedScene" uid="uid://bypohkd68cnx8" path="res://Weapon/Sniper.tscn" id="6_2akts"]
+[ext_resource type="PackedScene" uid="uid://ib41yqhioduc" path="res://Weapon/Bomerang.tscn" id="6_4e4ur"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -117,9 +117,12 @@ sources/1 = SubResource("TileSetAtlasSource_bvklk")
 script = ExtResource("1_rqj78")
 
 [node name="Level" type="Node2D" parent="."]
+
+[node name="GameManager" type="Node2D" parent="Level"]
+unique_name_in_owner = true
 script = ExtResource("1_rqj78")
-weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn"]
-maxKillCount = 5
+weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn"]
+maxKillCount = 1
 fameMultiTimeFrame = 5.0
 
 [node name="TileMap" type="TileMap" parent="Level"]
@@ -142,8 +145,9 @@ unique_name_in_owner = true
 [node name="Timer" type="Timer" parent="Level"]
 
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
+unique_name_in_owner = true
 position = Vector2(577, 267)
-maxAllow = 4
+maxAllow = 10
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -157,12 +161,33 @@ position = Vector2(-465, 289)
 [node name="s4" parent="Level/Spawner" index="4"]
 position = Vector2(375, 245)
 
-[node name="Sniper" parent="Level" instance=ExtResource("6_2akts")]
-position = Vector2(774, 342)
+[node name="WeaponSpawnPoints" type="Node" parent="Level"]
+unique_name_in_owner = true
+
+[node name="p1" type="Node2D" parent="Level/WeaponSpawnPoints"]
+position = Vector2(403, 203)
+
+[node name="p2" type="Node2D" parent="Level/WeaponSpawnPoints"]
+position = Vector2(872, 245)
+
+[node name="p3" type="Node2D" parent="Level/WeaponSpawnPoints"]
+position = Vector2(446, 419)
+
+[node name="p4" type="Node2D" parent="Level/WeaponSpawnPoints"]
+position = Vector2(878, 394)
+
+[node name="WaveTimer" type="Timer" parent="Level"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
 
 [node name="UI" parent="." instance=ExtResource("2_p2nea")]
 
-[connection signal="timeout" from="Level/WeaponTimer" to="Level" method="_on_weapon_timer_timeout"]
+[node name="Bomerang" parent="." instance=ExtResource("6_4e4ur")]
+position = Vector2(280, 289)
+
+[connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
+[connection signal="timeout" from="Level/WaveTimer" to="Level" method="_on_wave_timer_timeout"]
 
 [editable path="Level/Spawner"]

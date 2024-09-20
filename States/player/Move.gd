@@ -7,22 +7,29 @@ var idle_state: State
 
 var direction : Vector2
 
-
+var usingFlag : bool = false
 
 func enter() -> void:
 	super()
-
-
-func process_input(event : InputEvent) -> State:
-	if Input.is_action_pressed("dash"):
-		print("dashing")
+	parent.animated_sprite.play("run")
+	
+func exit() -> void:
+	parent.animated_sprite.stop()
+	
+func process_input(_event : InputEvent) -> State:
+	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == false:
 		return dash_state
 	return null
 		
 func process_physics(delta: float):
 	
 	var movement = get_movement_direction() * parent.stats.ReturnSpeed()
-	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime():
+	if get_movement_direction().x < 0:
+		parent.animated_sprite.flip_h = true
+	elif  get_movement_direction().x > 0:
+		parent.animated_sprite.flip_h = false
+	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime() && usingFlag == false:
+		usingFlag = false
 		parent.stats.SetDashTime(delta)
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 	if movement.length() == 0:

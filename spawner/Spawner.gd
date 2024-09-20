@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@onready var game_manager = get_node("../GameManager")
 @export var enemies : Array
 @export var interval : float
 @onready var spawnPoint1 = $s1
@@ -8,26 +8,31 @@ extends Node2D
 @onready var spawnPoint3 = $s3
 @onready var spawnPoint4 = $s4
 @export var maxAllow : int
+var maximum_reached : bool = false
 var rng = RandomNumberGenerator.new()
 var spawnFlag : bool = true
 var spawnCount : int = 0
+var currentEnemyCount : int = 0
+
+	
+
 
 func _physics_process(_delta):
 	if spawnFlag && spawnCount < maxAllow:
 		spawnFlag = false
 		$SpawnTimer.start(interval)
-		
 	if spawnCount >= maxAllow:
 		$SpawnTimer.stop()
+	
 
 		
 	
 	
 func OnEnemyKilled():
-	spawnCount -= 1
-	if spawnCount <= 0:
-		spawnCount = 0
-
+	currentEnemyCount -= 1
+	if currentEnemyCount <= 0 && spawnCount >= maxAllow:
+		currentEnemyCount = 0
+		game_manager.WaveComplete()
 
 func _on_spawn_timer_timeout():
 	var randomNo = rng.randi_range(0, enemies.size() - 1)
@@ -52,6 +57,6 @@ func _on_spawn_timer_timeout():
 	newEnemy.position = spawnPos
 	newEnemy.rotation = rotation
 	get_parent().add_child(newEnemy)
-	
 	spawnCount +=  1
+	currentEnemyCount += 1
 	spawnFlag = true
