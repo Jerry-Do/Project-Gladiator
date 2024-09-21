@@ -121,6 +121,10 @@ script = ExtResource("1_rqj78")
 [node name="GameManager" type="Node2D" parent="Level"]
 unique_name_in_owner = true
 script = ExtResource("1_rqj78")
+duplication_dictionary = {
+"Boots": false,
+"Shield": false
+}
 weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn"]
 maxKillCount = 1
 fameMultiTimeFrame = 5.0
@@ -147,7 +151,6 @@ unique_name_in_owner = true
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
 unique_name_in_owner = true
 position = Vector2(577, 267)
-maxAllow = 10
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -176,18 +179,13 @@ position = Vector2(446, 419)
 [node name="p4" type="Node2D" parent="Level/WeaponSpawnPoints"]
 position = Vector2(878, 394)
 
-[node name="WaveTimer" type="Timer" parent="Level"]
-unique_name_in_owner = true
-wait_time = 3.0
-one_shot = true
-
-[node name="UI" parent="." instance=ExtResource("2_p2nea")]
-
-[node name="Bomerang" parent="." instance=ExtResource("6_4e4ur")]
+[node name="Bomerang" parent="Level" instance=ExtResource("6_4e4ur")]
 position = Vector2(280, 289)
+
+[node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
-[connection signal="timeout" from="Level/WaveTimer" to="Level" method="_on_wave_timer_timeout"]
 
 [editable path="Level/Spawner"]

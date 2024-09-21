@@ -1,10 +1,10 @@
 #Game Manager: handles UI and game logics
 extends Node2D
 
-@onready var ui = get_node("/root/Game/UI")
+@onready var ui = %UI
 @onready var enemy_spawner = %Spawner
 @onready var weaponSpawnPoints = %WeaponSpawnPoints
-@onready var wave_timer = %WaveTimer
+@export var duplication_dictionary = {}
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float 
@@ -46,7 +46,7 @@ func SpawnWeapon():
 	newWeapon.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)
 	newWeapon.rotation = spawn_pos.rotation
 	newWeapon.scale = spawn_pos.scale
-	get_parent().add_child(newWeapon)
+	add_child(newWeapon)
 	%WeaponTimer.start()
 
 func AdjustFame(value):
@@ -70,8 +70,11 @@ func IncreaseKillCount():
 
 func WaveComplete():
 	ui.set_wave_finisher_alert_visibility(true, currentWave)
+	var upgrade_scene = preload("res://UI/UpgradeScene.tscn")
+	var upgrade_scene_instantiate = upgrade_scene.instantiate()
+	ui.add_child(upgrade_scene_instantiate)
+	get_tree().paused = true
 	currentWave+=1
-	wave_timer.start()
 
 func _on_fame_multiplier_timer_timeout():
 	%FameMultiplierTimer.stop()
@@ -81,8 +84,15 @@ func _on_weapon_timer_timeout():
 	%WeaponTimer.stop()
 	remove_child(newWeapon)
 
-
-func _on_wave_timer_timeout():
+func UpgradeChose(node_path):
+	ui.remove_child(ui.get_child(1))
+	var player = get_node("../Player")
+	var item = load(node_path)
+	var new_item = item.instantiate()
+	player.get_child(6).add_child(new_item)
+	get_tree().paused = false
 	enemy_spawner.maxAllow += 1
 	enemy_spawner.spawnCount = 0
-	ui.set_wave_finisher_alert_visibility(false,0)
+	duplication_dictionary[new_item.ReturnName()] = true
+	ui.set_wave_finisher_alert_visibility(false, currentWave)
+	

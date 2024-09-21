@@ -5,4 +5,4 @@ func _enter_tree():
 	var newPlayer= PLAYER.instantiate()
 	newPlayer.position = position
 	newPlayer.rotation = rotation
-	get_node("/root/Game/Level").call_deferred("add_child", newPlayer)
+	get_parent().call_deferred("add_child", newPlayer)

@@ -1,8 +1,8 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1726809966
-GameManager.gd::GDScript::-1::1726809672::0::1::::<>Node2D<>::
-PlayerSpawner.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
-Scene.tscn::PackedScene::9192136629399209460::1726809966::0::1::::<><>::res://GameManager.gd<>res://PlayerSpawner.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://ib41yqhioduc::::res://Weapon/Bomerang.tscn
+::res://::1726893955
+GameManager.gd::GDScript::-1::1726892697::0::1::::<>Node2D<>::
+PlayerSpawner.gd::GDScript::-1::1726868613::0::1::::<>Node2D<>::
+Scene.tscn::PackedScene::9192136629399209460::1726893955::0::1::::<><>::res://GameManager.gd<>res://PlayerSpawner.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://ib41yqhioduc::::res://Weapon/Bomerang.tscn
 SoftCollision.gd::GDScript::-1::1726100972::0::1::::<>Area2D<>::
 soft_collision.tscn::PackedScene::775278827044099727::1726100972::0::1::::<><>::res://SoftCollision.gd
 title.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
@@ -23,23 +23,27 @@ sprite_2d.gd::GDScript::-1::1726100972::0::1::::<><>::
 sprite_3d.gd::GDScript::-1::1726100972::0::1::::<><>::
 sprite_frames.gd::GDScript::-1::1726100972::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1726100972::0::1::::<><>::
-::res://Enemy/::1726809966
+::res://Enemy/::1726865726
 Enemy.gd::GDScript::-1::1726716879::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::8817734413383746080::1726809966::0::1::::<><>::res://Enemy/Slime.gd<>uid://wy3wfrlclh2i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png<>uid://d2ydh0uhfvq0e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_spritesheeet.png<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://States/enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://Enemy/Movement_getter_enemy.gd<>res://States/enemy/Stun.gd
-Movement_getter_enemy.gd::GDScript::-1::1726809672::0::1::::<>Node<>::
+enemy.tscn::PackedScene::8817734413383746080::1726865726::0::1::::<><>::res://Enemy/Slime.gd<>uid://wy3wfrlclh2i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png<>uid://d2ydh0uhfvq0e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_spritesheeet.png<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://States/enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://Enemy/Movement_getter_enemy.gd<>res://States/enemy/Stun.gd
+Movement_getter_enemy.gd::GDScript::-1::1726864085::0::1::::<>Node<>::
 Slime.gd::GDScript::-1::1726590837::0::1::::<>Enemy<>::
-::res://Item/::1726810422
-Shield.tscn::PackedScene::6026817643243075784::1726810467::0::1::::<><>::
-::res://Player/::1726809966
+::res://Item/::1726893955
+Boots.tscn::PackedScene::7149418309657105035::1726894029::0::1::::<><>::res://Item/scripts/shield.gd<>uid://1dr2te8mt8e::::res://resource/SnoopethDuckDuck Shields/Pack 1/2px/16.png
+Shield.tscn::PackedScene::6026817643243075784::1726893955::0::1::::<><>::res://Item/scripts/shield.gd<>uid://1dr2te8mt8e::::res://resource/SnoopethDuckDuck Shields/Pack 1/2px/16.png
+::res://Item/scripts/::1726891517
+Item.gd::GDScript::-1::1726891517::0::1::::Item<>Node<>::
+shield.gd::GDScript::-1::1726890691::0::1::::<>Item<>::
+::res://Player/::1726893955
 Character.gd::GDScript::-1::1726100972::0::1::::<>CharacterBody2D<>::
 Character.tscn::PackedScene::8753365442066500842::1726100972::0::1::::<><>::res://Player/Character.gd
-Player.gd::GDScript::-1::1726716775::0::1::::Player<>CharacterBody2D<>::
-Player.tscn::PackedScene::697875697191207779::1726809966::0::1::::<><>::res://Player/Player.gd<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/Dash.gd<>res://States/player/Movement_getter.gd
+Player.gd::GDScript::-1::1726870113::0::1::::Player<>CharacterBody2D<>::
+Player.tscn::PackedScene::697875697191207779::1726893996::0::1::::<><>::res://Player/Player.gd<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/Dash.gd<>res://States/player/Movement_getter.gd
 PlayerStats.gd::GDScript::-1::1726608667::0::1::::<>Node<>::
 PlayerStats.tscn::PackedScene::6724956824135903098::1726100972::0::1::::<><>::uid://b2viddts03gyk::::res://Player/stats.tscn<>res://Player/PlayerStats.gd
 stats.tscn::PackedScene::4325362675852765762::1726100972::0::1::::<><>::
 WeaponSlot.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
-::res://resource/::1726810008
+::res://resource/::1726893705
 ::res://resource/1. Free Hologram Interface Wenrexa/::1726809530
 ::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/::1726809964
 PUT A RATING!.jpg::CompressedTexture2D::6695079325736286253::1726809530::1726809964::1::::<><>::
@@ -97,6 +101,81 @@ Card X6.png::CompressedTexture2D::4012686117191106474::1726809530::1726809964::1
 33.png::CompressedTexture2D::2487099297380858918::1726809530::1726809964::1::::<><>::
 34.png::CompressedTexture2D::1452526711770287642::1726809530::1726809964::1::::<><>::
 35.png::CompressedTexture2D::8244619756028746931::1726809530::1726809964::1::::<><>::
+::res://resource/16x16 RPG Item Pack/::1726893707
+Item__00.png::CompressedTexture2D::5634554560159375688::1726893684::1726893706::1::::<><>::
+Item__01.png::CompressedTexture2D::6726398066218319679::1726893684::1726893706::1::::<><>::
+Item__02.png::CompressedTexture2D::2816634169316693693::1726893684::1726893706::1::::<><>::
+Item__03.png::CompressedTexture2D::8651166219174810828::1726893684::1726893706::1::::<><>::
+Item__04.png::CompressedTexture2D::3666652824247913559::1726893684::1726893706::1::::<><>::
+Item__05.png::CompressedTexture2D::6015768597542658257::1726893684::1726893706::1::::<><>::
+Item__06.png::CompressedTexture2D::8895360741433829193::1726893684::1726893706::1::::<><>::
+Item__07.png::CompressedTexture2D::5196878412369319451::1726893684::1726893706::1::::<><>::
+Item__08.png::CompressedTexture2D::3538627067028880189::1726893684::1726893706::1::::<><>::
+Item__09.png::CompressedTexture2D::2699754332111750793::1726893684::1726893706::1::::<><>::
+Item__10.png::CompressedTexture2D::2607414577657890601::1726893684::1726893706::1::::<><>::
+Item__11.png::CompressedTexture2D::7924633943763697943::1726893684::1726893706::1::::<><>::
+Item__12.png::CompressedTexture2D::545235666930148327::1726893684::1726893706::1::::<><>::
+Item__13.png::CompressedTexture2D::1232393129448476670::1726893684::1726893706::1::::<><>::
+Item__14.png::CompressedTexture2D::173571469393658709::1726893684::1726893706::1::::<><>::
+Item__15.png::CompressedTexture2D::8715881658325158902::1726893684::1726893706::1::::<><>::
+Item__16.png::CompressedTexture2D::8876294666181910075::1726893684::1726893706::1::::<><>::
+Item__17.png::CompressedTexture2D::1287469917235277236::1726893684::1726893706::1::::<><>::
+Item__18.png::CompressedTexture2D::6296437279974446953::1726893684::1726893707::1::::<><>::
+Item__19.png::CompressedTexture2D::1401979315589618353::1726893684::1726893707::1::::<><>::
+Item__20.png::CompressedTexture2D::4515453200920187433::1726893684::1726893707::1::::<><>::
+Item__21.png::CompressedTexture2D::7563157271705262143::1726893684::1726893707::1::::<><>::
+Item__22.png::CompressedTexture2D::2629746826172562154::1726893684::1726893707::1::::<><>::
+Item__23.png::CompressedTexture2D::823578269383467319::1726893684::1726893707::1::::<><>::
+Item__24.png::CompressedTexture2D::7062684018129525918::1726893684::1726893707::1::::<><>::
+Item__25.png::CompressedTexture2D::3827882692508040224::1726893684::1726893707::1::::<><>::
+Item__26.png::CompressedTexture2D::8420405831129590180::1726893684::1726893707::1::::<><>::
+Item__27.png::CompressedTexture2D::3377870618022999709::1726893684::1726893707::1::::<><>::
+Item__28.png::CompressedTexture2D::3098215313137619717::1726893684::1726893707::1::::<><>::
+Item__29.png::CompressedTexture2D::6119285347069469339::1726893684::1726893707::1::::<><>::
+Item__30.png::CompressedTexture2D::1835711813020783549::1726893684::1726893707::1::::<><>::
+Item__31.png::CompressedTexture2D::2836589235242570836::1726893684::1726893707::1::::<><>::
+Item__32.png::CompressedTexture2D::2953282758210359599::1726893684::1726893707::1::::<><>::
+Item__33.png::CompressedTexture2D::7386019619220726642::1726893684::1726893707::1::::<><>::
+Item__34.png::CompressedTexture2D::9198024054971091913::1726893684::1726893706::1::::<><>::
+Item__35.png::CompressedTexture2D::6136266671311470613::1726893684::1726893706::1::::<><>::
+Item__36.png::CompressedTexture2D::1228556635955304087::1726893684::1726893706::1::::<><>::
+Item__37.png::CompressedTexture2D::1486260468308036164::1726893684::1726893706::1::::<><>::
+Item__38.png::CompressedTexture2D::7032806571547025322::1726893684::1726893706::1::::<><>::
+Item__39.png::CompressedTexture2D::577700159140657354::1726893684::1726893706::1::::<><>::
+Item__40.png::CompressedTexture2D::422683086374275098::1726893684::1726893706::1::::<><>::
+Item__41.png::CompressedTexture2D::3335047670258918890::1726893684::1726893706::1::::<><>::
+Item__42.png::CompressedTexture2D::8424448348096845050::1726893684::1726893706::1::::<><>::
+Item__43.png::CompressedTexture2D::167692534798750532::1726893684::1726893706::1::::<><>::
+Item__44.png::CompressedTexture2D::2317367652751658833::1726893684::1726893706::1::::<><>::
+Item__45.png::CompressedTexture2D::7767545981810996793::1726893684::1726893706::1::::<><>::
+Item__46.png::CompressedTexture2D::6120731661094215348::1726893684::1726893706::1::::<><>::
+Item__47.png::CompressedTexture2D::4813480095797216696::1726893684::1726893706::1::::<><>::
+Item__48.png::CompressedTexture2D::2037353639743050788::1726893684::1726893706::1::::<><>::
+Item__49.png::CompressedTexture2D::3696460638366922638::1726893684::1726893706::1::::<><>::
+Item__50.png::CompressedTexture2D::7362044285880375530::1726893684::1726893706::1::::<><>::
+Item__51.png::CompressedTexture2D::3749336396322727323::1726893684::1726893706::1::::<><>::
+Item__52.png::CompressedTexture2D::7155779630021867935::1726893684::1726893706::1::::<><>::
+Item__53.png::CompressedTexture2D::2008733466853953983::1726893684::1726893706::1::::<><>::
+Item__54.png::CompressedTexture2D::9099343804962506143::1726893684::1726893706::1::::<><>::
+Item__55.png::CompressedTexture2D::3095681469471342145::1726893684::1726893706::1::::<><>::
+Item__56.png::CompressedTexture2D::5632411873299464312::1726893684::1726893706::1::::<><>::
+Item__57.png::CompressedTexture2D::5884276747398183426::1726893684::1726893706::1::::<><>::
+Item__58.png::CompressedTexture2D::1675820762258703232::1726893684::1726893706::1::::<><>::
+Item__59.png::CompressedTexture2D::1709138161382212874::1726893684::1726893706::1::::<><>::
+Item__60.png::CompressedTexture2D::5338048380131758538::1726893684::1726893706::1::::<><>::
+Item__61.png::CompressedTexture2D::9180691661773032844::1726893684::1726893706::1::::<><>::
+Item__62.png::CompressedTexture2D::5989197103785624584::1726893684::1726893706::1::::<><>::
+Item__63.png::CompressedTexture2D::7790364078380605336::1726893684::1726893706::1::::<><>::
+Item__64.png::CompressedTexture2D::7178086204572565919::1726893684::1726893706::1::::<><>::
+Item__65.png::CompressedTexture2D::1618189580072310705::1726893684::1726893706::1::::<><>::
+Item__66.png::CompressedTexture2D::5216921620612677092::1726893684::1726893706::1::::<><>::
+Item__67.png::CompressedTexture2D::454705580730397722::1726893684::1726893706::1::::<><>::
+Item__68.png::CompressedTexture2D::9105411547321473167::1726893684::1726893706::1::::<><>::
+Item__69.png::CompressedTexture2D::3944760335874506891::1726893684::1726893706::1::::<><>::
+Item__70.png::CompressedTexture2D::2994619434325531557::1726893684::1726893706::1::::<><>::
+Item__71.png::CompressedTexture2D::8750341435934207297::1726893684::1726893706::1::::<><>::
+Preview.png::CompressedTexture2D::7855017385278120656::1726893684::1726893707::1::::<><>::
+Sheet.png::CompressedTexture2D::308184709305544446::1726893684::1726893706::1::::<><>::
 ::res://resource/SnoopethDuckDuck Shields/::1726810008
 ::res://resource/SnoopethDuckDuck Shields/Pack 1/::1726810010
 0px All.png::CompressedTexture2D::2518628812940715709::1726810008::1726810010::1::::<><>::
@@ -336,7 +415,7 @@ License - CC BY 4.0 .txt::TextFile::-1::1726810008::0::1::::<><>::
 12.png::CompressedTexture2D::6534665186645064815::1726810008::1726810010::1::::<><>::
 13.png::CompressedTexture2D::9166317764437618949::1726810008::1726810010::1::::<><>::
 14.png::CompressedTexture2D::1722931564501862086::1726810008::1726810010::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/::1726809967
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/::1726893705
 FSM.gd::GDScript::-1::1726100972::0::1::::FiniteStateMachine<>Node<>::
 full spritesheet.png::CompressedTexture2D::2077704676979206115::1726100972::1726809967::1::::<><>::
 full tilemap.png::CompressedTexture2D::7344649405237631096::1726100972::1726809967::1::::<><>::
@@ -562,16 +641,17 @@ dead.gd::GDScript::-1::1726717110::0::1::::<>State<>::
 IdleEnemy.gd::GDScript::-1::1726462606::0::1::::<>State<>::
 MoveEnemy.gd::GDScript::-1::1726609635::0::1::::<>State<>::
 Stun.gd::GDScript::-1::1726460545::0::1::::<>State<>::
-::res://States/player/::1726809672
+::res://States/player/::1726890543
 Dash.gd::GDScript::-1::1726716966::0::1::::<>Move<>::
-Idle.gd::GDScript::-1::1726809672::0::1::::<>State<>::
+Idle.gd::GDScript::-1::1726890543::0::1::::<>State<>::
 Move.gd::GDScript::-1::1726698949::0::1::::Move<>State<>::
-Movement_getter.gd::GDScript::-1::1726809672::0::1::::<>Node<>::
-::res://UI/::1726809963
-Button.tscn::PackedScene::3833970527483866742::1726810436::0::1::::<><>::uid://427ydx1r7hp6::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png<>uid://b5oo5dgxx56x8::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png<>uid://bjmujypyevm6j::::res://Sprite/Player/potion.png
+Movement_getter.gd::GDScript::-1::1726890543::0::1::::<>Node<>::
+::res://UI/::1726893963
+Button.gd::GDScript::-1::1726893996::0::1::::<>Control<>::
+Button.tscn::PackedScene::3833970527483866742::1726893955::0::1::::<><>::uid://427ydx1r7hp6::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png<>res://UI/Button.gd<>uid://b5oo5dgxx56x8::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png<>uid://bjmujypyevm6j::::res://Sprite/Player/potion.png
 UI.gd::GDScript::-1::1726639364::0::1::::UI<>CanvasLayer<>::
-ui.tscn::PackedScene::3039744360176307657::1726698960::0::1::::<><>::res://UI/UI.gd<>uid://boklyp3icpha::::res://UI/Bars/Healthbar.tscn<>uid://d33f6q17cdc2p::::res://UI/Bars/Fuelbar.tscn
-UpgradeScene.tscn::PackedScene::6000136781587573995::1726718314::0::1::::<><>::
+ui.tscn::PackedScene::3039744360176307657::1726893955::0::1::::<><>::res://UI/UI.gd<>uid://boklyp3icpha::::res://UI/Bars/Healthbar.tscn<>uid://d33f6q17cdc2p::::res://UI/Bars/Fuelbar.tscn
+UpgradeScene.tscn::PackedScene::6000136781587573995::1726893955::0::1::::<><>::uid://buvg61hesrl0q::::res://UI/Button.tscn
 ::res://UI/Bars/::1726634162
 Fuelbar.gd::GDScript::-1::1726608702::0::1::::<>ProgressBar<>::
 Fuelbar.tscn::PackedScene::9182712076628012261::1726634162::0::1::::<><>::res://UI/Bars/Fuelbar.gd
@@ -585,8 +665,8 @@ Shootingpoint.gd::GDScript::-1::1726113000::0::1::::<>Marker2D<>::
 Shotgun.tscn::PackedScene::2359686463657296332::1726718314::0::1::::<><>::res://Weapon/script/Shotgun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Sniper.tscn::PackedScene::4102781667093446051::1726718314::0::1::::<><>::res://Weapon/script/Sniper.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Weapon.tscn::PackedScene::8703610511030117951::1726432193::0::1::::<><>::
-::res://Weapon/bullet/::1726809673
-BomerangBullet.tscn::PackedScene::288615707988430325::1726809673::0::1::::<><>::res://Weapon/bullet/script/BomerangBullet.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
+::res://Weapon/bullet/::1726893955
+BomerangBullet.tscn::PackedScene::288615707988430325::1726893955::0::1::::<><>::res://Weapon/bullet/script/BomerangBullet.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
 bullet.tscn::PackedScene::7153186381455210336::1726809673::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 ShotgunBullet.tscn::PackedScene::8288864571729375522::1726100972::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 SniperBullet.tscn::PackedScene::6391802182309068514::1726100972::0::1::::<><>::res://Weapon/bullet/script/SniperBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png

@@ -5,10 +5,10 @@ extends CharacterBody2D
 @onready var itemNode: Node2D = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
-@onready var healthBar = get_node("../../UI/Control/Healthbar")
-@onready var fuelBar = get_node("../../UI/Control/Fuelbar")
+@onready var healthBar = get_node("../UI/Control/Healthbar")
+@onready var fuelBar = get_node("../UI/Control/Fuelbar")
 @export var max_speed: int = 1000
-var shield : int
+var shield_amount : int
 var dashTime = 2
 var currentWeapon: Node2D
 var direction : Vector2
@@ -69,8 +69,12 @@ func PickUpItem(item : Node2D):
 
 func MinusHealth(amount : int):
 	if !invincibleState:
-		stats.SetHealth(amount)
-		healthBar._set_health(stats.ReturnHealth())
+		if shield_amount > 0:
+			shield_amount += amount
+			print(shield_amount)
+		else:
+			stats.SetHealth(amount)
+			healthBar._set_health(stats.ReturnHealth())
 
 
 	

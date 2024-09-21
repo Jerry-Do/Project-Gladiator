@@ -1,30 +1,24 @@
 [gd_scene load_steps=2 format=3 uid="uid://crqrm13wssg8b"]
 
-[ext_resource type="PackedScene" uid="uid://buvg61hesrl0q" path="res://UI/Button.tscn" id="1_druwq"]
+[ext_resource type="Script" path="res://UI/UpgradeScene.gd" id="1_p72f6"]
 
 [node name="UpgradeScreen" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p72f6")
+items = ["res://Item/Boots.tscn", "res://Item/Shield.tscn"]
+spawn_pos = [null, null, null]
 
-[node name="Upgrade1" parent="." instance=ExtResource("1_druwq")]
-layout_mode = 1
-offset_left = 852.0
-offset_top = 156.0
-offset_right = 852.0
-offset_bottom = 156.0
+[node name="Pos1" type="Node2D" parent="."]
+position = Vector2(97, 132)
 
-[node name="Upgrade2" parent="." instance=ExtResource("1_druwq")]
-layout_mode = 1
-offset_top = 151.0
-offset_bottom = 151.0
+[node name="Pos2" type="Node2D" parent="."]
+position = Vector2(517, 132)
 
-[node name="Upgrade3" parent="." instance=ExtResource("1_druwq")]
-layout_mode = 1
-offset_left = 433.0
-offset_top = 147.0
-offset_right = 433.0
-offset_bottom = 147.0
+[node name="Pos3" type="Node2D" parent="."]
+position = Vector2(853, 131)
