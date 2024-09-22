@@ -4,7 +4,7 @@ extends ProgressBar
 var fuel = 0 : set = _set_fuel
 
 func _set_fuel(new_fuel):
-	var prev_fuel = fuel
+	var _prev_fuel = fuel
 	fuel = min(max_value, new_fuel)
 	value = fuel
 	

@@ -90,9 +90,13 @@ func UpgradeChose(node_path):
 	var item = load(node_path)
 	var new_item = item.instantiate()
 	player.get_child(6).add_child(new_item)
+	duplication_dictionary[new_item.ReturnName()] = true
+	print(player.get_child(6))
+	StartWave()
+
+func StartWave():
 	get_tree().paused = false
 	enemy_spawner.maxAllow += 1
 	enemy_spawner.spawnCount = 0
-	duplication_dictionary[new_item.ReturnName()] = true
 	ui.set_wave_finisher_alert_visibility(false, currentWave)
 	

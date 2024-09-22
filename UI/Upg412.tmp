@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
-items = ["res://Item/Boots.tscn", "res://Item/Shield.tscn", "res://Item/GoldenGloves.tscn"]
+items = ["res://Item/Boots.tscn", "res://Item/Shield.tscn"]
 
 [node name="Pos1" type="Node2D" parent="."]
 position = Vector2(97, 132)

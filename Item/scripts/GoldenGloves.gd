@@ -5,10 +5,10 @@ extends Item
 
 
 func _ready():
-	item_name = "Engery Shield"
-	item_description = "Gives the player a shield"
+	item_name = "Golden Gloves"
+	item_description = "Bullets now can crit"
 	if get_parent() == player.get_child(6):
-		player.shield_amount = amount
+		player.can_crit = true
 	return null
 
 	

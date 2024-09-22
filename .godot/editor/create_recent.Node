@@ -1,8 +1,9 @@
+Label
+TextEdit
+CenterContainer
 Node2D
 Control
 Sprite2D
-Label
-TextEdit
 TextureButton
 Timer
 Button
@@ -11,4 +12,3 @@ Node
 MarginContainer
 ProgressBar
 BoxContainer
-HBoxContainer

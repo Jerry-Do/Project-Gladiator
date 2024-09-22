@@ -123,6 +123,7 @@ unique_name_in_owner = true
 script = ExtResource("1_rqj78")
 duplication_dictionary = {
 "Boots": false,
+"GoldenGloves": false,
 "Shield": false
 }
 weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn"]
@@ -151,6 +152,7 @@ unique_name_in_owner = true
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
 unique_name_in_owner = true
 position = Vector2(577, 267)
+enemies = ["res://Enemy/Slime.tscn"]
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)

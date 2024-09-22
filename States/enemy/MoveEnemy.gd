@@ -12,10 +12,10 @@ func enter() -> void:
 	super()
 
 
-func process_input(event : InputEvent) -> State:
+func process_input(_event : InputEvent) -> State:
 	return null
 		
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	MakePath()
 	direction = parent.to_local(parent.navAgent.get_next_path_position()).normalized()
 	parent.velocity = direction * parent.speed
@@ -26,7 +26,7 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	return null
 
-func process_frame(delta : float) -> State:
+func process_frame(_delta : float) -> State:
 	return null
 
 func MakePath():

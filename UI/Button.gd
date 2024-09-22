@@ -1,19 +1,21 @@
 extends Control
 
-@export var items : Array
+var item_path : String
 @onready var item_sprite = $ItemSprite
-@onready var description = $Description
+@onready var description = %Description
 @onready var game_manager = get_node("../../../GameManager")
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-	#add_child(new_item)
-	#var child = get_child(3)
-	#child.item_sprite.hide()
-	#item_sprite.texture = child.ReturnItemSprite()
-	#description.text = child.ReturnItemDescription()
-	#remove_child(new_item)
+# Called when the node enters the scene tree for the first time
+
+
+func intialize(new_item_path):
+	item_path = new_item_path
+	var item = load(new_item_path)
+	var new_item = item.instantiate()
+	add_child(new_item)
+	new_item.item_sprite.hide()
+	item_sprite.texture = new_item.ReturnItemSprite()
+	description.text = new_item.ReturnItemDescription()
+	remove_child(new_item)
 #
-#
-#
-#func _on_texture_button_pressed():
-	#game_manager.UpgradeChose(items[0])
+func _on_texture_button_pressed():
+	game_manager.UpgradeChose(item_path)

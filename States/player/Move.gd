@@ -37,6 +37,3 @@ func process_physics(delta: float):
 	parent.velocity = movement
 	parent.move_and_slide()
 	return null
-
-func process_frame(delta : float):
-	return null

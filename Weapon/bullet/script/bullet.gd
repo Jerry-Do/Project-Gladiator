@@ -2,6 +2,7 @@ extends Area2D
 
 var travelled_dist = 0
 @export var damage : int
+var crit_chance 
 @onready var game_manager = get_node("../../../../../../../GameManager")
 @onready var sprite = $Bullet
 func _physics_process(delta):
@@ -9,15 +10,17 @@ func _physics_process(delta):
 	const RANGE = 800
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * SPEED * delta
-	
 	travelled_dist += SPEED * delta
 	if travelled_dist > RANGE:
 		queue_free()
 
 
 func _on_body_entered(body):
+	var random
+	if crit_chance:
+		random = RandomNumberGenerator.new().randi_range(1, 10)
 	if body.has_method("take_damage"):
-		body.take_damage(damage)
+		body.take_damage(damage if random != 10 else damage * 2)
 	queue_free()
 
 

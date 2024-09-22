@@ -27,7 +27,7 @@ func _on_attack_range_body_entered(body):
 		$AttackWindup.start(2)
 
 
-func _on_attack_range_body_exited(body):
+func _on_attack_range_body_exited(_body):
 	inRange = false
 	speed = sSpeed
 

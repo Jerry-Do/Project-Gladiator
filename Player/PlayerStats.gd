@@ -8,9 +8,7 @@ var maxExperience = 0
 var dashTime = 2
 var stats = {
 	"Health": maxHealth,
-	"CritChance": baseCritChance,
 	"Speed" : baseSpeed,
-	"CritDamage": baseCritDamage,
 	"Experience": 0,
 	"DashTime" : dashTime
 }
@@ -34,17 +32,6 @@ func SetSpeed(value):
 func ReturnSpeed():
 	return stats.Speed
 
-func SetCritChance(value):
-	stats.CritChance += value
-
-func ReturnCritChance():
-	return stats.CritChance
-
-func SetCritDamage(value):
-	stats.CritDamage += value
-
-func ReturnCritDamage():
-	return stats.CritDamage
 
 func SetDashTime(value):
 	stats.DashTime += value

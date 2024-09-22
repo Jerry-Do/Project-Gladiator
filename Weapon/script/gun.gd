@@ -12,13 +12,14 @@ func _init():
 func _process(delta):
 	super._process(delta)	
 
-func shoot():
+func shoot(crit_chance):
 	if(currentAmmo > 0 && shootFlag):
 		var BULLET = load(self.bulletName)
 		var new_bullet = BULLET.instantiate()
 		new_bullet.global_position = %Shootingpoint.global_position
 		new_bullet.global_rotation = %Shootingpoint.global_rotation
 		%Shootingpoint.add_child(new_bullet)
+		new_bullet.c
 		currentAmmo -=1
 		shootFlag = false
 		$Cooldown.start(self.rateOfFire)

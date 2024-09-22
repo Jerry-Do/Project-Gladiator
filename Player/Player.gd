@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
 @export var max_speed: int = 1000
+var can_crit = false
 var shield_amount : int
 var dashTime = 2
 var currentWeapon: Node2D
