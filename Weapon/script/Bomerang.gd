@@ -6,7 +6,6 @@ extends Weapon
 var _cMaxAmmo = 1
 var _cRateOfFire = 1
 var _cReloadTime = 99999999
-@onready var sprite = %Gun
 func _init():
 	super._init("res://Weapon/bullet/BomerangBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
 	

@@ -9,14 +9,6 @@
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_11bha")
 
-[node name="Shootingpoint" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(37.3333, -2.66667)
-
-[node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(29.3333, 0)
-texture = ExtResource("2_mmwb5")
-
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.001
@@ -24,6 +16,11 @@ one_shot = true
 
 [node name="WeaponRotate" type="Marker2D" parent="."]
 position = Vector2(37.3333, -2.66667)
+
+[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
+unique_name_in_owner = true
+position = Vector2(14, -4.66667)
+scale = Vector2(2.75, 2.75)
 
 [node name="Cooldown" type="Timer" parent="."]
 
@@ -35,6 +32,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(26, -2)
 shape = SubResource("RectangleShape2D_a3s0y")
+
+[node name="Gun" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(29.3333, 3.17891e-07)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("2_mmwb5")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

@@ -10,7 +10,7 @@ func _ready():
 		var dup_flag = true
 		var end_flag = false
 		var random_no
-		while dup_flag || end_flag == false:
+		while dup_flag: #|| end_flag == false:
 			random_no =  RandomNumberGenerator.new().randi_range(0, items.size() - 1)
 			var pos1 = items[random_no].find("/", 10)
 			var pos2 = items[random_no].find(".", 10)
@@ -18,10 +18,8 @@ func _ready():
 			counter+= 1
 			if game_manager.duplication_dictionary.get(item_name) == false && spawned_items.find(item_name) == -1:
 				dup_flag = false	
-			if game_manager.duplication_dictionary.size() == counter:
-				end_flag = true
-		if end_flag:
-			return
+			#if game_manager.duplication_dictionary.size() == counter:
+				#end_flag = true
 		var button = preload("res://UI/Button.tscn")
 		var new_button = button.instantiate()
 		add_child(new_button)

@@ -9,6 +9,12 @@
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_fjs7d")
 
+[node name="Gun" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(28, -2)
+texture = ExtResource("2_yb4la")
+offset = Vector2(0, 15)
+
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.001
@@ -16,15 +22,9 @@ one_shot = true
 
 [node name="WeaponRotate" type="Marker2D" parent="."]
 
-[node name="Gun" type="Sprite2D" parent="WeaponRotate"]
+[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
-position = Vector2(28, -2)
-texture = ExtResource("2_yb4la")
-offset = Vector2(0, 15)
-
-[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate/Gun"]
-unique_name_in_owner = true
-position = Vector2(7, -3)
+position = Vector2(35, -5)
 
 [node name="Cooldown" type="Timer" parent="."]
 

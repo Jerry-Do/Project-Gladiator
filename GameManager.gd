@@ -46,7 +46,8 @@ func SpawnWeapon():
 	newWeapon.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)
 	newWeapon.rotation = spawn_pos.rotation
 	newWeapon.scale = spawn_pos.scale
-	add_child(newWeapon)
+	get_parent().add_child(newWeapon)
+	print(newWeapon.get_parent())
 	%WeaponTimer.start()
 
 func AdjustFame(value):
@@ -82,16 +83,16 @@ func _on_fame_multiplier_timer_timeout():
 
 func _on_weapon_timer_timeout():
 	%WeaponTimer.stop()
-	remove_child(newWeapon)
+	get_parent().remove_child(newWeapon)
 
 func UpgradeChose(node_path):
 	ui.remove_child(ui.get_child(1))
 	var player = get_node("../Player")
 	var item = load(node_path)
 	var new_item = item.instantiate()
+	
 	player.get_child(6).add_child(new_item)
 	duplication_dictionary[new_item.ReturnName()] = true
-	print(player.get_child(6))
 	StartWave()
 
 func StartWave():

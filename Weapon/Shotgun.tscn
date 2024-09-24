@@ -18,13 +18,10 @@ one_shot = true
 
 [node name="WeaponRotate" type="Marker2D" parent="."]
 
-[node name="Gun" type="Sprite2D" parent="WeaponRotate"]
-position = Vector2(28, -2)
-texture = ExtResource("2_m5c1o")
-
-[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate/Gun"]
+[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
-position = Vector2(7, -3)
+position = Vector2(36.75, -5.75)
+scale = Vector2(1.25, 1.25)
 
 [node name="Cooldown" type="Timer" parent="."]
 
@@ -35,6 +32,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(26, -2)
 shape = SubResource("RectangleShape2D_a3s0y")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(28, -2)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_m5c1o")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

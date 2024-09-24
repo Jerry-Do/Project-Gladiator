@@ -216,7 +216,7 @@ animation = &"idle"
 
 [node name="Weapon" type="Node2D" parent="."]
 position = Vector2(2, 2)
-scale = Vector2(3, 3)
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-3, -1)

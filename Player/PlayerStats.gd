@@ -1,6 +1,6 @@
 extends Node
 
-var maxHealth = 10
+var maxHealth = 100
 var baseSpeed = 600
 var baseCritChance = 0
 var baseCritDamage = 0

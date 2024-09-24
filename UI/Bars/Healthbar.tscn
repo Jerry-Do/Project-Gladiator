@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://boklyp3icpha"]
+[gd_scene load_steps=8 format=3 uid="uid://boklyp3icpha"]
 
 [ext_resource type="Script" path="res://UI/Bars/healthbar.gd" id="1_hjo60"]
 
@@ -19,8 +19,13 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3xm4"]
 bg_color = Color(1, 0.996078, 1, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onm16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqo2w"]
+bg_color = Color(0.185222, 0.630603, 0.938335, 1)
+
 [node name="Healthbar" type="ProgressBar"]
-z_index = 1
+z_index = -1
 offset_right = 240.0
 offset_bottom = 4.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_78wtb")
@@ -47,5 +52,19 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="ShieldBar" type="ProgressBar" parent="."]
+visible = false
+z_index = -2
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 393.0
+offset_bottom = 25.0
+scale = Vector2(0.927157, 0.818354)
+theme_override_styles/background = SubResource("StyleBoxEmpty_onm16")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vqo2w")
+value = 100.0
+show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

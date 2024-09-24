@@ -17,6 +17,7 @@ var stats = PlayerStats
 var currentItem: Node2D
 var invincibleState : bool = false
 var recharge_flag : bool = false
+var taking_damage : bool = false
 @onready 
 var state_machine = $StateControl
 
@@ -37,6 +38,7 @@ func _physics_process(delta):
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 
 func _process(delta):
+	taking_damage = false
 	state_machine.process_frame(delta)
 	
 func _unhandled_input(event):
@@ -56,27 +58,25 @@ func _unhandled_input(event):
 	
 			
 func PickUpWeapon(weapon: Node2D):
-	weapon.get_parent().call_deferred("remove_child", weapon)
-	weaponNode.call_deferred("remove_child", currentWeapon)
+	if weapon != null:
+		weapon.get_parent().call_deferred("remove_child", weapon)
+	if currentWeapon != null:	
+		weaponNode.call_deferred("remove_child", currentWeapon)
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon
 
-func PickUpItem(item : Node2D):
-	item.get_parent().call_deferred("remove_child", item)
-	itemNode.call_deferred("remove_child", currentItem)
-	itemNode.call_deferred("add_child", item)
-	currentItem = item
-	game_manager.UpdateItemSprite(currentItem.GetSpritePath())
+
 
 func MinusHealth(amount : int):
 	if !invincibleState:
-		if shield_amount > 0:
+		if shield_amount > 0:	
+			get_node("Item/Shield").TakingDamage()
 			shield_amount += amount
-			print(shield_amount)
+			healthBar._set_shield(shield_amount)
 		else:
 			stats.SetHealth(amount)
 			healthBar._set_health(stats.ReturnHealth())
-
+	
 
 	
 func PickUpBomerang():

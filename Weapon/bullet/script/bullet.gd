@@ -3,7 +3,7 @@ extends Area2D
 var travelled_dist = 0
 @export var damage : int
 var crit_chance 
-@onready var game_manager = get_node("../../../../../../../GameManager")
+@onready var game_manager = get_node("../../../../../../GameManager")
 @onready var sprite = $Bullet
 func _physics_process(delta):
 	const SPEED = 1000
@@ -17,10 +17,17 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	var random
-	if crit_chance:
-		random = RandomNumberGenerator.new().randi_range(1, 10)
+	if get_node("../../../../../../Player").can_crit:
+		random = RandomNumberGenerator.new().randi_range(1, 5)
+		print(random)
 	if body.has_method("take_damage"):
-		body.take_damage(damage if random != 10 else damage * 2)
+		body.take_damage(damage if random != 1 else damage * 2)
+		if random == 10:
+			print("crit")
+			var crit_label = preload("res://UI/Critlabel.tscn")
+			var new_label = crit_label.instantiate()
+			get_node("../../../../../../../Level").add_child(new_label)
+			new_label.position = position	
 	queue_free()
 
 

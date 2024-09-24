@@ -12,6 +12,8 @@ var bulletName:String
 var pickedUpFlag : bool
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
+@onready var sprite = $Gun
+@onready var game_manager = get_node("../GameManager")
 var currentAmmo = 0
 
 
@@ -28,8 +30,15 @@ func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime):
 func _process(_delta):
 	if(currentAmmo <= 0 && !reloadFlag):
 		reloadFlag = true
-		$ReloadTimer.start(reloadTime)
+		$ReloadTimer.start(reloadTime if game_manager.timeSlowFlag == false else reloadTime * 0.25)
 		print("Reloading")
+	if get_parent().name == "Weapon":
+		var mouse_pos = get_viewport().get_mouse_position()
+		var direction = get_global_mouse_position() - global_position
+		if direction.sign().x < 0:
+			sprite.set_flip_v(true)
+		else:
+			sprite.set_flip_v(false)
 
 func _on_reload_timer_timeout():
 	currentAmmo = maxAmmo

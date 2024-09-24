@@ -3,7 +3,7 @@ extends Weapon
 
 
 var _cMaxAmmo = 5
-var _cRateOfFire = 2
+var _cRateOfFire = 1.25
 var _cReloadTime = 5
 var  mousePosition : Vector2
 func _init():
@@ -13,9 +13,7 @@ func _init():
 
 func _process(delta):
 	super._process(delta)	
-	if pickedUpFlag:
-		mousePosition = get_local_mouse_position()
-		queue_redraw()
+	
 	
 func shoot():
 	if(currentAmmo > 0 && shootFlag):
@@ -26,8 +24,4 @@ func shoot():
 		%Shootingpoint.add_child(new_bullet)
 		currentAmmo -=1
 		shootFlag = false
-
-		$Cooldown.start(self.rateOfFire)
-
-func _draw():
-	draw_line(%Shootingpoint.position, mousePosition, Color.RED)
+		$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
