@@ -35,6 +35,7 @@ func _init(health: int, speed: float, damage: float, fame : int):
 	self.damage = damage
 	self.fameAmount = fame
 	
+	
 func _ready() -> void:
 	state_manager.init(self, movement_controller)	
 
@@ -45,14 +46,10 @@ func _physics_process(delta: float):
 	state_manager.process_physics(delta)
 	
 
-
-
-	
 func take_damage(amount : int):
 	health -= amount
 	
-
-
+	
 func ReturnFame():
 	return fameAmount
 

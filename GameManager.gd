@@ -4,7 +4,7 @@ extends Node2D
 @onready var ui = %UI
 @onready var enemy_spawner = %Spawner
 @onready var weaponSpawnPoints = %WeaponSpawnPoints
-@export var duplication_dictionary = {}
+@export var duplication_array : Array
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float 
@@ -47,7 +47,6 @@ func SpawnWeapon():
 	newWeapon.rotation = spawn_pos.rotation
 	newWeapon.scale = spawn_pos.scale
 	get_parent().add_child(newWeapon)
-	print(newWeapon.get_parent())
 	%WeaponTimer.start()
 
 func AdjustFame(value):
@@ -90,9 +89,10 @@ func UpgradeChose(node_path):
 	var player = get_node("../Player")
 	var item = load(node_path)
 	var new_item = item.instantiate()
-	
 	player.get_child(6).add_child(new_item)
-	duplication_dictionary[new_item.ReturnName()] = true
+	#print(new_item.ReturnName())
+	duplication_array.append(new_item.ReturnName())
+	new_item.item_sprite.hide()
 	StartWave()
 
 func StartWave():

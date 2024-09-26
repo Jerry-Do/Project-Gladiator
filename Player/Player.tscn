@@ -222,7 +222,7 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(-3, -1)
 
 [node name="Item" type="Node2D" parent="."]
-visible = false
+position = Vector2(2, -98)
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_qb1iw")

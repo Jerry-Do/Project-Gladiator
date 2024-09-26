@@ -8,14 +8,17 @@ var item_path : String
 
 
 func intialize(new_item_path):
-	item_path = new_item_path
-	var item = load(new_item_path)
-	var new_item = item.instantiate()
-	add_child(new_item)
-	new_item.item_sprite.hide()
-	item_sprite.texture = new_item.ReturnItemSprite()
-	description.text = new_item.ReturnItemDescription()
-	remove_child(new_item)
+	if new_item_path != null:
+		item_path = new_item_path
+		var item = load(new_item_path)
+		var new_item = item.instantiate()
+		add_child(new_item)
+		new_item.item_sprite.hide()
+		item_sprite.texture = new_item.ReturnItemSprite()
+		description.text = new_item.ReturnItemDescription()
+		remove_child(new_item)
+	else:
+		queue_free()
 #
 func _on_texture_button_pressed():
 	game_manager.UpgradeChose(item_path)

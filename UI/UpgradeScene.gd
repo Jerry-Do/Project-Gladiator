@@ -4,6 +4,7 @@ var spawned_items : Array
 @onready var game_manager = get_node("../../GameManager")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print( game_manager.duplication_array)
 	for child in get_children():
 		var item_name 
 		var counter = 0
@@ -16,7 +17,8 @@ func _ready():
 			var pos2 = items[random_no].find(".", 10)
 			item_name = items[random_no].substr(pos1 + 1, pos2-(pos1 + 1))
 			counter+= 1
-			if game_manager.duplication_dictionary.get(item_name) == false && spawned_items.find(item_name) == -1:
+			print(item_name)
+			if game_manager.duplication_array.find(item_name) == -1 && spawned_items.find(item_name) == -1:
 				dup_flag = false	
 			#if game_manager.duplication_dictionary.size() == counter:
 				#end_flag = true

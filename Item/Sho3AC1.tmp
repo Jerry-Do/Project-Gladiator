@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfao8leyxgpwg"]
+
+[ext_resource type="Script" path="res://Item/scripts/BotLogic.gd" id="1_f06qc"]
+[ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_2dx01"]
+[ext_resource type="PackedScene" uid="uid://j7b5738f8mjj" path="res://Player/Player.tscn" id="3_llnwj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwi7c"]
+
+[node name="Bot" type="CharacterBody2D"]
+script = ExtResource("1_f06qc")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_nwi7c")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_2dx01")
+
+[node name="Player" parent="." instance=ExtResource("3_llnwj")]
+position = Vector2(188, -33)
+script = null

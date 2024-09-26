@@ -1,14 +1,13 @@
 extends Item
 
-@onready 
-var state_machine = $StateControl
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-	item_name = "Shooting Bot"
-	item_description = "A bot will follow the player and attack nearby enemies"
-	return null
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	item_name = "ShootingBot"
+	display_name = "Shooting Bot"
+	item_description = "A bot will follow the player and attack with the player"
+	if get_parent() == player.get_child(6):
+		var robot_scene = preload("res://Item/ShootingBotActual.tscn")
+		var actual_robot = robot_scene.instantiate()
+		player.get_child(6).add_child(actual_robot)
+		get_parent().remove_child(self)
