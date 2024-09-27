@@ -1,9 +1,9 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1727323626
+::res://::1727414418
 export_presets.cfg::TextFile::-1::1727238353::0::1::::<><>::
-GameManager.gd::GDScript::-1::1727322787::0::1::::<>Node2D<>::
+GameManager.gd::GDScript::-1::1727411124::0::1::::<>Node2D<>::
 PlayerSpawner.gd::GDScript::-1::1726868613::0::1::::<>Node2D<>::
-Scene.tscn::PackedScene::9192136629399209460::1727323273::0::1::::<><>::res://GameManager.gd<>res://PlayerSpawner.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://bypohkd68cnx8::::res://Weapon/Sniper.tscn<>uid://dr2pu7glrsgda::::res://Weapon/HandGun.tscn
+Scene.tscn::PackedScene::9192136629399209460::1727414418::0::1::::<><>::res://GameManager.gd<>res://PlayerSpawner.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://jjel6oav4qw4::::res://Weapon/HCRevolver.tscn
 SoftCollision.gd::GDScript::-1::1726100972::0::1::::<>Area2D<>::
 soft_collision.tscn::PackedScene::775278827044099727::1726100972::0::1::::<><>::res://SoftCollision.gd
 title.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
@@ -24,37 +24,37 @@ sprite_2d.gd::GDScript::-1::1726100972::0::1::::<><>::
 sprite_3d.gd::GDScript::-1::1726100972::0::1::::<><>::
 sprite_frames.gd::GDScript::-1::1726100972::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1726100972::0::1::::<><>::
-::res://Enemy/::1727323273
-Enemy.gd::GDScript::-1::1727242011::0::1::::Enemy<>CharacterBody2D<>::
-Movement_getter_enemy.gd::GDScript::-1::1727322147::0::1::::<>Node<>::
+::res://Enemy/::1727414342
+Enemy.gd::GDScript::-1::1727414342::0::1::::Enemy<>CharacterBody2D<>::
+Movement_getter_enemy.gd::GDScript::-1::1727411124::0::1::::<>Node<>::
 Slime.gd::GDScript::-1::1726939051::0::1::::<>Enemy<>::
-Slime.tscn::PackedScene::8817734413383746080::1727323273::0::1::::<><>::res://Enemy/Slime.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>uid://wy3wfrlclh2i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png<>uid://d2ydh0uhfvq0e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_spritesheeet.png<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://Enemy/Movement_getter_enemy.gd
-::res://Item/::1727323273
+Slime.tscn::PackedScene::8817734413383746080::1727413437::0::1::::<><>::res://Enemy/Slime.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>uid://wy3wfrlclh2i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png<>uid://d2ydh0uhfvq0e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_spritesheeet.png<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://Enemy/Movement_getter_enemy.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png
+::res://Item/::1727414418
 Boots.tscn::PackedScene::7149418309657105035::1727241684::0::1::::<><>::res://Item/scripts/Boots.gd<>uid://dc5h18u0hlfsk::::res://resource/16x16 RPG Item Pack/Item__50.png
-EnergyShield.tscn::PackedScene::6026817643243075784::1727323273::0::1::::<><>::res://Item/scripts/shield.gd<>uid://1dr2te8mt8e::::res://resource/SnoopethDuckDuck Shields/Pack 1/2px/16.png
-GoldenGloves.tscn::PackedScene::1620429552303885859::1727323273::0::1::::<><>::res://Item/scripts/GoldenGloves.gd<>uid://cib142ysvkmby::::res://resource/16x16 RPG Item Pack/Item__60.png
+EnergyShield.tscn::PackedScene::6026817643243075784::1727414418::0::1::::<><>::res://Item/scripts/shield.gd<>uid://1dr2te8mt8e::::res://resource/SnoopethDuckDuck Shields/Pack 1/2px/16.png
+GoldenGloves.tscn::PackedScene::1620429552303885859::1727329367::0::1::::<><>::res://Item/scripts/GoldenGloves.gd<>uid://cib142ysvkmby::::res://resource/16x16 RPG Item Pack/Item__60.png
 HealthKit.tscn::PackedScene::5456801460219559699::1727323273::0::1::::<><>::res://Item/scripts/HealthKit.gd<>uid://dsa4o0c7atrp7::::res://resource/16x16 RPG Item Pack/Item__42.png
-ShootingBot.tscn::PackedScene::8223770004662809267::1727323273::0::1::::<><>::res://Item/scripts/ShootingBot.gd<>uid://b51ay7wnxcb4i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png
-ShootingBotActual.tscn::PackedScene::5124695139731465166::1727323273::0::1::::<><>::res://Item/scripts/BotLogic.gd<>uid://b51ay7wnxcb4i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png
-::res://Item/scripts/::1727323019
+ShootingBot.tscn::PackedScene::8223770004662809267::1727329367::0::1::::<><>::res://Item/scripts/ShootingBot.gd<>uid://b51ay7wnxcb4i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png
+ShootingBotActual.tscn::PackedScene::5124695139731465166::1727329367::0::1::::<><>::res://Item/scripts/BotLogic.gd<>uid://b51ay7wnxcb4i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png
+::res://Item/scripts/::1727411124
 Boots.gd::GDScript::-1::1727241685::0::1::::<>Item<>::
-BotLogic.gd::GDScript::-1::1727322701::0::1::::<>CharacterBody2D<>::
+BotLogic.gd::GDScript::-1::1727329069::0::1::::<>CharacterBody2D<>::
 GoldenGloves.gd::GDScript::-1::1727247662::0::1::::<>Item<>::
 HealthKit.gd::GDScript::-1::1727247677::0::1::::<>Item<>::
 Item.gd::GDScript::-1::1727247611::0::1::::Item<>Node<>::
-shield.gd::GDScript::-1::1727322147::0::1::::<>Item<>::
-ShootingBot.gd::GDScript::-1::1727323019::0::1::::<>Item<>::
-::res://Player/::1727323273
+shield.gd::GDScript::-1::1727411124::0::1::::<>Item<>::
+ShootingBot.gd::GDScript::-1::1727329426::0::1::::<>Item<>::
+::res://Player/::1727414417
 Character.gd::GDScript::-1::1727068777::0::1::::<>CharacterBody2D<>::
 Character.tscn::PackedScene::8753365442066500842::1726100972::0::1::::<><>::res://Player/Character.gd
 FlipWeaponNode.gd::GDScript::-1::1727142740::0::1::::<>Node2D<>::
 Player.gd::GDScript::-1::1727245825::0::1::::Player<>CharacterBody2D<>::
-Player.tscn::PackedScene::697875697191207779::1727323273::0::1::::<><>::res://Player/Player.gd<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/Dash.gd<>res://States/player/Movement_getter.gd
+Player.tscn::PackedScene::697875697191207779::1727414417::0::1::::<><>::res://Player/Player.gd<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/Dash.gd<>res://States/player/Movement_getter.gd
 PlayerStats.gd::GDScript::-1::1727065550::0::1::::<>Node<>::
 PlayerStats.tscn::PackedScene::6724956824135903098::1726100972::0::1::::<><>::uid://b2viddts03gyk::::res://Player/stats.tscn<>res://Player/PlayerStats.gd
 stats.tscn::PackedScene::4325362675852765762::1726100972::0::1::::<><>::
 WeaponSlot.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
-::res://resource/::1726893705
+::res://resource/::1727410877
 ::res://resource/1. Free Hologram Interface Wenrexa/::1726809530
 ::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/::1726809964
 PUT A RATING!.jpg::CompressedTexture2D::6695079325736286253::1726809530::1726809964::1::::<><>::
@@ -187,7 +187,132 @@ Item__70.png::CompressedTexture2D::2994619434325531557::1726893684::1726893706::
 Item__71.png::CompressedTexture2D::8750341435934207297::1726893684::1726893706::1::::<><>::
 Preview.png::CompressedTexture2D::7855017385278120656::1726893684::1726893707::1::::<><>::
 Sheet.png::CompressedTexture2D::308184709305544446::1726893684::1726893706::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/::1726810008
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/::1727410882
+Coupon by craftpix.png::CompressedTexture2D::8850162952110687745::1727410814::1727410882::1::::<><>::
+Font.txt::TextFile::-1::1727410814::0::1::::<><>::
+License.txt::TextFile::-1::1727410814::0::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/::1727410814
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/1 Biker/::1727410880
+Idle1.png::CompressedTexture2D::2929836816319843218::1727410814::1727410880::1::::<><>::
+Idle2.png::CompressedTexture2D::6629087491576853919::1727410814::1727410880::1::::<><>::
+Jump1.png::CompressedTexture2D::2046937293788953519::1727410814::1727410880::1::::<><>::
+Jump2.png::CompressedTexture2D::8722585149743812424::1727410814::1727410880::1::::<><>::
+Run1.png::CompressedTexture2D::2397593435220796251::1727410814::1727410880::1::::<><>::
+Run2.png::CompressedTexture2D::2915626825478801000::1727410814::1727410880::1::::<><>::
+Sitdown1.png::CompressedTexture2D::1318350157921696447::1727410814::1727410880::1::::<><>::
+Sitdown2.png::CompressedTexture2D::8260359658264866201::1727410814::1727410880::1::::<><>::
+Walk1.png::CompressedTexture2D::8056590088055453836::1727410814::1727410880::1::::<><>::
+Walk2.png::CompressedTexture2D::405631327502293973::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/2 Punk/::1727410880
+Idle1.png::CompressedTexture2D::130748443109247100::1727410814::1727410880::1::::<><>::
+Idle2.png::CompressedTexture2D::4276046395119594672::1727410814::1727410880::1::::<><>::
+Jump1.png::CompressedTexture2D::3513905658905892063::1727410814::1727410880::1::::<><>::
+Jump2.png::CompressedTexture2D::6671013690476751370::1727410814::1727410880::1::::<><>::
+Run1.png::CompressedTexture2D::8967584894333938477::1727410814::1727410880::1::::<><>::
+Run2.png::CompressedTexture2D::4929530094870902702::1727410814::1727410880::1::::<><>::
+Sitdown1.png::CompressedTexture2D::5349812493004488383::1727410814::1727410880::1::::<><>::
+Sitdown2.png::CompressedTexture2D::5469987651666380215::1727410814::1727410880::1::::<><>::
+Walk1.png::CompressedTexture2D::3681597866352560116::1727410814::1727410880::1::::<><>::
+Walk2.png::CompressedTexture2D::1709821607358947376::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/3 Cyborg/::1727410880
+Idle1.png::CompressedTexture2D::4856323263410702798::1727410814::1727410880::1::::<><>::
+Idle2.png::CompressedTexture2D::6422759521541918953::1727410814::1727410880::1::::<><>::
+Jump1.png::CompressedTexture2D::4394152180500380447::1727410814::1727410880::1::::<><>::
+Jump2.png::CompressedTexture2D::994622649604951207::1727410814::1727410880::1::::<><>::
+Run1.png::CompressedTexture2D::3407363246915871372::1727410814::1727410880::1::::<><>::
+Run2.png::CompressedTexture2D::3392941012773082591::1727410814::1727410880::1::::<><>::
+Sitdown1.png::CompressedTexture2D::5949812768830815662::1727410814::1727410880::1::::<><>::
+Sitdown2.png::CompressedTexture2D::3032234105894226408::1727410814::1727410880::1::::<><>::
+Walk1.png::CompressedTexture2D::8082584328327944484::1727410814::1727410880::1::::<><>::
+Walk2.png::CompressedTexture2D::1808728267185243360::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/::1727410880
+1_1.png::CompressedTexture2D::2921258076289835228::1727410814::1727410880::1::::<><>::
+1_2.png::CompressedTexture2D::6048731291134068933::1727410814::1727410880::1::::<><>::
+2_1.png::CompressedTexture2D::5408856673853897869::1727410814::1727410880::1::::<><>::
+2_2.png::CompressedTexture2D::8284466074813256540::1727410814::1727410880::1::::<><>::
+3_1.png::CompressedTexture2D::7084247801001778580::1727410814::1727410880::1::::<><>::
+3_2.png::CompressedTexture2D::8229905714931200877::1727410814::1727410880::1::::<><>::
+4_1.png::CompressedTexture2D::2064829051819721785::1727410814::1727410880::1::::<><>::
+4_2.png::CompressedTexture2D::1956668095393912842::1727410814::1727410880::1::::<><>::
+5_1.png::CompressedTexture2D::6863842891530079538::1727410814::1727410880::1::::<><>::
+5_2.png::CompressedTexture2D::7497740973630370995::1727410814::1727410880::1::::<><>::
+6_1.png::CompressedTexture2D::6510838580648476615::1727410814::1727410880::1::::<><>::
+6_2.png::CompressedTexture2D::8729839823800144995::1727410814::1727410880::1::::<><>::
+7_1.png::CompressedTexture2D::843427379233865927::1727410814::1727410880::1::::<><>::
+7_2.png::CompressedTexture2D::194697802923350493::1727410814::1727410880::1::::<><>::
+8_1.png::CompressedTexture2D::7917750319244756284::1727410814::1727410880::1::::<><>::
+8_2.png::CompressedTexture2D::7143814429189056393::1727410814::1727410880::1::::<><>::
+9_1.png::CompressedTexture2D::3269345984609486946::1727410814::1727410880::1::::<><>::
+9_2.png::CompressedTexture2D::8329798425775464680::1727410814::1727410880::1::::<><>::
+10_1.png::CompressedTexture2D::2910642228815316065::1727410814::1727410880::1::::<><>::
+10_2.png::CompressedTexture2D::1614865202082049566::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/::1727410814
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/1 Biker/::1727410880
+1.png::CompressedTexture2D::6357136577314414482::1727410814::1727410880::1::::<><>::
+2.png::CompressedTexture2D::1231192869540517027::1727410814::1727410880::1::::<><>::
+3.png::CompressedTexture2D::1571516789676217264::1727410814::1727410880::1::::<><>::
+4.png::CompressedTexture2D::7697527417529340629::1727410814::1727410880::1::::<><>::
+5.png::CompressedTexture2D::3918890574760029352::1727410814::1727410880::1::::<><>::
+6.png::CompressedTexture2D::986703971538388199::1727410814::1727410880::1::::<><>::
+7.png::CompressedTexture2D::6986186699610294981::1727410814::1727410880::1::::<><>::
+8.png::CompressedTexture2D::6668405037001878949::1727410814::1727410880::1::::<><>::
+9.png::CompressedTexture2D::4213001181625527092::1727410814::1727410880::1::::<><>::
+10.png::CompressedTexture2D::2187191948106372086::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/2 Punk/::1727410880
+1.png::CompressedTexture2D::6004138294113214784::1727410814::1727410880::1::::<><>::
+2.png::CompressedTexture2D::2930875196287384269::1727410814::1727410880::1::::<><>::
+3.png::CompressedTexture2D::5090279935299627664::1727410814::1727410880::1::::<><>::
+4.png::CompressedTexture2D::7942632420805509063::1727410814::1727410880::1::::<><>::
+5.png::CompressedTexture2D::1408398758915449009::1727410814::1727410880::1::::<><>::
+6.png::CompressedTexture2D::1150053106873967181::1727410814::1727410880::1::::<><>::
+7.png::CompressedTexture2D::8183792468812737670::1727410814::1727410880::1::::<><>::
+8.png::CompressedTexture2D::5458487810266745691::1727410814::1727410880::1::::<><>::
+9.png::CompressedTexture2D::4687390268084243902::1727410814::1727410880::1::::<><>::
+10.png::CompressedTexture2D::607375360170779038::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/3 Cyborg/::1727410880
+1.png::CompressedTexture2D::1552115592401459998::1727410814::1727410880::1::::<><>::
+2.png::CompressedTexture2D::8983922986869805634::1727410814::1727410880::1::::<><>::
+3.png::CompressedTexture2D::8833788576273667702::1727410814::1727410880::1::::<><>::
+4.png::CompressedTexture2D::7454873609318021552::1727410814::1727410880::1::::<><>::
+5.png::CompressedTexture2D::749512832269959719::1727410814::1727410880::1::::<><>::
+6.png::CompressedTexture2D::4972001793149121996::1727410814::1727410880::1::::<><>::
+7.png::CompressedTexture2D::504510981057894706::1727410814::1727410880::1::::<><>::
+8.png::CompressedTexture2D::843794081750304987::1727410814::1727410880::1::::<><>::
+9.png::CompressedTexture2D::2902320111499180184::1727410814::1727410880::1::::<><>::
+10.png::CompressedTexture2D::3476384969369302033::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/4 Shoot_effects/::1727410880
+6_1.png::CompressedTexture2D::3381380258392905256::1727410814::1727410880::1::::<><>::
+6_2.png::CompressedTexture2D::3185574109675758252::1727410814::1727410880::1::::<><>::
+7_1.png::CompressedTexture2D::3356592072434968012::1727410814::1727410880::1::::<><>::
+7_2.png::CompressedTexture2D::5260404911485248233::1727410814::1727410880::1::::<><>::
+8_1.png::CompressedTexture2D::3333165011371409610::1727410814::1727410880::1::::<><>::
+8_2.png::CompressedTexture2D::4814018693405493948::1727410814::1727410880::1::::<><>::
+9_1.png::CompressedTexture2D::5681905716512333443::1727410814::1727410880::1::::<><>::
+9_2.png::CompressedTexture2D::1688733114484013292::1727410814::1727410880::1::::<><>::
+10_1.png::CompressedTexture2D::3451116095748411301::1727410814::1727410880::1::::<><>::
+10_2.png::CompressedTexture2D::8579951838027509289::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/::1727410880
+1.png::CompressedTexture2D::8191059313642214428::1727410814::1727410880::1::::<><>::
+1_2.png::CompressedTexture2D::6770416394017389239::1727410814::1727410880::1::::<><>::
+2.png::CompressedTexture2D::7950480957166695067::1727410814::1727410880::1::::<><>::
+2_2.png::CompressedTexture2D::3685530248402614643::1727410814::1727410880::1::::<><>::
+3.png::CompressedTexture2D::4706033825745672027::1727410814::1727410880::1::::<><>::
+3_2.png::CompressedTexture2D::4651269746801563620::1727410814::1727410880::1::::<><>::
+4.png::CompressedTexture2D::1140210163383711246::1727410814::1727410880::1::::<><>::
+4_2.png::CompressedTexture2D::307846204841083231::1727410814::1727410880::1::::<><>::
+5.png::CompressedTexture2D::7170661320221365350::1727410814::1727410880::1::::<><>::
+5_2.png::CompressedTexture2D::5782465653007531234::1727410814::1727410880::1::::<><>::
+6.png::CompressedTexture2D::5495892733049766659::1727410814::1727410880::1::::<><>::
+6_2.png::CompressedTexture2D::4799907001359042502::1727410814::1727410880::1::::<><>::
+7.png::CompressedTexture2D::8851237598212869041::1727410814::1727410880::1::::<><>::
+7_2.png::CompressedTexture2D::913315823229516211::1727410814::1727410880::1::::<><>::
+8.png::CompressedTexture2D::163057065370499872::1727410814::1727410880::1::::<><>::
+9.png::CompressedTexture2D::4321454110232197381::1727410814::1727410880::1::::<><>::
+9_2.png::CompressedTexture2D::3229580818739833052::1727410814::1727410880::1::::<><>::
+10.png::CompressedTexture2D::2721351130403986002::1727410814::1727410880::1::::<><>::
+10_2.png::CompressedTexture2D::7585402233160741236::1727410814::1727410880::1::::<><>::
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/PSD/::1727410814
+::res://resource/SnoopethDuckDuck Shields/::1727410877
 ::res://resource/SnoopethDuckDuck Shields/Pack 1/::1726810010
 0px All.png::CompressedTexture2D::2518628812940715709::1726810008::1726810010::1::::<><>::
 1px All.png::CompressedTexture2D::3494727434018990692::1726810008::1726810010::1::::<><>::
@@ -300,7 +425,7 @@ License - CC0.txt::TextFile::-1::1726810008::0::1::::<><>::
 32.png::CompressedTexture2D::3439705076790938960::1726810008::1726810010::1::::<><>::
 32b.png::CompressedTexture2D::3980715020986575104::1726810008::1726810010::1::::<><>::
 33.png::CompressedTexture2D::4370105774548683827::1726810008::1726810010::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/::1726810010
+::res://resource/SnoopethDuckDuck Shields/Pack 2/::1727410773
 1px All.png::CompressedTexture2D::792783009346435182::1726810008::1726810010::1::::<><>::
 2px All.png::CompressedTexture2D::4055280880292649653::1726810008::1726810010::1::::<><>::
 32x32 SpriteSheet.png::CompressedTexture2D::2645710270450221350::1726810008::1726810010::1::::<><>::
@@ -374,6 +499,131 @@ License - CC0.txt::TextFile::-1::1726810008::0::1::::<><>::
 30.png::CompressedTexture2D::2668337493695112267::1726810008::1726810010::1::::<><>::
 31.png::CompressedTexture2D::5087120755875322115::1726810008::1726810010::1::::<><>::
 32.png::CompressedTexture2D::6485308519928134501::1726810008::1726810010::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/::1727410777
+Coupon by craftpix.png::CompressedTexture2D::2650995071817513155::1727410773::1727410777::1::::<><>::
+Font.txt::TextFile::-1::1727410773::0::1::::<><>::
+License.txt::TextFile::-1::1727410773::0::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/::1727410773
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/1 Biker/::1727410776
+Idle1.png::CompressedTexture2D::5434831726213754230::1727410773::1727410776::1::::<><>::
+Idle2.png::CompressedTexture2D::4660566604222949491::1727410773::1727410776::1::::<><>::
+Jump1.png::CompressedTexture2D::1180185744010161835::1727410773::1727410776::1::::<><>::
+Jump2.png::CompressedTexture2D::2646902531206209019::1727410773::1727410776::1::::<><>::
+Run1.png::CompressedTexture2D::3539364818912147189::1727410773::1727410776::1::::<><>::
+Run2.png::CompressedTexture2D::4471458776711521549::1727410773::1727410776::1::::<><>::
+Sitdown1.png::CompressedTexture2D::1012479675257868263::1727410773::1727410776::1::::<><>::
+Sitdown2.png::CompressedTexture2D::8091092177407074435::1727410773::1727410776::1::::<><>::
+Walk1.png::CompressedTexture2D::8759451032102429768::1727410773::1727410776::1::::<><>::
+Walk2.png::CompressedTexture2D::1123160859426067031::1727410773::1727410776::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/2 Punk/::1727410776
+Idle1.png::CompressedTexture2D::8283892117214476314::1727410773::1727410776::1::::<><>::
+Idle2.png::CompressedTexture2D::2888307132855563643::1727410773::1727410776::1::::<><>::
+Jump1.png::CompressedTexture2D::8268761872999188941::1727410773::1727410776::1::::<><>::
+Jump2.png::CompressedTexture2D::6269321987572850074::1727410773::1727410776::1::::<><>::
+Run1.png::CompressedTexture2D::8390096987412937610::1727410773::1727410776::1::::<><>::
+Run2.png::CompressedTexture2D::1592759975606658109::1727410773::1727410776::1::::<><>::
+Sitdown1.png::CompressedTexture2D::2150618618348510060::1727410773::1727410776::1::::<><>::
+Sitdown2.png::CompressedTexture2D::1955519350370244231::1727410773::1727410776::1::::<><>::
+Walk1.png::CompressedTexture2D::6974323747154218612::1727410773::1727410776::1::::<><>::
+Walk2.png::CompressedTexture2D::3905684449091345413::1727410773::1727410776::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/3 Cyborg/::1727410776
+Idle1.png::CompressedTexture2D::5965040866510058857::1727410773::1727410776::1::::<><>::
+Idle2.png::CompressedTexture2D::335290200991698642::1727410773::1727410776::1::::<><>::
+Jump1.png::CompressedTexture2D::5043387692729911082::1727410773::1727410776::1::::<><>::
+Jump2.png::CompressedTexture2D::8190242801114777059::1727410773::1727410776::1::::<><>::
+Run1.png::CompressedTexture2D::8013026044635270600::1727410773::1727410776::1::::<><>::
+Run2.png::CompressedTexture2D::8435705875532148900::1727410773::1727410776::1::::<><>::
+Sitdown1.png::CompressedTexture2D::2433989562063879312::1727410773::1727410776::1::::<><>::
+Sitdown2.png::CompressedTexture2D::3801337011513107094::1727410773::1727410776::1::::<><>::
+Walk1.png::CompressedTexture2D::1624528789443261129::1727410773::1727410776::1::::<><>::
+Walk2.png::CompressedTexture2D::4926545601024101177::1727410773::1727410776::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/::1727410776
+1_1.png::CompressedTexture2D::7783060465168646457::1727410773::1727410776::1::::<><>::
+1_2.png::CompressedTexture2D::8290465416148000026::1727410773::1727410776::1::::<><>::
+2_1.png::CompressedTexture2D::3665604686318507750::1727410773::1727410776::1::::<><>::
+2_2.png::CompressedTexture2D::723553039638993626::1727410773::1727410776::1::::<><>::
+3_1.png::CompressedTexture2D::3204723111566887358::1727410773::1727410776::1::::<><>::
+3_2.png::CompressedTexture2D::6362491342833708651::1727410773::1727410776::1::::<><>::
+4_1.png::CompressedTexture2D::4968976978913798864::1727410773::1727410776::1::::<><>::
+4_2.png::CompressedTexture2D::497124829926722589::1727410773::1727410776::1::::<><>::
+5_1.png::CompressedTexture2D::2326181229097992693::1727410773::1727410776::1::::<><>::
+5_2.png::CompressedTexture2D::656601343945449790::1727410773::1727410776::1::::<><>::
+6_1.png::CompressedTexture2D::331870959325771785::1727410773::1727410776::1::::<><>::
+6_2.png::CompressedTexture2D::7744616254479515185::1727410773::1727410776::1::::<><>::
+7_1.png::CompressedTexture2D::3378259061442302448::1727410773::1727410776::1::::<><>::
+7_2.png::CompressedTexture2D::3938276158254152910::1727410773::1727410776::1::::<><>::
+8_1.png::CompressedTexture2D::8079201026585272724::1727410773::1727410776::1::::<><>::
+8_2.png::CompressedTexture2D::4329168319622059534::1727410773::1727410776::1::::<><>::
+9_1.png::CompressedTexture2D::2566041016976980858::1727410773::1727410776::1::::<><>::
+9_2.png::CompressedTexture2D::3245730766651127045::1727410773::1727410776::1::::<><>::
+10_1.png::CompressedTexture2D::5481498146654734583::1727410773::1727410776::1::::<><>::
+10_2.png::CompressedTexture2D::2567812140377720881::1727410773::1727410776::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/::1727410773
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/1 Biker/::1727410776
+1.png::CompressedTexture2D::4031278306018369391::1727410773::1727410776::1::::<><>::
+2.png::CompressedTexture2D::2535817082536099240::1727410773::1727410776::1::::<><>::
+3.png::CompressedTexture2D::4767986526023315247::1727410773::1727410776::1::::<><>::
+4.png::CompressedTexture2D::3248340293735183644::1727410773::1727410776::1::::<><>::
+5.png::CompressedTexture2D::5974436717236267064::1727410773::1727410776::1::::<><>::
+6.png::CompressedTexture2D::4838402787810995596::1727410773::1727410775::1::::<><>::
+7.png::CompressedTexture2D::413344993814519443::1727410773::1727410775::1::::<><>::
+8.png::CompressedTexture2D::7416253284971199659::1727410773::1727410775::1::::<><>::
+9.png::CompressedTexture2D::4908499142981798723::1727410773::1727410775::1::::<><>::
+10.png::CompressedTexture2D::5502803261678616183::1727410773::1727410775::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/2 Punk/::1727410775
+1.png::CompressedTexture2D::3876329378011853896::1727410773::1727410775::1::::<><>::
+2.png::CompressedTexture2D::1558716977032583412::1727410773::1727410775::1::::<><>::
+3.png::CompressedTexture2D::7552924813795990805::1727410773::1727410775::1::::<><>::
+4.png::CompressedTexture2D::5321683370405573196::1727410773::1727410775::1::::<><>::
+5.png::CompressedTexture2D::4731141885582377811::1727410773::1727410775::1::::<><>::
+6.png::CompressedTexture2D::8238524516415951371::1727410773::1727410775::1::::<><>::
+7.png::CompressedTexture2D::1916595464882971076::1727410773::1727410775::1::::<><>::
+8.png::CompressedTexture2D::804420554654822731::1727410773::1727410775::1::::<><>::
+9.png::CompressedTexture2D::158230777419761813::1727410773::1727410775::1::::<><>::
+10.png::CompressedTexture2D::6378710978600353551::1727410773::1727410775::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/3 Cyborg/::1727410775
+1.png::CompressedTexture2D::3680323284961871707::1727410773::1727410775::1::::<><>::
+2.png::CompressedTexture2D::2159924819509980487::1727410773::1727410775::1::::<><>::
+3.png::CompressedTexture2D::366764660328983282::1727410773::1727410775::1::::<><>::
+4.png::CompressedTexture2D::7054912083712338016::1727410773::1727410775::1::::<><>::
+5.png::CompressedTexture2D::1996195693531401286::1727410773::1727410775::1::::<><>::
+6.png::CompressedTexture2D::6565870032247732124::1727410773::1727410775::1::::<><>::
+7.png::CompressedTexture2D::4741421165399408555::1727410773::1727410775::1::::<><>::
+8.png::CompressedTexture2D::2179420723599669742::1727410773::1727410775::1::::<><>::
+9.png::CompressedTexture2D::2492823105888171697::1727410773::1727410775::1::::<><>::
+10.png::CompressedTexture2D::1611500315647787554::1727410773::1727410775::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/4 Shoot_effects/::1727410776
+6_1.png::CompressedTexture2D::7341927660007930530::1727410773::1727410775::1::::<><>::
+6_2.png::CompressedTexture2D::9074101787618668002::1727410773::1727410775::1::::<><>::
+7_1.png::CompressedTexture2D::5599813441620260022::1727410773::1727410776::1::::<><>::
+7_2.png::CompressedTexture2D::3411230172751521719::1727410773::1727410776::1::::<><>::
+8_1.png::CompressedTexture2D::3519215393424210436::1727410773::1727410775::1::::<><>::
+8_2.png::CompressedTexture2D::1270395938496620380::1727410773::1727410775::1::::<><>::
+9_1.png::CompressedTexture2D::5462634719513888355::1727410773::1727410775::1::::<><>::
+9_2.png::CompressedTexture2D::7358356908201729226::1727410773::1727410775::1::::<><>::
+10_1.png::CompressedTexture2D::7230932716829107784::1727410773::1727410775::1::::<><>::
+10_2.png::CompressedTexture2D::7818389889218049369::1727410773::1727410775::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/::1727410775
+1.png::CompressedTexture2D::8762149397158483100::1727410773::1727410775::1::::<><>::
+1_2.png::CompressedTexture2D::7816127012265075381::1727410773::1727410775::1::::<><>::
+2.png::CompressedTexture2D::4684621454352656755::1727410773::1727410775::1::::<><>::
+2_2.png::CompressedTexture2D::409731617532964782::1727410773::1727410775::1::::<><>::
+3.png::CompressedTexture2D::7281961511889515282::1727410773::1727410775::1::::<><>::
+3_2.png::CompressedTexture2D::4473337468966445063::1727410773::1727410775::1::::<><>::
+4.png::CompressedTexture2D::7614935445038458977::1727410773::1727410775::1::::<><>::
+4_2.png::CompressedTexture2D::6283494300028850721::1727410773::1727410775::1::::<><>::
+5.png::CompressedTexture2D::7561606107742190821::1727410773::1727410775::1::::<><>::
+5_2.png::CompressedTexture2D::7316202431486002791::1727410773::1727410775::1::::<><>::
+6.png::CompressedTexture2D::4603307345906756904::1727410773::1727410775::1::::<><>::
+6_2.png::CompressedTexture2D::1645709404152853251::1727410773::1727410775::1::::<><>::
+7.png::CompressedTexture2D::8981369496587365735::1727410773::1727410775::1::::<><>::
+7_2.png::CompressedTexture2D::7277124644558072539::1727410773::1727410775::1::::<><>::
+8.png::CompressedTexture2D::5971656584329098660::1727410773::1727410775::1::::<><>::
+9.png::CompressedTexture2D::2204555122368051857::1727410773::1727410775::1::::<><>::
+9_2.png::CompressedTexture2D::8647667310108781598::1727410773::1727410775::1::::<><>::
+10.png::CompressedTexture2D::3593246574594397184::1727410773::1727410775::1::::<><>::
+10_2.png::CompressedTexture2D::3617788097297414413::1727410773::1727410775::1::::<><>::
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/PSD/::1727410773
 ::res://resource/SnoopethDuckDuck Shields/Pack 2/junk/::1726810008
 ::res://resource/SnoopethDuckDuck Shields/Pack 3/::1726810010
 1px All.png::CompressedTexture2D::8597579932888815380::1726810008::1726810010::1::::<><>::
@@ -426,8 +676,7 @@ License - CC BY 4.0 .txt::TextFile::-1::1726810008::0::1::::<><>::
 12.png::CompressedTexture2D::6534665186645064815::1726810008::1726810010::1::::<><>::
 13.png::CompressedTexture2D::9166317764437618949::1726810008::1726810010::1::::<><>::
 14.png::CompressedTexture2D::1722931564501862086::1726810008::1726810010::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/::1726893705
-FSM.gd::GDScript::-1::1726100972::0::1::::FiniteStateMachine<>Node<>::
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/::1727412899
 full spritesheet.png::CompressedTexture2D::2077704676979206115::1726100972::1726809967::1::::<><>::
 full tilemap.png::CompressedTexture2D::7344649405237631096::1726100972::1726809967::1::::<><>::
 README.txt::TextFile::-1::1726100972::0::1::::<><>::
@@ -652,45 +901,50 @@ dead.gd::GDScript::-1::1726717110::0::1::::<>State<>::
 IdleEnemy.gd::GDScript::-1::1726462606::0::1::::<>State<>::
 MoveEnemy.gd::GDScript::-1::1726939068::0::1::::<>State<>::
 Stun.gd::GDScript::-1::1726460545::0::1::::<>State<>::
-::res://States/player/::1727322147
+::res://States/player/::1727411124
 Dash.gd::GDScript::-1::1726716966::0::1::::<>Move<>::
-Idle.gd::GDScript::-1::1727322147::0::1::::<>State<>::
+Idle.gd::GDScript::-1::1727411124::0::1::::<>State<>::
 Move.gd::GDScript::-1::1726939044::0::1::::Move<>State<>::
-Movement_getter.gd::GDScript::-1::1727322147::0::1::::<>Node<>::
-::res://UI/::1727323273
+Movement_getter.gd::GDScript::-1::1727411124::0::1::::<>Node<>::
+::res://UI/::1727414418
 Button.gd::GDScript::-1::1727247874::0::1::::<>Control<>::
 Button.tscn::PackedScene::3833970527483866742::1726938674::0::1::::<><>::uid://427ydx1r7hp6::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png<>res://UI/Button.gd<>uid://b5oo5dgxx56x8::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png<>uid://bjmujypyevm6j::::res://Sprite/Player/potion.png
 CritLabel.gd::GDScript::-1::1727155578::0::1::::<>Control<>::
 Critlabel.tscn::PackedScene::3952619151913496157::1727155634::0::1::::<><>::res://UI/CritLabel.gd
 UI.gd::GDScript::-1::1726639364::0::1::::UI<>CanvasLayer<>::
 ui.tscn::PackedScene::3039744360176307657::1727056156::0::1::::<><>::res://UI/UI.gd<>uid://boklyp3icpha::::res://UI/Bars/Healthbar.tscn<>uid://d33f6q17cdc2p::::res://UI/Bars/Fuelbar.tscn
-UpgradeScene.gd::GDScript::-1::1727247751::0::1::::<>Control<>::
-UpgradeScene.tscn::PackedScene::6000136781587573995::1727323273::0::1::::<><>::res://UI/UpgradeScene.gd
+UpgradeScene.gd::GDScript::-1::1727329265::0::1::::<>Control<>::
+UpgradeScene.tscn::PackedScene::6000136781587573995::1727414418::0::1::::<><>::res://UI/UpgradeScene.gd
 ::res://UI/Bars/::1727066132
 Fuelbar.gd::GDScript::-1::1726939044::0::1::::<>ProgressBar<>::
 Fuelbar.tscn::PackedScene::9182712076628012261::1726634162::0::1::::<><>::res://UI/Bars/Fuelbar.gd
 healthbar.gd::GDScript::-1::1727065646::0::1::::<>ProgressBar<>::
 Healthbar.tscn::PackedScene::99718230870936186::1727066132::0::1::::<><>::res://UI/Bars/healthbar.gd
 ShieldBar.gd::GDScript::-1::1727056218::0::1::::<>ProgressBar<>::
-::res://Weapon/::1727323626
+::res://Weapon/::1727414418
 Bomerang.tscn::PackedScene::565383635896640774::1727157087::0::1::::<><>::res://Weapon/script/Bomerang.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
 HandGun.tscn::PackedScene::8409158753594315518::1727238510::0::1::::<><>::res://Weapon/script/gun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
+HCRevolver.gd::GDScript::-1::1727414415::0::1::::<>Weapon<>::
+HCRevolver.tscn::PackedScene::650543154113187585::1727414418::0::1::::<><>::res://Weapon/HCRevolver.gd<>uid://dk2ogq0q6616o::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/8_1.png
 MachineGun.tscn::PackedScene::7827775262756622896::1727238510::0::1::::<><>::res://Weapon/script/MachineGun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Shootingpoint.gd::GDScript::-1::1726113000::0::1::::<>Marker2D<>::
-Shotgun.tscn::PackedScene::2359686463657296332::1727238510::0::1::::<><>::res://Weapon/script/Shotgun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
+Shotgun.tscn::PackedScene::2359686463657296332::1727414418::0::1::::<><>::res://Weapon/script/Shotgun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Sniper.tscn::PackedScene::4102781667093446051::1727238510::0::1::::<><>::res://Weapon/script/Sniper.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Weapon.tscn::PackedScene::8703610511030117951::1727155318::0::1::::<><>::
-::res://Weapon/bullet/::1727323662
+::res://Weapon/bullet/::1727414418
 BomerangBullet.tscn::PackedScene::288615707988430325::1727068233::0::1::::<><>::res://Weapon/bullet/script/BomerangBullet.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
-BotBullet.tscn::PackedScene::6334465293180946377::1727324148::0::1::::<><>::res://Weapon/bullet/BotBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-bullet.tscn::PackedScene::7153186381455210336::1727238510::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-BotBullet.gd::GDScript::-1::1727324049::0::1::::<>Area2D<>::
+BotBullet.tscn::PackedScene::6334465293180946377::1727329367::0::1::::<><>::res://Weapon/bullet/script/BotBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
+bullet.tscn::PackedScene::7153186381455210336::1727414418::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
+HCBullet.tscn::PackedScene::4784259622652737097::1727414582::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 ShotgunBullet.tscn::PackedScene::8288864571729375522::1727068234::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 SniperBullet.tscn::PackedScene::6391802182309068514::1727155318::0::1::::<><>::res://Weapon/bullet/script/SniperBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-::res://Weapon/bullet/script/::1727155710
+TargetBullet.tscn::PackedScene::7241002033974314970::1727414418::0::1::::<><>::res://Weapon/bullet/script/TargetBullet.gd<>uid://cgbhhd4hsbs3m::::res://Sprite/Player/Enemy.png
+::res://Weapon/bullet/script/::1727414490
 BomerangBullet.gd::GDScript::-1::1726717000::0::1::::<>Area2D<>::
+BotBullet.gd::GDScript::-1::1727328139::0::1::::<>Area2D<>::
 bullet.gd::GDScript::-1::1727155710::0::1::::<>Area2D<>::
 SniperBullet.gd::GDScript::-1::1727142940::0::1::::<>Area2D<>::
+TargetBullet.gd::GDScript::-1::1727412314::0::1::::<>Area2D<>::
 ::res://Weapon/script/::1727154912
 Bomerang.gd::GDScript::-1::1727154912::0::1::::<>Weapon<>::
 gun.gd::GDScript::-1::1727154839::0::1::::<>Weapon<>::

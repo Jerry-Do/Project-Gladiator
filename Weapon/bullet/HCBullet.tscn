@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cafsb65f272w8"]
+
+[ext_resource type="Script" path="res://Weapon/bullet/script/HCBullet.gd" id="1_jqjja"]
+[ext_resource type="Texture2D" uid="uid://dn3mlfydct62y" path="res://Sprite/Player/Bullet.png" id="2_7yk70"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5h7dk"]
+radius = 1.96329
+
+[node name="HCBullet" type="Area2D"]
+top_level = true
+position = Vector2(291, 275)
+scale = Vector2(2, 2)
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_jqjja")
+damage = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t0r5e")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+texture = ExtResource("2_7yk70")
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.03
+autostart = true
+
+[node name="DetectionRange" type="Area2D" parent="."]
+scale = Vector2(2.98, 3.34)
+collision_layer = 11
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+scale = Vector2(9.88, 9.84)
+shape = SubResource("CircleShape2D_5h7dk")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]

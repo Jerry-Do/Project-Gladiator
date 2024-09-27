@@ -29,7 +29,18 @@ var state_manager = $StateControl
 @onready 
 var movement_controller = $MovementController
 
+@onready
+var target_sprite = $Target
+
+var is_target = false
+var curse_timer
+
 func _init(health: int, speed: float, damage: float, fame : int):
+	curse_timer = Timer.new()
+	add_child(curse_timer)
+	curse_timer.wait_time = 99
+	curse_timer.one_shot = true
+	curse_timer.connect("timeout", _on_curse_timer_timeout)
 	self.health = health
 	self.speed = speed
 	self.damage = damage
@@ -61,3 +72,14 @@ func _on_ghost_timer_timeout():
 		this_ghost.texture = sprite.sprite_frames.get_frame_texture("run",sprite.frame)
 		this_ghost.flip_h = sprite.flip_h
 		this_ghost.scale = sprite.scale
+
+func SetTarget():
+	is_target = true
+	target_sprite.show()
+	curse_timer.start()
+	
+
+func _on_curse_timer_timeout():
+	is_target = false
+	target_sprite.hide()
+	

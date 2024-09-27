@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=28 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" path="res://Enemy/Slime.gd" id="1_kkhy6"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_sl4u6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_n8w6a"]
 [ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_wvfs4"]
 [ext_resource type="Script" path="res://Enemy/Movement_getter_enemy.gd" id="9_ds4wk"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
 radius = 48.1016
@@ -193,6 +194,12 @@ script = ExtResource("9_ds4wk")
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -24)
+scale = Vector2(-2.28506, 1.71179)
+texture = ExtResource("10_30tjh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=12 format=3 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_rqj78"]
 [ext_resource type="Script" path="res://PlayerSpawner.gd" id="2_08of0"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
-[ext_resource type="PackedScene" uid="uid://bypohkd68cnx8" path="res://Weapon/Sniper.tscn" id="7_m8jpw"]
-[ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_o4yhb"]
+[ext_resource type="PackedScene" uid="uid://jjel6oav4qw4" path="res://Weapon/HCRevolver.tscn" id="6_xl8r3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -181,12 +180,8 @@ position = Vector2(878, 394)
 [node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
 unique_name_in_owner = true
 
-[node name="HandGun" parent="Level" instance=ExtResource("7_o4yhb")]
-visibility_layer = 2
-position = Vector2(-24, 53)
-
-[node name="Sniper" parent="Level" instance=ExtResource("7_m8jpw")]
-position = Vector2(182, -21)
+[node name="HCRevolver" parent="Level" instance=ExtResource("6_xl8r3")]
+position = Vector2(324, 244)
 
 [connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
