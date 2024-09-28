@@ -1,7 +1,7 @@
 extends Area2D
 
 var travelled_dist = 0
-const SPEED = 35
+const SPEED = 37
 const RANGE = 1000
 @export var damage : int
 var crit_chance 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
-[ext_resource type="PackedScene" uid="uid://jjel6oav4qw4" path="res://Weapon/HCRevolver.tscn" id="6_xl8r3"]
+[ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="6_2dp7j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -128,7 +128,7 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 2, 1, 131073, 2, 65537, 131073, 
 unique_name_in_owner = true
 position = Vector2(1, 0)
 script = ExtResource("1_rqj78")
-weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn"]
+weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn"]
 maxKillCount = 1
 fameMultiTimeFrame = 5.0
 
@@ -180,8 +180,8 @@ position = Vector2(878, 394)
 [node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
 unique_name_in_owner = true
 
-[node name="HCRevolver" parent="Level" instance=ExtResource("6_xl8r3")]
-position = Vector2(324, 244)
+[node name="SpeedGun" parent="Level" instance=ExtResource("6_2dp7j")]
+position = Vector2(-39, 227)
 
 [connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]

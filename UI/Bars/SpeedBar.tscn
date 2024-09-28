@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfehxsghtnitc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr1ko"]
+bg_color = Color(0.000745091, 0.00237402, 0.00112973, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbv58"]
+bg_color = Color(0, 0.700518, 0.576198, 1)
+
+[node name="SpeedBar" type="ProgressBar"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.134
+offset_right = -1073.0
+offset_bottom = -73.832
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fr1ko")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dbv58")
+min_value = 10.0
+value = 80.0
+show_percentage = false

@@ -13,7 +13,7 @@ var pickedUpFlag : bool
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 @onready var sprite = $Gun
-@onready var game_manager = get_node("../GameManager")
+@onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 var currentAmmo = 0
 
 

@@ -8,6 +8,7 @@ extends Node2D
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float 
+var pick_up_weapon = false
 var timeSlowFlag : bool = false
 var rng = RandomNumberGenerator.new()
 var maxFame: int = 1
@@ -81,8 +82,11 @@ func _on_fame_multiplier_timer_timeout():
 	killCount = 0
 
 func _on_weapon_timer_timeout():
-	%WeaponTimer.stop()
-	get_parent().remove_child(newWeapon)
+	if pick_up_weapon == false:
+		%WeaponTimer.stop()
+		print(newWeapon.get_parent())
+		get_parent().remove_child(newWeapon)
+	pick_up_weapon = true
 
 func UpgradeChose(node_path):
 	ui.remove_child(ui.get_child(1))

@@ -32,6 +32,8 @@ var movement_controller = $MovementController
 @onready
 var target_sprite = $Target
 
+@onready
+var hitbox = $Hitbox
 var is_target = false
 var curse_timer
 

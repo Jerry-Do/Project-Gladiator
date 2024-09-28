@@ -11,7 +11,6 @@ script = ExtResource("1_fjs7d")
 
 [node name="Gun" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(28, -2)
 texture = ExtResource("2_yb4la")
 offset = Vector2(0, 15)
 
@@ -24,16 +23,16 @@ one_shot = true
 
 [node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
-position = Vector2(35, -5)
 
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(-26.6667, 1.33333)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(26, -2)
+position = Vector2(26.6667, -1.33333)
 shape = SubResource("RectangleShape2D_a3s0y")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

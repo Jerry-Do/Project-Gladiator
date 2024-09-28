@@ -20,8 +20,8 @@ func _ready():
 			print(item_name)
 			if game_manager.duplication_array.find(item_name) == -1 && spawned_items.find(item_name) == -1:
 				dup_flag = false	
-			#if game_manager.duplication_dictionary.size() == counter:
-				#end_flag = true
+			if items.size() == counter:
+				return
 		var button = preload("res://UI/Button.tscn")
 		var new_button = button.instantiate()
 		add_child(new_button)

@@ -64,7 +64,7 @@ func PickUpWeapon(weapon: Node2D):
 		weaponNode.call_deferred("remove_child", currentWeapon)
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon
-
+	game_manager.pick_up_weapon = true
 
 
 func MinusHealth(amount : int):

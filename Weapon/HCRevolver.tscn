@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jjel6oav4qw4"]
 
-[ext_resource type="Script" path="res://Weapon/HCRevolver.gd" id="1_8ab5d"]
+[ext_resource type="Script" path="res://Weapon/script/HCRevolver.gd" id="1_8ab5d"]
 [ext_resource type="Texture2D" uid="uid://dk2ogq0q6616o" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/8_1.png" id="2_24rnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://611x8m2qa2iy"]
+
+[ext_resource type="Texture2D" uid="uid://cjcdcxr41b6aj" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/2_1.png" id="1_he01a"]
+[ext_resource type="Script" path="res://Weapon/script/SpeedGun.gd" id="2_rj4q5"]
+[ext_resource type="PackedScene" uid="uid://cfehxsghtnitc" path="res://UI/Bars/SpeedBar.tscn" id="3_6sohs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
+
+[node name="SpeedGun" type="Node2D" groups=["Gun"]]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("2_rj4q5")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.001
+one_shot = true
+
+[node name="WeaponRotate" type="Marker2D" parent="."]
+
+[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
+unique_name_in_owner = true
+position = Vector2(42, -8)
+scale = Vector2(2, 2)
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(26, -2)
+shape = SubResource("RectangleShape2D_a3s0y")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(28, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("1_he01a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="SpeedBar" parent="CanvasLayer" instance=ExtResource("3_6sohs")]
+offset_left = 5.0
+offset_top = -18.0
+offset_right = -1068.0
+offset_bottom = -91.832
+scale = Vector2(0.4, 0.4)
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
