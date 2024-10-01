@@ -16,7 +16,6 @@ scale = Vector2(5.68, 4.16)
 collision_layer = 10
 collision_mask = 10
 script = ExtResource("1_jqjja")
-damage = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(-0.613033, 0.453609)
@@ -33,8 +32,8 @@ autostart = true
 
 [node name="DetectionRange" type="Area2D" parent="."]
 scale = Vector2(2.98, 3.34)
-collision_layer = 11
-collision_mask = 11
+collision_layer = 10
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 scale = Vector2(9.88, 9.84)
@@ -43,6 +42,6 @@ shape = SubResource("CircleShape2D_5h7dk")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]

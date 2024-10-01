@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
-[ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="6_2dp7j"]
+[ext_resource type="PackedScene" uid="uid://jjel6oav4qw4" path="res://Weapon/HCRevolver.tscn" id="6_0cn7u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -108,8 +108,8 @@ texture = ExtResource("5_qy8hb")
 5:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_x7vu8"]
-physics_layer_0/collision_layer = 17
-physics_layer_0/collision_mask = 17
+physics_layer_0/collision_layer = 23
+physics_layer_0/collision_mask = 23
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_bvklk")
 
@@ -128,7 +128,7 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 2, 1, 131073, 2, 65537, 131073, 
 unique_name_in_owner = true
 position = Vector2(1, 0)
 script = ExtResource("1_rqj78")
-weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn"]
+weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn"]
 maxKillCount = 1
 fameMultiTimeFrame = 5.0
 
@@ -149,6 +149,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn"]
+maxAllow = 10
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -180,8 +181,8 @@ position = Vector2(878, 394)
 [node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
 unique_name_in_owner = true
 
-[node name="SpeedGun" parent="Level" instance=ExtResource("6_2dp7j")]
-position = Vector2(-39, 227)
+[node name="HCRevolver" parent="Level" instance=ExtResource("6_0cn7u")]
+position = Vector2(119, -19)
 
 [connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]

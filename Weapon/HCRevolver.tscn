@@ -15,6 +15,7 @@ wait_time = 0.001
 one_shot = true
 
 [node name="WeaponRotate" type="Marker2D" parent="."]
+position = Vector2(101.333, 1.33333)
 
 [node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
@@ -24,8 +25,6 @@ scale = Vector2(2, 2)
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(26, -2)

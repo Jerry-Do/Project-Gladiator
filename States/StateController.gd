@@ -5,7 +5,7 @@ var starting_state: State
 
 var current_state: State
 
-func init(_parent : CharacterBody2D, movement_component):
+func init(_parent : Node2D, movement_component):
 	for child in get_children(): 
 		child.movement_component = movement_component
 	change_state(starting_state)

@@ -23,6 +23,9 @@ func process_physics(_delta: float) -> State:
 		parent.velocity = parent.softCollision.GetPushVector() * 100
 	if parent.health <= 0:
 		return dead_state
+	if direction.sign().x != parent.scale.y :
+		parent.set_scale(Vector2(1, parent.scale.y *-1) )
+		parent.set_rotation_degrees(parent.get_rotation_degrees() + 180 * -1)
 	parent.move_and_slide()
 	return null
 

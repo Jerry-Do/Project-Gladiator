@@ -18,20 +18,23 @@ func _init():
 func _physics_process(delta):
 	super._physics_process(delta)
 
-func _on_attack_range_body_entered(body):
-	playerHitBox = body
-	playerHitBox.MinusHealth(-1)
-	if body.has_method("MinusHealth"):
+
+
+func _on_attack_windup_timeout():
+	if inRange:
+		playerHitBox.TakingDamageForPlayer(-sDamage, true if playerHitBox.get_name() == "Back" else false)
+
+
+func _on_attack_range_area_entered(area):
+	playerHitBox = area
+	
+	if area.has_method("TakingDamageForPlayer"):
+		playerHitBox.TakingDamageForPlayer(-sDamage, false)
 		inRange = true
 		speed = 0
 		$AttackWindup.start(2)
 
 
-func _on_attack_range_body_exited(_body):
+func _on_attack_range_area_exited(area):
 	inRange = false
 	speed = sSpeed
-
-
-func _on_attack_windup_timeout():
-	if inRange:
-		playerHitBox.MinusHealth(-sDamage)

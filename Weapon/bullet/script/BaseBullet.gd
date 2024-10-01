@@ -1,34 +1,25 @@
 extends Area2D
-
+class_name BaseBullet
 var travelled_dist = 0
-@export var damage : int
+var damage : int
+var speed : int
 var crit_chance 
+const RANGE = 1500
 @onready var game_manager = get_node("../../../../../../GameManager")
 @onready var sprite = $Bullet
+
+
+func _init(_damage, _speed):
+	damage = _damage
+	speed = _speed
+
+
 func _physics_process(delta):
-	const SPEED = 1000
-	const RANGE = 800
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
-	travelled_dist += SPEED * delta
+	position += direction * speed * delta
+	travelled_dist += speed * delta
 	if travelled_dist > RANGE:
 		queue_free()
-
-
-func _on_body_entered(body):
-	var random
-	if get_node("../../../../../../Player").can_crit:
-		random = RandomNumberGenerator.new().randi_range(1, 5)
-		print(random)
-	if body.has_method("take_damage"):
-		body.take_damage(damage if random != 1 else damage * 2)
-		if random == 10:
-			print("crit")
-			var crit_label = preload("res://UI/Critlabel.tscn")
-			var new_label = crit_label.instantiate()
-			get_node("../../../../../../../Level").add_child(new_label)
-			new_label.position = position	
-	queue_free()
 
 
 func _on_ghost_timer_timeout():

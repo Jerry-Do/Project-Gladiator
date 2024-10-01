@@ -9,6 +9,7 @@ var direction : Vector2
 
 var usingFlag : bool = false
 
+var turn_flag : bool
 func enter() -> void:
 	super()
 	parent.animated_sprite.play("run")
@@ -24,16 +25,15 @@ func process_input(_event : InputEvent) -> State:
 func process_physics(delta: float):
 	
 	var movement = get_movement_direction() * parent.stats.ReturnSpeed()
-	if get_movement_direction().x < 0:
-		parent.animated_sprite.flip_h = true
-	elif  get_movement_direction().x > 0:
-		parent.animated_sprite.flip_h = false
 	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime() && usingFlag == false:
 		usingFlag = false
 		parent.stats.SetDashTime(delta)
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 	if movement.length() == 0:
 		return idle_state
+	
+
 	parent.velocity = movement
+	
 	parent.move_and_slide()
 	return null

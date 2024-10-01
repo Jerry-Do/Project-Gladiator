@@ -12,7 +12,6 @@ scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_u5rf1")
-damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(-0.283651, 0.213007)
@@ -25,5 +24,6 @@ texture = ExtResource("2_fj321")
 wait_time = 0.03
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

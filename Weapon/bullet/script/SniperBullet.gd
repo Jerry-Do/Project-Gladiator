@@ -1,33 +1,32 @@
-extends Area2D
-@onready var game_manager = get_node("../../../../../../GameManager")
-@onready var sprite = $Bullet
-
-var travelled_dist = 0
+extends BaseBullet
 @export var health : int
-@export var damage : int
+var c_damage = 12
+var c_speed = 1500
+
+
+func _init():
+	super._init(c_damage, c_speed)
+
 func _physics_process(delta):
-	const SPEED = 2500
-	const RANGE = 3500
-	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
-	
-	travelled_dist += SPEED * delta
-	if travelled_dist > RANGE || health <= 0:
-		queue_free()
+	super._physics_process(delta)
 
 
-func _on_body_entered(body):
+
+
+
+func _on_area_entered(area):
 	health -= 1
 	damage -= 1
-	if body.has_method("take_damage"):
-		body.take_damage(damage)
-
-func _on_ghost_timer_timeout():
-	if game_manager.timeSlowFlag:
-		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
-		get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().add_child(this_ghost)
-		this_ghost.position = position
-		this_ghost.texture = sprite.texture
-		this_ghost.flip_h = sprite.flip_h
-		this_ghost.scale = scale
-		this_ghost.rotation = rotation
+	var random
+	if get_node("../../../../../../Player").can_crit:
+		random = RandomNumberGenerator.new().randi_range(1, 5)
+	if area.has_method("TakingDamage"):
+		area.TakingDamage(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
+		if random == 10:
+			print("crit")
+			var crit_label = preload("res://UI/Critlabel.tscn")
+			var new_label = crit_label.instantiate()
+			get_node("../../../../../../../Level").add_child(new_label)
+			new_label.position = position	
+	if health <= 0:
+		queue_free()

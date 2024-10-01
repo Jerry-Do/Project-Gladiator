@@ -13,6 +13,7 @@ var pickedUpFlag : bool
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 @onready var sprite = $Gun
+
 @onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 var currentAmmo = 0
 
@@ -51,6 +52,7 @@ func _on_cooldown_timeout():
 	
 func _on_player_detector_body_entered(body):
 	if body != null:
+		print("Picked up")
 		playerDetector.set_collision_mask_value(3, false)
 		body.PickUpWeapon(self)
 		position = Vector2.ZERO

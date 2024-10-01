@@ -1,27 +1,20 @@
-extends Area2D
+extends BaseBullet
 
-var travelled_dist = 0
-@export var damage : int
-var crit_chance 
-@onready var game_manager = get_node("../../../../../../GameManager")
-@onready var sprite = $Bullet
+var c_damage = 5
+var c_speed = 1000
+
+func _init():
+	super._init(c_damage, c_speed)
+
 func _physics_process(delta):
-	const SPEED = 1000
-	const RANGE = 800
-	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
-	travelled_dist += SPEED * delta
-	if travelled_dist > RANGE:
-		queue_free()
-
-
-func _on_body_entered(body):
+	super._physics_process(delta)
+	
+func _on_area_entered(area):
 	var random
 	if get_node("../../../../../../Player").can_crit:
 		random = RandomNumberGenerator.new().randi_range(1, 5)
-		print(random)
-	if body.has_method("take_damage"):
-		body.take_damage(damage if random != 1 else damage * 2)
+	if area.has_method("TakingDamage"):
+		area.TakingDamage(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
 		if random == 10:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")
@@ -29,14 +22,3 @@ func _on_body_entered(body):
 			get_node("../../../../../../../Level").add_child(new_label)
 			new_label.position = position	
 	queue_free()
-
-
-func _on_ghost_timer_timeout():
-	if game_manager.timeSlowFlag:
-		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
-		get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().add_child(this_ghost)
-		this_ghost.position = position
-		this_ghost.texture = sprite.texture
-		this_ghost.flip_h = sprite.flip_h
-		this_ghost.scale = scale
-		this_ghost.rotation = rotation

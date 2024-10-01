@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpqtyaup0cb3p"]
+
+[ext_resource type="Script" path="res://PlayerSprite.gd" id="3_t7vkm"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(2, -3)
+scale = Vector2(4.875, 4.5)
+animation = &""
+script = ExtResource("3_t7vkm")

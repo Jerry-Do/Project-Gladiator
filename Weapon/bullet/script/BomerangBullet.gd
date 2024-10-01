@@ -15,13 +15,9 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if body.has_method("take_damage"):
-		returnFlag = true
-		body.take_damage(damage)
 	if body.has_method("PickUpBomerang"):
 		body.PickUpBomerang()
 		queue_free()
-
 
 func _on_return_timer_timeout():
 	returnFlag = true
@@ -36,3 +32,10 @@ func _on_ghost_timer_timeout():
 		this_ghost.flip_h = sprite.flip_h
 		this_ghost.scale = scale
 		this_ghost.rotation = sprite.rotation
+
+
+func _on_area_entered(area):
+	if area.has_method("TakingDamage"):
+		returnFlag = true
+		area.TakingDamage(damage,true if area.get_name() == "Back" else false)
+	

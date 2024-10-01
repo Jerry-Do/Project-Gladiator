@@ -23,13 +23,12 @@ one_shot = true
 
 [node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
+position = Vector2(44, 0)
 
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 position = Vector2(-26.6667, 1.33333)
-collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(26.6667, -1.33333)

@@ -1,10 +1,9 @@
 class_name Player
-extends CharacterBody2D
+extends Node2D
 @onready var game_manager = get_node("../GameManager")
 @onready var weaponNode: Node2D = get_node("Weapon")
 @onready var itemNode: Node2D = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
-@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
 @export var max_speed: int = 1000
@@ -34,11 +33,17 @@ func _ready():
 func _physics_process(delta):
 	state_machine.process_physics(delta)
 	if currentWeapon:
+		currentWeapon.playerDetector.set_monitoring(false)
 		currentWeapon.look_at(get_global_mouse_position())
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
-
+		
 func _process(delta):
 	taking_damage = false
+	var mouse_pos = get_viewport().get_mouse_position()
+	var direction = get_global_mouse_position() - global_position
+	if direction.sign().x != scale.y:
+		set_scale(Vector2(1, scale.y*-1))
+		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
 	state_machine.process_frame(delta)
 	
 func _unhandled_input(event):
@@ -59,23 +64,27 @@ func _unhandled_input(event):
 			
 func PickUpWeapon(weapon: Node2D):
 	if weapon != null:
-		weapon.get_parent().call_deferred("remove_child", weapon)
+		get_parent().call_deferred("remove_child", weapon)
 	if currentWeapon != null:	
 		weaponNode.call_deferred("remove_child", currentWeapon)
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon
+	
 	game_manager.pick_up_weapon = true
 
 
-func MinusHealth(amount : int):
+func MinusHealth(amount : int, is_backshot = false):
 	if !invincibleState:
 		if shield_amount > 0:	
 			get_node("Item/Shield").TakingDamage()
-			shield_amount += amount
+			shield_amount += amount * 2 if is_backshot else amount * 1
 			healthBar._set_shield(shield_amount)
+			print(stats.ReturnHealth())
 		else:
-			stats.SetHealth(amount)
+			
+			stats.SetHealth(amount * 2 if is_backshot else  amount * 1)
 			healthBar._set_health(stats.ReturnHealth())
+			print(stats.ReturnHealth())
 	
 
 	

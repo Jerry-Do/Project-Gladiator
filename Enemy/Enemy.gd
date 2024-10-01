@@ -32,8 +32,6 @@ var movement_controller = $MovementController
 @onready
 var target_sprite = $Target
 
-@onready
-var hitbox = $Hitbox
 var is_target = false
 var curse_timer
 
@@ -59,9 +57,10 @@ func _physics_process(delta: float):
 	state_manager.process_physics(delta)
 	
 
-func take_damage(amount : int):
+func MinusHealth(amount : int, is_backshot: bool):
 	health -= amount
-	
+	if health <= 0:
+		queue_free()
 	
 func ReturnFame():
 	return fameAmount
