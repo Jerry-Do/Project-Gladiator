@@ -1,7 +1,4 @@
 extends Node2D
-
-
-
 class_name Weapon
 var rateOfFire = 0
 var reloadTime = 0
@@ -33,13 +30,7 @@ func _process(_delta):
 		reloadFlag = true
 		$ReloadTimer.start(reloadTime if game_manager.timeSlowFlag == false else reloadTime * 0.25)
 		print("Reloading")
-	if get_parent().name == "Weapon":
-		var mouse_pos = get_viewport().get_mouse_position()
-		var direction = get_global_mouse_position() - global_position
-		if direction.sign().x < 0:
-			sprite.set_flip_v(true)
-		else:
-			sprite.set_flip_v(false)
+
 
 func _on_reload_timer_timeout():
 	currentAmmo = maxAmmo

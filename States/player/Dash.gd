@@ -53,4 +53,5 @@ func _on_ghost_timer_timeout():
 		this_ghost.position = parent.position
 		this_ghost.texture = parent.animated_sprite.sprite_frames.get_frame_texture("run",parent.animated_sprite.frame)
 		this_ghost.flip_h =  parent.animated_sprite.flip_h
-		this_ghost.scale = parent.animated_sprite.scale
+		this_ghost.scale = parent.animated_sprite.scale * parent.scale
+		this_ghost.rotation = parent.rotation

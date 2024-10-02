@@ -58,7 +58,7 @@ func _physics_process(delta: float):
 	
 
 func MinusHealth(amount : int, is_backshot: bool):
-	health -= amount
+	health -= amount * 1.2 if is_backshot else 1
 	if health <= 0:
 		queue_free()
 	
@@ -71,8 +71,9 @@ func _on_ghost_timer_timeout():
 		get_parent().add_child(this_ghost)
 		this_ghost.position = position
 		this_ghost.texture = sprite.sprite_frames.get_frame_texture("run",sprite.frame)
-		this_ghost.flip_h = sprite.flip_h
-		this_ghost.scale = sprite.scale
+		this_ghost.flip_h =  sprite.flip_h
+		this_ghost.scale = sprite.scale * scale
+		this_ghost.rotation = rotation
 
 func SetTarget():
 	is_target = true

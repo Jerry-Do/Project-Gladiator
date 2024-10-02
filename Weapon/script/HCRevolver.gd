@@ -23,8 +23,8 @@ func shoot():
 		currentAmmo -=1
 		$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
 
-func _unhandled_input(event):
-	if event.is_action_pressed("right_click") && target_bullet_flag:
+func UseGunAbility():
+	if target_bullet_flag:
 		var target_bullet = preload("res://Weapon/bullet/TargetBullet.tscn")
 		var new_bullet = target_bullet.instantiate()
 		new_bullet.position = %Shootingpoint.global_position 

@@ -2,12 +2,12 @@
 extends Weapon
 
 
-var _cMaxAmmo = 8
-var _cRateOfFire = 0.25
-var _cReloadTime = 1.5
+var _cMaxAmmo = 4
+var _cRateOfFire = 1.25
+var _cReloadTime = 2
 
 func _init():
-	super._init("res://Weapon/bullet/Bullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	super._init("res://Weapon/bullet/ExecutionerBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
 	
 func _process(delta):
 	super._process(delta)	
@@ -23,3 +23,12 @@ func shoot():
 		shootFlag = false
 		$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
 		
+#func UseGunAbility():
+	#if player != null:
+		#player.is_invisible = true
+		#player.animated_sprite.set_self_modulate(Color(1,1,1,0))
+#
+#
+#func _on_duration_timeout():
+	#if player != null:
+		#player.is_invisible = false

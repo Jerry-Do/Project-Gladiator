@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
-[ext_resource type="PackedScene" uid="uid://jjel6oav4qw4" path="res://Weapon/HCRevolver.tscn" id="6_0cn7u"]
+[ext_resource type="PackedScene" uid="uid://d4lcel1hv5in2" path="res://Weapon/Executioner.tscn" id="6_hedrx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -149,7 +149,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn"]
-maxAllow = 10
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -181,8 +180,8 @@ position = Vector2(878, 394)
 [node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
 unique_name_in_owner = true
 
-[node name="HCRevolver" parent="Level" instance=ExtResource("6_0cn7u")]
-position = Vector2(119, -19)
+[node name="Executioner" parent="Level" instance=ExtResource("6_hedrx")]
+onFloor = null
 
 [connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]

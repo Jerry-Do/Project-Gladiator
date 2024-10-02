@@ -35,7 +35,7 @@ func _on_ghost_timer_timeout():
 
 
 func _on_area_entered(area):
-	if area.has_method("TakingDamage"):
+	if area.has_method("TakingDamageForEnemy"):
 		returnFlag = true
-		area.TakingDamage(damage,true if area.get_name() == "Back" else false)
+		area.TakingDamageForEnemy(damage,true if area.get_name() == "Back" else false)
 	

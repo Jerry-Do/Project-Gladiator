@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=31 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" path="res://Enemy/Slime.gd" id="1_kkhy6"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_sl4u6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_n8w6a"]
 [ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_wvfs4"]
 [ext_resource type="Script" path="res://Enemy/Movement_getter_enemy.gd" id="9_ds4wk"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_rgvpm"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
 [ext_resource type="Script" path="res://Enemy/TakingDamageEnemy.gd" id="11_yf58g"]
 
@@ -127,8 +128,6 @@ size = Vector2(65, 47)
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 10
 collision_mask = 10
-motion_mode = 1
-wall_min_slide_angle = 0.0
 script = ExtResource("1_kkhy6")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_sl4u6")]
@@ -141,6 +140,8 @@ position = Vector2(1, -15)
 shape = SubResource("CircleShape2D_prdhd")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+debug_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -159,22 +160,29 @@ scale = Vector2(1.85714, 4.48571)
 shape = SubResource("RectangleShape2D_8y685")
 
 [node name="AttackWindup" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("5_pekyf")
 starting_state = NodePath("Move")
 
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state")]
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
 script = ExtResource("6_m6gm6")
 dead_state = NodePath("../Dead")
 stun_state = NodePath("../Stun")
 move_state = NodePath(".")
+attack_state = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="StateControl"]
 script = ExtResource("7_n8w6a")
 
 [node name="Stun" type="Node" parent="StateControl"]
 script = ExtResource("8_wvfs4")
+
+[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("9_rgvpm")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -215,9 +223,12 @@ shape = SubResource("RectangleShape2D_lm1mg")
 position = Vector2(0.5, -23.5)
 shape = SubResource("RectangleShape2D_h4mvs")
 
-[connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="." method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="AttackWindup" to="." method="_on_attack_windup_timeout"]
+[node name="CollisionTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
 
 [editable path="SoftCollision"]

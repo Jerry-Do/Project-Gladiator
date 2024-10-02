@@ -17,6 +17,7 @@ var currentItem: Node2D
 var invincibleState : bool = false
 var recharge_flag : bool = false
 var taking_damage : bool = false
+var is_invisible = false
 @onready 
 var state_machine = $StateControl
 
@@ -41,9 +42,11 @@ func _process(delta):
 	taking_damage = false
 	var mouse_pos = get_viewport().get_mouse_position()
 	var direction = get_global_mouse_position() - global_position
+	
 	if direction.sign().x != scale.y:
 		set_scale(Vector2(1, scale.y*-1))
 		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
+		
 	state_machine.process_frame(delta)
 	
 func _unhandled_input(event):
@@ -52,6 +55,8 @@ func _unhandled_input(event):
 		if event.is_action_pressed("left_click"):			
 			currentWeapon.shoot()	
 			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
+		if event.is_action_pressed("right_click") && currentWeapon.has_method("UseGunAbility"):
+			currentWeapon.UseGunAbility()
 	if currentItem: 
 		if event.is_action_pressed("ui_use_relic"):
 			currentItem.Use()

@@ -31,9 +31,6 @@ func process_physics(delta: float):
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 	if movement.length() == 0:
 		return idle_state
-	
-
 	parent.velocity = movement
-	
 	parent.move_and_slide()
 	return null

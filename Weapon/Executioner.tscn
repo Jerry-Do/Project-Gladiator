@@ -1,18 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://fi7wr8xetsfl"]
+[gd_scene load_steps=4 format=3 uid="uid://d4lcel1hv5in2"]
 
-[ext_resource type="Script" path="res://Weapon/script/Bomerang.gd" id="1_fjs7d"]
-[ext_resource type="Texture2D" uid="uid://ctd1lxbhmn5r6" path="res://Sprite/Player/bomerang.png" id="2_yb4la"]
+[ext_resource type="Script" path="res://Weapon/Script/Executioner.gd" id="1_cdr3b"]
+[ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="2_unhnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
 
-[node name="Bomerang" type="Node2D" groups=["Gun"]]
+[node name="Executioner" type="Node2D" groups=["Gun"]]
 scale = Vector2(0.75, 0.75)
-script = ExtResource("1_fjs7d")
-
-[node name="Gun" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-texture = ExtResource("2_yb4la")
-offset = Vector2(0, 15)
+script = ExtResource("1_cdr3b")
+onFloor = null
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -23,17 +19,27 @@ one_shot = true
 
 [node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
-position = Vector2(28, -5.33333)
+position = Vector2(42, -8)
+scale = Vector2(2, 2)
 
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-position = Vector2(-26.6667, 1.33333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(26.6667, -1.33333)
+position = Vector2(26, -2)
 shape = SubResource("RectangleShape2D_a3s0y")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(28, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("2_unhnw")
+
+[node name="Duration" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]

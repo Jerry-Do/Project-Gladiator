@@ -15,7 +15,7 @@ wait_time = 0.001
 one_shot = true
 
 [node name="WeaponRotate" type="Marker2D" parent="."]
-position = Vector2(101.333, 1.33333)
+position = Vector2(52, -4)
 
 [node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
