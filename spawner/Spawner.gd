@@ -14,20 +14,13 @@ var spawnFlag : bool = true
 var spawnCount : int = 0
 var currentEnemyCount : int = 0
 
-	
-
-
 func _physics_process(_delta):
 	if spawnFlag && spawnCount < maxAllow:
 		spawnFlag = false
 		$SpawnTimer.start(interval)
 	if spawnCount >= maxAllow:
 		$SpawnTimer.stop()
-	
 
-		
-	
-	
 func OnEnemyKilled():
 	currentEnemyCount -= 1
 	if currentEnemyCount <= 0 && spawnCount >= maxAllow:

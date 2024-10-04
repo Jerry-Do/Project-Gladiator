@@ -1,11 +1,13 @@
+extends CharacterBody2D
 class_name Player
-extends Node2D
+
 @onready var game_manager = get_node("../GameManager")
 @onready var weaponNode: Node2D = get_node("Weapon")
 @onready var itemNode: Node2D = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
+@onready var target_sprite = $Target
 @export var max_speed: int = 1000
 var can_crit = false
 var shield_amount : int
@@ -74,7 +76,6 @@ func PickUpWeapon(weapon: Node2D):
 		weaponNode.call_deferred("remove_child", currentWeapon)
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon
-	
 	game_manager.pick_up_weapon = true
 
 

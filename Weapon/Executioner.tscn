@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4lcel1hv5in2"]
 
-[ext_resource type="Script" path="res://Weapon/Script/Executioner.gd" id="1_cdr3b"]
+[ext_resource type="Script" path="res://Weapon/script/Executioner.gd" id="1_tm5s1"]
 [ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="2_unhnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
 
 [node name="Executioner" type="Node2D" groups=["Gun"]]
 scale = Vector2(0.75, 0.75)
-script = ExtResource("1_cdr3b")
-onFloor = null
+script = ExtResource("1_tm5s1")
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -39,7 +38,11 @@ texture = ExtResource("2_unhnw")
 wait_time = 4.0
 one_shot = true
 
+[node name="SkillCooldown" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]
+[connection signal="timeout" from="SkillCooldown" to="." method="_on_skill_cooldown_timeout"]

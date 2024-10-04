@@ -22,7 +22,7 @@ func _on_area_entered(area):
 		if fully_charged:
 			damage += extra_damage
 		area.TakingDamageForEnemy(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
-		if random == 10:
+		if random == 1:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")
 			var new_label = crit_label.instantiate()

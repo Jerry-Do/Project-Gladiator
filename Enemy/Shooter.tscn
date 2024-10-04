@@ -1,88 +1,89 @@
-[gd_scene load_steps=31 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=31 format=3 uid="uid://dbgol3ftdidov"]
 
-[ext_resource type="Script" path="res://Enemy/Slime.gd" id="1_kkhy6"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_sl4u6"]
-[ext_resource type="Texture2D" uid="uid://wy3wfrlclh2i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_idle_spritesheet.png" id="3_8br2t"]
-[ext_resource type="Texture2D" uid="uid://d2ydh0uhfvq0e" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_spritesheeet.png" id="4_6le6w"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="5_pekyf"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_m6gm6"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_n8w6a"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_wvfs4"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_rgvpm"]
-[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
-[ext_resource type="Script" path="res://Enemy/TakingDamageEnemy.gd" id="11_yf58g"]
+[ext_resource type="Script" path="res://Enemy/Shooter.gd" id="1_mv28k"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_6671a"]
+[ext_resource type="Texture2D" uid="uid://copwa00exa70q" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_idle_spritesheet.png" id="3_4f8no"]
+[ext_resource type="Texture2D" uid="uid://da8v5yxcqdar1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_spritesheet.png" id="4_r8app"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="5_ggqpv"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_c21do"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_g0uho"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_gca6n"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_ffl5q"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_ul2y7"]
+[ext_resource type="Script" path="res://Enemy/TakingDamageEnemy.gd" id="11_in2y1"]
+[ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="12_xspr4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
 radius = 48.1016
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_likfa"]
-atlas = ExtResource("3_8br2t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qldp0"]
+atlas = ExtResource("3_4f8no")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8gvd"]
-atlas = ExtResource("3_8br2t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yea7w"]
+atlas = ExtResource("3_4f8no")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1tg1p"]
-atlas = ExtResource("3_8br2t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_444l8"]
+atlas = ExtResource("3_4f8no")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_esrka"]
-atlas = ExtResource("3_8br2t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvw1w"]
+atlas = ExtResource("3_4f8no")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvkcj"]
-atlas = ExtResource("3_8br2t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6jxm"]
+atlas = ExtResource("3_4f8no")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t53cc"]
-atlas = ExtResource("3_8br2t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvsok"]
+atlas = ExtResource("3_4f8no")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jucmn"]
-atlas = ExtResource("4_6le6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ycnd"]
+atlas = ExtResource("4_r8app")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7fna5"]
-atlas = ExtResource("4_6le6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm8f7"]
+atlas = ExtResource("4_r8app")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ncas"]
-atlas = ExtResource("4_6le6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyif8"]
+atlas = ExtResource("4_r8app")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejb6u"]
-atlas = ExtResource("4_6le6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5ugy"]
+atlas = ExtResource("4_r8app")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pp01l"]
-atlas = ExtResource("4_6le6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj4uw"]
+atlas = ExtResource("4_r8app")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4nqb"]
-atlas = ExtResource("4_6le6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_omkl6"]
+atlas = ExtResource("4_r8app")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qe224"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcg8h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_likfa")
+"texture": SubResource("AtlasTexture_qldp0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i8gvd")
+"texture": SubResource("AtlasTexture_yea7w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1tg1p")
+"texture": SubResource("AtlasTexture_444l8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_esrka")
+"texture": SubResource("AtlasTexture_dvw1w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bvkcj")
+"texture": SubResource("AtlasTexture_h6jxm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t53cc")
+"texture": SubResource("AtlasTexture_pvsok")
 }],
 "loop": true,
 "name": &"idle",
@@ -90,49 +91,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jucmn")
+"texture": SubResource("AtlasTexture_8ycnd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7fna5")
+"texture": SubResource("AtlasTexture_sm8f7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ncas")
+"texture": SubResource("AtlasTexture_dyif8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ejb6u")
+"texture": SubResource("AtlasTexture_j5ugy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pp01l")
+"texture": SubResource("AtlasTexture_bj4uw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t4nqb")
+"texture": SubResource("AtlasTexture_omkl6")
 }],
 "loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y685"]
-size = Vector2(60.3077, 14.1189)
-
-[sub_resource type="GDScript" id="GDScript_l34si"]
-script/source = "extends Node
-var parent = get_parent()
-
-func get_movement_direction():
-	MakePath()
-	
-func MakePath():
-	if parent.player != null:
-		parent.navAgent.target_position = parent.player.global_position
-		##$AnimatedSprite2D.play(\"run\")
-		##if(parent.player.position.x - parent.position.x) < 0:
-		##	$AnimatedSprite2D.flip_h = true
-		##else:
-			##$AnimatedSprite2D.flip_h = false
-	##else:
-		##$AnimatedSprite2D.play(\"idle\")
-"
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
+radius = 62.1924
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
 size = Vector2(29, 41)
@@ -141,14 +123,14 @@ size = Vector2(29, 41)
 size = Vector2(33, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
-size = Vector2(65, 47)
+size = Vector2(42, 35)
 
-[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
+[node name="Shooter" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 26
-collision_mask = 26
-script = ExtResource("1_kkhy6")
+collision_mask = 21
+script = ExtResource("1_mv28k")
 
-[node name="SoftCollision" parent="." instance=ExtResource("2_sl4u6")]
+[node name="SoftCollision" parent="." instance=ExtResource("2_6671a")]
 scale = Vector2(0.755759, 0.0916106)
 collision_layer = 16
 collision_mask = 16
@@ -163,9 +145,8 @@ debug_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_qe224")
-animation = &"idle"
-frame_progress = 0.51541
+sprite_frames = SubResource("SpriteFrames_qcg8h")
+animation = &"run"
 offset = Vector2(0, -6)
 
 [node name="AttackRange" type="Area2D" parent="."]
@@ -173,39 +154,38 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(6, -20.3333)
-scale = Vector2(1.85714, 4.48571)
-shape = SubResource("RectangleShape2D_8y685")
+position = Vector2(7.50004, -24.8333)
+scale = Vector2(4.77714, 4.48571)
+shape = SubResource("CircleShape2D_hkrb0")
 
 [node name="AttackWindup" type="Timer" parent="."]
 unique_name_in_owner = true
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("5_pekyf")
+script = ExtResource("5_ggqpv")
 starting_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("6_m6gm6")
+script = ExtResource("6_c21do")
 dead_state = NodePath("../Dead")
 stun_state = NodePath("../Stun")
 move_state = NodePath(".")
 attack_state = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("7_n8w6a")
+script = ExtResource("7_g0uho")
 
 [node name="Stun" type="Node" parent="StateControl"]
-script = ExtResource("8_wvfs4")
+script = ExtResource("8_gca6n")
 
 [node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("9_rgvpm")
+script = ExtResource("9_ffl5q")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MovementController" type="Node" parent="."]
-script = SubResource("GDScript_l34si")
 
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.05
@@ -216,12 +196,12 @@ visible = false
 position = Vector2(1, -24)
 rotation = -3.14159
 scale = Vector2(2.28506, -1.71179)
-texture = ExtResource("10_30tjh")
+texture = ExtResource("10_ul2y7")
 
 [node name="Back" type="Area2D" parent="."]
 collision_layer = 11
 collision_mask = 11
-script = ExtResource("11_yf58g")
+script = ExtResource("11_in2y1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
 position = Vector2(-16, -20)
@@ -231,22 +211,30 @@ debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 [node name="Front" type="Area2D" parent="."]
 collision_layer = 11
 collision_mask = 11
-script = ExtResource("11_yf58g")
+script = ExtResource("11_in2y1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(17, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -23.5)
+position = Vector2(-5, -21)
 shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
 
 [node name="TurnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 0.4
 autostart = true
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(51, -23)
+
+[node name="Sprite2D" type="Sprite2D" parent="Aim"]
+position = Vector2(2, -2)
+scale = Vector2(1.75, 1.5625)
+texture = ExtResource("12_xspr4")
 
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]

@@ -7,6 +7,7 @@ var current_state: State
 
 func init(_parent : Node2D, movement_component):
 	for child in get_children(): 
+		child.parent = _parent
 		child.movement_component = movement_component
 	change_state(starting_state)
 
@@ -17,7 +18,7 @@ func change_state(new_state : State) -> void:
 	current_state.enter()
 
 func process_physics(delta : float) -> void:
-	var new_state = current_state.process_physics(delta)
+	var new_state = await current_state.process_physics(delta)
 	if new_state:
 		change_state(new_state)
 

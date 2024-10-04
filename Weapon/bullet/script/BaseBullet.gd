@@ -5,7 +5,7 @@ var damage : int
 var speed : int
 var crit_chance 
 const RANGE = 1500
-@onready var game_manager = get_node("../../../../../../GameManager")
+@onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 @onready var sprite = $Bullet
 
 

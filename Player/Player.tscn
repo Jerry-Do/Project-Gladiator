@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://j7b5738f8mjj"]
+[gd_scene load_steps=29 format=3 uid="uid://j7b5738f8mjj"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ascps"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Player/TakingDamageForPlayer.gd" id="9_6761q"]
 [ext_resource type="PackedScene" uid="uid://ddr3kchg8b5xo" path="res://Back.tscn" id="9_tmoh4"]
 [ext_resource type="PackedScene" uid="uid://gf8e7mfhnvda" path="res://Front.tscn" id="11_7n4bc"]
+[ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="13_emvkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6dn"]
 size = Vector2(20, 60)
@@ -186,10 +187,16 @@ script = ExtResource("9_6761q")
 shape = SubResource("RectangleShape2D_1bmgx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.499999, -6)
+position = Vector2(-1, -5)
 scale = Vector2(4.9375, 4.25)
 sprite_frames = SubResource("SpriteFrames_yxp6f")
 animation = &"run"
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -0.5)
+scale = Vector2(2.625, 2.5625)
+texture = ExtResource("13_emvkc")
 
 [connection signal="timeout" from="Timer/DashTimer" to="StateControl/Dash" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/GhostTimer" to="StateControl/Dash" method="_on_ghost_timer_timeout"]

@@ -5,8 +5,10 @@ var speed: float
 var damage: float
 var fameAmount : int
 var chase: bool
+var inRange: bool = false
+var playerHitBox : Node2D
 @onready 
-var player = get_node("../Player")
+var player : Player = get_node("../Player")
 
 @onready 
 var game_manager = get_node("../GameManager")
@@ -59,8 +61,7 @@ func _physics_process(delta: float):
 
 func MinusHealth(amount : int, is_backshot: bool):
 	health -= amount * 1.2 if is_backshot else 1
-	if health <= 0:
-		queue_free()
+
 	
 func ReturnFame():
 	return fameAmount

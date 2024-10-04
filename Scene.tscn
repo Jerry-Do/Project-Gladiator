@@ -128,7 +128,7 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 2, 1, 131073, 2, 65537, 131073, 
 unique_name_in_owner = true
 position = Vector2(1, 0)
 script = ExtResource("1_rqj78")
-weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn"]
+weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn"]
 maxKillCount = 1
 fameMultiTimeFrame = 5.0
 
@@ -148,7 +148,7 @@ unique_name_in_owner = true
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
 unique_name_in_owner = true
 position = Vector2(577, 267)
-enemies = ["res://Enemy/Slime.tscn"]
+enemies = ["res://Enemy/Shooter.tscn"]
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -181,7 +181,6 @@ position = Vector2(878, 394)
 unique_name_in_owner = true
 
 [node name="Executioner" parent="Level" instance=ExtResource("6_hedrx")]
-onFloor = null
 
 [connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
