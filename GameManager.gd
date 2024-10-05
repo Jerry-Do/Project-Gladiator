@@ -93,7 +93,7 @@ func UpgradeChose(node_path):
 	var player = get_node("../Player")
 	var item = load(node_path)
 	var new_item = item.instantiate()
-	player.get_child(6).add_child(new_item)
+	player.get_node("Item").add_child(new_item)
 	duplication_array.append(new_item.ReturnName())
 	new_item.item_sprite.hide()
 	StartWave()

@@ -20,7 +20,7 @@ func process_input(_event : InputEvent) -> State:
 func process_physics(_delta: float) -> State:
 	if parent.health <= 0:
 		return dead_state
-	if parent.player.is_invisible == false:
+	if  parent.player.is_invisible == false:
 		parent.speed = parent.sSpeed
 		var direction = (parent.player.position - parent.position).normalized()
 		parent.position += direction * parent.speed * _delta

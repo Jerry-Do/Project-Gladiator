@@ -1,0 +1,309 @@
+[gd_scene load_steps=31 format=3 uid="uid://chlri8tgr500q"]
+
+[ext_resource type="Script" path="res://Enemy/script/assassin.gd" id="1_uqywf"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_cco5b"]
+[ext_resource type="Texture2D" uid="uid://da8v5yxcqdar1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_spritesheet.png" id="3_qjvoc"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="5_u4tn3"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_mo1vd"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_j6jcm"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_evfrc"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_o6f11"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_i832f"]
+[ext_resource type="Texture2D" uid="uid://dc1cspjor6qp2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png" id="11_2gken"]
+[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_7it7i"]
+[ext_resource type="Texture2D" uid="uid://75etx4knwnan" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f1.png" id="12_2swpf"]
+[ext_resource type="Texture2D" uid="uid://c8rs13jf7yr6l" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f2.png" id="13_7m0yo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
+radius = 48.1016
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enits"]
+atlas = ExtResource("3_qjvoc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo6c1"]
+atlas = ExtResource("3_qjvoc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkfsy"]
+atlas = ExtResource("3_qjvoc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi7v5"]
+atlas = ExtResource("3_qjvoc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve2if"]
+atlas = ExtResource("3_qjvoc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di4x8"]
+atlas = ExtResource("3_qjvoc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qe224"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enits")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo6c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkfsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi7v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve2if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di4x8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j24ba"]
+radius = 95.9292
+
+[sub_resource type="GDScript" id="GDScript_l34si"]
+script/source = "extends Node
+var parent = get_parent()
+
+func get_movement_direction():
+	MakePath()
+	
+func MakePath():
+	if parent.player != null:
+		parent.navAgent.target_position = parent.player.global_position
+		##$AnimatedSprite2D.play(\"run\")
+		##if(parent.player.position.x - parent.position.x) < 0:
+		##	$AnimatedSprite2D.flip_h = true
+		##else:
+			##$AnimatedSprite2D.flip_h = false
+	##else:
+		##$AnimatedSprite2D.play(\"idle\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
+size = Vector2(29, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
+size = Vector2(33, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
+size = Vector2(65, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuk11"]
+size = Vector2(20, 70)
+
+[sub_resource type="Animation" id="Animation_cg74m"]
+resource_name = "attack"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_2swpf"), ExtResource("11_2gken"), ExtResource("13_7m0yo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_22odk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_2gken")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu717"]
+_data = {
+"RESET": SubResource("Animation_22odk"),
+"attack": SubResource("Animation_cg74m")
+}
+
+[node name="Assassin" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 26
+collision_mask = 26
+script = ExtResource("1_uqywf")
+
+[node name="SoftCollision" parent="." instance=ExtResource("2_cco5b")]
+visible = false
+scale = Vector2(0.755759, 0.0916106)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(1, -15)
+shape = SubResource("CircleShape2D_prdhd")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+debug_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qe224")
+animation = &"run"
+offset = Vector2(0, -6)
+
+[node name="AttackRange" type="Area2D" parent="."]
+visible = false
+position = Vector2(-3, 0)
+scale = Vector2(2.16667, 2.32)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(6, -20.3333)
+scale = Vector2(1.85714, 1.38226)
+shape = SubResource("CircleShape2D_j24ba")
+
+[node name="AttackWindup" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("5_u4tn3")
+starting_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
+script = ExtResource("6_mo1vd")
+dead_state = NodePath("../Dead")
+stun_state = NodePath("../Stun")
+move_state = NodePath(".")
+attack_state = NodePath("../Attack")
+
+[node name="Dead" type="Node" parent="StateControl"]
+script = ExtResource("7_j6jcm")
+
+[node name="Stun" type="Node" parent="StateControl"]
+script = ExtResource("8_evfrc")
+
+[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("9_o6f11")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MovementController" type="Node" parent="."]
+script = SubResource("GDScript_l34si")
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -24)
+rotation = -3.14159
+scale = Vector2(2.28506, -1.71179)
+texture = ExtResource("10_i832f")
+
+[node name="Back" type="Area2D" parent="."]
+visible = false
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("11_7it7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(-16, -20)
+shape = SubResource("RectangleShape2D_vff1d")
+debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
+
+[node name="Front" type="Area2D" parent="."]
+visible = false
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("11_7it7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
+position = Vector2(17, -19)
+shape = SubResource("RectangleShape2D_lm1mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, -23.5)
+shape = SubResource("RectangleShape2D_h4mvs")
+
+[node name="CollisionTimer" type="Timer" parent="."]
+
+[node name="TurnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.25
+autostart = true
+
+[node name="Attack" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(52, -35)
+shape = SubResource("RectangleShape2D_iuk11")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Attack"]
+libraries = {
+"": SubResource("AnimationLibrary_eu717")
+}
+
+[node name="Timer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack"]
+position = Vector2(52, -36)
+scale = Vector2(1, 4.76)
+texture = ExtResource("11_2gken")
+
+[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
+[connection signal="timeout" from="Attack/Timer" to="." method="_on_timer_timeout"]
+
+[editable path="SoftCollision"]

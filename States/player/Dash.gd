@@ -2,10 +2,7 @@ extends Move
 @export
 var move_state: State
 
-
-
 var tmp 
-
 
 @onready
 var dash_timer = %DashTimer
@@ -19,7 +16,6 @@ func enter() -> void:
 	parent.stats.SetSpeed(2500)
 	usingFlag = true
 	Engine.time_scale = 0.25
-	
 	parent.invincibleState = true
 	parent.game_manager.timeSlowFlag = true
 		

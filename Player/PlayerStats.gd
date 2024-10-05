@@ -14,10 +14,6 @@ var stats = {
 }
 signal no_health
 
-
-	
-	
-	
 func SetHealth(value):
 	stats.Health += value
 	if stats.Health <= 0:

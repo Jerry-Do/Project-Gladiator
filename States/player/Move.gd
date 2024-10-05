@@ -23,7 +23,6 @@ func process_input(_event : InputEvent) -> State:
 	return null
 		
 func process_physics(delta: float):
-	
 	var movement = get_movement_direction() * parent.stats.ReturnSpeed()
 	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime() && usingFlag == false:
 		usingFlag = false

@@ -7,6 +7,8 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
+@onready var back_hitbox : Area2D = $Back
+@onready var front_hitbox : Area2D = $Front
 @onready var target_sprite = $Target
 @export var max_speed: int = 1000
 var can_crit = false
@@ -44,11 +46,9 @@ func _process(delta):
 	taking_damage = false
 	var mouse_pos = get_viewport().get_mouse_position()
 	var direction = get_global_mouse_position() - global_position
-	
 	if direction.sign().x != scale.y:
 		set_scale(Vector2(1, scale.y*-1))
 		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
-		
 	state_machine.process_frame(delta)
 	
 func _unhandled_input(event):
@@ -85,12 +85,9 @@ func MinusHealth(amount : int, is_backshot = false):
 			get_node("Item/Shield").TakingDamage()
 			shield_amount += amount * 2 if is_backshot else amount * 1
 			healthBar._set_shield(shield_amount)
-			print(stats.ReturnHealth())
 		else:
-			
 			stats.SetHealth(amount * 2 if is_backshot else  amount * 1)
 			healthBar._set_health(stats.ReturnHealth())
-			print(stats.ReturnHealth())
 	
 
 	

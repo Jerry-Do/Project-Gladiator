@@ -7,7 +7,7 @@ func _ready():
 	item_name = "EnergyShield"
 	display_name = "Energy Shield"
 	item_description = "Gives the player a shield"
-	if get_parent() == player.get_child(6):
+	if get_parent() == player.get_node("Item"):
 		player.shield_amount = amount
 		player.healthBar.shield_bar.show()
 		player.healthBar.init_shield(amount)

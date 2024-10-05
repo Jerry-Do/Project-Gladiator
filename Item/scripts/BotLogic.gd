@@ -37,9 +37,5 @@ func _unhandled_input(event):
 		shoot_flag = false
 		$Downtime.start()
 
-
-
-
-
 func _on_downtime_timeout():
 	shoot_flag = true

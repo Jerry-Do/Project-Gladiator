@@ -170,6 +170,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Back" parent="." instance=ExtResource("8_qmrd3")]
+collision_mask = 5
 
 [node name="CollisionShape2D" parent="Back" instance=ExtResource("9_tmoh4")]
 position = Vector2(-11, -4)

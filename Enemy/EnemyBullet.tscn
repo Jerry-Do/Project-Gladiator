@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cf62eoxfd7wbi"]
 
-[ext_resource type="Script" path="res://Enemy/EnemyBullet.gd" id="1_82y86"]
+[ext_resource type="Script" path="res://Enemy/script/EnemyBullet.gd" id="1_82y86"]
 [ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="2_1tbli"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]

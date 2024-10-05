@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://dbgol3ftdidov"]
 
-[ext_resource type="Script" path="res://Enemy/Shooter.gd" id="1_mv28k"]
+[ext_resource type="Script" path="res://Enemy/script/Shooter.gd" id="1_mv28k"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_6671a"]
 [ext_resource type="Texture2D" uid="uid://copwa00exa70q" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_idle_spritesheet.png" id="3_4f8no"]
 [ext_resource type="Texture2D" uid="uid://da8v5yxcqdar1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_spritesheet.png" id="4_r8app"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_gca6n"]
 [ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_ffl5q"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_ul2y7"]
-[ext_resource type="Script" path="res://Enemy/TakingDamageEnemy.gd" id="11_in2y1"]
+[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_in2y1"]
 [ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="12_xspr4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]

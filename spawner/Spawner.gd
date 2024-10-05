@@ -14,6 +14,11 @@ var spawnFlag : bool = true
 var spawnCount : int = 0
 var currentEnemyCount : int = 0
 
+signal WaveComplete
+
+func _ready():
+	connect("WaveComplete", game_manager.WaveComplete)
+	
 func _physics_process(_delta):
 	if spawnFlag && spawnCount < maxAllow:
 		spawnFlag = false
@@ -25,7 +30,7 @@ func OnEnemyKilled():
 	currentEnemyCount -= 1
 	if currentEnemyCount <= 0 && spawnCount >= maxAllow:
 		currentEnemyCount = 0
-		game_manager.WaveComplete()
+		WaveComplete.emit()
 
 func _on_spawn_timer_timeout():
 	var randomNo = rng.randi_range(0, enemies.size() - 1)
