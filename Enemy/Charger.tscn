@@ -1,26 +1,26 @@
-[gd_scene load_steps=25 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=26 format=3 uid="uid://b6bm8ksr7sutl"]
 
-[ext_resource type="Script" path="res://Enemy/script/Slime.gd" id="1_kkhy6"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_sl4u6"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="5_pekyf"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_m6gm6"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_n8w6a"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_wvfs4"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_rgvpm"]
-[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
-[ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="10_rnjbw"]
-[ext_resource type="Texture2D" uid="uid://cj7os7hgbjb4e" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png" id="11_pxwbt"]
-[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_yf58g"]
-[ext_resource type="Texture2D" uid="uid://dxyaipjj47xjl" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png" id="12_0j6jw"]
-[ext_resource type="Texture2D" uid="uid://dntlp2r8oeoic" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png" id="13_i2kum"]
-[ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="14_um5ay"]
-[ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="15_l3m8p"]
+[ext_resource type="Script" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_ofscd"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="3_5raok"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="4_jpxkd"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="5_qldku"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="6_whhrw"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="7_gewep"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_wpy22"]
+[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_qjxfl"]
+[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="13_ds7dx"]
+[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="14_yvax3"]
+[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="15_pomqu"]
+[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="16_hrpgh"]
+[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="17_a2kqp"]
+[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="18_kixt1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
 radius = 48.1016
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y685"]
-size = Vector2(60.3077, 14.1189)
+[sub_resource type="CircleShape2D" id="CircleShape2D_j24ba"]
+radius = 95.9292
 
 [sub_resource type="GDScript" id="GDScript_l34si"]
 script/source = "extends Node
@@ -50,23 +50,7 @@ size = Vector2(33, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
 size = Vector2(65, 47)
 
-[sub_resource type="Animation" id="Animation_3qo57"]
-resource_name = "run"
-length = 0.16667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("10_rnjbw"), ExtResource("11_pxwbt"), ExtResource("12_0j6jw"), ExtResource("13_i2kum"), ExtResource("14_um5ay"), ExtResource("15_l3m8p")]
-}
-
-[sub_resource type="Animation" id="Animation_m8q45"]
+[sub_resource type="Animation" id="Animation_kr35j"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -78,21 +62,44 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_rnjbw")]
+"values": [ExtResource("13_ds7dx")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bx07p"]
+[sub_resource type="Animation" id="Animation_ldv1r"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_f14eg"]
+resource_name = "run"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_ds7dx"), ExtResource("14_yvax3"), ExtResource("15_pomqu"), ExtResource("16_hrpgh"), ExtResource("17_a2kqp"), ExtResource("18_kixt1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yv68"]
 _data = {
-"RESET": SubResource("Animation_m8q45"),
-"run": SubResource("Animation_3qo57")
+"RESET": SubResource("Animation_kr35j"),
+"idle": SubResource("Animation_ldv1r"),
+"run": SubResource("Animation_f14eg")
 }
 
-[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
+[node name="Charger" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.941828, 1.01688)
 collision_layer = 26
 collision_mask = 26
-script = ExtResource("1_kkhy6")
+script = ExtResource("1_f5gde")
 
-[node name="SoftCollision" parent="." instance=ExtResource("2_sl4u6")]
+[node name="SoftCollision" parent="." instance=ExtResource("2_ofscd")]
+visible = false
 scale = Vector2(0.755759, 0.0916106)
 collision_layer = 16
 collision_mask = 16
@@ -101,37 +108,44 @@ collision_mask = 16
 position = Vector2(1, -15)
 shape = SubResource("CircleShape2D_prdhd")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+debug_enabled = true
+
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(-3, 0)
+scale = Vector2(2.53808, 2.18075)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(6, -20.3333)
-scale = Vector2(1.85714, 4.48571)
-shape = SubResource("RectangleShape2D_8y685")
+scale = Vector2(1.85714, 1.38226)
+shape = SubResource("CircleShape2D_j24ba")
 
 [node name="AttackWindup" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("5_pekyf")
+script = ExtResource("3_5raok")
 starting_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("6_m6gm6")
+script = ExtResource("4_jpxkd")
 dead_state = NodePath("../Dead")
 stun_state = NodePath("../Stun")
 move_state = NodePath(".")
 attack_state = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("7_n8w6a")
+script = ExtResource("5_qldku")
 
 [node name="Stun" type="Node" parent="StateControl"]
-script = ExtResource("8_wvfs4")
+script = ExtResource("6_whhrw")
 
 [node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("9_rgvpm")
+script = ExtResource("7_gewep")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
@@ -149,12 +163,13 @@ visible = false
 position = Vector2(1, -24)
 rotation = -3.14159
 scale = Vector2(2.28506, -1.71179)
-texture = ExtResource("10_30tjh")
+texture = ExtResource("8_wpy22")
 
 [node name="Back" type="Area2D" parent="."]
+visible = false
 collision_layer = 11
 collision_mask = 11
-script = ExtResource("11_yf58g")
+script = ExtResource("9_qjxfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
 position = Vector2(-16, -20)
@@ -162,15 +177,17 @@ shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
+visible = false
 collision_layer = 11
 collision_mask = 11
-script = ExtResource("11_yf58g")
+script = ExtResource("9_qjxfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(17, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, -23.5)
 shape = SubResource("RectangleShape2D_h4mvs")
 
@@ -178,16 +195,22 @@ shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="TurnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 0.25
 autostart = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("10_rnjbw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bx07p")
+"": SubResource("AnimationLibrary_5yv68")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, -27.5)
+scale = Vector2(4.75, 4.4375)
+texture = ExtResource("13_ds7dx")
+
+[node name="FootstepTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
@@ -195,5 +218,6 @@ libraries = {
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
 
 [editable path="SoftCollision"]

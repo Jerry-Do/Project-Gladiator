@@ -13,10 +13,10 @@ func _on_area_entered(area):
 	var random
 	if get_node("../../../../../../Player").can_crit:
 		random = RandomNumberGenerator.new().randi_range(1, 5)
-	if area.has_method("TakingDamageForEnemy"):
+	if area.has_method("TakingDamageForOther"):
 		#the bracket checks if the bullet crits or not and after if the bullet hit behind enemy then it will add extra damage
 		var actual_damage = ( damage if random != 1 else damage * 2 ) + 5 if area.get_name() == "Back" else 0
-		area.TakingDamageForEnemy(actual_damage, true if area.get_name() == "Back" else false)
+		area.TakingDamageForOther(actual_damage, true if area.get_name() == "Back" else false)
 		if area.get_parent().health <= 0:
 			get_parent().get_parent().get_parent().can_use_ability = true
 			get_parent().get_parent().get_parent().cooldown_timer.stop()

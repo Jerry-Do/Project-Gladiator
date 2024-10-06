@@ -12,6 +12,7 @@ var turn_flag : bool = false
 func enter() -> void:
 	super()
 	parent.speed = parent.sSpeed
+	parent.animation_player.play("run",-1,5)
 
 
 func process_input(_event : InputEvent) -> State:

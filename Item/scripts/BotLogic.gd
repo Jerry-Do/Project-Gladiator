@@ -13,13 +13,6 @@ var speed = 100
 
 var shoot_flag = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):	
-	$Marker2D.look_at(get_global_mouse_position())
-	var direction = to_local(nav_agent.get_next_path_position()).normalized()
-	velocity = direction * speed
-	move_and_slide()
-
 func MakePath():
 	nav_agent.target_position = player.global_position
 

@@ -15,8 +15,8 @@ func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index)
 	var random
 	if get_tree().get_first_node_in_group("player").can_crit:
 		random = RandomNumberGenerator.new().randi_range(1, 5)
-	if  area.has_method("TakingDamageForEnemy"):
-		area.TakingDamageForEnemy(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
+	if  area.has_method("TakingDamageForOther"):
+		area.TakingDamageForOther(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
 		if random == 1:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")

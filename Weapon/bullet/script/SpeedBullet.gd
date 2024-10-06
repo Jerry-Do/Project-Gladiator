@@ -17,11 +17,11 @@ func _on_area_entered(area):
 	if get_node("../../../../../../Player").can_crit:
 		random = RandomNumberGenerator.new().randi_range(1, 4)
 		print(random)
-	if area.has_method("TakingDamageForEnemy"):	
+	if area.has_method("TakingDamageForOther"):	
 		damage = damage if random != 1 else damage * 2
 		if fully_charged:
 			damage += extra_damage
-		area.TakingDamageForEnemy(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
+		area.TakingDamageForOther(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
 		if random == 1:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")

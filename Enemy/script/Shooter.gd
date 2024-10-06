@@ -20,7 +20,7 @@ func _physics_process(delta):
 
 func AttackPlayer():
 	player.target_sprite.show()
-	var BULLET = preload("res://Enemy/EnemyBullet.tscn")
+	var BULLET = preload("res://Enemy/etc/EnemyBullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position = aim.global_position
 	new_bullet.global_rotation = aim.global_rotation

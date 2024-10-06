@@ -1,8 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://chlri8tgr500q"]
+[gd_scene load_steps=33 format=3 uid="uid://chlri8tgr500q"]
 
 [ext_resource type="Script" path="res://Enemy/script/assassin.gd" id="1_uqywf"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_cco5b"]
-[ext_resource type="Texture2D" uid="uid://da8v5yxcqdar1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_spritesheet.png" id="3_qjvoc"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="5_u4tn3"]
 [ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_mo1vd"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_j6jcm"]
@@ -13,59 +12,15 @@
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_7it7i"]
 [ext_resource type="Texture2D" uid="uid://75etx4knwnan" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f1.png" id="12_2swpf"]
 [ext_resource type="Texture2D" uid="uid://c8rs13jf7yr6l" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f2.png" id="13_7m0yo"]
+[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="13_rkidd"]
+[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="14_g5xg3"]
+[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="15_n6ykj"]
+[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="16_xx8xh"]
+[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="17_yq0x3"]
+[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="18_a6c3e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
 radius = 48.1016
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_enits"]
-atlas = ExtResource("3_qjvoc")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vo6c1"]
-atlas = ExtResource("3_qjvoc")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tkfsy"]
-atlas = ExtResource("3_qjvoc")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bi7v5"]
-atlas = ExtResource("3_qjvoc")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ve2if"]
-atlas = ExtResource("3_qjvoc")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_di4x8"]
-atlas = ExtResource("3_qjvoc")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qe224"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_enits")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vo6c1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tkfsy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bi7v5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ve2if")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_di4x8")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j24ba"]
 radius = 95.9292
@@ -101,6 +56,33 @@ size = Vector2(65, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuk11"]
 size = Vector2(20, 70)
 
+[sub_resource type="Animation" id="Animation_22odk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_2gken")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_cg74m"]
 resource_name = "attack"
 length = 2.0
@@ -130,7 +112,30 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_22odk"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu717"]
+_data = {
+"RESET": SubResource("Animation_22odk"),
+"attack": SubResource("Animation_cg74m")
+}
+
+[sub_resource type="Animation" id="Animation_f14eg"]
+resource_name = "run"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_rkidd"), ExtResource("14_g5xg3"), ExtResource("15_n6ykj"), ExtResource("16_xx8xh"), ExtResource("17_yq0x3"), ExtResource("18_a6c3e")]
+}
+
+[sub_resource type="Animation" id="Animation_kr35j"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -142,25 +147,17 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_2gken")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [ExtResource("13_rkidd")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu717"]
+[sub_resource type="Animation" id="Animation_ldv1r"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yv68"]
 _data = {
-"RESET": SubResource("Animation_22odk"),
-"attack": SubResource("Animation_cg74m")
+"RESET": SubResource("Animation_kr35j"),
+"idle": SubResource("Animation_ldv1r"),
+"run": SubResource("Animation_f14eg")
 }
 
 [node name="Assassin" type="CharacterBody2D" groups=["enemy"]]
@@ -182,17 +179,10 @@ shape = SubResource("CircleShape2D_prdhd")
 simplify_path = true
 debug_enabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_qe224")
-animation = &"run"
-offset = Vector2(0, -6)
-
 [node name="AttackRange" type="Area2D" parent="."]
 visible = false
 position = Vector2(-3, 0)
-scale = Vector2(2.16667, 2.32)
+scale = Vector2(0.966669, 1.04)
 collision_layer = 4
 collision_mask = 4
 
@@ -278,6 +268,7 @@ autostart = true
 
 [node name="Attack" type="Area2D" parent="."]
 visible = false
+position = Vector2(24, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 position = Vector2(52, -35)
@@ -297,6 +288,21 @@ position = Vector2(52, -36)
 scale = Vector2(1, 4.76)
 texture = ExtResource("11_2gken")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5yv68")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(30, -27.5)
+scale = Vector2(4.75, 4.4375)
+texture = ExtResource("13_rkidd")
+
+[node name="FootstepTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
@@ -305,5 +311,6 @@ texture = ExtResource("11_2gken")
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="Attack/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
 
 [editable path="SoftCollision"]

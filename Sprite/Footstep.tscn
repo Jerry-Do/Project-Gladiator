@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://wb22q71x3blb"]
+
+[ext_resource type="Script" path="res://Sprite/Footstep.gd" id="2_65csy"]
+
+[sub_resource type="Curve" id="Curve_3gjjh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.343284, 0.97), 0.0, 0.0, 0, 0, Vector2(0.570895, 0.68), 0.0, 0.0, 0, 0, Vector2(0.742537, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_65bir"]
+width = 2048
+curve = SubResource("Curve_3gjjh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5me26"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_65bir")
+
+[node name="Footstep" type="GPUParticles2D"]
+scale = Vector2(2.6, 2.28)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_5me26")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+script = ExtResource("2_65csy")

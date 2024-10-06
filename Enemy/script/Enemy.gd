@@ -13,8 +13,6 @@ var player : Player = get_node("../Player")
 @onready 
 var game_manager = get_node("../GameManager")
 
-@onready
-var navAgent = $NavigationAgent2D 
 
 @onready
 var softCollision = $SoftCollision
@@ -23,7 +21,7 @@ var softCollision = $SoftCollision
 var spawner = get_node("../Spawner")
 
 @onready 
-var sprite = $AnimatedSprite2D
+var sprite = $Sprite2D
 
 @onready 
 var state_manager = $StateControl
@@ -34,8 +32,12 @@ var movement_controller = $MovementController
 @onready
 var target_sprite = $Target
 
+@onready
+var animation_player : AnimationPlayer = $AnimationPlayer
+
 var is_target = false
 var curse_timer
+
 
 func _init(health: int, speed: float, damage: float, fame : int):
 	curse_timer = Timer.new()
