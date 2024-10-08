@@ -43,7 +43,7 @@ func _on_dash_timer_timeout():
 
 
 func _on_ghost_timer_timeout():
-	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0:
+	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == true:
 		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
 		get_parent().get_parent().get_parent().add_child(this_ghost)
 		this_ghost.position = parent.position

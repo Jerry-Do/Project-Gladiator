@@ -10,7 +10,10 @@ class_name Player
 @onready var back_hitbox : Area2D = $Back
 @onready var front_hitbox : Area2D = $Front
 @onready var target_sprite = $Target
-@export var max_speed: int = 1000
+@onready var state_machine = $StateControl
+@onready var movement_component = $MovementComponent
+@export var max_speed: int = 100
+
 var can_crit = false
 var shield_amount : int
 var dashTime = 2
@@ -22,11 +25,10 @@ var invincibleState : bool = false
 var recharge_flag : bool = false
 var taking_damage : bool = false
 var is_invisible = false
-@onready 
-var state_machine = $StateControl
-
-@onready 
-var movement_component = $MovementComponent
+var status_dictionary = {
+	"Stun" : false,
+	"TimeStopDisable" : false
+}
 
 	
 func _ready():
@@ -54,7 +56,7 @@ func _process(delta):
 func _unhandled_input(event):
 	state_machine.process_input(event)
 	if currentWeapon:
-		if event.is_action_pressed("left_click"):			
+		if event.is_action_pressed("left_click") && status_dictionary.Stun == false:			
 			currentWeapon.shoot()	
 			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		if event.is_action_pressed("right_click") && currentWeapon.has_method("UseGunAbility"):
@@ -94,3 +96,8 @@ func MinusHealth(amount : int, is_backshot = false):
 func PickUpBomerang():
 	currentWeapon.currentAmmo += 1
 	currentWeapon.sprite.set_visible(true)
+
+func SetStatusTrue(name: String, duration: float):
+	status_dictionary[name] = true
+	await get_tree().create_timer(duration).timeout
+	status_dictionary[name] = false

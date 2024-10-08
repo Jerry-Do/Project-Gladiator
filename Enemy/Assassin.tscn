@@ -118,23 +118,6 @@ _data = {
 "attack": SubResource("Animation_cg74m")
 }
 
-[sub_resource type="Animation" id="Animation_f14eg"]
-resource_name = "run"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("13_rkidd"), ExtResource("14_g5xg3"), ExtResource("15_n6ykj"), ExtResource("16_xx8xh"), ExtResource("17_yq0x3"), ExtResource("18_a6c3e")]
-}
-
 [sub_resource type="Animation" id="Animation_kr35j"]
 length = 0.001
 tracks/0/type = "value"
@@ -152,6 +135,23 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ldv1r"]
 resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_f14eg"]
+resource_name = "run"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_rkidd"), ExtResource("14_g5xg3"), ExtResource("15_n6ykj"), ExtResource("16_xx8xh"), ExtResource("17_yq0x3"), ExtResource("18_a6c3e")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5yv68"]
 _data = {

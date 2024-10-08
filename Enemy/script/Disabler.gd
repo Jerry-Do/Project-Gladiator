@@ -1,0 +1,32 @@
+extends Enemy
+
+
+var sHealth:int = 1
+var sSpeed: float = 350
+var sDamage: float = 2
+var sFameAmount : float = 1
+var wind_up_time : bool = 5
+
+
+func _init():
+	super._init(sHealth, sSpeed, sDamage, sFameAmount)
+	
+
+	
+func _physics_process(delta):
+	super._physics_process(delta)
+	
+func AttackPlayer():
+	$Attack.get_child(2).play("explosion")
+	$AttackWindup.start(wind_up_time)
+
+func PlayerLeft():
+	inRange = false
+	playerHitBox = null
+
+
+
+func _on_attack_area_entered(area):
+	if area.has_method("SetStatusPlayer"):
+		area.SetStatusPlayer("TimeStopDisable", 8)
+		area.TakingDamageForPlayer(-sDamage, true if area.get_name() == "Back" else false)

@@ -37,6 +37,9 @@ var animation_player : AnimationPlayer = $AnimationPlayer
 
 var is_target = false
 var curse_timer
+var status_dictionary = {
+	"Stun" : false
+}
 
 
 func _init(health: int, speed: float, damage: float, fame : int):
@@ -69,14 +72,16 @@ func ReturnFame():
 	return fameAmount
 
 func _on_ghost_timer_timeout():
-	if game_manager.timeSlowFlag:
-		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
-		get_parent().add_child(this_ghost)
-		this_ghost.position = position
-		this_ghost.texture = sprite.sprite_frames.get_frame_texture("run",sprite.frame)
-		this_ghost.flip_h =  sprite.flip_h
-		this_ghost.scale = sprite.scale * scale
-		this_ghost.rotation = rotation
+	#if game_manager.timeSlowFlag:
+		#var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
+		#get_parent().add_child(this_ghost)
+		#this_ghost.visible = sprite.visible
+		#this_ghost.position = position
+		#this_ghost.texture = sprite.texture
+		#this_ghost.flip_h =  sprite.flip_h
+		#this_ghost.scale = sprite.scale * scale
+		#this_ghost.rotation = rotation
+	return null
 
 func SetTarget():
 	is_target = true

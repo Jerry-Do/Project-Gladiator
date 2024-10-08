@@ -148,7 +148,7 @@ unique_name_in_owner = true
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
 unique_name_in_owner = true
 position = Vector2(577, 267)
-enemies = ["res://Enemy/Charger.tscn"]
+enemies = ["res://Enemy/Disabler.tscn"]
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)

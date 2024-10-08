@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
 [ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
 [ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
-[ext_resource type="Script" path="res://States/player/Dash.gd" id="7_44754"]
+[ext_resource type="Script" path="res://States/player/TimeStop.gd" id="7_44754"]
 [ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="8_a4w7n"]
 [ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="8_jpsj1"]
 [ext_resource type="PackedScene" uid="uid://b3rt641lalewe" path="res://BackHitbox.tscn" id="8_qmrd3"]
@@ -145,14 +145,16 @@ starting_state = NodePath("Idle")
 script = ExtResource("4_wngjq")
 move_state = NodePath("../Move")
 
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dash_state", "idle_state")]
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("time_stop_state", "idle_state")]
 script = ExtResource("6_8bmt5")
-dash_state = NodePath("../Dash")
+time_stop_state = NodePath("../TimeStop")
 idle_state = NodePath("../Idle")
 
-[node name="Dash" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state")]
+[node name="TimeStop" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "time_stop_state", "idle_state")]
 script = ExtResource("7_44754")
 move_state = NodePath("../Move")
+time_stop_state = NodePath(".")
+idle_state = NodePath("../Idle")
 
 [node name="Timer" type="Node" parent="."]
 
@@ -199,6 +201,6 @@ position = Vector2(3, -0.5)
 scale = Vector2(2.625, 2.5625)
 texture = ExtResource("13_emvkc")
 
-[connection signal="timeout" from="Timer/DashTimer" to="StateControl/Dash" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Timer/GhostTimer" to="StateControl/Dash" method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="Timer/OverheatTimer" to="StateControl/Dash" method="_on_overheat_timer_timeout"]
+[connection signal="timeout" from="Timer/DashTimer" to="StateControl/TimeStop" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Timer/GhostTimer" to="StateControl/TimeStop" method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="Timer/OverheatTimer" to="StateControl/TimeStop" method="_on_overheat_timer_timeout"]

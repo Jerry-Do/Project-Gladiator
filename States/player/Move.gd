@@ -1,7 +1,7 @@
 extends State
 class_name Move
 @export
-var dash_state: State
+var time_stop_state: State
 @export
 var idle_state: State
 
@@ -18,8 +18,8 @@ func exit() -> void:
 	parent.animated_sprite.stop()
 	
 func process_input(_event : InputEvent) -> State:
-	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == false:
-		return dash_state
+	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == false && parent.status_dictionary["Stun"] == false && parent.status_dictionary["TimeStopDisable"] == false:
+		return time_stop_state
 	return null
 		
 func process_physics(delta: float):

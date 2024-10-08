@@ -1,12 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6bm8ksr7sutl"]
+[gd_scene load_steps=24 format=3 uid="uid://1m8txa8wqk3b"]
 
 [ext_resource type="Script" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_ofscd"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="3_5raok"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="4_jpxkd"]
+[ext_resource type="Script" path="res://Enemy/script/MoveCharger.gd" id="4_k7a44"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="5_qldku"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="6_whhrw"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="7_gewep"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_wpy22"]
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_qjxfl"]
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="13_ds7dx"]
@@ -18,9 +16,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
 radius = 48.1016
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j24ba"]
-radius = 95.9292
 
 [sub_resource type="GDScript" id="GDScript_l34si"]
 script/source = "extends Node
@@ -92,8 +87,10 @@ _data = {
 "run": SubResource("Animation_f14eg")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cybdc"]
+size = Vector2(84, 77)
+
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
-scale = Vector2(0.941828, 1.01688)
 collision_layer = 26
 collision_mask = 26
 script = ExtResource("1_f5gde")
@@ -112,17 +109,6 @@ shape = SubResource("CircleShape2D_prdhd")
 simplify_path = true
 debug_enabled = true
 
-[node name="AttackRange" type="Area2D" parent="."]
-position = Vector2(-3, 0)
-scale = Vector2(2.53808, 2.18075)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(6, -20.3333)
-scale = Vector2(1.85714, 1.38226)
-shape = SubResource("CircleShape2D_j24ba")
-
 [node name="AttackWindup" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
@@ -131,23 +117,13 @@ one_shot = true
 script = ExtResource("3_5raok")
 starting_state = NodePath("Move")
 
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("4_jpxkd")
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "move_state")]
+script = ExtResource("4_k7a44")
 dead_state = NodePath("../Dead")
-stun_state = NodePath("../Stun")
 move_state = NodePath(".")
-attack_state = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="StateControl"]
 script = ExtResource("5_qldku")
-
-[node name="Stun" type="Node" parent="StateControl"]
-script = ExtResource("6_whhrw")
-
-[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("7_gewep")
-move_state = NodePath("../Move")
-dead_state = NodePath("../Dead")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -212,12 +188,26 @@ texture = ExtResource("13_ds7dx")
 wait_time = 0.5
 autostart = true
 
-[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[node name="StunTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="Attack" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(32, -28.5)
+shape = SubResource("RectangleShape2D_cybdc")
+
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
 [connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
+[connection signal="timeout" from="StunTimer" to="StateControl/Move" method="_on_stun_timer_timeout"]
+[connection signal="area_entered" from="Attack" to="StateControl/Move" method="_on_attack_area_entered"]
+[connection signal="area_exited" from="Attack" to="StateControl/Move" method="_on_attack_area_exited"]
 
 [editable path="SoftCollision"]

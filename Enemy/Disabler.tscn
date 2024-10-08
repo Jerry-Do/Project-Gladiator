@@ -1,0 +1,354 @@
+[gd_scene load_steps=41 format=3 uid="uid://bvq3tmc5pgvqm"]
+
+[ext_resource type="Script" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_2kd31"]
+[ext_resource type="Texture2D" uid="uid://copwa00exa70q" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_idle_spritesheet.png" id="3_6w18g"]
+[ext_resource type="Texture2D" uid="uid://da8v5yxcqdar1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_spritesheet.png" id="4_4s8ry"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="5_xw7xd"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_1m5qa"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_h8e80"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_2otfs"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_4oyor"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_qxovh"]
+[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_u1jx8"]
+[ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="12_fls7x"]
+[ext_resource type="Texture2D" uid="uid://dakbe0e6umag3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png" id="13_wk6c6"]
+[ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="14_0r14c"]
+[ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="15_kkras"]
+[ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="16_tppl1"]
+[ext_resource type="Texture2D" uid="uid://biqeqg1vslpy8" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png" id="17_2pe1i"]
+[ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="18_bwjel"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
+radius = 48.1016
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qldp0"]
+atlas = ExtResource("3_6w18g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yea7w"]
+atlas = ExtResource("3_6w18g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_444l8"]
+atlas = ExtResource("3_6w18g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvw1w"]
+atlas = ExtResource("3_6w18g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6jxm"]
+atlas = ExtResource("3_6w18g")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvsok"]
+atlas = ExtResource("3_6w18g")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ycnd"]
+atlas = ExtResource("4_4s8ry")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm8f7"]
+atlas = ExtResource("4_4s8ry")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyif8"]
+atlas = ExtResource("4_4s8ry")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5ugy"]
+atlas = ExtResource("4_4s8ry")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj4uw"]
+atlas = ExtResource("4_4s8ry")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omkl6"]
+atlas = ExtResource("4_4s8ry")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcg8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qldp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yea7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_444l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvw1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6jxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvsok")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ycnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm8f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyif8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5ugy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj4uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omkl6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
+radius = 62.1924
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
+size = Vector2(29, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
+size = Vector2(33, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
+size = Vector2(65, 35)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pahq"]
+radius = 64.6225
+
+[sub_resource type="Animation" id="Animation_rq50d"]
+resource_name = "explosion"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.966667, 1.5, 2, 2.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("12_fls7x"), ExtResource("13_wk6c6"), ExtResource("14_0r14c"), ExtResource("15_kkras"), ExtResource("16_tppl1"), ExtResource("17_2pe1i"), ExtResource("18_bwjel")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.966667, 1.5, 2, 2.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, false, true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_tumow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_fls7x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88lwm"]
+_data = {
+"RESET": SubResource("Animation_tumow"),
+"explosion": SubResource("Animation_rq50d")
+}
+
+[node name="Disabler" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 26
+collision_mask = 21
+script = ExtResource("1_t4xhl")
+
+[node name="SoftCollision" parent="." instance=ExtResource("2_2kd31")]
+scale = Vector2(0.755759, 0.0916106)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(1, -15)
+shape = SubResource("CircleShape2D_prdhd")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+debug_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qcg8h")
+animation = &"run"
+offset = Vector2(0, -6)
+
+[node name="AttackRange" type="Area2D" parent="."]
+visible = false
+position = Vector2(1, -11)
+scale = Vector2(-0.606151, 0.487032)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(7.50004, -24.8333)
+scale = Vector2(4.77714, 4.48571)
+shape = SubResource("CircleShape2D_hkrb0")
+
+[node name="AttackWindup" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("5_xw7xd")
+starting_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
+script = ExtResource("6_1m5qa")
+dead_state = NodePath("../Dead")
+stun_state = NodePath("../Stun")
+move_state = NodePath(".")
+attack_state = NodePath("../Attack")
+
+[node name="Dead" type="Node" parent="StateControl"]
+script = ExtResource("7_h8e80")
+
+[node name="Stun" type="Node" parent="StateControl"]
+script = ExtResource("8_2otfs")
+
+[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("9_4oyor")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MovementController" type="Node" parent="."]
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -24)
+rotation = -3.14159
+scale = Vector2(2.28506, -1.71179)
+texture = ExtResource("10_qxovh")
+
+[node name="Back" type="Area2D" parent="."]
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("11_u1jx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(-16, -20)
+shape = SubResource("RectangleShape2D_vff1d")
+debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
+
+[node name="Front" type="Area2D" parent="."]
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("11_u1jx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
+position = Vector2(17, -19)
+shape = SubResource("RectangleShape2D_lm1mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -21)
+shape = SubResource("RectangleShape2D_h4mvs")
+
+[node name="CollisionTimer" type="Timer" parent="."]
+
+[node name="TurnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+autostart = true
+
+[node name="Attack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+scale = Vector2(4.04, 3.88)
+shape = SubResource("CircleShape2D_7pahq")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack"]
+visible = false
+position = Vector2(-1, -18)
+scale = Vector2(17.6875, 19)
+texture = ExtResource("12_fls7x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Attack"]
+libraries = {
+"": SubResource("AnimationLibrary_88lwm")
+}
+
+[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
+
+[editable path="SoftCollision"]
