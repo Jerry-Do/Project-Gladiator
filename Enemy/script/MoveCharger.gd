@@ -33,10 +33,6 @@ func process_physics(_delta: float) -> State:
 func process_frame(_delta : float) -> State:
 	return null
 
-		
-func _on_collision_timer_timeout():
-	if parent.softCollision.IsColliding():
-		parent.velocity = parent.softCollision.GetPushVector() * 100
 
 
 
@@ -47,12 +43,12 @@ func _on_turn_timer_timeout():
 
 
 func _on_attack_area_entered(area):
-	parent.status_dictionary.Stun = true
-	%Attack.get_child(0).call_deferred("set_disabled", true)
 	if area.has_method("SetStatusPlayer"):
+		parent.status_dictionary.Stun = true
+		%Attack.get_child(0).call_deferred("set_disabled", true)
 		area.SetStatusPlayer("Stun", 2)
 		area.TakingDamageForPlayer(-parent.sDamage, true if area.get_name() == "Back" else false)
-	%StunTimer.start()
+		%StunTimer.start()
 
 
 

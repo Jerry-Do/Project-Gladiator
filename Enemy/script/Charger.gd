@@ -1,8 +1,8 @@
 extends Enemy
 
 
-var sHealth:int = 1
-var sSpeed: float = 1000
+var sHealth: int = 1
+var sSpeed: float = 500
 var sDamage: float = 5
 var sFameAmount : float = 1
 var wind_up_time : bool =  2

@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="17_yq0x3"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="18_a6c3e"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
-radius = 48.1016
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwaoi"]
+radius = 43.6647
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j24ba"]
 radius = 95.9292
@@ -119,7 +119,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_kr35j"]
-length = 0.001
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -127,10 +127,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("13_rkidd")]
+"values": [ExtResource("13_rkidd"), ExtResource("14_g5xg3"), ExtResource("15_n6ykj"), ExtResource("16_xx8xh"), ExtResource("17_yq0x3"), ExtResource("18_a6c3e")]
 }
 
 [sub_resource type="Animation" id="Animation_ldv1r"]
@@ -161,19 +161,20 @@ _data = {
 }
 
 [node name="Assassin" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 26
-collision_mask = 26
+disable_mode = 1
+collision_layer = 10
+collision_mask = 10
 script = ExtResource("1_uqywf")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_cco5b")]
-visible = false
 scale = Vector2(0.755759, 0.0916106)
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2(1, -15)
-shape = SubResource("CircleShape2D_prdhd")
+position = Vector2(43.6647, -54.5788)
+scale = Vector2(1, 2.23117)
+shape = SubResource("CircleShape2D_gwaoi")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 simplify_path = true
@@ -184,7 +185,7 @@ visible = false
 position = Vector2(-3, 0)
 scale = Vector2(0.966669, 1.04)
 collision_layer = 4
-collision_mask = 4
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(6, -20.3333)
@@ -235,6 +236,7 @@ texture = ExtResource("10_i832f")
 
 [node name="Back" type="Area2D" parent="."]
 visible = false
+disable_mode = 1
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("11_7it7i")
@@ -246,6 +248,7 @@ debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
 visible = false
+disable_mode = 1
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("11_7it7i")
@@ -269,6 +272,7 @@ autostart = true
 [node name="Attack" type="Area2D" parent="."]
 visible = false
 position = Vector2(24, 0)
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 position = Vector2(52, -35)

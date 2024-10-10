@@ -8,7 +8,7 @@
 
 [node name="SpeedGun" type="Node2D" groups=["Gun"]]
 visibility_layer = 7
-position = Vector2(580, 321)
+position = Vector2(-10, 8)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_rj4q5")
 

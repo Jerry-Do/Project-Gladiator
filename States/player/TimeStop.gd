@@ -20,7 +20,6 @@ func enter() -> void:
 	parent.game_manager.timeSlowFlag = true
 		
 func process_physics(delta: float):
-
 	if  usingFlag == true && parent.stats.ReturnCurrentDashTime() > 0 &&  Input.is_action_pressed("dash"):
 		parent.stats.SetDashTime(-delta)
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())

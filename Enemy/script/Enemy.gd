@@ -55,6 +55,7 @@ func _init(health: int, speed: float, damage: float, fame : int):
 	
 	
 func _ready() -> void:
+	self.health += game_manager.currentWave
 	state_manager.init(self, movement_controller)	
 
 
@@ -65,23 +66,25 @@ func _physics_process(delta: float):
 	
 
 func MinusHealth(amount : int, is_backshot: bool):
-	health -= amount * 1.2 if is_backshot else 1
+	print(amount)
+	health -= amount * (1.2 if is_backshot else 1)
+	return health
 
 	
 func ReturnFame():
 	return fameAmount
 
 func _on_ghost_timer_timeout():
-	#if game_manager.timeSlowFlag:
-		#var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
-		#get_parent().add_child(this_ghost)
-		#this_ghost.visible = sprite.visible
-		#this_ghost.position = position
-		#this_ghost.texture = sprite.texture
-		#this_ghost.flip_h =  sprite.flip_h
-		#this_ghost.scale = sprite.scale * scale
-		#this_ghost.rotation = rotation
-	return null
+	if game_manager.timeSlowFlag:
+		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
+		get_parent().add_child(this_ghost)
+		this_ghost.visible = sprite.visible
+		this_ghost.position = position
+		this_ghost.texture = sprite.texture
+		this_ghost.flip_h =  sprite.flip_h
+		this_ghost.scale = sprite.scale * scale
+		this_ghost.rotation = rotation
+
 
 func SetTarget():
 	is_target = true
@@ -92,4 +95,6 @@ func SetTarget():
 func _on_curse_timer_timeout():
 	is_target = false
 	target_sprite.hide()
+	
+
 	

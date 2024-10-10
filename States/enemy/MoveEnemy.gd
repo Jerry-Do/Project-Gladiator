@@ -12,7 +12,7 @@ var turn_flag : bool = false
 func enter() -> void:
 	super()
 	parent.speed = parent.sSpeed
-	#parent.animation_player.play("run",-1,5)
+	parent.animation_player.play("run",-1,5)
 
 
 func process_input(_event : InputEvent) -> State:
@@ -24,10 +24,14 @@ func process_physics(_delta: float) -> State:
 	if  parent.player.is_invisible == false:
 		parent.speed = parent.sSpeed
 		var direction = (parent.player.position - parent.position).normalized()
-		parent.position += direction * parent.speed * _delta
 		if parent.playerHitBox != null:
 			return attack_state
+		parent.velocity = direction * parent.speed
+		if parent.softCollision.IsColliding():
+			parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500
+	
 		parent.move_and_slide()
+		
 	else:
 		parent.speed = 0
 	return null
@@ -36,13 +40,11 @@ func process_frame(_delta : float) -> State:
 	return null
 
 		
-func _on_collision_timer_timeout():
-	if parent.softCollision.IsColliding():
-		parent.velocity = parent.softCollision.GetPushVector() * 100
 
 
 func _on_attack_range_area_entered(area):
-	parent.playerHitBox = area
+	if area.has_method("TakingDamageForPlayer"):
+		parent.playerHitBox = area
 
 
 func _on_turn_timer_timeout():

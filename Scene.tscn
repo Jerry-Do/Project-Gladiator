@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=13 format=3 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_rqj78"]
 [ext_resource type="Script" path="res://PlayerSpawner.gd" id="2_08of0"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="2_p2nea"]
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="5_qy8hb"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://spawner/spawner.tscn" id="5_xylyg"]
-[ext_resource type="PackedScene" uid="uid://d4lcel1hv5in2" path="res://Weapon/Executioner.tscn" id="6_hedrx"]
+[ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="6_adxf1"]
+[ext_resource type="PackedScene" uid="uid://dl3jyi1puomxa" path="res://Weapon/ScatterGun.tscn" id="6_nxgrg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -132,23 +133,22 @@ weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://
 maxKillCount = 1
 fameMultiTimeFrame = 5.0
 
+[node name="WeaponTimer" type="Timer" parent="Level/GameManager"]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="FameMultiplierTimer" type="Timer" parent="Level/GameManager"]
+unique_name_in_owner = true
+
 [node name="PlayerSpawner" type="Node2D" parent="Level"]
 position = Vector2(246, 101)
 script = ExtResource("2_08of0")
 
-[node name="WeaponTimer" type="Timer" parent="Level"]
-unique_name_in_owner = true
-wait_time = 5.0
-
-[node name="FameMultiplierTimer" type="Timer" parent="Level"]
-unique_name_in_owner = true
-
-[node name="Timer" type="Timer" parent="Level"]
-
 [node name="Spawner" parent="Level" instance=ExtResource("5_xylyg")]
 unique_name_in_owner = true
 position = Vector2(577, 267)
-enemies = ["res://Enemy/Disabler.tscn"]
+enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
+maxAllow = 2
 
 [node name="s1" parent="Level/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -162,27 +162,30 @@ position = Vector2(-465, 289)
 [node name="s4" parent="Level/Spawner" index="4"]
 position = Vector2(375, 245)
 
-[node name="WeaponSpawnPoints" type="Node" parent="Level"]
+[node name="WeaponSpawnPoints" type="Node" parent="Level/Spawner"]
 unique_name_in_owner = true
 
-[node name="p1" type="Node2D" parent="Level/WeaponSpawnPoints"]
+[node name="p1" type="Node2D" parent="Level/Spawner/WeaponSpawnPoints"]
 position = Vector2(403, 203)
 
-[node name="p2" type="Node2D" parent="Level/WeaponSpawnPoints"]
+[node name="p2" type="Node2D" parent="Level/Spawner/WeaponSpawnPoints"]
 position = Vector2(872, 245)
 
-[node name="p3" type="Node2D" parent="Level/WeaponSpawnPoints"]
+[node name="p3" type="Node2D" parent="Level/Spawner/WeaponSpawnPoints"]
 position = Vector2(446, 419)
 
-[node name="p4" type="Node2D" parent="Level/WeaponSpawnPoints"]
+[node name="p4" type="Node2D" parent="Level/Spawner/WeaponSpawnPoints"]
 position = Vector2(878, 394)
 
 [node name="UI" parent="Level" instance=ExtResource("2_p2nea")]
 unique_name_in_owner = true
 
-[node name="Executioner" parent="Level" instance=ExtResource("6_hedrx")]
+[node name="ScatterGun" parent="Level" instance=ExtResource("6_nxgrg")]
 
-[connection signal="timeout" from="Level/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
-[connection signal="timeout" from="Level/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
+[node name="HandGun" parent="Level" instance=ExtResource("6_adxf1")]
+position = Vector2(305, -16)
+
+[connection signal="timeout" from="Level/GameManager/WeaponTimer" to="Level/GameManager" method="_on_weapon_timer_timeout"]
+[connection signal="timeout" from="Level/GameManager/FameMultiplierTimer" to="Level" method="_on_fame_multiplier_timer_timeout"]
 
 [editable path="Level/Spawner"]

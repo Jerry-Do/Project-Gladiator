@@ -21,4 +21,5 @@ func _on_area_entered(area):
 			var new_label = crit_label.instantiate()
 			get_node("../../../../../../../Level").add_child(new_label)
 			new_label.position = position	
-	queue_free()
+		queue_free()
+	

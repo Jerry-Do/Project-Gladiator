@@ -1,6 +1,6 @@
 extends BaseBullet
 
-var c_damage = 2
+var c_damage = 0 
 var c_speed = 1000
 
 func _init():

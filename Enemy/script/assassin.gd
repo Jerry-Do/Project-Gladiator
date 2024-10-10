@@ -2,7 +2,7 @@ extends Enemy
 
 
 var sHealth:int = 1
-var sSpeed: float = 500
+var sSpeed: float = 350
 var sDamage: float = 1
 var sFameAmount : float = 1
 var wind_up_time : bool =  2
@@ -34,7 +34,8 @@ func PlayerLeft():
 
 
 func _on_attack_area_entered(area):
-	playerHitBox.TakingDamageForPlayer(-sDamage, true if playerHitBox.get_name() == "Back" else false)
+	if(area != null):
+		playerHitBox.TakingDamageForPlayer(-sDamage, true if playerHitBox.get_name() == "Back" else false)
 	
 
 

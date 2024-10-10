@@ -16,8 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="14_um5ay"]
 [ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="15_l3m8p"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3t8h2"]
-radius = 86.0562
+[sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
+radius = 48.1016
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y685"]
 size = Vector2(60.3077, 14.1189)
@@ -88,30 +88,22 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 10
-collision_mask = 5
-slide_on_ceiling = false
-safe_margin = 0.001
+disable_mode = 1
+collision_layer = 26
+collision_mask = 21
 script = ExtResource("1_kkhy6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -22)
-scale = Vector2(3.25, 3)
-texture = ExtResource("10_rnjbw")
-
 [node name="SoftCollision" parent="." instance=ExtResource("2_sl4u6")]
-position = Vector2(25, -25)
-scale = Vector2(0.693025, 0.752784)
+scale = Vector2(0.755759, 0.0916106)
+disable_mode = 1
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2(-30.526, 10.7264)
-scale = Vector2(0.389486, -0.179903)
-shape = SubResource("CircleShape2D_3t8h2")
+position = Vector2(1, -15)
+shape = SubResource("CircleShape2D_prdhd")
 
 [node name="AttackRange" type="Area2D" parent="."]
-visible = false
 disable_mode = 1
 collision_layer = 4
 collision_mask = 4
@@ -163,7 +155,6 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("10_30tjh")
 
 [node name="Back" type="Area2D" parent="."]
-visible = false
 disable_mode = 1
 collision_layer = 11
 collision_mask = 11
@@ -175,7 +166,6 @@ shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
-visible = false
 disable_mode = 1
 collision_layer = 10
 collision_mask = 21
@@ -186,18 +176,20 @@ position = Vector2(17, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, -23.5)
 shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
-wait_time = 0.25
-autostart = true
 
 [node name="TurnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.5
 autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -22)
+scale = Vector2(3.25, 3)
+texture = ExtResource("10_rnjbw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -205,14 +197,12 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-debug_enabled = true
 
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="CollisionTimer" to="." method="_on_collision_timer_timeout"]
+[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
 
 [editable path="SoftCollision"]

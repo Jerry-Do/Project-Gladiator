@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
 
 [node name="Shotgun" type="Node2D" groups=["Gun"]]
-position = Vector2(976, 511)
+position = Vector2(-2, 7.00003)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_axueq")
 pellet = 3

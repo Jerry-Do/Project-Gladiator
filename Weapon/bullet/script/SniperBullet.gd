@@ -10,10 +10,6 @@ func _init():
 func _physics_process(delta):
 	super._physics_process(delta)
 
-
-
-
-
 func _on_area_entered(area):
 	health -= 1
 	damage -= 1

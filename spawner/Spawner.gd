@@ -51,7 +51,6 @@ func _on_spawn_timer_timeout():
 		4:
 			spawnPos = spawnPoint4.global_position
 		
-	
 	newEnemy.position = spawnPos
 	newEnemy.rotation = rotation
 	get_parent().add_child(newEnemy)

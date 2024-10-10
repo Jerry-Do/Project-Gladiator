@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="17_a2kqp"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="18_kixt1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
-radius = 48.1016
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmoxm"]
+radius = 57.1308
 
 [sub_resource type="GDScript" id="GDScript_l34si"]
 script/source = "extends Node
@@ -91,19 +91,26 @@ _data = {
 size = Vector2(84, 77)
 
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 26
-collision_mask = 26
+disable_mode = 1
+collision_layer = 2
 script = ExtResource("1_f5gde")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, -27.5)
+scale = Vector2(4.75, 4.4375)
+texture = ExtResource("13_ds7dx")
+
 [node name="SoftCollision" parent="." instance=ExtResource("2_ofscd")]
-visible = false
+position = Vector2(32, 31)
 scale = Vector2(0.755759, 0.0916106)
+disable_mode = 1
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2(1, -15)
-shape = SubResource("CircleShape2D_prdhd")
+position = Vector2(0.661594, -346.347)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_gmoxm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 simplify_path = true
@@ -143,6 +150,7 @@ texture = ExtResource("8_wpy22")
 
 [node name="Back" type="Area2D" parent="."]
 visible = false
+disable_mode = 1
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("9_qjxfl")
@@ -154,6 +162,7 @@ debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
 visible = false
+disable_mode = 1
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("9_qjxfl")
@@ -179,11 +188,6 @@ libraries = {
 "": SubResource("AnimationLibrary_5yv68")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(30, -27.5)
-scale = Vector2(4.75, 4.4375)
-texture = ExtResource("13_ds7dx")
-
 [node name="FootstepTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
@@ -195,8 +199,9 @@ one_shot = true
 
 [node name="Attack" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 4
+disable_mode = 1
+collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 position = Vector2(32, -28.5)

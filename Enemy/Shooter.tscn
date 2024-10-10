@@ -1,117 +1,24 @@
-[gd_scene load_steps=31 format=3 uid="uid://dbgol3ftdidov"]
+[gd_scene load_steps=25 format=3 uid="uid://dbgol3ftdidov"]
 
 [ext_resource type="Script" path="res://Enemy/script/Shooter.gd" id="1_mv28k"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_6671a"]
-[ext_resource type="Texture2D" uid="uid://copwa00exa70q" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_idle_spritesheet.png" id="3_4f8no"]
-[ext_resource type="Texture2D" uid="uid://da8v5yxcqdar1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_spritesheet.png" id="4_r8app"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="5_ggqpv"]
 [ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_c21do"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_g0uho"]
 [ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_gca6n"]
 [ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_ffl5q"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_ul2y7"]
+[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="11_c2516"]
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_in2y1"]
+[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="12_a30j3"]
 [ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="12_xspr4"]
+[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="13_s2wlq"]
+[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="14_e1cgu"]
+[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="15_buidv"]
+[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="16_q1jmm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_prdhd"]
-radius = 48.1016
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qldp0"]
-atlas = ExtResource("3_4f8no")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yea7w"]
-atlas = ExtResource("3_4f8no")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_444l8"]
-atlas = ExtResource("3_4f8no")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvw1w"]
-atlas = ExtResource("3_4f8no")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6jxm"]
-atlas = ExtResource("3_4f8no")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pvsok"]
-atlas = ExtResource("3_4f8no")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ycnd"]
-atlas = ExtResource("4_r8app")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sm8f7"]
-atlas = ExtResource("4_r8app")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyif8"]
-atlas = ExtResource("4_r8app")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j5ugy"]
-atlas = ExtResource("4_r8app")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bj4uw"]
-atlas = ExtResource("4_r8app")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omkl6"]
-atlas = ExtResource("4_r8app")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qcg8h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qldp0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yea7w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_444l8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dvw1w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h6jxm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pvsok")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ycnd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sm8f7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dyif8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j5ugy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bj4uw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omkl6")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_67u5o"]
+radius = 22.496
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
 radius = 62.1924
@@ -125,9 +32,47 @@ size = Vector2(33, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
 size = Vector2(65, 35)
 
+[sub_resource type="Animation" id="Animation_4t1hr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_c2516")]
+}
+
+[sub_resource type="Animation" id="Animation_imwtc"]
+resource_name = "run"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_c2516"), ExtResource("12_a30j3"), ExtResource("13_s2wlq"), ExtResource("14_e1cgu"), ExtResource("15_buidv"), ExtResource("16_q1jmm")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb2a6"]
+_data = {
+"RESET": SubResource("Animation_4t1hr"),
+"run": SubResource("Animation_imwtc")
+}
+
 [node name="Shooter" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 26
-collision_mask = 21
+disable_mode = 1
+collision_layer = 10
+collision_mask = 5
 script = ExtResource("1_mv28k")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_6671a")]
@@ -136,22 +81,19 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2(1, -15)
-shape = SubResource("CircleShape2D_prdhd")
+position = Vector2(0, -21.8315)
+scale = Vector2(1.52927, 3.61978)
+shape = SubResource("CircleShape2D_67u5o")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 simplify_path = true
 debug_enabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_qcg8h")
-animation = &"run"
-offset = Vector2(0, -6)
-
 [node name="AttackRange" type="Area2D" parent="."]
+visible = false
+disable_mode = 1
 collision_layer = 4
-collision_mask = 4
+collision_mask = 21
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(7.50004, -24.8333)
@@ -199,6 +141,8 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("10_ul2y7")
 
 [node name="Back" type="Area2D" parent="."]
+visible = false
+disable_mode = 1
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("11_in2y1")
@@ -209,6 +153,8 @@ shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
+visible = false
+disable_mode = 1
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("11_in2y1")
@@ -218,10 +164,13 @@ position = Vector2(17, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, -21)
 shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [node name="TurnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -235,6 +184,16 @@ position = Vector2(51, -23)
 position = Vector2(2, -2)
 scale = Vector2(1.75, 1.5625)
 texture = ExtResource("12_xspr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -18)
+scale = Vector2(3.0625, 2.9375)
+texture = ExtResource("11_c2516")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sb2a6")
+}
 
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
