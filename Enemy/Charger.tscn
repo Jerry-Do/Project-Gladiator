@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://1m8txa8wqk3b"]
 
 [ext_resource type="Script" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_ofscd"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_ofscd"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="3_5raok"]
 [ext_resource type="Script" path="res://Enemy/script/MoveCharger.gd" id="4_k7a44"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="5_qldku"]
@@ -103,13 +103,11 @@ texture = ExtResource("13_ds7dx")
 [node name="SoftCollision" parent="." instance=ExtResource("2_ofscd")]
 position = Vector2(32, 31)
 scale = Vector2(0.755759, 0.0916106)
-disable_mode = 1
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 position = Vector2(0.661594, -346.347)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_gmoxm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -214,5 +212,6 @@ shape = SubResource("RectangleShape2D_cybdc")
 [connection signal="timeout" from="StunTimer" to="StateControl/Move" method="_on_stun_timer_timeout"]
 [connection signal="area_entered" from="Attack" to="StateControl/Move" method="_on_attack_area_entered"]
 [connection signal="area_exited" from="Attack" to="StateControl/Move" method="_on_attack_area_exited"]
+[connection signal="body_entered" from="Attack" to="StateControl/Move" method="_on_attack_body_entered"]
 
 [editable path="SoftCollision"]

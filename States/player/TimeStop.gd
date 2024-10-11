@@ -20,7 +20,7 @@ func enter() -> void:
 	parent.game_manager.timeSlowFlag = true
 		
 func process_physics(delta: float):
-	if  usingFlag == true && parent.stats.ReturnCurrentDashTime() > 0 &&  Input.is_action_pressed("dash"):
+	if  usingFlag == true && parent.stats.ReturnCurrentDashTime() > 0 &&  Input.is_action_pressed("dash") && parent.status_dictionary["Stun"] == false && parent.status_dictionary["TimeStopDisable"] == false:
 		parent.stats.SetDashTime(-delta)
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 		parent.recharge_flag = false
@@ -32,7 +32,7 @@ func process_physics(delta: float):
 		parent.game_manager.timeSlowFlag = false
 		parent.invincibleState = false
 		if super.get_movement_direction().length() != 0:
-			return move_state
+				return move_state
 		return idle_state
 	return super(delta)
 

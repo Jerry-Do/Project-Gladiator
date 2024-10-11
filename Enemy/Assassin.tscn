@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://chlri8tgr500q"]
 
 [ext_resource type="Script" path="res://Enemy/script/assassin.gd" id="1_uqywf"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_cco5b"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_cco5b"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="5_u4tn3"]
 [ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_mo1vd"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_j6jcm"]

@@ -1,7 +1,7 @@
 extends Enemy
 
 
-var sHealth:int = 1
+var sHealth:int = 3
 var sSpeed: float = 350
 var sDamage: float = 1
 var sFameAmount : float = 1

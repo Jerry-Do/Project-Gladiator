@@ -45,10 +45,8 @@ func _physics_process(delta):
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		
 func _process(delta):
-	taking_damage = false
-	var mouse_pos = get_viewport().get_mouse_position()
-	var direction = get_global_mouse_position() - global_position
-	if direction.sign().x != scale.y:
+	#taking_damage = false
+	if movement_component.get_movement_direction().sign().x != scale.y && movement_component.get_movement_direction() != Vector2.ZERO:
 		set_scale(Vector2(1, scale.y*-1))
 		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
 	state_machine.process_frame(delta)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh7cga6kbwvcm"]
 
-[ext_resource type="Script" path="res://title.gd" id="1_1ce27"]
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_1ce27"]
 
 [sub_resource type="Animation" id="Animation_2nqh3"]
 resource_name = "fade_out"

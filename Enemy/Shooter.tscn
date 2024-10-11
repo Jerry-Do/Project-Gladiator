@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://dbgol3ftdidov"]
 
 [ext_resource type="Script" path="res://Enemy/script/Shooter.gd" id="1_mv28k"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://soft_collision.tscn" id="2_6671a"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_6671a"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="5_ggqpv"]
 [ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_c21do"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_g0uho"]

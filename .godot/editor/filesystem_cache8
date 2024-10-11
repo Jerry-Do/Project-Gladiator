@@ -1,18 +1,7 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1728529716
-Back.gd::GDScript::-1::1727669925::0::1::::Back<>CollisionShape2D<>::
-Back.tscn::PackedScene::7406641053726044076::1727752144::0::1::::<><>::res://Back.gd
-BackHitbox.tscn::PackedScene::4388013273692934968::1727757981::0::1::::<><>::res://Player/TakingDamageForPlayer.gd
+::res://::1728624354
 Explosion.tscn::PackedScene::3946655759589191777::1728364871::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1727238353::0::1::::<><>::
-Front.tscn::PackedScene::433467454057330482::1727668065::0::1::::<><>::
-GameManager.gd::GDScript::-1::1728450486::0::1::::<>Node2D<>::
-PlayerSpawner.gd::GDScript::-1::1727670580::0::1::::<>Node2D<>::
-Scene.tscn::PackedScene::9192136629399209460::1728458462::0::1::::<><>::res://GameManager.gd<>res://PlayerSpawner.gd<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://dr2pu7glrsgda::::res://Weapon/HandGun.tscn
-SoftCollision.gd::GDScript::-1::1726100972::0::1::::<>Area2D<>::
-soft_collision.tscn::PackedScene::775278827044099727::1726100972::0::1::::<><>::res://SoftCollision.gd
-title.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
-title.tscn::PackedScene::7716776241769921508::1728077504::0::1::::<><>::res://title.gd
 ::res://addons/::1726100972
 ::res://addons/nklbdev.aseprite_importers/::1726100972
 aseprite_image_format_loader_extension.gd::GDScript::-1::1726100972::0::1::::<>ImageFormatLoaderExtension<>::
@@ -29,25 +18,34 @@ sprite_2d.gd::GDScript::-1::1726100972::0::1::::<><>::
 sprite_3d.gd::GDScript::-1::1726100972::0::1::::<><>::
 sprite_frames.gd::GDScript::-1::1726100972::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1726100972::0::1::::<><>::
-::res://Enemy/::1728458463
-Assassin.tscn::PackedScene::5287919666293733190::1728458462::0::1::::<><>::res://Enemy/script/assassin.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://dc1cspjor6qp2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://75etx4knwnan::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f1.png<>uid://c8rs13jf7yr6l::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f2.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Charger.tscn::PackedScene::1851721268049508705::1728458463::0::1::::<><>::res://Enemy/script/Charger.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://Enemy/script/MoveCharger.gd<>res://States/Enemy/dead.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Disabler.tscn::PackedScene::3895151084791570528::1728458463::0::1::::<><>::res://Enemy/script/Disabler.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cy6c10eohcygp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png<>uid://dakbe0e6umag3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png<>uid://tmh1m2dn2k::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png<>uid://bi03bwb6q8r11::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png<>uid://b57dfnrg38ci2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png<>uid://biqeqg1vslpy8::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://cavwah4uvv0dh::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Shooter.tscn::PackedScene::7242708322118805133::1728458462::0::1::::<><>::res://Enemy/script/Shooter.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://c8dcdik3ybafx::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Slime.tscn::PackedScene::8817734413383746080::1728458463::0::1::::<><>::res://Enemy/script/Slime.gd<>uid://lbsy10cwro8n::::res://soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://c6ngdomuww2j3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png<>uid://cj7os7hgbjb4e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://dxyaipjj47xjl::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png<>uid://dntlp2r8oeoic::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png<>uid://dhgxrbnqm622n::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png<>uid://dow6u7ecmrrln::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png
+::res://Enemy/::1728624287
+Assassin.tscn::PackedScene::5287919666293733190::1728624287::0::1::::<><>::res://Enemy/script/assassin.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://dc1cspjor6qp2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://75etx4knwnan::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f1.png<>uid://c8rs13jf7yr6l::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f2.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+Charger.tscn::PackedScene::1851721268049508705::1728624287::0::1::::<><>::res://Enemy/script/Charger.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://Enemy/script/MoveCharger.gd<>res://States/Enemy/dead.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+Disabler.tscn::PackedScene::3895151084791570528::1728624287::0::1::::<><>::res://Enemy/script/Disabler.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cy6c10eohcygp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png<>uid://dakbe0e6umag3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png<>uid://tmh1m2dn2k::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png<>uid://bi03bwb6q8r11::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png<>uid://b57dfnrg38ci2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png<>uid://biqeqg1vslpy8::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://cavwah4uvv0dh::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+Shooter.tscn::PackedScene::7242708322118805133::1728624287::0::1::::<><>::res://Enemy/script/Shooter.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://c8dcdik3ybafx::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+Slime.tscn::PackedScene::8817734413383746080::1728624287::0::1::::<><>::res://Enemy/script/Slime.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://c6ngdomuww2j3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png<>uid://cj7os7hgbjb4e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://dxyaipjj47xjl::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png<>uid://dntlp2r8oeoic::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png<>uid://dhgxrbnqm622n::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png<>uid://dow6u7ecmrrln::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png
 ::res://Enemy/etc/::1728453875
 EnemyBullet.tscn::PackedScene::5189428569022404114::1728453875::0::1::::<><>::res://Enemy/script/EnemyBullet.gd<>uid://c8dcdik3ybafx::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png
-::res://Enemy/script/::1728458461
-assassin.gd::GDScript::-1::1728453725::0::1::::<>Enemy<>::
+::res://Enemy/script/::1728538803
+assassin.gd::GDScript::-1::1728535814::0::1::::<>Enemy<>::
 ChargeEnemy.gd::GDScript::-1::1728275569::0::1::::<>State<>::
-Charger.gd::GDScript::-1::1728452541::0::1::::<>Enemy<>::
-Disabler.gd::GDScript::-1::1728366740::0::1::::<>Enemy<>::
-Enemy.gd::GDScript::-1::1728458461::0::1::::Enemy<>CharacterBody2D<>::
+Charger.gd::GDScript::-1::1728535810::0::1::::<>Enemy<>::
+Disabler.gd::GDScript::-1::1728535805::0::1::::<>Enemy<>::
+Enemy.gd::GDScript::-1::1728538699::0::1::::Enemy<>CharacterBody2D<>::
 EnemyBullet.gd::GDScript::-1::1728022867::0::1::::<>BaseBullet<>::
-MoveCharger.gd::GDScript::-1::1728364354::0::1::::MoveCharger<>State<>::
-Shooter.gd::GDScript::-1::1728196420::0::1::::<>Enemy<>::
-Slime.gd::GDScript::-1::1728457788::0::1::::<>Enemy<>::
-TakingDamageEnemy.gd::GDScript::-1::1728109719::0::1::::HitboxOther<>Area2D<>::
+MoveCharger.gd::GDScript::-1::1728531074::0::1::::MoveCharger<>State<>::
+Shooter.gd::GDScript::-1::1728535818::0::1::::<>Enemy<>::
+Slime.gd::GDScript::-1::1728535699::0::1::::<>Enemy<>::
+TakingDamageEnemy.gd::GDScript::-1::1728538803::0::1::::HitboxOther<>Area2D<>::
+::res://environment/::1728624354
+barrel.tscn::PackedScene::7732108371629105545::1728624547::0::1::::<><>::uid://c3r5jbq83k6kk::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png
+::res://hitboxes/::1728624287
+Back.gd::GDScript::-1::1727669925::0::1::::Back<>CollisionShape2D<>::
+Back.tscn::PackedScene::7406641053726044076::1728624287::0::1::::<><>::res://hitboxes/Back.gd
+BackHitbox.tscn::PackedScene::4388013273692934968::1727757981::0::1::::<><>::res://Player/TakingDamageForPlayer.gd
+Front.tscn::PackedScene::433467454057330482::1727668065::0::1::::<><>::
+SoftCollision.gd::GDScript::-1::1728536135::0::1::::<>Area2D<>::
+soft_collision.tscn::PackedScene::775278827044099727::1728624287::0::1::::<><>::res://hitboxes/SoftCollision.gd
 ::res://Item/::1728455055
 Boots.tscn::PackedScene::7149418309657105035::1727241684::0::1::::<><>::res://Item/scripts/Boots.gd<>uid://dc5h18u0hlfsk::::res://resource/16x16 RPG Item Pack/Item__50.png
 ElectricBarrier.gd::GDScript::-1::1727458192::0::1::::<>Item<>::
@@ -57,20 +55,26 @@ GoldenGloves.tscn::PackedScene::1620429552303885859::1727329367::0::1::::<><>::r
 HealthKit.tscn::PackedScene::5456801460219559699::1727323273::0::1::::<><>::res://Item/scripts/HealthKit.gd<>uid://dsa4o0c7atrp7::::res://resource/16x16 RPG Item Pack/Item__42.png
 ShootingBot.tscn::PackedScene::8223770004662809267::1728367002::0::1::::<><>::res://Item/scripts/ShootingBot.gd<>uid://b51ay7wnxcb4i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png
 ShootingBotActual.tscn::PackedScene::5124695139731465166::1728455055::0::1::::<><>::res://Item/scripts/BotLogic.gd<>uid://b51ay7wnxcb4i::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png
-::res://Item/scripts/::1728450486
+::res://Item/scripts/::1728622605
 Boots.gd::GDScript::-1::1727241685::0::1::::<>Item<>::
 BotLogic.gd::GDScript::-1::1728195996::0::1::::<>CharacterBody2D<>::
 GoldenGloves.gd::GDScript::-1::1727247662::0::1::::<>Item<>::
 HealthKit.gd::GDScript::-1::1727247677::0::1::::<>Item<>::
 Item.gd::GDScript::-1::1727247611::0::1::::Item<>Node<>::
-shield.gd::GDScript::-1::1728450486::0::1::::<>Item<>::
+shield.gd::GDScript::-1::1728622605::0::1::::<>Item<>::
 ShootingBot.gd::GDScript::-1::1727329426::0::1::::<>Item<>::
-::res://Player/::1728458462
+::res://managers/::1728624342
+GameManager.gd::GDScript::-1::1728622605::0::1::::<>Node2D<>::
+PlayerSpawner.gd::GDScript::-1::1727670580::0::1::::<>Node2D<>::
+::res://managers/spawner/::1728624342
+Spawner.gd::GDScript::-1::1728623219::0::1::::<>Node2D<>::
+spawner.tscn::PackedScene::5365047448164849820::1728624342::0::1::::<><>::res://managers/spawner/Spawner.gd
+::res://Player/::1728624287
 Character.gd::GDScript::-1::1727068777::0::1::::<>CharacterBody2D<>::
 Character.tscn::PackedScene::8753365442066500842::1726100972::0::1::::<><>::res://Player/Character.gd
 FlipWeaponNode.gd::GDScript::-1::1727142740::0::1::::<>Node2D<>::
 Player.gd::GDScript::-1::1728364403::0::1::::Player<>CharacterBody2D<>::
-Player.tscn::PackedScene::697875697191207779::1728458462::0::1::::<><>::res://Player/Player.gd<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/TimeStop.gd<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://b3rt641lalewe::::res://BackHitbox.tscn<>res://States/player/Movement_getter.gd<>res://Player/TakingDamageForPlayer.gd<>uid://ddr3kchg8b5xo::::res://Back.tscn<>uid://gf8e7mfhnvda::::res://Front.tscn<>uid://d0xl5jhdikyw1::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png
+Player.tscn::PackedScene::697875697191207779::1728624287::0::1::::<><>::res://Player/Player.gd<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/TimeStop.gd<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://b3rt641lalewe::::res://hitboxes/BackHitbox.tscn<>res://States/player/Movement_getter.gd<>res://Player/TakingDamageForPlayer.gd<>uid://ddr3kchg8b5xo::::res://hitboxes/Back.tscn<>uid://gf8e7mfhnvda::::res://hitboxes/Front.tscn<>uid://d0xl5jhdikyw1::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png
 PlayerStats.gd::GDScript::-1::1728451669::0::1::::<>Node<>::
 PlayerStats.tscn::PackedScene::6724956824135903098::1726100972::0::1::::<><>::uid://b2viddts03gyk::::res://Player/stats.tscn<>res://Player/PlayerStats.gd
 stats.tscn::PackedScene::4325362675852765762::1726100972::0::1::::<><>::
@@ -901,9 +905,10 @@ menu_button.png::CompressedTexture2D::2211886889265999436::1726100972::172680996
 menu_button_press.png::CompressedTexture2D::7603866601388575262::1726100972::1726809967::1::::<><>::
 pause_button.png::CompressedTexture2D::5094739625633456048::1726100972::1726809967::1::::<><>::
 pause_button_press.png::CompressedTexture2D::2444210060607913093::1726100972::1726809967::1::::<><>::
-::res://spawner/::1728452658
-Spawner.gd::GDScript::-1::1728452658::0::1::::<>Node2D<>::
-spawner.tscn::PackedScene::5365047448164849820::1726809673::0::1::::<><>::res://spawner/Spawner.gd
+::res://scenes/::1728624342
+Scene.tscn::PackedScene::9192136629399209460::1728624342::0::1::::<><>::uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>res://managers/GameManager.gd<>res://managers/PlayerSpawner.gd<>uid://cio4svb8b44cm::::res://spawner/spawner.tscn<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://dr2pu7glrsgda::::res://Weapon/HandGun.tscn
+title.gd::GDScript::-1::1726100972::0::1::::<>Node2D<>::
+title.tscn::PackedScene::7716776241769921508::1728624311::0::1::::<><>::res://scenes/title.gd
 ::res://Sprite/::1728195593
 Footstep.gd::GDScript::-1::1728192835::0::1::::<>GPUParticles2D<>::
 Footstep.tscn::PackedScene::1547907404051401355::1728195593::0::1::::<><>::res://Sprite/Footstep.gd
@@ -919,17 +924,17 @@ potion.png::CompressedTexture2D::3044124506313688703::1726100972::1726100972::1:
 ::res://States/::1727932183
 State.gd::GDScript::-1::1727929375::0::1::::State<>Node<>::
 StateController.gd::GDScript::-1::1727932183::0::1::::<>Node<>::
-::res://States/Enemy/::1728458205
+::res://States/Enemy/::1728537229
 Attack.gd::GDScript::-1::1728276934::0::1::::<>State<>::
 dead.gd::GDScript::-1::1727756975::0::1::::<>State<>::
 IdleEnemy.gd::GDScript::-1::1726462606::0::1::::<>State<>::
-MoveEnemy.gd::GDScript::-1::1728458205::0::1::::<>State<>::
+MoveEnemy.gd::GDScript::-1::1728537229::0::1::::<>State<>::
 Stun.gd::GDScript::-1::1728283800::0::1::::<>MoveCharger<>::
-::res://States/player/::1728450486
-Idle.gd::GDScript::-1::1728450486::0::1::::<>State<>::
-Move.gd::GDScript::-1::1728366331::0::1::::Move<>State<>::
-Movement_getter.gd::GDScript::-1::1728450486::0::1::::<>Node<>::
-TimeStop.gd::GDScript::-1::1728367001::0::1::::<>Move<>::
+::res://States/player/::1728622967
+Idle.gd::GDScript::-1::1728622605::0::1::::<>State<>::
+Move.gd::GDScript::-1::1728530815::0::1::::Move<>State<>::
+Movement_getter.gd::GDScript::-1::1728622605::0::1::::<>Node<>::
+TimeStop.gd::GDScript::-1::1728622967::0::1::::<>Move<>::
 ::res://UI/::1728453875
 Button.gd::GDScript::-1::1728106211::0::1::::<>Control<>::
 Button.tscn::PackedScene::3833970527483866742::1728077504::0::1::::<><>::uid://427ydx1r7hp6::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png<>res://UI/Button.gd<>uid://b5oo5dgxx56x8::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png<>uid://bjmujypyevm6j::::res://Sprite/Player/potion.png
@@ -946,7 +951,7 @@ healthbar.gd::GDScript::-1::1727065646::0::1::::<>ProgressBar<>::
 Healthbar.tscn::PackedScene::99718230870936186::1727548214::0::1::::<><>::res://UI/Bars/healthbar.gd
 SpeedBar.gd::GDScript::-1::1727551965::0::1::::<>ProgressBar<>::
 SpeedBar.tscn::PackedScene::5132510143834869280::1727663371::0::1::::<><>::res://UI/Bars/SpeedBar.gd
-::res://Weapon/::1728458462
+::res://Weapon/::1728624238
 Bomerang.tscn::PackedScene::369442416383700725::1727933001::0::1::::<><>::res://Weapon/script/Bomerang.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
 Executioner.tscn::PackedScene::9217575867307118613::1727933001::0::1::::<><>::res://Weapon/script/Executioner.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 HandGun.tscn::PackedScene::8409158753594315518::1728455055::0::1::::<><>::res://Weapon/script/gun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
@@ -955,29 +960,29 @@ MachineGun.tscn::PackedScene::7827775262756622896::1727669464::0::1::::<><>::res
 ScatterGun.tscn::PackedScene::7989731681260487758::1727849175::0::1::::<><>::uid://c415qv8m11sq1::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/5_1.png<>res://Weapon/script/ScatterGun.gd
 Shotgun.tscn::PackedScene::2359686463657296332::1728453985::0::1::::<><>::res://Weapon/script/Shotgun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Sniper.tscn::PackedScene::4102781667093446051::1727849175::0::1::::<><>::res://Weapon/script/Sniper.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
-SpeedGun.tscn::PackedScene::2231149442512675828::1728458462::0::1::::<><>::uid://cjcdcxr41b6aj::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/2_1.png<>res://Weapon/script/SpeedGun.gd<>uid://cfehxsghtnitc::::res://UI/Bars/SpeedBar.tscn
+SpeedGun.tscn::PackedScene::2231149442512675828::1728624238::0::1::::<><>::uid://cjcdcxr41b6aj::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/2_1.png<>res://Weapon/script/SpeedGun.gd<>uid://cfehxsghtnitc::::res://UI/Bars/SpeedBar.tscn
 Weapon.tscn::PackedScene::8703610511030117951::1727155318::0::1::::<><>::
-::res://Weapon/bullet/::1728458462
+::res://Weapon/bullet/::1728624238
 BomerangBullet.tscn::PackedScene::288615707988430325::1727849606::0::1::::<><>::res://Weapon/bullet/script/BomerangBullet.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
 BotBullet.tscn::PackedScene::6334465293180946377::1727329367::0::1::::<><>::res://Weapon/bullet/script/BotBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-bullet.tscn::PackedScene::7153186381455210336::1728458462::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
+bullet.tscn::PackedScene::7153186381455210336::1728624238::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 ExecutionerBullet.tscn::PackedScene::3744655771196766048::1727933001::0::1::::<><>::res://Weapon/bullet/script/ExecutionerBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 HCBullet.tscn::PackedScene::4784259622652737097::1727850504::0::1::::<><>::res://Weapon/bullet/script/HCBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-ScatterBullet.tscn::PackedScene::2478326071428716307::1727759838::0::1::::<><>::res://Weapon/bullet/script/ScatterBullet.gd<>uid://dox2sx805nmyu::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/1.png
-ScatterPellet.tscn::PackedScene::7463734126106010086::1727759622::0::1::::<><>::uid://dyduucd0gegyj::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/7.png<>res://Weapon/bullet/script/ScatterPellet.gd
+ScatterBullet.tscn::PackedScene::2478326071428716307::1728624238::0::1::::<><>::res://Weapon/bullet/script/ScatterBullet.gd<>uid://dox2sx805nmyu::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/1.png
+ScatterPellet.tscn::PackedScene::7463734126106010086::1728624238::0::1::::<><>::uid://dyduucd0gegyj::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/7.png<>res://Weapon/bullet/script/ScatterPellet.gd
 ShotgunBullet.tscn::PackedScene::8288864571729375522::1727759491::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 SniperBullet.tscn::PackedScene::6391802182309068514::1727759491::0::1::::<><>::res://Weapon/bullet/script/SniperBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 SpeedBullet.tscn::PackedScene::8115767364347181187::1727759776::0::1::::<><>::res://Weapon/bullet/script/SpeedBullet.gd<>uid://ckkisyhc86alf::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/6.png
 TargetBullet.tscn::PackedScene::7241002033974314970::1727759952::0::1::::<><>::res://Weapon/bullet/script/TargetBullet.gd<>uid://cgbhhd4hsbs3m::::res://Sprite/Player/Enemy.png
-::res://Weapon/bullet/script/::1728454121
+::res://Weapon/bullet/script/::1728538772
 BaseBullet.gd::GDScript::-1::1728065191::0::1::::BaseBullet<>Area2D<>::
 BomerangBullet.gd::GDScript::-1::1728109752::0::1::::<>Area2D<>::
 BotBullet.gd::GDScript::-1::1728109752::0::1::::<>Area2D<>::
 bullet.gd::GDScript::-1::1728454121::0::1::::<>BaseBullet<>::
 ExecutionerBullet.gd::GDScript::-1::1728109765::0::1::::<>BaseBullet<>::
 HCBullet.gd::GDScript::-1::1728109803::0::1::::<>BaseBullet<>::
-ScatterBullet.gd::GDScript::-1::1728109803::0::1::::<>BaseBullet<>::
-ScatterPellet.gd::GDScript::-1::1728109803::0::1::::<>BaseBullet<>::
+ScatterBullet.gd::GDScript::-1::1728538772::0::1::::<>BaseBullet<>::
+ScatterPellet.gd::GDScript::-1::1728538677::0::1::::<>BaseBullet<>::
 SniperBullet.gd::GDScript::-1::1728451510::0::1::::<>BaseBullet<>::
 SpeedBullet.gd::GDScript::-1::1728109803::0::1::::<>BaseBullet<>::
 TargetBullet.gd::GDScript::-1::1727929375::0::1::::<>BaseBullet<>::

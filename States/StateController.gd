@@ -32,3 +32,7 @@ func process_frame(delta: float) -> void:
 	var new_state = current_state.process_frame(delta)
 	if new_state:
 		change_state(new_state)
+
+
+func _on_attack_body_entered(body):
+	pass # Replace with function body.

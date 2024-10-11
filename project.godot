@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="NeonAbyss"
-run/main_scene="res://title.tscn"
+config/name="Gladiator"
+run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
 [autoload]

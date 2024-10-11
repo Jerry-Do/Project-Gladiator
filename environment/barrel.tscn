@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://difqxvwmhnycn"]
+
+[ext_resource type="Texture2D" uid="uid://c3r5jbq83k6kk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png" id="1_na5r2"]
+[ext_resource type="Script" path="res://environment/script/barrel.gd" id="1_ukyyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3mw5"]
+size = Vector2(32, 49)
+
+[node name="Barrel" type="StaticBody2D"]
+scale = Vector2(1, 0.993882)
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ukyyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.50313, 3.36575)
+texture = ExtResource("1_na5r2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_n3mw5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
