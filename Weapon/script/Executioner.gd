@@ -8,7 +8,9 @@ var _cReloadTime = 2
 var can_use_ability : bool = true
 @onready var cooldown_timer : Timer = $SkillCooldown
 func _init():
-	super._init("res://Weapon/bullet/ExecutionerBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "Right click to go into stealh mode, killing an enemy refresh the cooldown of the stealth mode. Deals extra damage when attacking from behind an enemy"
+	var w_name = "Executioner"
+	super._init("res://Weapon/bullet/ExecutionerBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):
 	super._process(delta)	

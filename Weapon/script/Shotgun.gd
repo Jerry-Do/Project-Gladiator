@@ -6,7 +6,9 @@ var _cRateOfFire = 1
 var _cReloadTime = 1
 @export var pellet : int
 func _init():
-	super._init("res://Weapon/bullet/bullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "Just a shotgun"
+	var w_name = "Shotgun"
+	super._init("res://Weapon/bullet/bullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):
 	super._process(delta)	

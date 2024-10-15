@@ -96,5 +96,6 @@ func _on_curse_timer_timeout():
 	is_target = false
 	target_sprite.hide()
 	
-
+func SelfDestruct():
+	queue_free()
 	

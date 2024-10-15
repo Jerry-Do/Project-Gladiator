@@ -7,7 +7,9 @@ var _cMaxAmmo = 1
 var _cRateOfFire = 1
 var _cReloadTime = 99999999
 func _init():
-	super._init("res://Weapon/bullet/BomerangBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "Throws a bomerang that comes back to the player, damaging everyting on the way"
+	var w_name = "Bomerang"
+	super._init("res://Weapon/bullet/BomerangBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):
 	super._process(delta)	

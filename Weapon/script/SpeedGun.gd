@@ -9,7 +9,9 @@ var charge : float = 0
 var max_charge : float = 5.0
 @onready var speed_bar = $SpeedBar
 func _init():
-	super._init("res://Weapon/bullet/SpeedBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "Moving charges up the gun. When fully charged, consume all the charges to deal extra damage"
+	var w_name = "Speed gun"
+	super._init("res://Weapon/bullet/SpeedBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 
 func _ready():

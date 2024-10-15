@@ -34,6 +34,7 @@ func init_shield(_shield):
 	shield = _shield
 	shield_bar.max_value = _shield
 	shield_bar.value = shield
+	
 func _set_shield(value):
 	var _prev_shield = shield
 	shield = min(shield_bar.max_value, value)

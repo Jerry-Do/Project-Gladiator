@@ -7,7 +7,9 @@ var _cReloadTime = 1.25
 @onready var target_timer = $TargetTimer
 
 func _init():
-	super._init("res://Weapon/bullet/HCBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "Right click to shoot out a target bullet, bullets near the targetted enemy will automatically home into them"
+	var w_name = "H.C Revolver"
+	super._init("res://Weapon/bullet/HCBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):
 	super._process(delta)	

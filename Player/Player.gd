@@ -30,9 +30,11 @@ var status_dictionary = {
 	"TimeStopDisable" : false
 }
 
+signal CreateDescription(weapon : Weapon)
 	
 func _ready():
-	self.stats.connect("no_health", queue_free)
+	self.stats.connect("no_health", game_manager.GameOver)
+	connect("CreateDescription", game_manager.CreateWeaponDescription)
 	healthBar.init_health(stats.ReturnHealth())
 	fuelBar.init_fuel(dashTime)
 	state_machine.init(self, movement_component)
@@ -46,7 +48,7 @@ func _physics_process(delta):
 		
 func _process(delta):
 	#taking_damage = false
-	if movement_component.get_movement_direction().sign().x != scale.y && movement_component.get_movement_direction() != Vector2.ZERO:
+	if movement_component.get_movement_direction().sign().x != scale.y && movement_component.get_movement_direction().x != 0:
 		set_scale(Vector2(1, scale.y*-1))
 		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
 	state_machine.process_frame(delta)
@@ -77,6 +79,7 @@ func PickUpWeapon(weapon: Node2D):
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon
 	game_manager.pick_up_weapon = true
+	CreateDescription.emit(currentWeapon)
 
 
 func MinusHealth(amount : int, is_backshot = false):

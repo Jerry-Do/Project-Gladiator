@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://buvg61hesrl0q"]
 
 [ext_resource type="Texture2D" uid="uid://427ydx1r7hp6" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png" id="1_5c2dp"]
-[ext_resource type="Script" path="res://UI/Button.gd" id="1_058vi"]
+[ext_resource type="Script" path="res://UI/script/Button.gd" id="1_058vi"]
 [ext_resource type="Texture2D" uid="uid://b5oo5dgxx56x8" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png" id="2_toic4"]
 [ext_resource type="Texture2D" uid="uid://bjmujypyevm6j" path="res://Sprite/Player/potion.png" id="3_qqfql"]
 

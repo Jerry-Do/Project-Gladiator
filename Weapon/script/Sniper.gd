@@ -7,7 +7,9 @@ var _cRateOfFire = 1.25
 var _cReloadTime = 5
 var  mousePosition : Vector2
 func _init():
-	super._init("res://Weapon/bullet/SniperBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "Bullets pierce enemies"
+	var w_name = "Sniper"
+	super._init("res://Weapon/bullet/SniperBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 	
 

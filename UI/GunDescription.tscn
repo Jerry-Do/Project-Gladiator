@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceo06s2imdy6o"]
+
+[ext_resource type="Script" path="res://UI/GunDescription.gd" id="1_kessv"]
+[ext_resource type="Texture2D" uid="uid://bxf1mblemfbws" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X3/Card X6.png" id="1_rx64r"]
+
+[node name="GunDescription" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kessv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(517, 542)
+scale = Vector2(0.677419, 0.4)
+texture = ExtResource("1_rx64r")
+
+[node name="Name" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 478.0
+offset_right = 528.0
+offset_bottom = 518.0
+scale = Vector2(1.64, 1)
+
+[node name="Name" type="RichTextLabel" parent="Name"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Description" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 0
+offset_left = 294.0
+offset_top = 518.0
+offset_right = 744.0
+offset_bottom = 558.0
+scale = Vector2(0.977823, 0.790624)
+
+[node name="Description" type="RichTextLabel" parent="Description"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 25)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 1
+text = "Description
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

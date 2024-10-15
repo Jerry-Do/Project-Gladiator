@@ -146,6 +146,7 @@ script = ExtResource("3_4a00c")
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
+maxAllow = 5
 
 [node name="s1" parent="Spawner" index="1"]
 position = Vector2(-456, -160)

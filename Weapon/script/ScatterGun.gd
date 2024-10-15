@@ -7,7 +7,9 @@ var _cRateOfFire = 0.25
 var _cReloadTime = 2
 
 func _init():
-	super._init("res://Weapon/bullet/ScatterBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime)
+	var description = "If the bullet kills an enemy, it will create pellets shooting out in random direction"
+	var w_name = "Scatter gun"
+	super._init("res://Weapon/bullet/ScatterBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):
 	super._process(delta)	

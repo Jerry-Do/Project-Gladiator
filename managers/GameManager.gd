@@ -88,14 +88,19 @@ func _on_weapon_timer_timeout():
 		get_parent().remove_child(newWeapon)
 	pick_up_weapon = true
 
-func UpgradeChose(node_path):
+func UpgradeChose(node_path: String, item_name : String):
 	ui.remove_child(ui.get_child(1))
 	var player = get_node("../Player")
 	var item = load(node_path)
 	var new_item = item.instantiate()
+	if duplication_array.find(item_name) != -1:
+		player.get_node("Item").get_node(item_name).Duplicate()
+		StartWave()
+		return null
 	player.get_node("Item").add_child(new_item)
 	duplication_array.append(new_item.ReturnName())
 	new_item.item_sprite.hide()
+	
 	StartWave()
 
 func StartWave():
@@ -104,3 +109,15 @@ func StartWave():
 	enemy_spawner.spawnCount = 0
 	ui.set_wave_finisher_alert_visibility(false, currentWave)
 	
+func CreateWeaponDescription(weapon : Weapon):
+	var description = preload("res://UI/GunDescription.tscn")
+	var real_description = description.instantiate()
+	real_description.SetUp(weapon.ReturnName(), weapon.ReturnDescription())
+	ui.add_child(real_description)
+
+func GameOver():
+	get_tree().get_first_node_in_group("player").queue_free()
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.SelfDestruct()
+	await get_tree().create_timer(0.1).timeout
+	SceneManager.LoadScene("res://scenes/GameOver.tscn", self)

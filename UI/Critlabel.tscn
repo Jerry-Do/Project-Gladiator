@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwkxcbkfrjdcv"]
 
-[ext_resource type="Script" path="res://UI/CritLabel.gd" id="1_k4yia"]
+[ext_resource type="Script" path="res://UI/script/CritLabel.gd" id="1_k4yia"]
 
 [node name="Critlabel" type="Control"]
 layout_mode = 3

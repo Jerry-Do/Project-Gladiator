@@ -5,6 +5,7 @@ class_name Item
 @onready var item_description
 var item_name
 var display_name
+var quantity = 1 : set = _set_quantity
 
 func ReturnItemSprite():
 	return item_sprite.texture
@@ -17,3 +18,7 @@ func ReturnName():
 
 func ReturnDisplayName():
 	return display_name
+
+
+func _set_quantity(amount):
+	quantity += amount
