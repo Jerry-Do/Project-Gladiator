@@ -8,9 +8,9 @@ func _ready():
 	display_name = "Energy Shield"
 	item_description = "Gives the player a shield"
 	if get_parent() == player.get_node("Item"):
-		player.shield_amount = amount
+		DoJob()
 		player.healthBar.shield_bar.show()
-		player.healthBar.init_shield(amount)
+		
 	return null
 
 func _process(delta):
@@ -24,3 +24,7 @@ func TakingDamage():
 func _on_timer_timeout():
 	player.shield_amount += 1
 	player.healthBar._set_shield(player.shield_amount)
+	
+func DoJob():
+	player.shield_amount = amount * quantity
+	player.healthBar.init_shield(amount)

@@ -28,7 +28,7 @@ func process_physics(delta: float):
 		usingFlag = false
 		Engine.time_scale = 1.0
 		parent.stats.SetSpeed(tmp)
-		dash_timer.start()
+		dash_timer.start(parent.Stats.ReturnChargeTime())
 		parent.game_manager.timeSlowFlag = false
 		parent.invincibleState = false
 		if super.get_movement_direction().length() != 0:

@@ -1,7 +1,4 @@
 extends CharacterBody2D
-##TODO
-##Add a level up mechanic
-##After killing a certain amount of enemy, the bot will level up ang get new attacks
 
 @export
 var damage = 0

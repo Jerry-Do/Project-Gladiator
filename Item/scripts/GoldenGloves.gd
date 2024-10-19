@@ -8,7 +8,9 @@ func _ready():
 	display_name = "Golden Gloves"
 	item_description = "Bullets now can crit"
 	if get_parent() == player.get_child(6):
-		player.can_crit = true
+		DoJob()
 	return null
 
-	
+func DoJob():
+	player.can_crit = true
+	player.stats.SetCritChance(5)

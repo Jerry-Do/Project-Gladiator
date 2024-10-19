@@ -33,9 +33,7 @@ func _process(_delta):
 		ui.update_WeaponTimer_text(%WeaponTimer.get_time_left())
 		ui.set_new_weapon_alert_visibility(true)
 		ui.set_new_weapon_timer_alert_visibility(true)
-		await get_tree().create_timer(%WeaponTimer.get_time_left()).timeout
-		ui.set_new_weapon_alert_visibility(false)
-		ui.set_new_weapon_timer_alert_visibility(false)
+		
 	
 func SpawnWeapon():
 	var children = weaponSpawnPoints.get_children()
@@ -54,7 +52,6 @@ func AdjustFame(value):
 	currentFame += value * fameMultiplier
 	if currentFame == maxFame:
 		SpawnWeapon()
-		maxFame *= 2
 	ui.update_fame_text(currentFame, maxFame)
 	
 
@@ -82,11 +79,9 @@ func _on_fame_multiplier_timer_timeout():
 	killCount = 0
 
 func _on_weapon_timer_timeout():
-	if pick_up_weapon == false:
-		%WeaponTimer.stop()
-		print(newWeapon.get_parent())
-		get_parent().remove_child(newWeapon)
-	pick_up_weapon = true
+	get_parent().remove_child(newWeapon)
+	ui.set_new_weapon_alert_visibility(false)
+	ui.set_new_weapon_timer_alert_visibility(false)
 
 func UpgradeChose(node_path: String, item_name : String):
 	ui.remove_child(ui.get_child(1))
@@ -113,7 +108,7 @@ func CreateWeaponDescription(weapon : Weapon):
 	var description = preload("res://UI/GunDescription.tscn")
 	var real_description = description.instantiate()
 	real_description.SetUp(weapon.ReturnName(), weapon.ReturnDescription())
-	ui.add_child(real_description)
+	ui.get_node("Control").add_child(real_description)
 
 func GameOver():
 	get_tree().get_first_node_in_group("player").queue_free()

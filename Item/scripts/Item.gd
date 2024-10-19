@@ -19,6 +19,13 @@ func ReturnName():
 func ReturnDisplayName():
 	return display_name
 
+func DoJob():
+	return null
 
 func _set_quantity(amount):
 	quantity += amount
+	
+
+func Duplicate():
+	_set_quantity(1)
+	DoJob()

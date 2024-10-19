@@ -10,17 +10,19 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 func _on_area_entered(area):
-	var random
-	if get_node("../../../../../../Player").can_crit:
-		random = RandomNumberGenerator.new().randi_range(1, 5)
+	var random = 0
+	var crit_chance = 100 - player.stats.ReturnCritChance()
+	if player.can_crit:
+		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		#the bracket checks if the bullet crits or not and after if the bullet hit behind enemy then it will add extra damage
-		var actual_damage = ( damage if random != 1 else damage * 2 ) + 5 if area.get_name() == "Back" else 0
-		area.TakingDamageForOther(actual_damage, true if area.get_name() == "Back" else false)
+		var actual_damage = ( damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) ) + 5 if area.get_name() == "Back" else 0
+		actual_damage *= 1 + (player.stats.ReturnDamageMod() / 100)
+		area.TakingDamageForOther(actual_damage,  true if area.get_name() == "Back" else false)
 		if area.get_parent().health <= 0:
 			get_parent().get_parent().get_parent().can_use_ability = true
 			get_parent().get_parent().get_parent().cooldown_timer.stop()
-		if random == 1:
+		if random == crit_chance:
 			var crit_label = preload("res://UI/Critlabel.tscn")
 			var new_label = crit_label.instantiate()
 			get_node("../../../../../../../Level").add_child(new_label)

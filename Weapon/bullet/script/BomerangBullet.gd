@@ -1,5 +1,6 @@
 extends Area2D
 @onready var game_manager = get_node("../../../../GameManager")
+@onready var player = get_node("../../../../../../Player")
 var travelled_dist = 0
 var returnFlag : bool 
 @export var damage : int
@@ -35,7 +36,16 @@ func _on_ghost_timer_timeout():
 
 
 func _on_area_entered(area):
-	if area.has_method("TakingDamageForEnemy"):
-		returnFlag = true
-		area.TakingDamageForOther(damage,true if area.get_name() == "Back" else false)
-	
+	var random
+	var crit_chance = 100 - player.stats.ReturnCritChance()
+	if get_node("../../../../../../Player").can_crit:
+		random = RandomNumberGenerator.new().randi_range(1, 100 - (player.stats.ReturnCritChance()))
+	if area.has_method("TakingDamageForOther"):
+		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
+		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		if random == (100 - (get_node("../../../../../../Player").stats.ReturnCritChance())):
+			print("crit")
+			var crit_label = preload("res://UI/Critlabel.tscn")
+			var new_label = crit_label.instantiate()
+			get_node("../../../../../../../Level").add_child(new_label)
+			new_label.position = position	

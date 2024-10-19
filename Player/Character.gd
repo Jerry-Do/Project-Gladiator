@@ -8,8 +8,3 @@ extends CharacterBody2D
 		
 		
 	#level.update_health(health)
-
-
-
-
-

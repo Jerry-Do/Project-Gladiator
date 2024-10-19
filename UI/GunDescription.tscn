@@ -52,9 +52,3 @@ text = "Description
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -12,5 +12,4 @@ func _ready():
 	return null
 
 func DoJob(): 
-	player.stats.SetSpeed(player.stats.ReturnSpeed() * (1 + ((amount * quantity)/100)))
-	
+	player.stats.SetChargeTime(-(player.stats.ReturnChargeTime() * ((amount * quantity) / 100)))

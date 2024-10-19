@@ -9,7 +9,7 @@ var _cReloadTime = 1.5
 func _init():
 	var description = "Just a handgun"
 	var w_name = "Handgun"
-	super._init("res://Weapon/bullet/Bullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
+	super._init("res://Weapon/bullet/bullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):
 	super._process(delta)	
