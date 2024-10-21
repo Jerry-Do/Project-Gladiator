@@ -44,6 +44,25 @@ text = "LO
 label_settings = SubResource("LabelSettings_5bcxl")
 autowrap_mode = 2
 
+[node name="Name" type="CenterContainer" parent="TextureButton"]
+layout_mode = 0
+offset_left = 50.6667
+offset_top = 100.0
+offset_right = 750.666
+offset_bottom = 500.0
+scale = Vector2(0.414894, 0.3726)
+
+[node name="name" type="Label" parent="TextureButton/Name"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 400)
+layout_direction = 1
+layout_mode = 2
+text = "NAME
+"
+label_settings = SubResource("LabelSettings_5bcxl")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="ItemSprite" type="Sprite2D" parent="."]
 position = Vector2(208, 91)
 texture = ExtResource("3_qqfql")

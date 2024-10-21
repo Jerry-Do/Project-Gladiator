@@ -23,7 +23,7 @@ func _ready():
 				#dup_flag = false	
 			#if items.size() == counter:
 				#return
-		var random_no =  RandomNumberGenerator.new().randi_range(0, 0)	
+		var random_no =  RandomNumberGenerator.new().randi_range(0, items.size() - 1)
 		var button = preload("res://UI/Button.tscn")
 		var new_button = button.instantiate()
 		add_child(new_button)

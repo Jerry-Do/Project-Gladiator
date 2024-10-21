@@ -33,7 +33,7 @@ func OnEnemyKilled():
 		WaveComplete.emit()
 
 func _on_spawn_timer_timeout():
-	var randomNo = rng.randi_range(0, 0)
+	var randomNo = rng.randi_range(0, enemies.size() - 1)
 	var randomSpawnPos = rng.randi_range(1,4)
 	var enemy = load(enemies[randomNo])
 	var newEnemy = enemy.instantiate()

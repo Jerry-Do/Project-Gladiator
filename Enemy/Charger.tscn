@@ -88,7 +88,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cybdc"]
-size = Vector2(84, 77)
+size = Vector2(45.3279, 56.2485)
 
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 1
@@ -202,7 +202,8 @@ collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
-position = Vector2(32, -28.5)
+position = Vector2(31, -27)
+scale = Vector2(0.91867, 0.907274)
 shape = SubResource("RectangleShape2D_cybdc")
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

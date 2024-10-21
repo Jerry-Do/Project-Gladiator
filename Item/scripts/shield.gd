@@ -6,7 +6,7 @@ var recharge_flag = false
 func _ready():
 	item_name = "EnergyShield"
 	display_name = "Energy Shield"
-	item_description = "Gives the player a shield"
+	item_description = "Gives the player a shield of " + str(amount) + " damage"
 	if get_parent() == player.get_node("Item"):
 		DoJob()
 		player.healthBar.shield_bar.show()

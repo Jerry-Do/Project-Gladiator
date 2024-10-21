@@ -1,3 +1,7 @@
+CollisionShape2D
+Area2D
+CharacterBody2D
+Label
 Timer
 CenterContainer
 RichTextLabel
@@ -7,8 +11,4 @@ Panel
 MarginContainer
 Container
 AcceptDialog
-CollisionShape2D
-Area2D
 StaticBody2D
-NavigationAgent2D
-AnimationPlayer

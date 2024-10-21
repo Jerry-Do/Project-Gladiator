@@ -30,6 +30,7 @@ var status_dictionary = {
 	"TimeStopDisable" : false
 }
 
+var interactable = null
 signal CreateDescription(weapon : Weapon)
 	
 func _ready():
@@ -68,7 +69,10 @@ func _unhandled_input(event):
 			currentItem.queue_free()
 			currentItem = null
 			game_manager.UpdateItemSprite(null)
-
+	if interactable:
+		if event.is_action_pressed("interact"):
+			print("interacted")
+			interactable.Interaction()
 	
 			
 func PickUpWeapon(weapon: Node2D):
@@ -102,3 +106,15 @@ func SetStatusTrue(name: String, duration: float):
 	status_dictionary[name] = true
 	await get_tree().create_timer(duration).timeout
 	status_dictionary[name] = false
+
+
+func _on_interaction_range_area_entered(area):
+	if area.has_method("Interaction"):
+		area.get_parent().label.show()
+		interactable = area
+
+
+func _on_interaction_range_area_exited(area):
+	if area.has_method("Interaction"):
+		area.get_parent().label.hide()
+		interactable = null

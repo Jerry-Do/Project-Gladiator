@@ -34,7 +34,7 @@ func PlayerLeft():
 
 
 func _on_attack_area_entered(area):
-	if(area != null):
+	if(area != null && playerHitBox != null):
 		playerHitBox.TakingDamageForPlayer(-sDamage, true if playerHitBox.get_name() == "Back" else false)
 	
 

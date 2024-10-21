@@ -10,7 +10,7 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 func _on_area_entered(area):
-	var random = RandomNumberGenerator.new().randi_range(1, 5)
+	var random = RandomNumberGenerator.new().randi_range(1, 10)
 	if area.has_method("TakingDamageForPlayer"):
 		area.TakingDamageForPlayer(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
 		if random == 1:

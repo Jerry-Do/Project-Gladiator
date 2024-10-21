@@ -11,7 +11,7 @@ extends Node2D
 var pick_up_weapon = false
 var timeSlowFlag : bool = false
 var rng = RandomNumberGenerator.new()
-var maxFame: int = 1
+var maxFame: int = 10
 var currentFame: int
 var fameMultiplier: float = 1.0
 var killCount : int = 0
@@ -45,6 +45,7 @@ func SpawnWeapon():
 	newWeapon.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)
 	newWeapon.rotation = spawn_pos.rotation
 	newWeapon.scale = spawn_pos.scale
+	currentFame = 0
 	get_parent().add_child(newWeapon)
 	%WeaponTimer.start()
 
@@ -79,9 +80,10 @@ func _on_fame_multiplier_timer_timeout():
 	killCount = 0
 
 func _on_weapon_timer_timeout():
-	get_parent().remove_child(newWeapon)
-	ui.set_new_weapon_alert_visibility(false)
-	ui.set_new_weapon_timer_alert_visibility(false)
+	if newWeapon.get_parent() == self:
+		get_parent().remove_child(newWeapon)
+		ui.set_new_weapon_alert_visibility(false)
+		ui.set_new_weapon_timer_alert_visibility(false)
 
 func UpgradeChose(node_path: String, item_name : String):
 	ui.remove_child(ui.get_child(1))
@@ -111,7 +113,7 @@ func CreateWeaponDescription(weapon : Weapon):
 	ui.get_node("Control").add_child(real_description)
 
 func GameOver():
-	get_tree().get_first_node_in_group("player").queue_free()
+	#get_tree().get_first_node_in_group("player").queue_free()
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.SelfDestruct()
 	await get_tree().create_timer(0.1).timeout

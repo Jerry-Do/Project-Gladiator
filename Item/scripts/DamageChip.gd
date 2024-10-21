@@ -5,8 +5,9 @@ extends Item
 
 
 func _ready():
-	item_name = "Boots"
-	item_description = "Increase the player movement speed"
+	item_name = "DamageChip"
+	display_name = "Damage Chip"
+	item_description = "Increase the output damage by " + str(amount) + " %"
 	if get_parent() == player.get_child(6):
 		DoJob()
 	return null

@@ -7,7 +7,7 @@ extends Item
 func _ready():
 	item_name = "EnergyCell"
 	display_name = "Energy Cell"
-	item_description = "Increase the duration of time slow"
+	item_description = "Increase the duration of time slow by" +str(amount) + " %"
 	if get_parent() == player.get_child(6):
 		DoJob()
 	return null

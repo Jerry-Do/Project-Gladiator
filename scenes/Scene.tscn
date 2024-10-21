@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="5_m2sr4"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="6_eg2w5"]
 [ext_resource type="PackedScene" uid="uid://difqxvwmhnycn" path="res://environment/barrel.tscn" id="7_sdfat"]
-[ext_resource type="PackedScene" uid="uid://dl3jyi1puomxa" path="res://Weapon/ScatterGun.tscn" id="8_ox5wo"]
+[ext_resource type="PackedScene" uid="uid://cfao8leyxgpwg" path="res://environment/ShootingBotActual.tscn" id="8_xityw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -147,6 +147,7 @@ script = ExtResource("3_4a00c")
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
+maxAllow = 0
 
 [node name="s1" parent="Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -194,8 +195,8 @@ position = Vector2(1068, 61)
 position = Vector2(515, 57)
 scale = Vector2(1, 0.987801)
 
-[node name="ScatterGun" parent="." instance=ExtResource("8_ox5wo")]
-position = Vector2(435, 393)
+[node name="Bot" parent="." instance=ExtResource("8_xityw")]
+position = Vector2(469, 183)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

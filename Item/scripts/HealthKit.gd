@@ -6,7 +6,7 @@ extends Item
 func _ready():
 	item_name = "HealthKit"
 	display_name = "Health Kit"
-	item_description = "Player regenerates health slowly overtime, if they are not moving"
+	item_description = "Player regenerates " + str(amount) + " health slowly overtime, if they are not moving"
 	return null
 
 func Duplicate():

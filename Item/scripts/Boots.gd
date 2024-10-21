@@ -6,7 +6,8 @@ extends Item
 
 func _ready():
 	item_name = "Boots"
-	item_description = "Increase the player movement speed"
+	display_name = "Boots"
+	item_description = "Increase the player movement speed by " + str(amount) + " %"
 	if get_parent() == player.get_child(6):
 		DoJob()
 	return null

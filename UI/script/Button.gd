@@ -3,6 +3,7 @@ extends Control
 var item_path : String
 @onready var item_sprite = $ItemSprite
 @onready var description = %Description
+@onready var item_name_label = %name
 @onready var game_manager = get_node("../../../GameManager")
 var item_name
 # Called when the node enters the scene tree for the first time
@@ -19,6 +20,7 @@ func intialize(new_item_path):
 		item_sprite.texture = new_item.ReturnItemSprite()
 		description.text = new_item.ReturnItemDescription()
 		item_name = new_item.ReturnName()
+		item_name_label.text = new_item.ReturnDisplayName()
 		remove_child(new_item)
 	else:
 		queue_free()

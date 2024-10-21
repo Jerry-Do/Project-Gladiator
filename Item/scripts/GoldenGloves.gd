@@ -6,7 +6,7 @@ extends Item
 func _ready():
 	item_name = "GoldenGloves"
 	display_name = "Golden Gloves"
-	item_description = "Bullets now can crit"
+	item_description = "Increase crit rate by " + str(amount) + " %"
 	if get_parent() == player.get_child(6):
 		DoJob()
 	return null
