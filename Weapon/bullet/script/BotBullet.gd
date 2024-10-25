@@ -18,11 +18,6 @@ func _physics_process(delta):
 		queue_free()
 
 
-func _on_body_entered(body):
-	if body.has_method("TakingDamageForOther"):
-		body.take_damage(damage)
-	queue_free()
-
 
 func _on_ghost_timer_timeout():
 	if game_manager.timeSlowFlag:
@@ -33,3 +28,9 @@ func _on_ghost_timer_timeout():
 		this_ghost.flip_h = sprite.flip_h
 		this_ghost.scale = scale
 		this_ghost.rotation = rotation
+
+
+func _on_area_entered(area):
+	if area.has_method("TakingDamageForOther"):
+		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+	queue_free()

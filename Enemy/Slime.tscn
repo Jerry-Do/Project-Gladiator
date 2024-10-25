@@ -100,6 +100,7 @@ scale = Vector2(3.25, 3)
 texture = ExtResource("10_rnjbw")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_sl4u6")]
+visible = false
 position = Vector2(25, -25)
 scale = Vector2(0.693025, 0.752784)
 collision_layer = 16

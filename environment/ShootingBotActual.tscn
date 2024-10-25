@@ -3,12 +3,10 @@
 [ext_resource type="Script" path="res://environment/script/BotLogic.gd" id="1_lgvaf"]
 [ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_dyxqt"]
 [ext_resource type="Script" path="res://environment/InteractArea.gd" id="3_3d60i"]
+[ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="4_0rnno"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
 radius = 33.0606
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cyjgj"]
-radius = 126.02
 
 [node name="Bot" type="CharacterBody2D"]
 script = ExtResource("1_lgvaf")
@@ -17,14 +15,8 @@ script = ExtResource("1_lgvaf")
 scale = Vector2(2, 2)
 texture = ExtResource("2_dyxqt")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1, -30)
-
 [node name="Downtime" type="Timer" parent="."]
+wait_time = 0.25
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -37,14 +29,21 @@ text = "Press F to Fix"
 
 [node name="InteractArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 32
 script = ExtResource("3_3d60i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+[node name="InteractionRange" type="CollisionShape2D" parent="InteractArea"]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_5mnqc")
 
-[node name="AttackRange" type="Area2D" parent="."]
-
-[node name="AttackRange" type="CollisionShape2D" parent="AttackRange"]
+[node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_cyjgj")
-disabled = true
+position = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(22.5, -16)
+scale = Vector2(2.40625, 2)
+texture = ExtResource("4_0rnno")
+
+[connection signal="timeout" from="Downtime" to="." method="_on_downtime_timeout"]

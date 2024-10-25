@@ -2,9 +2,9 @@
 extends Weapon
 
 
-var _cMaxAmmo = 99
+var _cMaxAmmo = 15
 var _cRateOfFire = 0.75
-var _cReloadTime = 2
+var _cReloadTime = 1.25
 var charge : float = 0
 var max_charge : float = 5.0
 @onready var speed_bar = $SpeedBar
@@ -22,7 +22,7 @@ func _process(delta):
 	if pickedUpFlag:
 		speed_bar.show()
 	if get_parent().get_parent() == get_tree().get_first_node_in_group("player"):
-		if get_parent().get_parent().velocity != Vector2.ZERO && charge < max_charge:
+		if get_parent().get_parent().movement_component.get_movement_direction() != Vector2.ZERO && charge < max_charge:
 			charge += delta
 			speed_bar._set_speed(charge)
 			

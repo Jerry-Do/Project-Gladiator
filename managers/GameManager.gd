@@ -33,7 +33,9 @@ func _process(_delta):
 		ui.update_WeaponTimer_text(%WeaponTimer.get_time_left())
 		ui.set_new_weapon_alert_visibility(true)
 		ui.set_new_weapon_timer_alert_visibility(true)
-		
+	else:
+		ui.set_new_weapon_alert_visibility(false)
+		ui.set_new_weapon_timer_alert_visibility(false)
 	
 func SpawnWeapon():
 	var children = weaponSpawnPoints.get_children()

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="5_m2sr4"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="6_eg2w5"]
 [ext_resource type="PackedScene" uid="uid://difqxvwmhnycn" path="res://environment/barrel.tscn" id="7_sdfat"]
-[ext_resource type="PackedScene" uid="uid://cfao8leyxgpwg" path="res://environment/ShootingBotActual.tscn" id="8_xityw"]
+[ext_resource type="PackedScene" uid="uid://cfao8leyxgpwg" path="res://environment/ShootingBotActual.tscn" id="8_fktbq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -139,6 +139,21 @@ one_shot = true
 [node name="FameMultiplierTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
 
+[node name="WeaponSpawnPoints" type="Node" parent="GameManager"]
+unique_name_in_owner = true
+
+[node name="p1" type="Node2D" parent="GameManager/WeaponSpawnPoints"]
+position = Vector2(403, 203)
+
+[node name="p2" type="Node2D" parent="GameManager/WeaponSpawnPoints"]
+position = Vector2(872, 245)
+
+[node name="p3" type="Node2D" parent="GameManager/WeaponSpawnPoints"]
+position = Vector2(446, 419)
+
+[node name="p4" type="Node2D" parent="GameManager/WeaponSpawnPoints"]
+position = Vector2(878, 394)
+
 [node name="PlayerSpawner" type="Node2D" parent="."]
 position = Vector2(246, 101)
 script = ExtResource("3_4a00c")
@@ -147,7 +162,7 @@ script = ExtResource("3_4a00c")
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
-maxAllow = 0
+maxAllow = 3
 
 [node name="s1" parent="Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -160,21 +175,6 @@ position = Vector2(-465, 289)
 
 [node name="s4" parent="Spawner" index="4"]
 position = Vector2(375, 245)
-
-[node name="WeaponSpawnPoints" type="Node" parent="Spawner"]
-unique_name_in_owner = true
-
-[node name="p1" type="Node2D" parent="Spawner/WeaponSpawnPoints"]
-position = Vector2(403, 203)
-
-[node name="p2" type="Node2D" parent="Spawner/WeaponSpawnPoints"]
-position = Vector2(872, 245)
-
-[node name="p3" type="Node2D" parent="Spawner/WeaponSpawnPoints"]
-position = Vector2(446, 419)
-
-[node name="p4" type="Node2D" parent="Spawner/WeaponSpawnPoints"]
-position = Vector2(878, 394)
 
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
@@ -195,8 +195,8 @@ position = Vector2(1068, 61)
 position = Vector2(515, 57)
 scale = Vector2(1, 0.987801)
 
-[node name="Bot" parent="." instance=ExtResource("8_xityw")]
-position = Vector2(469, 183)
+[node name="Bot" parent="." instance=ExtResource("8_fktbq")]
+position = Vector2(616, 252)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

@@ -22,6 +22,8 @@ signal no_health
 
 func SetHealth(value):
 	stats.Health += value
+	if stats.Health > maxHealth:
+		stats.Health = maxHealth
 	if stats.Health <= 0:
 		emit_signal("no_health")
 

@@ -5,11 +5,13 @@
 
 [node name="HealthKit" type="Node2D"]
 script = ExtResource("1_ev4e6")
+amount = 2
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_mulx3")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

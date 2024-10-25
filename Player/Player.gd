@@ -71,7 +71,6 @@ func _unhandled_input(event):
 			game_manager.UpdateItemSprite(null)
 	if interactable:
 		if event.is_action_pressed("interact"):
-			print("interacted")
 			interactable.Interaction()
 	
 			
@@ -89,7 +88,7 @@ func PickUpWeapon(weapon: Node2D):
 func MinusHealth(amount : int, is_backshot = false):
 	if !invincibleState:
 		if shield_amount > 0:	
-			get_node("Item/Shield").TakingDamage()
+			get_node("Item/EnergyShield").TakingDamage()
 			shield_amount += amount * 2 if is_backshot else amount * 1
 			healthBar._set_shield(shield_amount)
 		else:

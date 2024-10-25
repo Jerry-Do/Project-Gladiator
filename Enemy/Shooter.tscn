@@ -70,9 +70,10 @@ _data = {
 }
 
 [node name="Shooter" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(1.00939, 1)
 disable_mode = 1
 collision_layer = 10
-collision_mask = 5
+collision_mask = 0
 script = ExtResource("1_mv28k")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_6671a")]
@@ -81,6 +82,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
+visible = false
 position = Vector2(0, -21.8315)
 scale = Vector2(1.52927, 3.61978)
 shape = SubResource("CircleShape2D_67u5o")
@@ -178,7 +180,7 @@ wait_time = 0.4
 autostart = true
 
 [node name="Aim" type="Marker2D" parent="."]
-position = Vector2(51, -23)
+position = Vector2(14, -15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Aim"]
 position = Vector2(2, -2)

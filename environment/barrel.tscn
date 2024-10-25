@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://environment/script/barrel.gd" id="1_ukyyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3mw5"]
-size = Vector2(32, 49)
+size = Vector2(43, 63.3878)
 
 [node name="Barrel" type="StaticBody2D"]
 scale = Vector2(1, 0.993882)
@@ -17,7 +17,7 @@ scale = Vector2(2.50313, 3.36575)
 texture = ExtResource("1_na5r2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
+position = Vector2(-1.5, -2.51539)
 shape = SubResource("RectangleShape2D_n3mw5")
 
 [node name="Timer" type="Timer" parent="."]

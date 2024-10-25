@@ -14,5 +14,6 @@ func Duplicate():
 
 
 func _on_timer_timeout():
-	if get_parent() == player.get_child(6) && player.velocity != 0:
+	if get_parent() == player.get_child(4):
 		player.stats.SetHealth(amount * quantity)
+		player.healthBar._set_health(player.stats.ReturnHealth())

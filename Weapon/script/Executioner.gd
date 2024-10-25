@@ -14,7 +14,7 @@ func _init():
 	
 func _process(delta):
 	super._process(delta)	
-
+		
 func shoot():
 	if(currentAmmo > 0 && shootFlag):
 		var BULLET = load(self.bulletName)

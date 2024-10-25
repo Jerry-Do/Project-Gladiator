@@ -19,8 +19,7 @@ func _physics_process(delta):
 	
 func AttackPlayer():
 	sprite.show()
-	#Note: maybe in the future, instead of tping. Make assasin walk instead, depends on feedback from play test
-	position = ( playerHitBox.get_parent().back_hitbox.get_child(0).global_position - Vector2(60 *  playerHitBox.get_parent().scale.y,0))
+
 	$Attack.show()
 	$Attack.get_child(1).play("attack",-1,2)
 	%AttackWindup.start(2)
