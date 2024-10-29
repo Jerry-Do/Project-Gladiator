@@ -106,13 +106,33 @@ text = "Ammo:
 "
 label_settings = SubResource("LabelSettings_pakyj")
 
-[node name="Fame" type="MarginContainer" parent="Control"]
+[node name="Kill" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.99585
 anchor_top = 0.530612
 anchor_right = 4.55602
 anchor_bottom = 1.53061
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Kill" type="Label" parent="Control/Kill"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kill:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Fame" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.96266
+anchor_top = 3.10204
+anchor_right = 4.52283
+anchor_bottom = 4.10204
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -181,7 +201,7 @@ offset_top = 65.0
 offset_right = 388.0
 offset_bottom = 77.0
 
-[node name="WaveFinisher" type="MarginContainer" parent="Control"]
+[node name="Timer" type="MarginContainer" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 503.0
@@ -190,7 +210,7 @@ offset_right = 576.0
 offset_bottom = 64.0
 scale = Vector2(1.75801, 1.1555)
 
-[node name="WaveFinisherText" type="Label" parent="Control/WaveFinisher"]
+[node name="TimerText" type="Label" parent="Control/Timer"]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1

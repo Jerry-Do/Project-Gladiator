@@ -22,6 +22,7 @@ func _on_area_entered(area):
 		if area.get_parent().health <= 0:
 			get_parent().get_parent().get_parent().can_use_ability = true
 			get_parent().get_parent().get_parent().cooldown_timer.stop()
+			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 		if random == crit_chance:
 			var crit_label = preload("res://UI/Critlabel.tscn")
 			var new_label = crit_label.instantiate()

@@ -22,8 +22,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gwaoi"]
 radius = 43.6647
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j24ba"]
-radius = 95.9292
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqhi1"]
+size = Vector2(96.9213, 296.228)
 
 [sub_resource type="GDScript" id="GDScript_l34si"]
 script/source = "extends Node
@@ -182,16 +182,15 @@ simplify_path = true
 debug_enabled = true
 
 [node name="AttackRange" type="Area2D" parent="."]
-visible = false
 position = Vector2(45, -8)
 scale = Vector2(0.16667, 0.144091)
 collision_layer = 4
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(6, -20.3333)
+position = Vector2(35.9992, -121.451)
 scale = Vector2(1.85714, 1.38226)
-shape = SubResource("CircleShape2D_j24ba")
+shape = SubResource("RectangleShape2D_rqhi1")
 
 [node name="AttackWindup" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -300,7 +299,6 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(30, -27.5)
 scale = Vector2(4.75, 4.4375)
 texture = ExtResource("13_rkidd")

@@ -8,5 +8,4 @@ var interacted : bool = false
 func Interaction():
 	interacted = true
 	%InteractArea.queue_free()
-	label.queue_free()
 	pass	

@@ -19,7 +19,6 @@ func _physics_process(delta):
 	
 func AttackPlayer():
 	sprite.show()
-
 	$Attack.show()
 	$Attack.get_child(1).play("attack",-1,2)
 	%AttackWindup.start(2)

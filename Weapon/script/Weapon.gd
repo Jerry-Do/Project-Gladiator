@@ -58,3 +58,6 @@ func ReturnDescription() -> String:
 	
 func ReturnName() -> String:
 	return w_name
+
+func Queue_Free():
+	null

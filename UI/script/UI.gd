@@ -3,22 +3,25 @@ class_name  UI
 
 #@onready var healthLabel = %Health
 @onready var ammoLabel = %Ammo
-@onready var fameLabel = %Fame
+@onready var killLabel = %Kill
 @onready var fameMultiLabel = %FameMultiplier
 @onready var fameMultiTimerLabel = %FameMultiTimer
 @onready var WeaponTimerLabel = %WeaponTimerText
 @onready var itemSprite = %ItemSprite
 @onready var newWeaponAlert = %NewWeaponAlert
-@onready var waveFinisherText = %WaveFinisherText
-@onready var waveFinisher = %WaveFinisher
+@onready var timerText = %TimerText
 @onready var stats = PlayerStats
+@onready var fameLabel = %Fame
+
+func update_fame_text(currentFame):
+	fameLabel.text = "Fame: " + str(currentFame) 
 
 	
 func update_ammo_text(value):
 	ammoLabel.text = "Ammo: " + str(value)
 
-func update_fame_text(currentFame, newMaxFame):
-	fameLabel.text = "Fame: " + str(currentFame) + " / " + str(newMaxFame)
+func update_kill_text(currentKill, newMaxKill):
+	killLabel.text = "Kill: " + str(currentKill) + " / " + str(newMaxKill)
 
 func update_fameMulti_text(value):
 	fameMultiLabel.text = "Fame Multiplier: " + FormatString(value, "%.2f")
@@ -47,6 +50,5 @@ func FormatString(value, format : String) -> String:
 	var actualString = formatString % value
 	return actualString
 
-func set_wave_finisher_alert_visibility(flag, waveNo):
-	waveFinisher.visible = flag
-	waveFinisherText.text = "Wave " + FormatString(waveNo, "%d") + " is completed"
+func set_timer(value):
+	timerText.text = "Time: " + FormatString(value, "%d")

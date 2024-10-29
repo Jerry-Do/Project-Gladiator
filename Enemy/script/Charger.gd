@@ -4,7 +4,7 @@ extends Enemy
 var sHealth: int = 10
 var sSpeed: float = 500
 var sDamage: float = 2
-var sFameAmount : float = 1
+var sFameAmount : float = 2
 var wind_up_time : bool =  2
 
 func _init():

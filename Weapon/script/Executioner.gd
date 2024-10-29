@@ -48,3 +48,8 @@ func StopInvisible() -> void:
 	player.animated_sprite.set_self_modulate(Color(1,1,1,1))
 	self.sprite.set_self_modulate(Color(1,1,1,1))
 	cooldown_timer.start()
+
+func Queue_Free():
+	player.is_invisible = false
+	player.animated_sprite.set_self_modulate(Color(1,1,1,1))
+	self.sprite.set_self_modulate(Color(1,1,1,1))

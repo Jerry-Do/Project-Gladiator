@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 GameManager=""
 enemy=""
 player=""
+environment=""
 
 [input]
 

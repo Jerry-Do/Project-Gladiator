@@ -74,10 +74,11 @@ func _unhandled_input(event):
 			interactable.Interaction()
 	
 			
-func PickUpWeapon(weapon: Node2D):
+func PickUpWeapon(weapon: Weapon):
 	if weapon != null:
 		get_parent().call_deferred("remove_child", weapon)
 	if currentWeapon != null:	
+		currentWeapon.Queue_Free()
 		weaponNode.call_deferred("remove_child", currentWeapon)
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon

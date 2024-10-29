@@ -66,7 +66,6 @@ func _physics_process(delta: float):
 	
 
 func MinusHealth(amount : int, is_backshot: bool):
-	print(amount)
 	health -= amount * (1.2 if is_backshot else 1)
 	return health
 

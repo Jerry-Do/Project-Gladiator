@@ -27,10 +27,10 @@ func _physics_process(_delta):
 		$SpawnTimer.stop()
 
 func OnEnemyKilled():
-	currentEnemyCount -= 1
-	if currentEnemyCount <= 0 && spawnCount >= maxAllow:
-		currentEnemyCount = 0
-		WaveComplete.emit()
+	spawnCount -= 1
+	#if currentEnemyCount <= 0 && spawnCount >= maxAllow:
+		#currentEnemyCount = 0
+		#WaveComplete.emit()
 
 func _on_spawn_timer_timeout():
 	var randomNo = rng.randi_range(0, 0)
@@ -54,5 +54,4 @@ func _on_spawn_timer_timeout():
 	newEnemy.rotation = rotation
 	get_parent().add_child(newEnemy)
 	spawnCount +=  1
-	currentEnemyCount += 1
 	spawnFlag = true

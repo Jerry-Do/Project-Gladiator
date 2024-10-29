@@ -42,7 +42,9 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, 100 - (player.stats.ReturnCritChance()))
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
-		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		if amount <= 0 && returnFlag:
+			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 		if random == (100 - (player.stats.ReturnCritChance())):
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")

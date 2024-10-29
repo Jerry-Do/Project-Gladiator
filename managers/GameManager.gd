@@ -1,32 +1,42 @@
 #Game Manager: handles UI and game logics
 extends Node2D
 
-@onready var ui = %UI
+@onready var ui : UI = %UI
 @onready var enemy_spawner = %Spawner
 @onready var weaponSpawnPoints = %WeaponSpawnPoints
+@onready var round_timer = %RoundTimer
+@onready var environment_spawner = %EnvironmentSpawner
 @export var duplication_array : Array
 @export var weapons : Array
 @export var maxKillCount : int
-@export var fameMultiTimeFrame : float 
+@export var fameMultiTimeFrame : float
+@export var maxFame : int = 10 
+
+
 var pick_up_weapon = false
 var timeSlowFlag : bool = false
 var rng = RandomNumberGenerator.new()
-var maxFame: int = 10
-var currentFame: int
+var maxKill: int = 10
+var currentKill: int
 var fameMultiplier: float = 1.0
 var killCount : int = 0
 var increaseMulti : bool 
-var newWeapon
-var oldWeapon
-var currentWave = 1
-	
+var newWeapon : Weapon
+var oldWeapon : Weapon
+var currentWave : int = 1
+var currentFame : int = 0
+
+
 func UpdateAmmo(value):
 	ui.update_ammo_text(value)
 
 func UpdateItemSprite(spritePath):
 	ui.update_item_sprite(spritePath)
+	
 
+	
 func _process(_delta):
+	ui.set_timer(round_timer.time_left)
 	if %FameMultiplierTimer.is_stopped() == false:
 		ui.update_fameMultiTimer_text(%FameMultiplierTimer.get_time_left())
 	if %WeaponTimer.is_stopped() == false:
@@ -47,33 +57,34 @@ func SpawnWeapon():
 	newWeapon.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)
 	newWeapon.rotation = spawn_pos.rotation
 	newWeapon.scale = spawn_pos.scale
-	currentFame = 0
+	currentKill = 0
 	get_parent().add_child(newWeapon)
 	%WeaponTimer.start()
 
+func AdjustKill(value):
+	%FameMultiplierTimer.start(fameMultiTimeFrame)
+	currentKill += value
+	if currentKill == maxKill:
+		currentKill = 0
+		AdjustFameMultiplier(0.2)
+		SpawnWeapon()
+	ui.update_kill_text(currentKill, maxKill)
+	
 func AdjustFame(value):
 	currentFame += value * fameMultiplier
-	if currentFame == maxFame:
-		SpawnWeapon()
-	ui.update_fame_text(currentFame, maxFame)
+	ui.update_fame_text(currentFame)
 	
-
 func AdjustFameMultiplier(value):
 	fameMultiplier += value
 	ui.update_fameMulti_text(fameMultiplier)
 	
-func IncreaseKillCount():
-	%FameMultiplierTimer.start(fameMultiTimeFrame)
-	killCount += 1
-	if killCount == maxKillCount:
-		killCount = 0
-		AdjustFameMultiplier(0.1)
 
 func WaveComplete():
-	ui.set_wave_finisher_alert_visibility(true, currentWave)
+	#ui.set_wave_finisher_alert_visibility(true, currentWave)
 	var upgrade_scene = preload("res://UI/UpgradeScene.tscn")
 	var upgrade_scene_instantiate = upgrade_scene.instantiate()
 	ui.add_child(upgrade_scene_instantiate)
+	environment_spawner.DestroyEnvironment()
 	get_tree().paused = true
 	currentWave+=1
 
@@ -106,7 +117,8 @@ func StartWave():
 	get_tree().paused = false
 	enemy_spawner.maxAllow += 1
 	enemy_spawner.spawnCount = 0
-	ui.set_wave_finisher_alert_visibility(false, currentWave)
+	environment_spawner.SpawnEnvironemnt()
+	#ui.set_wave_finisher_alert_visibility(false, currentWave)
 	
 func CreateWeaponDescription(weapon : Weapon):
 	var description = preload("res://UI/GunDescription.tscn")
@@ -120,3 +132,14 @@ func GameOver():
 		enemy.SelfDestruct()
 	await get_tree().create_timer(0.1).timeout
 	SceneManager.LoadScene("res://scenes/GameOver.tscn", self)
+
+
+func _on_round_timer_timeout():
+	if currentFame < maxFame:
+		GameOver()
+	else:
+		WaveComplete()
+		
+
+
+		
