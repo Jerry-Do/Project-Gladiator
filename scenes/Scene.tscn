@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://managers/PlayerSpawner.gd" id="3_4a00c"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://managers/spawner/spawner.tscn" id="4_gl8g4"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="5_m2sr4"]
-[ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="6_eg2w5"]
+[ext_resource type="PackedScene" uid="uid://bfdnx2bk1sivb" path="res://Weapon/BloodGun.tscn" id="7_ddq75"]
 [ext_resource type="Script" path="res://scenes/EnvironmentSpawner.gd" id="7_lagx3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
@@ -126,7 +126,6 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 2, 1, 131073, 2, 65537, 131073, 
 unique_name_in_owner = true
 position = Vector2(1, 0)
 script = ExtResource("2_3k0w7")
-duplication_array = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn"]
 weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn"]
 maxKillCount = 15
 fameMultiTimeFrame = 5.0
@@ -157,7 +156,7 @@ position = Vector2(1231, 595)
 
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 99.0
 autostart = true
 
 [node name="PlayerSpawner" type="Node2D" parent="."]
@@ -168,7 +167,6 @@ script = ExtResource("3_4a00c")
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
-maxAllow = 3
 
 [node name="s1" parent="Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -184,9 +182,6 @@ position = Vector2(375, 245)
 
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
-
-[node name="HandGun" parent="." instance=ExtResource("6_eg2w5")]
-position = Vector2(305, -16)
 
 [node name="EnvironmentSpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -206,6 +201,9 @@ position = Vector2(100, 481)
 
 [node name="e4" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
 position = Vector2(1227, 561)
+
+[node name="BloodGun" parent="." instance=ExtResource("7_ddq75")]
+position = Vector2(416, 167)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

@@ -7,19 +7,20 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
-@onready var back_hitbox : Area2D = $Back
-@onready var front_hitbox : Area2D = $Front
 @onready var target_sprite = $Target
 @onready var state_machine = $StateControl
 @onready var movement_component = $MovementComponent
+@onready var stats = $Stats
+@onready var perfect_dodge_timer = %PerfectDodgeTimer
 @export var max_speed: int = 100
 
+var perfect_dogde_collided : bool = false
+var perfect_time_stop_state = false
 var can_crit = false
 var shield_amount : int
 var dashTime = 2
 var currentWeapon: Node2D
 var direction : Vector2
-var stats = PlayerStats
 var currentItem: Node2D
 var invincibleState : bool = false
 var recharge_flag : bool = false
@@ -54,7 +55,7 @@ func _process(delta):
 		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
 	state_machine.process_frame(delta)
 	
-func _unhandled_input(event):
+func _input(event):
 	state_machine.process_input(event)
 	if currentWeapon:
 		if event.is_action_pressed("left_click") && status_dictionary.Stun == false:			
@@ -118,3 +119,17 @@ func _on_interaction_range_area_exited(area):
 	if area.has_method("Interaction"):
 		area.get_parent().label.hide()
 		interactable = null
+
+func SetHealth(amount):
+	stats.SetHealth(amount)
+	healthBar._set_health(stats.ReturnHealth())
+
+
+func _on_perfect_dodge_zone_area_entered(area):
+	if area.name == "Attack":
+		perfect_dogde_collided = true
+		perfect_dodge_timer.start()
+
+
+func _on_perfect_dodge_timer_timeout():
+	perfect_dogde_collided = false

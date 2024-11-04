@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]
 radius = 3.0
 
-[node name="EnemyBullet" type="Area2D"]
+[node name="Attack" type="Area2D"]
 top_level = true
 position = Vector2(278, 274)
 scale = Vector2(2, 2)

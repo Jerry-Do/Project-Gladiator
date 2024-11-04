@@ -27,7 +27,7 @@
 radius = 30.4108
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
-radius = 62.1924
+radius = 50.2974
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
 size = Vector2(29, 41)
@@ -164,9 +164,9 @@ _data = {
 }
 
 [node name="Disabler" type="CharacterBody2D" groups=["enemy"]]
-disable_mode = 1
-collision_layer = 10
-collision_mask = 5
+position = Vector2(600, 320)
+collision_layer = 0
+collision_mask = 21
 script = ExtResource("1_t4xhl")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_2kd31")]
@@ -188,7 +188,7 @@ debug_enabled = true
 [node name="AttackRange" type="Area2D" parent="."]
 visible = false
 position = Vector2(1, -11)
-scale = Vector2(-0.606151, 0.487032)
+scale = Vector2(-0.686151, 0.687031)
 disable_mode = 1
 collision_layer = 4
 collision_mask = 4
@@ -273,14 +273,14 @@ wait_time = 0.4
 autostart = true
 
 [node name="Attack" type="Area2D" parent="."]
-visible = false
 position = Vector2(-2, -19)
-scale = Vector2(0.670425, 0.566772)
+scale = Vector2(0.870425, 0.886773)
 disable_mode = 1
 collision_layer = 11
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(-2.29773, -10.1492)
 scale = Vector2(4.04, 3.88)
 shape = SubResource("CircleShape2D_7pahq")
 disabled = true

@@ -1,11 +1,16 @@
 extends BaseBullet
 
-var c_damage = 0 
+var c_damage = 5
 var c_speed = 1000
 
 func _init():
 	super._init(c_damage, c_speed)
-
+	
+func _ready():
+	await get_tree().create_timer(0.1).timeout
+	set_collision_mask_value(2,2)
+	set_collision_mask_value(4,8)
+	
 func _physics_process(delta):
 	super._physics_process(delta)
 

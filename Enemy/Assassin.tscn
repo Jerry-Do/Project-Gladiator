@@ -23,7 +23,7 @@
 radius = 43.6647
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqhi1"]
-size = Vector2(96.9213, 296.228)
+size = Vector2(287.533, 296.228)
 
 [sub_resource type="GDScript" id="GDScript_l34si"]
 script/source = "extends Node
@@ -161,9 +161,9 @@ _data = {
 }
 
 [node name="Assassin" type="CharacterBody2D" groups=["enemy"]]
-disable_mode = 1
-collision_layer = 10
-collision_mask = 10
+position = Vector2(600, 320)
+collision_layer = 0
+collision_mask = 26
 script = ExtResource("1_uqywf")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_cco5b")]
@@ -182,13 +182,13 @@ simplify_path = true
 debug_enabled = true
 
 [node name="AttackRange" type="Area2D" parent="."]
-position = Vector2(45, -8)
+position = Vector2(32, 13)
 scale = Vector2(0.16667, 0.144091)
-collision_layer = 4
+collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(35.9992, -121.451)
+position = Vector2(-140.997, -121.451)
 scale = Vector2(1.85714, 1.38226)
 shape = SubResource("RectangleShape2D_rqhi1")
 
@@ -271,9 +271,9 @@ autostart = true
 
 [node name="Attack" type="Area2D" parent="."]
 visible = false
-position = Vector2(24, 0)
-collision_layer = 0
-collision_mask = 5
+position = Vector2(-13, 26)
+collision_layer = 64
+collision_mask = 69
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 position = Vector2(52, -35)
@@ -299,7 +299,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(30, -27.5)
+position = Vector2(1, -2)
 scale = Vector2(4.75, 4.4375)
 texture = ExtResource("13_rkidd")
 

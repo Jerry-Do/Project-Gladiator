@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://j7b5738f8mjj"]
+[gd_scene load_steps=32 format=3 uid="uid://j7b5738f8mjj"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ascps"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ddr3kchg8b5xo" path="res://hitboxes/Back.tscn" id="9_tmoh4"]
 [ext_resource type="PackedScene" uid="uid://gf8e7mfhnvda" path="res://hitboxes/Front.tscn" id="11_7n4bc"]
 [ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="13_emvkc"]
+[ext_resource type="PackedScene" uid="uid://c22vb6fmvbg7k" path="res://Player/PlayerStats.tscn" id="14_bvtpy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_polg6"]
 atlas = ExtResource("8_jpsj1")
@@ -112,13 +113,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6dn"]
-size = Vector2(20, 60)
+size = Vector2(22, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmgx"]
 size = Vector2(35, 43)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ep4sk"]
 radius = 21.5894
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm073"]
+size = Vector2(91, 90)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-61, -29)
@@ -161,6 +165,7 @@ time_stop_state = NodePath("../TimeStop")
 idle_state = NodePath("../Idle")
 
 [node name="TimeStop" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "time_stop_state", "idle_state")]
+unique_name_in_owner = true
 script = ExtResource("7_44754")
 move_state = NodePath("../Move")
 time_stop_state = NodePath(".")
@@ -174,24 +179,26 @@ unique_name_in_owner = true
 [node name="GhostTimer" type="Timer" parent="Timer"]
 unique_name_in_owner = true
 wait_time = 0.05
-autostart = true
 
 [node name="OverheatTimer" type="Timer" parent="Timer"]
 unique_name_in_owner = true
 wait_time = 3.0
 autostart = true
 
+[node name="PerfectDodgeTimer" type="Timer" parent="Timer"]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
 [node name="Back" parent="." instance=ExtResource("8_qmrd3")]
-visible = false
 collision_mask = 5
 
 [node name="CollisionShape2D" parent="Back" instance=ExtResource("9_tmoh4")]
-position = Vector2(-11, -4)
+position = Vector2(-14, -4)
 shape = SubResource("RectangleShape2D_hy6dn")
 script = null
 
 [node name="Front" type="Area2D" parent="."]
-visible = false
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("9_6761q")
@@ -210,6 +217,7 @@ scale = Vector2(2.625, 2.5625)
 texture = ExtResource("13_emvkc")
 
 [node name="InteractionRange" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
@@ -218,8 +226,20 @@ position = Vector2(2, -2)
 scale = Vector2(5.23982, 4.93753)
 shape = SubResource("CircleShape2D_ep4sk")
 
+[node name="Stats" parent="." instance=ExtResource("14_bvtpy")]
+
+[node name="PerfectDodgeZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectDodgeZone"]
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_dm073")
+
 [connection signal="timeout" from="Timer/DashTimer" to="StateControl/TimeStop" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/GhostTimer" to="StateControl/TimeStop" method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="Timer/OverheatTimer" to="StateControl/TimeStop" method="_on_overheat_timer_timeout"]
+[connection signal="timeout" from="Timer/PerfectDodgeTimer" to="." method="_on_perfect_dodge_timer_timeout"]
 [connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
+[connection signal="area_entered" from="PerfectDodgeZone" to="." method="_on_perfect_dodge_zone_area_entered"]

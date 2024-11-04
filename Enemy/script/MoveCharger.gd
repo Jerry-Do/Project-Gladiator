@@ -19,12 +19,11 @@ func process_input(_event : InputEvent) -> State:
 	return null
 		
 func process_physics(_delta: float) -> State:
-	
 	if parent.health <= 0:
 		return dead_state
 	if  parent.player.is_invisible == false && parent.status_dictionary.Stun == false:
 		var direction = (parent.player.position - parent.position).normalized()
-		parent.position += direction * parent.speed * _delta			
+		parent.velocity = direction * parent.speed			
 		parent.move_and_slide()
 	else:
 		parent.position = parent.position

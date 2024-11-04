@@ -16,7 +16,7 @@ var stats = {
 	"Speed" : baseSpeed,
 	"Experience": 0,
 	"Dash_Time" : maxDashTime,
-	 "Recharge_Time" : rechargeTime
+	"Recharge_Time" : rechargeTime
 }
 signal no_health
 

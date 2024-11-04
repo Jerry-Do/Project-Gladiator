@@ -4,20 +4,23 @@
 [ext_resource type="Script" path="res://environment/script/barrel.gd" id="1_ukyyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3mw5"]
-size = Vector2(43, 63.3878)
+size = Vector2(32, 57.3509)
 
 [node name="Barrel" type="StaticBody2D" groups=["environment"]]
 scale = Vector2(1, 0.993882)
-collision_layer = 15
-collision_mask = 15
+collision_layer = 44
+collision_mask = 0
 script = ExtResource("1_ukyyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.50313, 3.36575)
+light_mask = 0
+position = Vector2(-0.512521, 0)
+scale = Vector2(2.43906, 3.36575)
 texture = ExtResource("1_na5r2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -2.51539)
+position = Vector2(-0.999998, -1.50923)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_n3mw5")
 
 [node name="Timer" type="Timer" parent="."]

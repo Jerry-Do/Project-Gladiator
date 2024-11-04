@@ -10,7 +10,6 @@ class_name  UI
 @onready var itemSprite = %ItemSprite
 @onready var newWeaponAlert = %NewWeaponAlert
 @onready var timerText = %TimerText
-@onready var stats = PlayerStats
 @onready var fameLabel = %Fame
 
 func update_fame_text(currentFame):

@@ -1,6 +1,6 @@
 extends BaseBullet
 
-var c_damage = 10
+var c_damage = 5
 var c_speed = 1000
 var num_pellet = 10
 
@@ -25,13 +25,12 @@ func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index)
 			var new_label = crit_label.instantiate()
 			get_node("../../../../../../../Level").add_child(new_label)
 			new_label.position = position	
-		if(enemy_health <= 0):
-			for n in num_pellet:
-				var random_no =  RandomNumberGenerator.new().randi_range(0, num_pellet)
-				var pellet = preload("res://Weapon/bullet/ScatterPellet.tscn")
-				var new_pellet = pellet.instantiate() 
-				new_pellet.position = area.global_position - Vector2(10,10)
-				new_pellet.rotation = global_rotation + random_no
-				get_parent().call_deferred("add_child",new_pellet)
+		for n in num_pellet:
+			var random_no =  RandomNumberGenerator.new().randi_range(0, num_pellet)
+			var pellet = preload("res://Weapon/bullet/ScatterPellet.tscn")
+			var new_pellet = pellet.instantiate() 
+			new_pellet.position = area.global_position - Vector2(10,10)
+			new_pellet.rotation = global_rotation + random_no
+			get_parent().call_deferred("add_child",new_pellet)
 		queue_free()
 	

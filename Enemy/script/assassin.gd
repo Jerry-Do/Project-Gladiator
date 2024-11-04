@@ -14,17 +14,19 @@ func _init():
 
 	
 func _physics_process(delta):
+	if playerHitBox != null: 
+		sprite.show()
+	else:
+		sprite.hide()
 	super._physics_process(delta)
 	
 	
 func AttackPlayer():
-	sprite.show()
 	$Attack.show()
 	$Attack.get_child(1).play("attack",-1,2)
 	%AttackWindup.start(2)
 
 func PlayerLeft():
-	sprite.hide()
 	$Attack.hide()
 	inRange = false
 	playerHitBox = null

@@ -52,7 +52,7 @@ disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(54, -3)
+position = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
 position = Vector2(-22, 7)

@@ -28,8 +28,7 @@ func process_physics(_delta: float) -> State:
 			return attack_state
 		parent.velocity = direction * parent.speed
 		if parent.softCollision.IsColliding():
-			parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500
-	
+			parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
 		parent.move_and_slide()
 		
 	else:

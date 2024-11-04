@@ -1,12 +1,9 @@
 extends State
 class_name Move
-@export
-var time_stop_state: State
-@export
-var idle_state: State
+@export var time_stop_state: State
+@export var idle_state: State
 
 var direction : Vector2
-
 var usingFlag : bool = false
 
 var turn_flag : bool

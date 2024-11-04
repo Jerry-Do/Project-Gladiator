@@ -16,7 +16,6 @@ func process_input(_event : InputEvent) -> State:
 	return null
 	
 func process_physics(delta: float):
-
 	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime():
 		parent.stats.SetDashTime(delta)
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())

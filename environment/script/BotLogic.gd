@@ -15,10 +15,6 @@ func Interaction():
 	attack_range.disabled = false
 	$Downtime.start()
 
-
-
-
-
 func _on_downtime_timeout():
 	#if interacted:
 		#target = get_tree().get_first_node_in_group("enemy")

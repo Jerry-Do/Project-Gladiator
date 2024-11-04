@@ -87,22 +87,23 @@ _data = {
 "run": SubResource("Animation_f14eg")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cybdc"]
-size = Vector2(45.3279, 56.2485)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ylwy"]
+size = Vector2(46.8069, 67.2344)
 
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
-disable_mode = 1
-collision_layer = 2
+position = Vector2(598, 320)
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_f5gde")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(30, -27.5)
+position = Vector2(-4, -1)
 scale = Vector2(4.75, 4.4375)
 texture = ExtResource("13_ds7dx")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_ofscd")]
 visible = false
-position = Vector2(32, 31)
+position = Vector2(-0.999996, 58)
 scale = Vector2(0.755759, 0.0916106)
 collision_layer = 16
 collision_mask = 16
@@ -148,9 +149,8 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("8_wpy22")
 
 [node name="Back" type="Area2D" parent="."]
-visible = false
-disable_mode = 1
-collision_layer = 11
+position = Vector2(1, 20)
+collision_layer = 0
 collision_mask = 11
 script = ExtResource("9_qjxfl")
 
@@ -160,9 +160,8 @@ shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
-visible = false
-disable_mode = 1
-collision_layer = 11
+position = Vector2(-8, 19)
+collision_layer = 10
 collision_mask = 11
 script = ExtResource("9_qjxfl")
 
@@ -198,15 +197,14 @@ one_shot = true
 
 [node name="Attack" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
-disable_mode = 1
-collision_layer = 0
+position = Vector2(-36, 24)
+collision_layer = 10
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
-position = Vector2(31, -27)
+position = Vector2(34.5, -26.5)
 scale = Vector2(0.91867, 0.907274)
-shape = SubResource("RectangleShape2D_cybdc")
+shape = SubResource("RectangleShape2D_0ylwy")
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
