@@ -9,7 +9,7 @@ var restore_health_mode = false
 
 func _init():
 	var description = "Consumes health to deal increase damage, right click to switch mode to restore health instead"
-	var w_name = "Handgun"
+	var w_name = "Bloodgun"
 	super._init("res://Weapon/bullet/BloodBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
 	
 func _process(delta):

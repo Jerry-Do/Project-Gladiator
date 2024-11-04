@@ -11,3 +11,6 @@ res://Enemy/Charger.tscn
 res://Enemy/Disabler.tscn
 res://scenes/Scene.tscn
 res://States/player/TimeStop.gd
+res://managers/spawner/Spawner.gd
+res://States/player/Move.gd
+res://Weapon/script/BloodGun.gd

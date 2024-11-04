@@ -113,7 +113,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6dn"]
-size = Vector2(22, 60)
+size = Vector2(26, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmgx"]
 size = Vector2(35, 43)
@@ -122,7 +122,7 @@ size = Vector2(35, 43)
 radius = 21.5894
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm073"]
-size = Vector2(91, 90)
+size = Vector2(80, 77)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-61, -29)
@@ -187,14 +187,14 @@ autostart = true
 
 [node name="PerfectTimeSlowTimer" type="Timer" parent="Timer"]
 unique_name_in_owner = true
-wait_time = 0.25
+wait_time = 0.2
 one_shot = true
 
 [node name="Back" parent="." instance=ExtResource("8_qmrd3")]
 collision_mask = 5
 
 [node name="CollisionShape2D" parent="Back" instance=ExtResource("9_tmoh4")]
-position = Vector2(-14, -4)
+position = Vector2(-16, -4.5)
 shape = SubResource("RectangleShape2D_hy6dn")
 script = null
 
@@ -204,6 +204,7 @@ collision_mask = 5
 script = ExtResource("9_6761q")
 
 [node name="CollisionShape2D" parent="Front" instance=ExtResource("11_7n4bc")]
+position = Vector2(14.5, -3.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -233,7 +234,7 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectDodgeZone"]
-position = Vector2(0.5, -3)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_dm073")
 
 [connection signal="timeout" from="Timer/DashTimer" to="StateControl/TimeStop" method="_on_dash_timer_timeout"]

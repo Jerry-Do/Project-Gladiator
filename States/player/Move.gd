@@ -28,5 +28,7 @@ func process_physics(delta: float):
 	if movement.length() == 0:
 		return idle_state
 	parent.velocity = movement
+	if parent.status_dictionary.Stun == true:
+		parent.velocity = Vector2.ZERO
 	parent.move_and_slide()
 	return null

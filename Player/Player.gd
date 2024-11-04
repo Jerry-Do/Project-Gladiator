@@ -31,7 +31,6 @@ var status_dictionary = {
 	"Stun" : false,
 	"TimeStopDisable" : false
 }
-
 var interactable = null
 signal CreateDescription(weapon : Weapon)
 	
@@ -125,6 +124,9 @@ func SetHealth(amount):
 	stats.SetHealth(amount)
 	healthBar._set_health(stats.ReturnHealth())
 
+func Cleanse():
+	for key in status_dictionary:
+		status_dictionary[key] = false
 
 func _on_perfect_dodge_zone_area_entered(area):
 	if area.name == "Attack":

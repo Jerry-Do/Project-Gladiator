@@ -18,12 +18,14 @@ func enter() -> void:
 	if parent.perfect_dogde_collided:
 		parent.perfect_time_stop_state = true
 		parent.SetHealth(-parent.damage_amount)
+		parent.Cleanse()
 		parent.perfect_dodge_timer.stop()
+		print("Perfect")
 	tmp = parent.stats.ReturnSpeed()
 	ghost_timer.start(0.05 if parent.perfect_time_stop_state == false else 0.01)
-	parent.stats.SetSpeed(1500 if parent.perfect_time_stop_state == false else 6000)
+	parent.stats.SetSpeed(2000 if parent.perfect_time_stop_state == false else 6000)
 	usingFlag = true
-	Engine.time_scale = 0.50 if parent.perfect_time_stop_state == false else 0.1
+	Engine.time_scale = 0.3 if parent.perfect_time_stop_state == false else 0.1
 	parent.invincibleState = true
 	parent.game_manager.timeSlowFlag = true
 
