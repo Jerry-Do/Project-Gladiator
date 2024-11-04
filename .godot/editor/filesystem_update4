@@ -1,15 +1,8 @@
 res://Player/Player.tscn
 res://States/player/Idle.gd
 res://States/player/Movement_getter.gd
-res://Player/Character.gd
-res://Enemy/etc/EnemyBullet.tscn
-res://States/player/TimeStop.gd
-res://Player/PerfectDodgeZone.gd
-res://States/player/Move.gd
 res://Player/Player.gd
-res://Enemy/Slime.tscn
 res://Weapon/BloodGun.tscn
-res://managers/spawner/Spawner.gd
 res://Weapon/bullet/BloodBullet.tscn
 res://Weapon/bullet/bullet.tscn
 res://Weapon/bullet/RestoreBloodBullet.tscn
@@ -17,3 +10,4 @@ res://Enemy/Assassin.tscn
 res://Enemy/Charger.tscn
 res://Enemy/Disabler.tscn
 res://scenes/Scene.tscn
+res://States/player/TimeStop.gd

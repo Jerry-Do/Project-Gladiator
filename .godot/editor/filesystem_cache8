@@ -1,9 +1,9 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1730696027
+::res://::1730735269
 Explosion.tscn::PackedScene::3946655759589191777::1728361271::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1730249342::0::1::::<><>::
 ::res://addons/::1726097372
-::res://addons/nklbdev.aseprite_importers/::1726097372
+::res://addons/nklbdev.aseprite_importers/::1730696051
 aseprite_image_format_loader_extension.gd::GDScript::-1::1726097372::0::1::::<>ImageFormatLoaderExtension<>::
 common.gd::GDScript::-1::1726097372::0::1::::<>Object<>::
 editor_plugin.gd::GDScript::-1::1726097372::0::1::::<>EditorPlugin<>::
@@ -18,14 +18,14 @@ sprite_2d.gd::GDScript::-1::1726097372::0::1::::<><>::
 sprite_3d.gd::GDScript::-1::1726097372::0::1::::<><>::
 sprite_frames.gd::GDScript::-1::1726097372::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1726097372::0::1::::<><>::
-::res://Enemy/::1730481114
-Assassin.tscn::PackedScene::5287919666293733190::1730396804::0::1::::<><>::res://Enemy/script/assassin.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://dc1cspjor6qp2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://75etx4knwnan::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f1.png<>uid://c8rs13jf7yr6l::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f2.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Charger.tscn::PackedScene::1851721268049508705::1730481114::0::1::::<><>::res://Enemy/script/Charger.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://Enemy/script/MoveCharger.gd<>res://States/Enemy/dead.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Disabler.tscn::PackedScene::3895151084791570528::1730479920::0::1::::<><>::res://Enemy/script/Disabler.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cy6c10eohcygp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png<>uid://dakbe0e6umag3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png<>uid://tmh1m2dn2k::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png<>uid://bi03bwb6q8r11::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png<>uid://b57dfnrg38ci2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png<>uid://biqeqg1vslpy8::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://cavwah4uvv0dh::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+::res://Enemy/::1730700110
+Assassin.tscn::PackedScene::5287919666293733190::1730700109::0::1::::<><>::res://Enemy/script/assassin.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://dc1cspjor6qp2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://75etx4knwnan::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f1.png<>uid://c8rs13jf7yr6l::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f2.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+Charger.tscn::PackedScene::1851721268049508705::1730700109::0::1::::<><>::res://Enemy/script/Charger.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://Enemy/script/MoveCharger.gd<>res://States/Enemy/dead.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
+Disabler.tscn::PackedScene::3895151084791570528::1730700110::0::1::::<><>::res://Enemy/script/Disabler.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://cy6c10eohcygp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png<>uid://dakbe0e6umag3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png<>uid://tmh1m2dn2k::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png<>uid://bi03bwb6q8r11::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png<>uid://b57dfnrg38ci2::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png<>uid://biqeqg1vslpy8::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>uid://cavwah4uvv0dh::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
 Shooter.tscn::PackedScene::7242708322118805133::1730479903::0::1::::<><>::res://Enemy/script/Shooter.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://cgthr5v7xegjq::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://babyitvpx83c5::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png<>uid://c8dcdik3ybafx::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png<>uid://bhsgufiyldnfa::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png<>uid://jxv8s5motmcj::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png<>uid://cyawrtitrt16p::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png<>uid://g51h1cp1ccny::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png
-Slime.tscn::PackedScene::8817734413383746080::1730481114::0::1::::<><>::res://Enemy/script/Slime.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://c6ngdomuww2j3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png<>uid://cj7os7hgbjb4e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://dxyaipjj47xjl::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png<>uid://dntlp2r8oeoic::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png<>uid://dhgxrbnqm622n::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png<>uid://dow6u7ecmrrln::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png
-::res://Enemy/etc/::1729485360
-EnemyBullet.tscn::PackedScene::5189428569022404114::1729485360::0::1::::<><>::res://Enemy/script/EnemyBullet.gd<>uid://c8dcdik3ybafx::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png
+Slime.tscn::PackedScene::8817734413383746080::1730697634::0::1::::<><>::res://Enemy/script/Slime.gd<>uid://lbsy10cwro8n::::res://hitboxes/soft_collision.tscn<>res://States/StateController.gd<>res://States/Enemy/MoveEnemy.gd<>res://States/Enemy/dead.gd<>res://States/Enemy/Stun.gd<>res://States/Enemy/Attack.gd<>uid://bvrcapja8vnev::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png<>uid://c6ngdomuww2j3::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png<>uid://cj7os7hgbjb4e::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png<>res://Enemy/script/TakingDamageEnemy.gd<>uid://dxyaipjj47xjl::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png<>uid://dntlp2r8oeoic::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png<>uid://dhgxrbnqm622n::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png<>uid://dow6u7ecmrrln::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png
+::res://Enemy/etc/::1730696696
+EnemyBullet.tscn::PackedScene::5189428569022404114::1730696696::0::1::::<><>::res://Enemy/script/EnemyBullet.gd<>uid://c8dcdik3ybafx::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png
 ::res://Enemy/script/::1730479599
 assassin.gd::GDScript::-1::1730396017::0::1::::<>Enemy<>::
 ChargeEnemy.gd::GDScript::-1::1728271969::0::1::::<>State<>::
@@ -77,15 +77,16 @@ ShootingBot.gd::GDScript::-1::1729398173::0::1::::<>Item<>::
 GameManager.gd::GDScript::-1::1730478491::0::1::::<>Node2D<>::
 PlayerSpawner.gd::GDScript::-1::1729528777::0::1::::<>Node2D<>::
 SceneManager.gd::GDScript::-1::1730478820::0::1::::<>Node<>::
-::res://managers/spawner/::1730479823
-Spawner.gd::GDScript::-1::1730479823::0::1::::<>Node2D<>::
+::res://managers/spawner/::1730697689
+Spawner.gd::GDScript::-1::1730697689::0::1::::<>Node2D<>::
 spawner.tscn::PackedScene::5365047448164849820::1728620742::0::1::::<><>::res://managers/spawner/Spawner.gd
-::res://Player/::1730514356
-Character.gd::GDScript::-1::1730249239::0::1::::<>CharacterBody2D<>::
+::res://Player/::1730700137
+Character.gd::GDScript::-1::1730696425::0::1::::<>CharacterBody2D<>::
 Character.tscn::PackedScene::8753365442066500842::1729305243::0::1::::<><>::res://Player/Character.gd
 FlipWeaponNode.gd::GDScript::-1::1727139140::0::1::::<>Node2D<>::
-Player.gd::GDScript::-1::1730514356::0::1::::Player<>CharacterBody2D<>::
-Player.tscn::PackedScene::697875697191207779::1730481114::0::1::::<><>::res://Player/Player.gd<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/TimeStop.gd<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://b3rt641lalewe::::res://hitboxes/BackHitbox.tscn<>res://States/player/Movement_getter.gd<>res://Player/TakingDamageForPlayer.gd<>uid://ddr3kchg8b5xo::::res://hitboxes/Back.tscn<>uid://gf8e7mfhnvda::::res://hitboxes/Front.tscn<>uid://d0xl5jhdikyw1::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png<>uid://c22vb6fmvbg7k::::res://Player/PlayerStats.tscn
+PerfectDodgeZone.gd::GDScript::-1::1730697159::0::1::::<>Area2D<>::
+Player.gd::GDScript::-1::1730698911::0::1::::Player<>CharacterBody2D<>::
+Player.tscn::PackedScene::697875697191207779::1730700137::0::1::::<><>::res://Player/Player.gd<>res://States/StateController.gd<>res://States/player/Idle.gd<>res://States/player/Move.gd<>res://States/player/TimeStop.gd<>uid://ctbg333f2a7tp::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png<>uid://dweqnpr0abso6::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png<>uid://b3rt641lalewe::::res://hitboxes/BackHitbox.tscn<>res://States/player/Movement_getter.gd<>res://Player/TakingDamageForPlayer.gd<>uid://ddr3kchg8b5xo::::res://hitboxes/Back.tscn<>uid://gf8e7mfhnvda::::res://hitboxes/Front.tscn<>uid://d0xl5jhdikyw1::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png<>uid://c22vb6fmvbg7k::::res://Player/PlayerStats.tscn
 PlayerStats.gd::GDScript::-1::1730479343::0::1::::<>Node<>::
 PlayerStats.tscn::PackedScene::6724956824135903098::1730481114::0::1::::<><>::uid://b2viddts03gyk::::res://Player/stats.tscn<>res://Player/PlayerStats.gd
 stats.tscn::PackedScene::4325362675852765762::1729056014::0::1::::<><>::
@@ -93,27 +94,27 @@ TakingDamageForPlayer.gd::GDScript::-1::1729828846::0::1::::BackHitbox<>Area2D<>
 WeaponSlot.gd::GDScript::-1::1726097372::0::1::::<>Node2D<>::
 ::res://resource/::1727407277
 ::res://resource/1. Free Hologram Interface Wenrexa/::1726805930
-::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/::1726806364
+::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/::1730696052
 PUT A RATING!.jpg::CompressedTexture2D::6695079325736286253::1726805930::1730696052::1::::<><>::
 Readme.txt::TextFile::-1::1726805930::0::1::::<><>::
-::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Button 1/::1726806364
+::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Button 1/::1730696051
 Button Active.png::CompressedTexture2D::9212076548004767588::1726805930::1730696051::1::::<><>::
 Button Disable.png::CompressedTexture2D::843657180473276874::1726805930::1730696051::1::::<><>::
 Button Hover.png::CompressedTexture2D::9213934101098430835::1726805930::1730696051::1::::<><>::
 Button Normal.png::CompressedTexture2D::4713942848856824990::1726805930::1730696051::1::::<><>::
-::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X1/::1726806364
+::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X1/::1730696051
 Card X1.png::CompressedTexture2D::3058709904763048474::1726805930::1730696051::1::::<><>::
 Card X2.png::CompressedTexture2D::6136990718610553948::1726805930::1730696051::1::::<><>::
 Panel Empty Green.png::CompressedTexture2D::5123997314519945006::1726805930::1730696051::1::::<><>::
 Panel Empty.png::CompressedTexture2D::3121822730731686900::1726805930::1730696051::1::::<><>::
 Panel Red.png::CompressedTexture2D::6979616093330442668::1726805930::1730696051::1::::<><>::
-::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/::1726806364
+::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/::1730696051
 Card X2.png::CompressedTexture2D::2093200661990654537::1726805930::1730696051::1::::<><>::
 Card X3.png::CompressedTexture2D::4521891061022629995::1726805930::1730696051::1::::<><>::
-::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X3/::1726806364
+::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X3/::1730696052
 Card X5.png::CompressedTexture2D::3179042998287132503::1726805930::1730696052::1::::<><>::
 Card X6.png::CompressedTexture2D::4012686117191106474::1726805930::1730696052::1::::<><>::
-::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Icons/::1726806364
+::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Icons/::1730696052
 01.png::CompressedTexture2D::6331560567993860249::1726805930::1730696051::1::::<><>::
 02.png::CompressedTexture2D::1107220679485622003::1726805930::1730696051::1::::<><>::
 03.png::CompressedTexture2D::1747720208785136398::1726805930::1730696051::1::::<><>::
@@ -149,7 +150,7 @@ Card X6.png::CompressedTexture2D::4012686117191106474::1726805930::1730696052::1
 33.png::CompressedTexture2D::2487099297380858918::1726805930::1730696050::1::::<><>::
 34.png::CompressedTexture2D::1452526711770287642::1726805930::1730696052::1::::<><>::
 35.png::CompressedTexture2D::8244619756028746931::1726805930::1730696052::1::::<><>::
-::res://resource/16x16 RPG Item Pack/::1726890107
+::res://resource/16x16 RPG Item Pack/::1730696052
 Item__00.png::CompressedTexture2D::5634554560159375688::1726890084::1730696052::1::::<><>::
 Item__01.png::CompressedTexture2D::6726398066218319679::1726890084::1730696052::1::::<><>::
 Item__02.png::CompressedTexture2D::2816634169316693693::1726890084::1730696052::1::::<><>::
@@ -224,12 +225,12 @@ Item__70.png::CompressedTexture2D::2994619434325531557::1726890084::1730696049::
 Item__71.png::CompressedTexture2D::8750341435934207297::1726890084::1730696049::1::::<><>::
 Preview.png::CompressedTexture2D::7855017385278120656::1726890084::1730696049::1::::<><>::
 Sheet.png::CompressedTexture2D::308184709305544446::1726890084::1730696049::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/::1727407282
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/::1730696056
 Coupon by craftpix.png::CompressedTexture2D::8850162952110687745::1727407214::1730696056::1::::<><>::
 Font.txt::TextFile::-1::1727407214::0::1::::<><>::
 License.txt::TextFile::-1::1727407214::0::1::::<><>::
 ::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/::1727407214
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/1 Biker/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/1 Biker/::1730696049
 Idle1.png::CompressedTexture2D::2929836816319843218::1727407214::1730696049::1::::<><>::
 Idle2.png::CompressedTexture2D::6629087491576853919::1727407214::1730696049::1::::<><>::
 Jump1.png::CompressedTexture2D::2046937293788953519::1727407214::1730696049::1::::<><>::
@@ -240,7 +241,7 @@ Sitdown1.png::CompressedTexture2D::1318350157921696447::1727407214::1730696049::
 Sitdown2.png::CompressedTexture2D::8260359658264866201::1727407214::1730696049::1::::<><>::
 Walk1.png::CompressedTexture2D::8056590088055453836::1727407214::1730696049::1::::<><>::
 Walk2.png::CompressedTexture2D::405631327502293973::1727407214::1730696049::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/2 Punk/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/2 Punk/::1730696050
 Idle1.png::CompressedTexture2D::130748443109247100::1727407214::1730696049::1::::<><>::
 Idle2.png::CompressedTexture2D::4276046395119594672::1727407214::1730696049::1::::<><>::
 Jump1.png::CompressedTexture2D::3513905658905892063::1727407214::1730696049::1::::<><>::
@@ -251,7 +252,7 @@ Sitdown1.png::CompressedTexture2D::5349812493004488383::1727407214::1730696049::
 Sitdown2.png::CompressedTexture2D::5469987651666380215::1727407214::1730696049::1::::<><>::
 Walk1.png::CompressedTexture2D::3681597866352560116::1727407214::1730696050::1::::<><>::
 Walk2.png::CompressedTexture2D::1709821607358947376::1727407214::1730696050::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/3 Cyborg/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/3 Cyborg/::1730696050
 Idle1.png::CompressedTexture2D::4856323263410702798::1727407214::1730696050::1::::<><>::
 Idle2.png::CompressedTexture2D::6422759521541918953::1727407214::1730696050::1::::<><>::
 Jump1.png::CompressedTexture2D::4394152180500380447::1727407214::1730696050::1::::<><>::
@@ -262,7 +263,7 @@ Sitdown1.png::CompressedTexture2D::5949812768830815662::1727407214::1730696050::
 Sitdown2.png::CompressedTexture2D::3032234105894226408::1727407214::1730696050::1::::<><>::
 Walk1.png::CompressedTexture2D::8082584328327944484::1727407214::1730696050::1::::<><>::
 Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/::1730696050
 1_1.png::CompressedTexture2D::2921258076289835228::1727407214::1730696050::1::::<><>::
 1_2.png::CompressedTexture2D::6048731291134068933::1727407214::1730696050::1::::<><>::
 2_1.png::CompressedTexture2D::5408856673853897869::1727407214::1730696050::1::::<><>::
@@ -284,7 +285,7 @@ Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::
 10_1.png::CompressedTexture2D::2910642228815316065::1727407214::1730696050::1::::<><>::
 10_2.png::CompressedTexture2D::1614865202082049566::1727407214::1730696050::1::::<><>::
 ::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/::1727407214
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/1 Biker/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/1 Biker/::1730696050
 1.png::CompressedTexture2D::6357136577314414482::1727407214::1730696050::1::::<><>::
 2.png::CompressedTexture2D::1231192869540517027::1727407214::1730696050::1::::<><>::
 3.png::CompressedTexture2D::1571516789676217264::1727407214::1730696050::1::::<><>::
@@ -295,7 +296,7 @@ Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::
 8.png::CompressedTexture2D::6668405037001878949::1727407214::1730696050::1::::<><>::
 9.png::CompressedTexture2D::4213001181625527092::1727407214::1730696050::1::::<><>::
 10.png::CompressedTexture2D::2187191948106372086::1727407214::1730696050::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/2 Punk/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/2 Punk/::1730696053
 1.png::CompressedTexture2D::6004138294113214784::1727407214::1730696050::1::::<><>::
 2.png::CompressedTexture2D::2930875196287384269::1727407214::1730696050::1::::<><>::
 3.png::CompressedTexture2D::5090279935299627664::1727407214::1730696050::1::::<><>::
@@ -306,7 +307,7 @@ Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::
 8.png::CompressedTexture2D::5458487810266745691::1727407214::1730696053::1::::<><>::
 9.png::CompressedTexture2D::4687390268084243902::1727407214::1730696053::1::::<><>::
 10.png::CompressedTexture2D::607375360170779038::1727407214::1730696053::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/3 Cyborg/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/3 Cyborg/::1730696053
 1.png::CompressedTexture2D::1552115592401459998::1727407214::1730696053::1::::<><>::
 2.png::CompressedTexture2D::8983922986869805634::1727407214::1730696053::1::::<><>::
 3.png::CompressedTexture2D::8833788576273667702::1727407214::1730696053::1::::<><>::
@@ -317,7 +318,7 @@ Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::
 8.png::CompressedTexture2D::843794081750304987::1727407214::1730696053::1::::<><>::
 9.png::CompressedTexture2D::2902320111499180184::1727407214::1730696053::1::::<><>::
 10.png::CompressedTexture2D::3476384969369302033::1727407214::1730696053::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/4 Shoot_effects/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/4 Shoot_effects/::1730696053
 6_1.png::CompressedTexture2D::3381380258392905256::1727407214::1730696053::1::::<><>::
 6_2.png::CompressedTexture2D::3185574109675758252::1727407214::1730696053::1::::<><>::
 7_1.png::CompressedTexture2D::3356592072434968012::1727407214::1730696053::1::::<><>::
@@ -328,7 +329,7 @@ Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::
 9_2.png::CompressedTexture2D::1688733114484013292::1727407214::1730696053::1::::<><>::
 10_1.png::CompressedTexture2D::3451116095748411301::1727407214::1730696053::1::::<><>::
 10_2.png::CompressedTexture2D::8579951838027509289::1727407214::1730696053::1::::<><>::
-::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/::1727407280
+::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/::1730696053
 1.png::CompressedTexture2D::8191059313642214428::1727407214::1730696053::1::::<><>::
 1_2.png::CompressedTexture2D::6770416394017389239::1727407214::1730696053::1::::<><>::
 2.png::CompressedTexture2D::7950480957166695067::1727407214::1730696053::1::::<><>::
@@ -350,14 +351,14 @@ Walk2.png::CompressedTexture2D::1808728267185243360::1727407214::1730696050::1::
 10_2.png::CompressedTexture2D::7585402233160741236::1727407214::1730696053::1::::<><>::
 ::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/PSD/::1727407214
 ::res://resource/SnoopethDuckDuck Shields/::1727407277
-::res://resource/SnoopethDuckDuck Shields/Pack 1/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 1/::1730696053
 0px All.png::CompressedTexture2D::2518628812940715709::1726806408::1730696053::1::::<><>::
 1px All.png::CompressedTexture2D::3494727434018990692::1726806408::1730696053::1::::<><>::
 2px All.png::CompressedTexture2D::2387339116149754588::1726806408::1730696053::1::::<><>::
 Extra or Unfinished.png::CompressedTexture2D::6200034534228537663::1726806408::1730696053::1::::<><>::
 File Numbers.png::CompressedTexture2D::4835111886218346006::1726806408::1730696053::1::::<><>::
 License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 1/0px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 1/0px/::1730696054
 1.png::CompressedTexture2D::7882800806594752119::1726806408::1730696053::1::::<><>::
 2.png::CompressedTexture2D::3752158524108436039::1726806408::1730696053::1::::<><>::
 3.png::CompressedTexture2D::1925632228040934239::1726806408::1730696053::1::::<><>::
@@ -392,7 +393,7 @@ License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
 32.png::CompressedTexture2D::1453636509219532162::1726806408::1730696053::1::::<><>::
 32b.png::CompressedTexture2D::5136370222061689171::1726806408::1730696053::1::::<><>::
 33.png::CompressedTexture2D::7374864619630623819::1726806408::1730696053::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 1/1px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 1/1px/::1730696054
 1.png::CompressedTexture2D::8223359194598392884::1726806408::1730696053::1::::<><>::
 2.png::CompressedTexture2D::5629873362345970216::1726806408::1730696053::1::::<><>::
 3.png::CompressedTexture2D::938074544712311466::1726806408::1730696053::1::::<><>::
@@ -427,7 +428,7 @@ License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
 32.png::CompressedTexture2D::7427632755234880429::1726806408::1730696052::1::::<><>::
 32b.png::CompressedTexture2D::52208018761122756::1726806408::1730696052::1::::<><>::
 33.png::CompressedTexture2D::5040562767674729116::1726806408::1730696052::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 1/2px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 1/2px/::1730696053
 1.png::CompressedTexture2D::4569052119464055136::1726806408::1730696052::1::::<><>::
 2.png::CompressedTexture2D::7080217690625345878::1726806408::1730696052::1::::<><>::
 3.png::CompressedTexture2D::6218021199657268431::1726806408::1730696052::1::::<><>::
@@ -462,7 +463,7 @@ License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
 32.png::CompressedTexture2D::3439705076790938960::1726806408::1730696053::1::::<><>::
 32b.png::CompressedTexture2D::3980715020986575104::1726806408::1730696053::1::::<><>::
 33.png::CompressedTexture2D::4370105774548683827::1726806408::1730696053::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/::1727407173
+::res://resource/SnoopethDuckDuck Shields/Pack 2/::1730696047
 1px All.png::CompressedTexture2D::792783009346435182::1726806408::1730696047::1::::<><>::
 2px All.png::CompressedTexture2D::4055280880292649653::1726806408::1730696047::1::::<><>::
 32x32 SpriteSheet.png::CompressedTexture2D::2645710270450221350::1726806408::1730696047::1::::<><>::
@@ -470,7 +471,7 @@ Extra or Unfinished 2.png::CompressedTexture2D::3189744954301795918::1726806408:
 Extra or Unfinished.png::CompressedTexture2D::3633894549458497995::1726806408::1730696047::1::::<><>::
 File Numbers.png::CompressedTexture2D::8605416108631943219::1726806408::1730696047::1::::<><>::
 License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/1px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 2/1px/::1730696053
 1.png::CompressedTexture2D::1381806438167840595::1726806408::1730696053::1::::<><>::
 2.png::CompressedTexture2D::336085061693401672::1726806408::1730696053::1::::<><>::
 3.png::CompressedTexture2D::4535467161689816632::1726806408::1730696053::1::::<><>::
@@ -503,7 +504,7 @@ License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
 30.png::CompressedTexture2D::732562135937860685::1726806408::1730696052::1::::<><>::
 31.png::CompressedTexture2D::5463459623012440265::1726806408::1730696052::1::::<><>::
 32.png::CompressedTexture2D::2993276057997321770::1726806408::1730696053::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/2px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 2/2px/::1730696053
 1.png::CompressedTexture2D::7407961934067654666::1726806408::1730696053::1::::<><>::
 2.png::CompressedTexture2D::490438834693083069::1726806408::1730696053::1::::<><>::
 3.png::CompressedTexture2D::2349936600468138451::1726806408::1730696053::1::::<><>::
@@ -536,12 +537,12 @@ License - CC0.txt::TextFile::-1::1726806408::0::1::::<><>::
 30.png::CompressedTexture2D::2668337493695112267::1726806408::1730696048::1::::<><>::
 31.png::CompressedTexture2D::5087120755875322115::1726806408::1730696048::1::::<><>::
 32.png::CompressedTexture2D::6485308519928134501::1726806408::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/::1727407177
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/::1730696051
 Coupon by craftpix.png::CompressedTexture2D::2650995071817513155::1727407173::1730696051::1::::<><>::
 Font.txt::TextFile::-1::1727407173::0::1::::<><>::
 License.txt::TextFile::-1::1727407173::0::1::::<><>::
 ::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/::1727407173
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/1 Biker/::1727407176
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/1 Biker/::1730696048
 Idle1.png::CompressedTexture2D::5434831726213754230::1727407173::1730696048::1::::<><>::
 Idle2.png::CompressedTexture2D::4660566604222949491::1727407173::1730696048::1::::<><>::
 Jump1.png::CompressedTexture2D::1180185744010161835::1727407173::1730696048::1::::<><>::
@@ -552,7 +553,7 @@ Sitdown1.png::CompressedTexture2D::1012479675257868263::1727407173::1730696048::
 Sitdown2.png::CompressedTexture2D::8091092177407074435::1727407173::1730696048::1::::<><>::
 Walk1.png::CompressedTexture2D::8759451032102429768::1727407173::1730696048::1::::<><>::
 Walk2.png::CompressedTexture2D::1123160859426067031::1727407173::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/2 Punk/::1727407176
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/2 Punk/::1730696048
 Idle1.png::CompressedTexture2D::8283892117214476314::1727407173::1730696048::1::::<><>::
 Idle2.png::CompressedTexture2D::2888307132855563643::1727407173::1730696048::1::::<><>::
 Jump1.png::CompressedTexture2D::8268761872999188941::1727407173::1730696048::1::::<><>::
@@ -563,7 +564,7 @@ Sitdown1.png::CompressedTexture2D::2150618618348510060::1727407173::1730696048::
 Sitdown2.png::CompressedTexture2D::1955519350370244231::1727407173::1730696048::1::::<><>::
 Walk1.png::CompressedTexture2D::6974323747154218612::1727407173::1730696048::1::::<><>::
 Walk2.png::CompressedTexture2D::3905684449091345413::1727407173::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/3 Cyborg/::1727407176
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/1 Characters/3 Cyborg/::1730696048
 Idle1.png::CompressedTexture2D::5965040866510058857::1727407173::1730696048::1::::<><>::
 Idle2.png::CompressedTexture2D::335290200991698642::1727407173::1730696048::1::::<><>::
 Jump1.png::CompressedTexture2D::5043387692729911082::1727407173::1730696048::1::::<><>::
@@ -574,7 +575,7 @@ Sitdown1.png::CompressedTexture2D::2433989562063879312::1727407173::1730696048::
 Sitdown2.png::CompressedTexture2D::3801337011513107094::1727407173::1730696048::1::::<><>::
 Walk1.png::CompressedTexture2D::1624528789443261129::1727407173::1730696048::1::::<><>::
 Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/::1727407176
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/::1730696048
 1_1.png::CompressedTexture2D::7783060465168646457::1727407173::1730696048::1::::<><>::
 1_2.png::CompressedTexture2D::8290465416148000026::1727407173::1730696048::1::::<><>::
 2_1.png::CompressedTexture2D::3665604686318507750::1727407173::1730696048::1::::<><>::
@@ -596,7 +597,7 @@ Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::
 10_1.png::CompressedTexture2D::5481498146654734583::1727407173::1730696048::1::::<><>::
 10_2.png::CompressedTexture2D::2567812140377720881::1727407173::1730696048::1::::<><>::
 ::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/::1727407173
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/1 Biker/::1727407176
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/1 Biker/::1730696048
 1.png::CompressedTexture2D::4031278306018369391::1727407173::1730696048::1::::<><>::
 2.png::CompressedTexture2D::2535817082536099240::1727407173::1730696048::1::::<><>::
 3.png::CompressedTexture2D::4767986526023315247::1727407173::1730696048::1::::<><>::
@@ -607,7 +608,7 @@ Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::
 8.png::CompressedTexture2D::7416253284971199659::1727407173::1730696048::1::::<><>::
 9.png::CompressedTexture2D::4908499142981798723::1727407173::1730696048::1::::<><>::
 10.png::CompressedTexture2D::5502803261678616183::1727407173::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/2 Punk/::1727407175
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/2 Punk/::1730696048
 1.png::CompressedTexture2D::3876329378011853896::1727407173::1730696048::1::::<><>::
 2.png::CompressedTexture2D::1558716977032583412::1727407173::1730696048::1::::<><>::
 3.png::CompressedTexture2D::7552924813795990805::1727407173::1730696048::1::::<><>::
@@ -618,7 +619,7 @@ Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::
 8.png::CompressedTexture2D::804420554654822731::1727407173::1730696048::1::::<><>::
 9.png::CompressedTexture2D::158230777419761813::1727407173::1730696048::1::::<><>::
 10.png::CompressedTexture2D::6378710978600353551::1727407173::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/3 Cyborg/::1727407175
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/3 Hands/3 Cyborg/::1730696048
 1.png::CompressedTexture2D::3680323284961871707::1727407173::1730696048::1::::<><>::
 2.png::CompressedTexture2D::2159924819509980487::1727407173::1730696047::1::::<><>::
 3.png::CompressedTexture2D::366764660328983282::1727407173::1730696047::1::::<><>::
@@ -629,7 +630,7 @@ Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::
 8.png::CompressedTexture2D::2179420723599669742::1727407173::1730696047::1::::<><>::
 9.png::CompressedTexture2D::2492823105888171697::1727407173::1730696047::1::::<><>::
 10.png::CompressedTexture2D::1611500315647787554::1727407173::1730696047::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/4 Shoot_effects/::1727407176
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/4 Shoot_effects/::1730696047
 6_1.png::CompressedTexture2D::7341927660007930530::1727407173::1730696047::1::::<><>::
 6_2.png::CompressedTexture2D::9074101787618668002::1727407173::1730696047::1::::<><>::
 7_1.png::CompressedTexture2D::5599813441620260022::1727407173::1730696047::1::::<><>::
@@ -640,7 +641,7 @@ Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::
 9_2.png::CompressedTexture2D::7358356908201729226::1727407173::1730696047::1::::<><>::
 10_1.png::CompressedTexture2D::7230932716829107784::1727407173::1730696047::1::::<><>::
 10_2.png::CompressedTexture2D::7818389889218049369::1727407173::1730696047::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/::1727407175
+::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/::1730696047
 1.png::CompressedTexture2D::8762149397158483100::1727407173::1730696047::1::::<><>::
 1_2.png::CompressedTexture2D::7816127012265075381::1727407173::1730696047::1::::<><>::
 2.png::CompressedTexture2D::4684621454352656755::1727407173::1730696047::1::::<><>::
@@ -662,13 +663,13 @@ Walk2.png::CompressedTexture2D::4926545601024101177::1727407173::1730696048::1::
 10_2.png::CompressedTexture2D::3617788097297414413::1727407173::1730696047::1::::<><>::
 ::res://resource/SnoopethDuckDuck Shields/Pack 2/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/PSD/::1727407173
 ::res://resource/SnoopethDuckDuck Shields/Pack 2/junk/::1726806408
-::res://resource/SnoopethDuckDuck Shields/Pack 3/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 3/::1730696047
 1px All.png::CompressedTexture2D::8597579932888815380::1726806408::1730696047::1::::<><>::
 2px All.png::CompressedTexture2D::6482200568714299707::1726806408::1730696047::1::::<><>::
 Extra or Unfinished.png::CompressedTexture2D::3095916406936311418::1726806408::1730696047::1::::<><>::
 File Numbers.png::CompressedTexture2D::1343174248442451615::1726806408::1730696047::1::::<><>::
 License - CC BY 4.0 .txt::TextFile::-1::1726806408::0::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 3/0px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 3/0px/::1730696048
 1.png::CompressedTexture2D::7835940239088871341::1726806408::1730696047::1::::<><>::
 2.png::CompressedTexture2D::4615753344370049523::1726806408::1730696047::1::::<><>::
 3.png::CompressedTexture2D::2168551815943147739::1726806408::1730696047::1::::<><>::
@@ -683,7 +684,7 @@ License - CC BY 4.0 .txt::TextFile::-1::1726806408::0::1::::<><>::
 12.png::CompressedTexture2D::8569442256776632168::1726806408::1730696048::1::::<><>::
 13.png::CompressedTexture2D::6834572064043779904::1726806408::1730696048::1::::<><>::
 14.png::CompressedTexture2D::2834258211070058867::1726806408::1730696048::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 3/1px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 3/1px/::1730696048
 1.png::CompressedTexture2D::4985295237198742545::1726806408::1730696048::1::::<><>::
 2.png::CompressedTexture2D::328088212162270146::1726806408::1730696048::1::::<><>::
 3.png::CompressedTexture2D::543877893708464980::1726806408::1730696048::1::::<><>::
@@ -698,7 +699,7 @@ License - CC BY 4.0 .txt::TextFile::-1::1726806408::0::1::::<><>::
 12.png::CompressedTexture2D::9050208018149889131::1726806408::1730696048::1::::<><>::
 13.png::CompressedTexture2D::2635195699854099011::1726806408::1730696047::1::::<><>::
 14.png::CompressedTexture2D::2919708445684981223::1726806408::1730696047::1::::<><>::
-::res://resource/SnoopethDuckDuck Shields/Pack 3/2px/::1726806410
+::res://resource/SnoopethDuckDuck Shields/Pack 3/2px/::1730696047
 1.png::CompressedTexture2D::7902400023311983175::1726806408::1730696047::1::::<><>::
 2.png::CompressedTexture2D::9177041076390810320::1726806408::1730696047::1::::<><>::
 3.png::CompressedTexture2D::7253787316902780567::1726806408::1730696047::1::::<><>::
@@ -713,11 +714,11 @@ License - CC BY 4.0 .txt::TextFile::-1::1726806408::0::1::::<><>::
 12.png::CompressedTexture2D::6534665186645064815::1726806408::1730696047::1::::<><>::
 13.png::CompressedTexture2D::9166317764437618949::1726806408::1730696047::1::::<><>::
 14.png::CompressedTexture2D::1722931564501862086::1726806408::1730696047::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/::1727409299
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/::1730696049
 full spritesheet.png::CompressedTexture2D::2077704676979206115::1726097372::1730696049::1::::<><>::
 full tilemap.png::CompressedTexture2D::7344649405237631096::1726097372::1730696049::1::::<><>::
 README.txt::TextFile::-1::1726097372::0::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/::1730696049
 enemy_afterdead_explosion_anim_f0.png::CompressedTexture2D::386884688646459133::1726097372::1730696047::1::::<><>::
 enemy_afterdead_explosion_anim_f1.png::CompressedTexture2D::338777793135666407::1726097372::1730696047::1::::<><>::
 enemy_afterdead_explosion_anim_f2.png::CompressedTexture2D::1061062929869895072::1726097372::1730696047::1::::<><>::
@@ -740,13 +741,13 @@ slash_effect_anim_f1.png::CompressedTexture2D::2308252380403076161::1726097372::
 slash_effect_anim_f2.png::CompressedTexture2D::7125308450599558285::1726097372::1730696049::1::::<><>::
 slash_effect_anim_spritesheet.png::CompressedTexture2D::8614434996337291286::1726097372::1730696049::1::::<><>::
 ::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/::1726097372
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/::1730696049
 fly_anim_f0.png::CompressedTexture2D::4545804388847723014::1726097372::1730696049::1::::<><>::
 fly_anim_f1.png::CompressedTexture2D::6268652603105339601::1726097372::1730696049::1::::<><>::
 fly_anim_f2.png::CompressedTexture2D::5127730071929594927::1726097372::1730696049::1::::<><>::
 fly_anim_f3.png::CompressedTexture2D::7242720119203692343::1726097372::1730696049::1::::<><>::
 fly_anim_spritesheet.png::CompressedTexture2D::5056280420805759590::1726097372::1730696049::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/::1730696049
 goblin_idle_anim_f0.png::CompressedTexture2D::2713705101299083126::1726097372::1730696049::1::::<><>::
 goblin_idle_anim_f1.png::CompressedTexture2D::271185666093652923::1726097372::1730696049::1::::<><>::
 goblin_idle_anim_f2.png::CompressedTexture2D::11728800664448514::1726097372::1730696049::1::::<><>::
@@ -762,7 +763,7 @@ goblin_run_anim_f3.png::CompressedTexture2D::680515261461753205::1726097372::173
 goblin_run_anim_f4.png::CompressedTexture2D::6458740758225081501::1726097372::1730696049::1::::<><>::
 goblin_run_anim_f5.png::CompressedTexture2D::484656906232319978::1726097372::1730696049::1::::<><>::
 goblin_run_spritesheet.png::CompressedTexture2D::7228716443831794164::1726097372::1730696049::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/::1730696049
 slime_idle_anim_f0.png::CompressedTexture2D::5373448638752069331::1726097372::1730696049::1::::<><>::
 slime_idle_anim_f1.png::CompressedTexture2D::3225040280109322513::1726097372::1730696049::1::::<><>::
 slime_idle_anim_f2.png::CompressedTexture2D::7137542481771717688::1726097372::1730696049::1::::<><>::
@@ -778,7 +779,7 @@ slime_run_anim_f4.png::CompressedTexture2D::7664397145749961351::1726097372::173
 slime_run_anim_f5.png::CompressedTexture2D::8189241802288947279::1726097372::1730696049::1::::<><>::
 slime_run_spritesheeet.png::CompressedTexture2D::9104101891244662126::1726097372::1730696049::1::::<><>::
 ::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/::1726097372
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/::1730696049
 knight_idle_anim_f0.png::CompressedTexture2D::6705385043329828549::1726097372::1730696049::1::::<><>::
 knight_idle_anim_f1.png::CompressedTexture2D::3290090870890022205::1726097372::1730696049::1::::<><>::
 knight_idle_anim_f2.png::CompressedTexture2D::4764392926972998536::1726097372::1730696049::1::::<><>::
@@ -794,7 +795,7 @@ knight_run_anim_f4.png::CompressedTexture2D::6264449666574744527::1726097372::17
 knight_run_anim_f5.png::CompressedTexture2D::7785875349463067967::1726097372::1730696049::1::::<><>::
 knight_run_spritesheet.png::CompressedTexture2D::6108909592620436581::1726097372::1730696049::1::::<><>::
 weapon_sword_1.png::CompressedTexture2D::4561279022562063834::1726097372::1730696049::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/::1730696049
 bag_coins.png::CompressedTexture2D::5042664287668131027::1726097372::1730696049::1::::<><>::
 barrel.png::CompressedTexture2D::6775061071775699466::1726097372::1730696049::1::::<><>::
 bomb_anim_f0.png::CompressedTexture2D::4192161134144501428::1726097372::1730696049::1::::<><>::
@@ -836,7 +837,7 @@ torch_anim_f4.png::CompressedTexture2D::5378340226459028563::1726097372::1730696
 torch_anim_f5.png::CompressedTexture2D::7176893798086927679::1726097372::1730696048::1::::<><>::
 torch_spritesheet.png::CompressedTexture2D::8729147942307998267::1726097372::1730696048::1::::<><>::
 ::res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/::1726097372
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/::1730696048
 door_floor.png::CompressedTexture2D::7563320790400249939::1726097372::1730696048::1::::<><>::
 floor_1.png::CompressedTexture2D::5543849480657330169::1726097372::1730696048::1::::<><>::
 floor_2.png::CompressedTexture2D::3760300039492593422::1726097372::1730696048::1::::<><>::
@@ -868,7 +869,7 @@ spikes_anim_f8.png::CompressedTexture2D::7559703562027930261::1726097372::173069
 spikes_anim_f9.png::CompressedTexture2D::2393927014665322674::1726097372::1730696048::1::::<><>::
 spikes_spritesheet.png::CompressedTexture2D::71599101233193885::1726097372::1730696048::1::::<><>::
 stair_nextlevel.png::CompressedTexture2D::3315266528323534499::1726097372::1730696048::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/wall/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/wall/::1730696049
 door_anim_opening_f0.png::CompressedTexture2D::1368287652064754010::1726097372::1730696048::1::::<><>::
 door_anim_opening_f1.png::CompressedTexture2D::3511864426823297290::1726097372::1730696048::1::::<><>::
 door_anim_opening_f2.png::CompressedTexture2D::5102415108607794913::1726097372::1730696048::1::::<><>::
@@ -907,7 +908,7 @@ wall_top_inner_right.png::CompressedTexture2D::6079179891486688148::1726097372::
 wall_top_inner_right_2.png::CompressedTexture2D::2424567567828104403::1726097372::1730696048::1::::<><>::
 wall_top_left.png::CompressedTexture2D::2970010365512353493::1726097372::1730696048::1::::<><>::
 wall_top_right.png::CompressedTexture2D::886866192128108261::1726097372::1730696048::1::::<><>::
-::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/::1726806367
+::res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/::1730696049
 crosshair_1.png::CompressedTexture2D::3895603057694761801::1726097372::1730696048::1::::<><>::
 crosshair_2.png::CompressedTexture2D::3279352100725315590::1726097372::1730696049::1::::<><>::
 crosshair_3.png::CompressedTexture2D::8962185774782266326::1726097372::1730696049::1::::<><>::
@@ -916,11 +917,11 @@ menu_button.png::CompressedTexture2D::2211886889265999436::1726097372::173069604
 menu_button_press.png::CompressedTexture2D::7603866601388575262::1726097372::1730696049::1::::<><>::
 pause_button.png::CompressedTexture2D::5094739625633456048::1726097372::1730696049::1::::<><>::
 pause_button_press.png::CompressedTexture2D::2444210060607913093::1726097372::1730696049::1::::<><>::
-::res://scenes/::1730514471
+::res://scenes/::1730700110
 EnvironmentSpawner.gd::GDScript::-1::1730176025::0::1::::<>Node2D<>::
 GameOver.gd::GDScript::-1::1728793143::0::1::::<>Node2D<>::
 GameOver.tscn::PackedScene::2182418384279811060::1728793171::0::1::::<><>::res://scenes/GameOver.gd
-Scene.tscn::PackedScene::9192136629399209460::1730514471::0::1::::<><>::uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>res://managers/GameManager.gd<>res://managers/PlayerSpawner.gd<>uid://cio4svb8b44cm::::res://managers/spawner/spawner.tscn<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://bfdnx2bk1sivb::::res://Weapon/BloodGun.tscn<>res://scenes/EnvironmentSpawner.gd
+Scene.tscn::PackedScene::9192136629399209460::1730700110::0::1::::<><>::uid://dcv2kj34pxllo::::res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png<>res://managers/GameManager.gd<>res://managers/PlayerSpawner.gd<>uid://cio4svb8b44cm::::res://managers/spawner/spawner.tscn<>uid://bjkqe7gy0n4gr::::res://UI/ui.tscn<>uid://bfdnx2bk1sivb::::res://Weapon/BloodGun.tscn<>res://scenes/EnvironmentSpawner.gd
 title.gd::GDScript::-1::1728793128::0::1::::<>Node2D<>::
 title.tscn::PackedScene::7716776241769921508::1729305243::0::1::::<><>::res://scenes/title.gd
 ::res://Sprite/::1728191993
@@ -928,7 +929,7 @@ Footstep.gd::GDScript::-1::1728189235::0::1::::<>GPUParticles2D<>::
 Footstep.tscn::PackedScene::1547907404051401355::1728191993::0::1::::<><>::res://Sprite/Footstep.gd
 Ghost.gd::GDScript::-1::1727925774::0::1::::<>Sprite2D<>::
 Ghost.tscn::PackedScene::6764368513885645030::1726714714::0::1::::<><>::res://Sprite/Ghost.gd
-::res://Sprite/Player/::1726097372
+::res://Sprite/Player/::1730696049
 bomerang.png::CompressedTexture2D::6114222025232366625::1726097372::1730696049::1::::<><>::
 Bullet.png::CompressedTexture2D::8130268142965368514::1726097372::1730696049::1::::<><>::
 Enemy.png::CompressedTexture2D::5196476529186697300::1726097372::1730696049::1::::<><>::
@@ -944,11 +945,11 @@ dead.gd::GDScript::-1::1730046302::0::1::::<>State<>::
 IdleEnemy.gd::GDScript::-1::1726459006::0::1::::<>State<>::
 MoveEnemy.gd::GDScript::-1::1730396079::0::1::::<>State<>::
 Stun.gd::GDScript::-1::1728280200::0::1::::<>MoveCharger<>::
-::res://States/player/::1730512073
-Idle.gd::GDScript::-1::1730512073::0::1::::<>State<>::
-Move.gd::GDScript::-1::1729305255::0::1::::Move<>State<>::
-Movement_getter.gd::GDScript::-1::1730512073::0::1::::<>Node<>::
-TimeStop.gd::GDScript::-1::1729529022::0::1::::<>Move<>::
+::res://States/player/::1730700109
+Idle.gd::GDScript::-1::1730697159::0::1::::<>State<>::
+Move.gd::GDScript::-1::1730698410::0::1::::Move<>State<>::
+Movement_getter.gd::GDScript::-1::1730696425::0::1::::<>Node<>::
+TimeStop.gd::GDScript::-1::1730700109::0::1::::<>Move<>::
 ::res://UI/::1730481115
 Button.tscn::PackedScene::3833970527483866742::1729485360::0::1::::<><>::uid://427ydx1r7hp6::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png<>res://UI/script/Button.gd<>uid://b5oo5dgxx56x8::::res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png<>uid://bjmujypyevm6j::::res://Sprite/Player/potion.png
 Critlabel.tscn::PackedScene::3952619151913496157::1728664654::0::1::::<><>::res://UI/script/CritLabel.gd
@@ -968,8 +969,8 @@ Button.gd::GDScript::-1::1729398199::0::1::::<>Control<>::
 CritLabel.gd::GDScript::-1::1727151978::0::1::::<>Control<>::
 UI.gd::GDScript::-1::1730479211::0::1::::UI<>CanvasLayer<>::
 UpgradeScene.gd::GDScript::-1::1730476463::0::1::::<>Control<>::
-::res://Weapon/::1730514471
-BloodGun.tscn::PackedScene::2744389849476293659::1730514471::0::1::::<><>::res://Weapon/script/BloodGun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
+::res://Weapon/::1730700109
+BloodGun.tscn::PackedScene::2744389849476293659::1730700109::0::1::::<><>::res://Weapon/script/BloodGun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 Bomerang.tscn::PackedScene::369442416383700725::1727929401::0::1::::<><>::res://Weapon/script/Bomerang.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
 Executioner.tscn::PackedScene::9217575867307118613::1727929401::0::1::::<><>::res://Weapon/script/Executioner.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 HandGun.tscn::PackedScene::8409158753594315518::1729826698::0::1::::<><>::res://Weapon/script/gun.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
@@ -980,14 +981,14 @@ Shotgun.tscn::PackedScene::2359686463657296332::1728450385::0::1::::<><>::res://
 Sniper.tscn::PackedScene::4102781667093446051::1727845575::0::1::::<><>::res://Weapon/script/Sniper.gd<>uid://bfvrcs68ko660::::res://Sprite/Player/Gun.png
 SpeedGun.tscn::PackedScene::2231149442512675828::1729826698::0::1::::<><>::uid://cjcdcxr41b6aj::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/2_1.png<>res://Weapon/script/SpeedGun.gd<>uid://cfehxsghtnitc::::res://UI/Bars/SpeedBar.tscn
 Weapon.tscn::PackedScene::8703610511030117951::1728666724::0::1::::<><>::
-::res://Weapon/bullet/::1730514471
-BloodBullet.tscn::PackedScene::3474014200409582528::1730514471::0::1::::<><>::res://Weapon/bullet/script/BloodBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
+::res://Weapon/bullet/::1730700109
+BloodBullet.tscn::PackedScene::3474014200409582528::1730700109::0::1::::<><>::res://Weapon/bullet/script/BloodBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 BomerangBullet.tscn::PackedScene::288615707988430325::1727846006::0::1::::<><>::res://Weapon/bullet/script/BomerangBullet.gd<>uid://ctd1lxbhmn5r6::::res://Sprite/Player/bomerang.png
 BotBullet.tscn::PackedScene::6334465293180946377::1730481114::0::1::::<><>::res://Weapon/bullet/script/BotBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-bullet.tscn::PackedScene::7153186381455210336::1730514471::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
+bullet.tscn::PackedScene::7153186381455210336::1730700109::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 ExecutionerBullet.tscn::PackedScene::3744655771196766048::1727929401::0::1::::<><>::res://Weapon/bullet/script/ExecutionerBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 HCBullet.tscn::PackedScene::4784259622652737097::1727846904::0::1::::<><>::res://Weapon/bullet/script/HCBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
-RestoreBloodBullet.tscn::PackedScene::2296662373575488614::1730514471::0::1::::<><>::res://Weapon/bullet/script/RestoreBloodBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
+RestoreBloodBullet.tscn::PackedScene::2296662373575488614::1730700109::0::1::::<><>::res://Weapon/bullet/script/RestoreBloodBullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png
 ScatterBullet.tscn::PackedScene::2478326071428716307::1730479903::0::1::::<><>::res://Weapon/bullet/script/ScatterBullet.gd<>uid://dox2sx805nmyu::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/1.png
 ScatterPellet.tscn::PackedScene::7463734126106010086::1730481115::0::1::::<><>::uid://dyduucd0gegyj::::res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/7.png<>res://Weapon/bullet/script/ScatterPellet.gd
 ShotgunBullet.tscn::PackedScene::8288864571729375522::1727755891::0::1::::<><>::res://Weapon/bullet/script/bullet.gd<>uid://dn3mlfydct62y::::res://Sprite/Player/Bullet.png

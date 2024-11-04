@@ -17,6 +17,7 @@ func enter() -> void:
 	super()
 	if parent.perfect_dogde_collided:
 		parent.perfect_time_stop_state = true
+		parent.SetHealth(-parent.damage_amount)
 		parent.perfect_dodge_timer.stop()
 	tmp = parent.stats.ReturnSpeed()
 	ghost_timer.start(0.05 if parent.perfect_time_stop_state == false else 0.01)
@@ -58,7 +59,6 @@ func exit():
 	super()
 	parent.perfect_time_stop_state = false
 	parent.perfect_dodge_timer.start()
-	
 	usingFlag = false
 	Engine.time_scale = 1.0
 	parent.stats.SetSpeed(tmp)

@@ -11,7 +11,7 @@ class_name Player
 @onready var state_machine = $StateControl
 @onready var movement_component = $MovementComponent
 @onready var stats = $Stats
-@onready var perfect_dodge_timer = %PerfectDodgeTimer
+@onready var perfect_dodge_timer = %PerfectTimeSlowTimer
 @export var max_speed: int = 100
 
 var perfect_dogde_collided : bool = false
@@ -26,6 +26,7 @@ var invincibleState : bool = false
 var recharge_flag : bool = false
 var taking_damage : bool = false
 var is_invisible = false
+var damage_amount = 0
 var status_dictionary = {
 	"Stun" : false,
 	"TimeStopDisable" : false
@@ -89,13 +90,13 @@ func PickUpWeapon(weapon: Weapon):
 
 func MinusHealth(amount : int, is_backshot = false):
 	if !invincibleState:
+		damage_amount = amount * 2 if is_backshot else amount * 1
 		if shield_amount > 0:	
 			get_node("Item/EnergyShield").TakingDamage()
-			shield_amount += amount * 2 if is_backshot else amount * 1
-			healthBar._set_shield(shield_amount)
+			shield_amount += damage_amount
+			healthBar._set_shield(damage_amount)
 		else:
-			stats.SetHealth(amount * 2 if is_backshot else  amount * 1)
-			healthBar._set_health(stats.ReturnHealth())
+			SetHealth(damage_amount)
 	
 
 	
