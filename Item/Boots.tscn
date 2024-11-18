@@ -9,3 +9,7 @@ amount = 10
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_m1i2q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

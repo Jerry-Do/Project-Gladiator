@@ -131,11 +131,14 @@ collision_mask = 5
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ascps")
 
+[node name="Stats" parent="." instance=ExtResource("14_bvtpy")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -5)
 scale = Vector2(4.9375, 4.25)
 sprite_frames = SubResource("SpriteFrames_yxp6f")
 animation = &"run"
+speed_scale = 2.0
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("8_w4ebw")
@@ -149,7 +152,7 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(-3, -1)
 
 [node name="Item" type="Node2D" parent="."]
-position = Vector2(2, -98)
+position = Vector2(-2, -5)
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_qb1iw")
@@ -226,8 +229,6 @@ collision_mask = 32
 position = Vector2(2, -2)
 scale = Vector2(5.23982, 4.93753)
 shape = SubResource("CircleShape2D_ep4sk")
-
-[node name="Stats" parent="." instance=ExtResource("14_bvtpy")]
 
 [node name="PerfectDodgeZone" type="Area2D" parent="."]
 collision_layer = 0

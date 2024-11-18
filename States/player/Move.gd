@@ -2,11 +2,11 @@ extends State
 class_name Move
 @export var time_stop_state: State
 @export var idle_state: State
-
 var direction : Vector2
 var usingFlag : bool = false
-
 var turn_flag : bool
+signal GetDistance(amount : int)
+
 func enter() -> void:
 	super()
 	parent.animated_sprite.play("run")
@@ -20,7 +20,7 @@ func process_input(_event : InputEvent) -> State:
 	return null
 		
 func process_physics(delta: float):
-	var movement = get_movement_direction() * parent.stats.ReturnSpeed()
+	var movement : Vector2 = get_movement_direction() * parent.stats.ReturnSpeed()
 	if parent.recharge_flag && parent.stats.ReturnCurrentDashTime() < parent.stats.ReturnMaxDashTime() && usingFlag == false:
 		usingFlag = false
 		parent.stats.SetDashTime(delta)
@@ -28,7 +28,8 @@ func process_physics(delta: float):
 	if movement.length() == 0:
 		return idle_state
 	parent.velocity = movement
-	if parent.status_dictionary.Stun == true:
+	if parent.status_dictionary.stun == true:
 		parent.velocity = Vector2.ZERO
 	parent.move_and_slide()
+	GetDistance.emit(movement.length())
 	return null

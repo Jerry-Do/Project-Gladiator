@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_m6gm6"]
 [ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_n8w6a"]
 [ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_wvfs4"]
+[ext_resource type="Script" path="res://Enemy/script/movement_controller.gd" id="9_inugo"]
 [ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_rgvpm"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
 [ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="10_rnjbw"]
@@ -21,25 +22,6 @@ radius = 86.0562
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y685"]
 size = Vector2(60.3077, 14.1189)
-
-[sub_resource type="GDScript" id="GDScript_l34si"]
-script/source = "extends Node
-var parent = get_parent()
-
-func get_movement_direction():
-	MakePath()
-	
-func MakePath():
-	if parent.player != null:
-		parent.navAgent.target_position = parent.player.global_position
-		##$AnimatedSprite2D.play(\"run\")
-		##if(parent.player.position.x - parent.position.x) < 0:
-		##	$AnimatedSprite2D.flip_h = true
-		##else:
-			##$AnimatedSprite2D.flip_h = false
-	##else:
-		##$AnimatedSprite2D.play(\"idle\")
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
 size = Vector2(29, 41)
@@ -151,7 +133,7 @@ dead_state = NodePath("../Dead")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MovementController" type="Node" parent="."]
-script = SubResource("GDScript_l34si")
+script = ExtResource("9_inugo")
 
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.05

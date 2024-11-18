@@ -23,7 +23,7 @@ func process_physics(_delta: float) -> State:
 		return dead_state
 	if  parent.player.is_invisible == false && parent.status_dictionary.Stun == false:
 		var direction = (parent.player.position - parent.position).normalized()
-		parent.velocity = direction * parent.speed			
+		parent.velocity = direction * (parent.speed / 0.5 if parent.status_dictionary.Slow else 1)
 		parent.move_and_slide()
 	else:
 		parent.position = parent.position
@@ -43,7 +43,7 @@ func _on_attack_area_entered(area):
 	if area.has_method("SetStatusPlayer"):
 		parent.status_dictionary.Stun = true
 		%Attack.get_child(0).call_deferred("set_disabled", true)
-		area.SetStatusPlayer("Stun", 2)
+		area.SetStatusPlayer("stun", 2)
 		area.TakingDamageForPlayer(-parent.sDamage, true if area.get_name() == "Back" else false)
 		%StunTimer.start()
 	

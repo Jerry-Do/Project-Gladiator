@@ -4,10 +4,11 @@ extends Item
 
 
 func _ready():
+	duplicate_flag = true
 	item_name = "GoldenGloves"
 	display_name = "Golden Gloves"
 	item_description = "Increase crit rate by " + str(amount) + " %"
-	if get_parent() == player.get_child(6):
+	if get_parent() == player.get_node("Item"):
 		DoJob()
 	return null
 

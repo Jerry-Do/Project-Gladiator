@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpninsm3bsivs"]
+
+[ext_resource type="Script" path="res://debugtools/scripts/DropDown.gd" id="1_2rr2y"]
+
+[node name="DropDown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2rr2y")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 228.0
+offset_bottom = 218.0
+item_count = 10
+item_0/text = "HealthKit"
+item_1/text = "BerserkerArmguard"
+item_2/text = "BerserkerChestplate"
+item_3/text = "Boots"
+item_4/text = "CoolingSystem"
+item_5/text = "DamageChip"
+item_6/text = "EnergyCell"
+item_7/text = "EnergyShield"
+item_8/text = "GoldenGloves"
+item_9/text = "EMPField"
+
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

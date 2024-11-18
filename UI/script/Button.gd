@@ -4,7 +4,7 @@ var item_path : String
 @onready var item_sprite = $ItemSprite
 @onready var description = %Description
 @onready var item_name_label = %name
-@onready var game_manager = get_node("../../../GameManager")
+@onready var game_manager : GameManager = get_node("../../../GameManager")
 var item_name
 # Called when the node enters the scene tree for the first time
 signal ChooseItem(item_path)
@@ -27,3 +27,4 @@ func intialize(new_item_path):
 #
 func _on_texture_button_pressed():
 	ChooseItem.emit(item_path,item_name)
+	game_manager.DestroyUpgradeSceneAndStartNewWave()

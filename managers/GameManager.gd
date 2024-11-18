@@ -1,6 +1,6 @@
 #Game Manager: handles UI and game logics
 extends Node2D
-
+class_name GameManager
 @onready var ui : UI = %UI
 @onready var enemy_spawner = %Spawner
 @onready var weaponSpawnPoints = %WeaponSpawnPoints
@@ -10,7 +10,7 @@ extends Node2D
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float
-@export var maxFame : int = 10 
+@export var maxFame : int = -1
 
 
 var pick_up_weapon = false
@@ -98,20 +98,17 @@ func _on_weapon_timer_timeout():
 		ui.set_new_weapon_alert_visibility(false)
 		ui.set_new_weapon_timer_alert_visibility(false)
 
-func UpgradeChose(node_path: String, item_name : String):
-	ui.remove_child(ui.get_child(1))
+func UpgradeChose(scene_path: String, item_name : String):
 	var player = get_node("../Player")
-	var item = load(node_path)
+	var item = load(scene_path)
 	var new_item = item.instantiate()
 	if duplication_array.find(item_name) != -1:
 		player.get_node("Item").get_node(item_name).Duplicate()
-		StartWave()
 		return null
 	player.get_node("Item").add_child(new_item)
 	duplication_array.append(new_item.ReturnName())
 	new_item.item_sprite.hide()
-	
-	StartWave()
+
 
 func StartWave():
 	get_tree().paused = false
@@ -119,6 +116,11 @@ func StartWave():
 	enemy_spawner.spawnCount = 0
 	environment_spawner.SpawnEnvironemnt()
 	#ui.set_wave_finisher_alert_visibility(false, currentWave)
+
+func DestroyUpgradeSceneAndStartNewWave():
+	if ui.get_node("UpgradeScene") != null:
+		ui.remove_child(ui.get_node("UpgradeScene"))
+	StartWave()
 	
 func CreateWeaponDescription(weapon : Weapon):
 	var description = preload("res://UI/GunDescription.tscn")

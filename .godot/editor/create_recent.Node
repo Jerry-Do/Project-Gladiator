@@ -1,14 +1,14 @@
 Timer
+Sprite2D
+AnimationPlayer
 CollisionShape2D
 Area2D
+ItemList
 Node2D
 Node
-Sprite2D
 Line2D
 CharacterBody2D
 Label
 CenterContainer
 RichTextLabel
 TextEdit
-Panel
-MarginContainer

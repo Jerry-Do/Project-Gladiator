@@ -28,5 +28,5 @@ func PlayerLeft():
 
 func _on_attack_area_entered(area):
 	if area.has_method("SetStatusPlayer"):
-		area.SetStatusPlayer("TimeStopDisable", 8)
+		area.SetStatusPlayer("timeStopDisable", 8)
 		area.TakingDamageForPlayer(-sDamage, true if area.get_name() == "Back" else false)

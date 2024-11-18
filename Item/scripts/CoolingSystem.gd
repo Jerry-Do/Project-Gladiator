@@ -5,10 +5,11 @@ extends Item
 
 
 func _ready():
+	duplicate_flag = true
 	item_name = "CoolingSystem"
 	display_name = "Cooling System"
 	item_description = "Decrase the recharge time for time stop by " + str(amount) + " %"
-	if get_parent() == player.get_child(6):
+	if get_parent() == player.get_node("Item"):
 		DoJob()
 	return null
 

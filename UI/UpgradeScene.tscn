@@ -11,7 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
-items = ["res://Item/Boots.tscn", "res://Item/EnergyShield.tscn", "res://Item/GoldenGloves.tscn", "res://Item/HealthKit.tscn", "res://Item/CoolingSystem.tscn", "res://Item/DamageChip.tscn", "res://Item/EnergyCell.tscn"]
+c_items = ["res://Item/Boots.tscn", "res://Item/DamageChip.tscn"]
+u_items = ["res://Item/CoolingSystem.tscn", "res://Item/EnergyCell.tscn", "res://Item/HealthKit.tscn", "res://Item/GoldenGloves.tscn"]
+r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn"]
 
 [node name="Pos1" type="Node2D" parent="."]
 position = Vector2(97, 132)

@@ -5,13 +5,14 @@ extends Item
 
 
 func _ready():
+	duplicate_flag = true
 	item_name = "DamageChip"
 	display_name = "Damage Chip"
 	item_description = "Increase the output damage by " + str(amount) + " %"
-	if get_parent() == player.get_child(6):
+	if get_parent() == player.get_node("Item"):
 		DoJob()
 	return null
 
 func DoJob(): 
-	player.stats.SetDamageMod(player.stats.ReturnDamageMod() * ((amount * quantity)/100))
+	player.stats.SetBaseDamageMod((player.stats.ReturnBaseDamageMod() * ((amount * quantity)/100)))
 	

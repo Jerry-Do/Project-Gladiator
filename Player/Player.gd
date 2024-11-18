@@ -28,8 +28,8 @@ var taking_damage : bool = false
 var is_invisible = false
 var damage_amount = 0
 var status_dictionary = {
-	"Stun" : false,
-	"TimeStopDisable" : false
+	"stun" : false,
+	"timeStopDisable" : false
 }
 var interactable = null
 signal CreateDescription(weapon : Weapon)
@@ -58,7 +58,7 @@ func _process(delta):
 func _input(event):
 	state_machine.process_input(event)
 	if currentWeapon:
-		if event.is_action_pressed("left_click") && status_dictionary.Stun == false:			
+		if event.is_action_pressed("left_click") && status_dictionary.stun == false:			
 			currentWeapon.shoot()	
 			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		if event.is_action_pressed("right_click") && currentWeapon.has_method("UseGunAbility"):
@@ -90,12 +90,13 @@ func PickUpWeapon(weapon: Weapon):
 func MinusHealth(amount : int, is_backshot = false):
 	if !invincibleState:
 		damage_amount = amount * 2 if is_backshot else amount * 1
+		damage_amount -= stats.ReturnArmor()
 		if shield_amount > 0:	
 			get_node("Item/EnergyShield").TakingDamage()
 			shield_amount += damage_amount
 			healthBar._set_shield(damage_amount)
 		else:
-			SetHealth(damage_amount)
+			stats.SetHealth(damage_amount)
 	
 
 	
@@ -120,9 +121,7 @@ func _on_interaction_range_area_exited(area):
 		area.get_parent().label.hide()
 		interactable = null
 
-func SetHealth(amount):
-	stats.SetHealth(amount)
-	healthBar._set_health(stats.ReturnHealth())
+	
 
 func Cleanse():
 	for key in status_dictionary:

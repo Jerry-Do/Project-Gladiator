@@ -4,6 +4,7 @@ extends Item
 
 
 func _ready():
+	duplicate_flag = true
 	item_name = "HealthKit"
 	display_name = "Health Kit"
 	item_description = "Player regenerates " + str(amount) + " health slowly overtime, if they are not moving"
@@ -14,6 +15,6 @@ func Duplicate():
 
 
 func _on_timer_timeout():
-	if get_parent() == player.get_child(4):
+	if get_parent() == player.get_node("Item"):
 		player.stats.SetHealth(amount * quantity)
 		player.healthBar._set_health(player.stats.ReturnHealth())

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwvp6614nw353"]
+
+[ext_resource type="Script" path="res://Item/scripts/BerserkerChestplate.gd" id="1_2nswb"]
+[ext_resource type="Texture2D" uid="uid://yl6ixyl1wrpy" path="res://resource/16x16 RPG Item Pack/Item__59.png" id="2_p46bh"]
+
+[node name="BerserkerChestplate" type="Node2D"]
+script = ExtResource("1_2nswb")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_p46bh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

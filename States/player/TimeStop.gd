@@ -13,8 +13,11 @@ var overheat_timer = %OverheatTimer
 @onready
 var ghost_timer = %GhostTimer
 
+
+var orginal_speed_scale = 	0
 func enter() -> void:
 	super()
+	orginal_speed_scale = 	parent.animated_sprite.speed_scale
 	if parent.perfect_dogde_collided:
 		parent.perfect_time_stop_state = true
 		parent.SetHealth(-parent.damage_amount)
@@ -26,6 +29,7 @@ func enter() -> void:
 	parent.stats.SetSpeed(2000 if parent.perfect_time_stop_state == false else 6000)
 	usingFlag = true
 	Engine.time_scale = 0.3 if parent.perfect_time_stop_state == false else 0.1
+	parent.animated_sprite.speed_scale = parent.animated_sprite.speed_scale + 1.7 if parent.perfect_time_stop_state == false else 1.9
 	parent.invincibleState = true
 	parent.game_manager.timeSlowFlag = true
 
@@ -44,8 +48,7 @@ func process_physics(delta: float):
 
 
 func _on_dash_timer_timeout():
-	parent.recharge_flag = true # Replace with function body.
-
+	parent.recharge_flag = true
 
 func _on_ghost_timer_timeout():
 	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == true:
@@ -67,3 +70,4 @@ func exit():
 	dash_timer.start(parent.stats.ReturnChargeTime())
 	parent.game_manager.timeSlowFlag = false
 	parent.invincibleState = false
+	parent.animated_sprite.speed_scale = orginal_speed_scale

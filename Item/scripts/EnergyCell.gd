@@ -5,10 +5,11 @@ extends Item
 
 
 func _ready():
+	duplicate_flag = true
 	item_name = "EnergyCell"
 	display_name = "Energy Cell"
 	item_description = "Increase the duration of time slow by" +str(amount) + " %"
-	if get_parent() == player.get_child(6):
+	if get_parent() == player.get_node("Item"):
 		DoJob()
 	return null
 

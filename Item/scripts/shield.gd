@@ -4,6 +4,7 @@ extends Item
 var recharge_flag = false
 
 func _ready():
+	duplicate_flag = true
 	item_name = "EnergyShield"
 	display_name = "Energy Shield"
 	item_description = "Gives the player a shield of " + str(amount) + " damage"

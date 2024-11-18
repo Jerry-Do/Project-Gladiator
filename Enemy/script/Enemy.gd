@@ -38,10 +38,12 @@ var animation_player : AnimationPlayer = $AnimationPlayer
 var is_target = false
 var curse_timer
 var status_dictionary = {
-	"Stun" : false
+	"stun" : false,
+	"slow" : false,
+	"vulnerable" : false
 }
-
-
+var status_timers : Array
+var timer_counters = 0
 func _init(health: int, speed: float, damage: float, fame : int):
 	curse_timer = Timer.new()
 	add_child(curse_timer)
@@ -97,4 +99,10 @@ func _on_curse_timer_timeout():
 	
 func SelfDestruct():
 	queue_free()
-	
+
+
+func SetStatusTrue(name_s: String, duration: float):
+	if status_dictionary[name_s] == false:
+		status_dictionary[name_s] = true
+		await get_tree().create_timer(duration).timeout
+		status_dictionary[name_s] = false
