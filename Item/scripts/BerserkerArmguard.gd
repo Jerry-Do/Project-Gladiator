@@ -11,9 +11,10 @@ func _ready():
 	item_name = "BerserkerArmguard"
 	display_name = "Berserker Armguard"
 	item_description = "Increase the player's damage based on missing health (3% Missing health = 1% Damage Mod)"
+	evolve_condition_text = "Collect three pieces of the berserker set to get set bonus"
 	if get_parent() == player.get_node("Item"):
 		player.stats.connect("health_change",  self.HealthChange)
-		SetCheck()
+		EvolveCheck()
 		HealthChange()	
 	return null
 
@@ -24,7 +25,7 @@ func HealthChange():
 	var amount = ((1 - percentage_health) * 100) / (3 if fullset == false else 1)
 	player.stats.SetDamageMod(amount)
 	
-func SetCheck():
+func EvolveCheck():
 	if player.get_node("Item").find_child("BerserkerChestplate", false, false) != null:
 		fullset = true
 		player.get_node("Item").get_node("BerserkerChestplate").fullset = true

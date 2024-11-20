@@ -6,6 +6,8 @@ class_name Item
 var duplicate_flag
 var item_name
 var display_name
+var evolve_condition_text
+var evolve_flag = false
 var quantity = 1 : set = _set_quantity
 
 func ReturnItemSprite():

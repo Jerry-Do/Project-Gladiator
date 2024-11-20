@@ -9,10 +9,11 @@ func _ready():
 	item_name = "BerserkerChestplate"
 	display_name = "Berserker Chestplate"
 	item_description = "Increase the player's armor based on missing health (3% Missing health = 1% Armor)"
+	evolve_condition_text = "Collect three pieces of the berserker set to get set bonus"
 	if get_parent() == player.get_node("Item"):
 		player.stats.connect("health_change",  self.HealthChange)
 		HealthChange()
-		SetCheck()
+		EvolveCheck()
 		
 	return null
 
@@ -25,7 +26,7 @@ func HealthChange():
 	print("Armor: ", player.stats.ReturnArmor())
 
 
-func SetCheck():
+func EvolveCheck():
 	if player.get_node("Item").find_child("BerserkerArmguard", false, false):
 		fullset = true
 		player.get_node("Item").get_node("BerserkerArmguard").fullset = true

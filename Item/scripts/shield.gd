@@ -2,6 +2,8 @@
 extends Item
 @export var amount = 0
 var recharge_flag = false
+#Evo con: blocking enough damage
+#Evo effect: on shield break, explode and stun surrouding enemy
 
 func _ready():
 	duplicate_flag = true

@@ -94,10 +94,12 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gy3d"]
-radius = 157.258
+radius = 180.0
 
 [node name="EMPField" type="Node2D"]
 script = ExtResource("1_jyuh5")
+slow_duration = 1
+no_enemy_slow_to_evo = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -125,4 +127,5 @@ texture = ExtResource("2_0ubpj")
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
