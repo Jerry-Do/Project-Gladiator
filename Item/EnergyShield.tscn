@@ -1,16 +1,100 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr4o2n2gq4tem"]
+[gd_scene load_steps=8 format=3 uid="uid://cr4o2n2gq4tem"]
 
 [ext_resource type="Script" path="res://Item/scripts/shield.gd" id="1_3uiw5"]
 [ext_resource type="Texture2D" uid="uid://1dr2te8mt8e" path="res://resource/SnoopethDuckDuck Shields/Pack 1/2px/16.png" id="2_8laf5"]
+[ext_resource type="Texture2D" uid="uid://frn61bvkvvd2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f0.png" id="3_glan1"]
+
+[sub_resource type="Animation" id="Animation_tjju0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4d4wa"]
+resource_name = "explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qndm"]
+_data = {
+"RESET": SubResource("Animation_tjju0"),
+"explode": SubResource("Animation_4d4wa")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rrnbq"]
+radius = 110.005
 
 [node name="EnergyShield" type="Node2D"]
 script = ExtResource("1_3uiw5")
 amount = 10
+evo_amount = 50
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_8laf5")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0qndm")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, -5)
+scale = Vector2(17.75, 16.125)
+texture = ExtResource("3_glan1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -8)
+shape = SubResource("CircleShape2D_rrnbq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -92,8 +92,8 @@ func MinusHealth(amount : int, is_backshot = false):
 		damage_amount = amount * 2 if is_backshot else amount * 1
 		damage_amount -= stats.ReturnArmor()
 		if shield_amount > 0:	
-			get_node("Item/EnergyShield").TakingDamage()
 			shield_amount += damage_amount
+			get_node("Item/EnergyShield").TakingDamage(damage_amount)
 			healthBar._set_shield(damage_amount)
 		else:
 			stats.SetHealth(damage_amount)

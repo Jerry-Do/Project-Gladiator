@@ -122,8 +122,10 @@ attack_state = NodePath("../Attack")
 [node name="Dead" type="Node" parent="StateControl"]
 script = ExtResource("7_n8w6a")
 
-[node name="Stun" type="Node" parent="StateControl"]
+[node name="Stun" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
 script = ExtResource("8_wvfs4")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
 
 [node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
 script = ExtResource("9_rgvpm")
