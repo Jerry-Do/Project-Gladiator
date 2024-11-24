@@ -14,13 +14,15 @@ func intialize(new_item_path):
 		connect("ChooseItem", game_manager.UpgradeChose)
 		item_path = new_item_path
 		var item = load(new_item_path)
-		var new_item = item.instantiate()
+		var new_item : Item = item.instantiate()
 		add_child(new_item)
 		new_item.item_sprite.hide()
 		item_sprite.texture = new_item.ReturnItemSprite()
 		description.text = new_item.ReturnItemDescription()
 		item_name = new_item.ReturnName()
 		item_name_label.text = new_item.ReturnDisplayName()
+		if new_item.ReturnEvoText() != null:
+			$TextureButton/EvoCon/EvoCon.text = "EvoCon: " + new_item.ReturnEvoText()
 		remove_child(new_item)
 	else:
 		queue_free()

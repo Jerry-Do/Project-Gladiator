@@ -1,15 +1,18 @@
 
 extends Item
 @export var amount = 0
+@export var missing_health = 0
 var player_flag = false
-var fullset = false
+var current_health
+var base_damage
+var fullset
 
 func _ready():
 	duplicate_flag = false
 	item_name = "BerserkerChestplate"
 	display_name = "Berserker Chestplate"
-	item_description = "Increase the player's armor based on missing health (3% Missing health = 1% Armor)"
-	evolve_condition_text = "Collect three pieces of the berserker set to get set bonus"
+	item_description = "Increase the player's damage based on missing health ("+ str(missing_health)+"% Missing health = "+ str(amount) +"% Damage Mod)"
+	evolve_condition_text = "Collect three pieces of the berserker set to get set bonus. Set bonus Rage: reduce the player's max health by half, and increase the effectiveness of the items"
 	if get_parent() == player.get_node("Item"):
 		player.stats.connect("health_change",  self.HealthChange)
 		HealthChange()

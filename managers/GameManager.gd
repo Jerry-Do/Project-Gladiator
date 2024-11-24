@@ -118,8 +118,7 @@ func StartWave():
 	#ui.set_wave_finisher_alert_visibility(false, currentWave)
 
 func DestroyUpgradeSceneAndStartNewWave():
-	if ui.get_node("UpgradeScene") != null:
-		ui.remove_child(ui.get_node("UpgradeScene"))
+	ui.remove_child(ui.get_node("UpgradeScreen"))
 	StartWave()
 	
 func CreateWeaponDescription(weapon : Weapon):

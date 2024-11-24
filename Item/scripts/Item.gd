@@ -28,7 +28,8 @@ func DoJob():
 func _set_quantity(amount):
 	quantity += amount
 
-
+func ReturnEvoText():
+	return evolve_condition_text
 
 func Duplicate():
 	_set_quantity(1)
