@@ -1,7 +1,7 @@
 extends Node2D
  
-@export var environment : Array
 @onready var spawn_points = $EnvironmentSpawnPoints
+@export var environment_props : Array
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -15,8 +15,8 @@ func _process(delta):
 func SpawnEnvironemnt():
 	var point = spawn_points.get_children()
 	for i  in point.size():
-		var random_env =  rng.randi_range(0, environment.size() - 1)
-		var environment = load(environment[random_env])
+		var random_env =  rng.randi_range(0, environment_props.size()- 1)
+		var environment = load(environment_props[random_env])
 		var spawn_pos = point[i]
 		var new_env = environment.instantiate()
 		new_env.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)

@@ -5,11 +5,12 @@ var sHealth:int = 5
 var sSpeed: float = 200
 var sDamage: float = 5
 var sFameAmount : float = 1
+var sArmor : float =  0
 var wind_up_time : bool = 1
 @onready var aim : Marker2D = $Aim
 
 func _init():
-	super._init(sHealth, sSpeed, sDamage, sFameAmount)
+	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount)
 	
 
 	
@@ -30,4 +31,5 @@ func AttackPlayer():
 func PlayerLeft():
 	inRange = false
 	playerHitBox = null
-	player.target_sprite.hide()
+	if player != null:
+		player.target_sprite.hide()

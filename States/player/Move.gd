@@ -15,7 +15,7 @@ func exit() -> void:
 	parent.animated_sprite.stop()
 	
 func process_input(_event : InputEvent) -> State:
-	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == false && (parent.status_dictionary["Stun"] == false || parent.status_dictionary["TimeStopDisable"] == false):
+	if Input.is_action_pressed("dash") && parent.stats.ReturnCurrentDashTime() > 0 && usingFlag == false && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
 		return time_stop_state
 	return null
 		

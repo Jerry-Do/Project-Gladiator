@@ -18,6 +18,7 @@ collision_mask = 10
 script = ExtResource("1_jqjja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(-0.613033, 0.453609)
 shape = SubResource("CircleShape2D_t0r5e")
 
@@ -31,6 +32,7 @@ wait_time = 0.03
 autostart = true
 
 [node name="DetectionRange" type="Area2D" parent="."]
+visible = false
 scale = Vector2(2.98, 3.34)
 collision_layer = 10
 collision_mask = 10

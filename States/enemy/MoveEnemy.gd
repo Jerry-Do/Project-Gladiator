@@ -23,18 +23,19 @@ func process_physics(_delta: float) -> State:
 		return dead_state
 	if parent.status_dictionary.stun:
 		return stun_state
-	if  parent.player.is_invisible == false:
-		parent.speed = parent.sSpeed
-		var direction = (parent.player.position - parent.position).normalized()
-		if parent.playerHitBox != null:
-			return attack_state
-		parent.velocity = direction * parent.speed 
-		if parent.softCollision.IsColliding():
-			parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
-		parent.velocity = parent.velocity if parent.status_dictionary.slow == false else parent.velocity / 2
-		parent.move_and_slide()
-	else:
-		parent.speed = 0
+	if parent.player != null:
+		if  parent.player.is_invisible == false:
+			parent.speed = parent.sSpeed
+			var direction = (parent.player.position - parent.position).normalized()
+			if parent.playerHitBox != null:
+				return attack_state
+			parent.velocity = direction * parent.speed 
+			if parent.softCollision.IsColliding():
+				parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
+			parent.velocity = parent.velocity if parent.status_dictionary.slow == false else parent.velocity / 2
+			parent.move_and_slide()
+		else:
+			parent.speed = 0
 	return null
 
 func process_frame(_delta : float) -> State:
@@ -49,6 +50,7 @@ func _on_attack_range_area_entered(area):
 
 
 func _on_turn_timer_timeout():
-	if (parent.player.position - parent.position).sign().x != parent.scale.y && parent.player.is_invisible == false:
-		parent.set_scale(Vector2(1,parent.scale.y * -1))
-		parent.set_rotation_degrees( parent.get_rotation_degrees() + 180 * -1)
+	if parent.player != null:
+		if (parent.player.position - parent.position).sign().x != parent.scale.y && parent.player.is_invisible == false:
+			parent.set_scale(Vector2(1,parent.scale.y * -1))
+			parent.set_rotation_degrees( parent.get_rotation_degrees() + 180 * -1)

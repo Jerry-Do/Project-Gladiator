@@ -29,5 +29,6 @@ func _on_attack_windup_timeout():
 
 
 func _on_attack_range_area_exited(area):
-	parent.PlayerLeft()
+	if area.has_method("TakingDamageForPlayer"):
+		parent.PlayerLeft()
 	

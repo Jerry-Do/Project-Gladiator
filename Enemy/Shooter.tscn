@@ -21,7 +21,7 @@
 radius = 22.496
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
-radius = 62.1924
+radius = 100.679
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
 size = Vector2(29, 41)
@@ -93,12 +93,12 @@ simplify_path = true
 debug_enabled = true
 
 [node name="AttackRange" type="Area2D" parent="."]
-visible = false
 disable_mode = 1
-collision_layer = 4
+collision_layer = 0
 collision_mask = 21
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+visible = false
 position = Vector2(7.50004, -24.8333)
 scale = Vector2(4.77714, 4.48571)
 shape = SubResource("CircleShape2D_hkrb0")

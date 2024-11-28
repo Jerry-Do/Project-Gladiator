@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dvnhypbeejsoa"
+path="res://.godot/imported/energyshield.aseprite-0ee226a266a1c88ef05f9a137d0b240c.res"
+
+[deps]
+
+source_file="res://Sprite/item/energyshield.aseprite"
+dest_files=["res://.godot/imported/energyshield.aseprite-0ee226a266a1c88ef05f9a137d0b240c.res"]
+
+[params]
+

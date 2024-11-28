@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr4o2n2gq4tem"]
 
 [ext_resource type="Script" path="res://Item/scripts/shield.gd" id="1_3uiw5"]
-[ext_resource type="Texture2D" uid="uid://1dr2te8mt8e" path="res://resource/SnoopethDuckDuck Shields/Pack 1/2px/16.png" id="2_8laf5"]
+[ext_resource type="Texture2D" uid="uid://cckfm63ufqh55" path="res://Sprite/spriteimage/item/energyshield.png" id="2_5h38f"]
 [ext_resource type="Texture2D" uid="uid://frn61bvkvvd2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f0.png" id="3_glan1"]
 
 [sub_resource type="Animation" id="Animation_tjju0"]
@@ -74,7 +74,26 @@ amount = 10
 evo_amount = 50
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_8laf5")
+texture_filter = 1
+position = Vector2(4, -3)
+texture = ExtResource("2_5h38f")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprite/spriteimage/item",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/energyshield.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "edc460f69e67430648d2b765e97acec0"
 
 [node name="Timer" type="Timer" parent="."]
 

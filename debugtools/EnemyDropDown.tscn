@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7a5fah4dd46"]
+
+[ext_resource type="Script" path="res://debugtools/scripts/EnemyDropDown.gd" id="1_7xopj"]
+
+[node name="EDropDown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7xopj")
+
+[node name="EnemyList" type="ItemList" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 228.0
+offset_bottom = 218.0
+item_count = 5
+item_0/text = "Assassin"
+item_1/text = "Charger"
+item_2/text = "Disabler"
+item_3/text = "Shooter"
+item_4/text = "Slime"
+
+[connection signal="item_clicked" from="EnemyList" to="." method="_on_enemy_list_item_clicked"]
+[connection signal="item_selected" from="EnemyList" to="." method="_on_enemy_list_item_selected"]

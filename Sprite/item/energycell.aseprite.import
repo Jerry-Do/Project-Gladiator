@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c3q0411v65clt"
+path="res://.godot/imported/energycell.aseprite-6805f015f47b922a7702f0b6ef756ad6.res"
+
+[deps]
+
+source_file="res://Sprite/item/energycell.aseprite"
+dest_files=["res://.godot/imported/energycell.aseprite-6805f015f47b922a7702f0b6ef756ad6.res"]
+
+[params]
+

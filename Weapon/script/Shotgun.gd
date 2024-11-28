@@ -23,4 +23,4 @@ func shoot():
 			%Shootingpoint.add_child(new_bullet)			
 			shootFlag = false		
 		currentAmmo -=1
-		$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
+		StartCooldownTimer()

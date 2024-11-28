@@ -14,4 +14,4 @@ func _ready():
 	return null
 
 func DoJob(): 
-	player.stats.maxDashSpeed = player.stats.maxDashSpeed * (1 + ((amount * quantity)/100))
+	player.stats.stats.Dash_Time = player.stats.stats.Dash_Time * (1 + ((amount * quantity)/100))

@@ -113,7 +113,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6dn"]
-size = Vector2(26, 57)
+size = Vector2(26, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmgx"]
 size = Vector2(35, 43)
@@ -197,7 +197,7 @@ one_shot = true
 collision_mask = 5
 
 [node name="CollisionShape2D" parent="Back" instance=ExtResource("9_tmoh4")]
-position = Vector2(-16, -4.5)
+position = Vector2(-16, -3.5)
 shape = SubResource("RectangleShape2D_hy6dn")
 script = null
 
@@ -207,7 +207,7 @@ collision_mask = 5
 script = ExtResource("9_6761q")
 
 [node name="CollisionShape2D" parent="Front" instance=ExtResource("11_7n4bc")]
-position = Vector2(14.5, -3.5)
+position = Vector2(14.5, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -240,7 +240,6 @@ shape = SubResource("RectangleShape2D_dm073")
 
 [connection signal="timeout" from="Timer/DashTimer" to="StateControl/TimeStop" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/GhostTimer" to="StateControl/TimeStop" method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="Timer/OverheatTimer" to="StateControl/TimeStop" method="_on_overheat_timer_timeout"]
 [connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]
 [connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]

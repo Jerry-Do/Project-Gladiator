@@ -21,15 +21,19 @@ func _ready():
 		else:
 			array_to_use = r_items
 		var no_duplicate = false
+		var no_repeat = false
 		var random_no =  rng_gen.randi_range(0, array_to_use.size() - 1)
-		while spawned_items.find(random_no) != -1 && no_duplicate == false: 
+		while no_repeat == false  || no_duplicate == false: 
 			no_duplicate = true
+			no_repeat = true
 			random_no =  rng_gen .randi_range(0,array_to_use.size() - 1)
 			var item = load(array_to_use[random_no])
 			var real = item.instantiate()
 			if real.duplicate_flag == false:
 				if player_items.find_child(real.item_name):
 					no_duplicate = false
+			if spawned_items.has(random_no):
+				no_repeat = false
 			real.queue_free()
 		spawned_items.append(random_no)
 		var button = preload("res://UI/Button.tscn")

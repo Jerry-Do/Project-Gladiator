@@ -1,17 +1,10 @@
 extends CharacterBody2D
 class_name Enemy
-var health: int
-var speed: float
-var damage: float
-var fameAmount : int
-var chase: bool
-var inRange: bool = false
-var playerHitBox : Node2D
 @onready 
-var player : Player = get_node("../Player")
+var player : Player = get_tree().get_first_node_in_group("player")
 
 @onready 
-var game_manager = get_node("../GameManager")
+var game_manager = get_tree().get_first_node_in_group("GameManager")
 
 
 @onready
@@ -35,6 +28,15 @@ var target_sprite = $Target
 @onready
 var animation_player : AnimationPlayer = $AnimationPlayer
 
+var health: int
+var speed: float
+var damage: float
+var armor : float 
+var fameAmount : int
+var chase: bool
+var inRange: bool = false
+var playerHitBox : Node2D
+
 var is_target = false
 var curse_timer
 var status_dictionary = {
@@ -44,7 +46,7 @@ var status_dictionary = {
 }
 var status_timers : Array
 var timer_counters = 0
-func _init(health: int, speed: float, damage: float, fame : int):
+func _init(health: int, speed: float, damage: float, armor : float ,fame : int):
 	curse_timer = Timer.new()
 	add_child(curse_timer)
 	curse_timer.wait_time = 99
@@ -54,7 +56,7 @@ func _init(health: int, speed: float, damage: float, fame : int):
 	self.speed = speed
 	self.damage = damage
 	self.fameAmount = fame
-	
+	self.armor = armor
 	
 func _ready() -> void:
 	self.health += game_manager.currentWave
@@ -68,7 +70,8 @@ func _physics_process(delta: float):
 	
 
 func MinusHealth(amount : int, is_backshot: bool):
-	health -= amount * (1.2 if is_backshot else 1)
+	amount /= ( 1 + armor / 100.0)
+	health -= (amount * (1.2 if is_backshot else 1))
 	return health
 
 	

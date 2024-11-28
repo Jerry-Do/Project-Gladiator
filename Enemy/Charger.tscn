@@ -113,7 +113,6 @@ position = Vector2(0.661594, -346.347)
 shape = SubResource("CircleShape2D_gmoxm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-simplify_path = true
 debug_enabled = true
 
 [node name="AttackWindup" type="Timer" parent="."]
@@ -149,6 +148,7 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("8_wpy22")
 
 [node name="Back" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, 20)
 collision_layer = 0
 collision_mask = 11
@@ -160,6 +160,7 @@ shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
+visible = false
 position = Vector2(-8, 19)
 collision_layer = 10
 collision_mask = 11
@@ -197,8 +198,9 @@ one_shot = true
 
 [node name="Attack" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-36, 24)
-collision_layer = 74
+collision_layer = 64
 collision_mask = 69
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]

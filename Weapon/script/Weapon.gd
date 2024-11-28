@@ -31,14 +31,12 @@ func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime, cDescription, cName):
 		
 func _process(_delta):
 	if(currentAmmo <= 0 && !reloadFlag):
-		reloadFlag = true
-		$ReloadTimer.start(reloadTime if game_manager.timeSlowFlag == false else reloadTime * 0.25)
+		StartReloadTimer()
 
 
 
 func _on_reload_timer_timeout():
-	currentAmmo = maxAmmo
-	reloadFlag = false
+	Reload()
 
 
 	
@@ -61,3 +59,15 @@ func ReturnName() -> String:
 
 func Queue_Free():
 	null
+
+func Reload():
+	currentAmmo = maxAmmo
+	reloadFlag = false
+
+func StartCooldownTimer():
+	$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
+
+
+func StartReloadTimer():
+	reloadFlag = true
+	$ReloadTimer.start(reloadTime if game_manager.timeSlowFlag == false else reloadTime * 0.25)

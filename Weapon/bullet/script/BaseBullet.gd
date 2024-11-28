@@ -25,7 +25,7 @@ func _physics_process(delta):
 func _on_ghost_timer_timeout():
 	if game_manager.timeSlowFlag:
 		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
-		get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().add_child(this_ghost)
+		get_tree().get_first_node_in_group("GameManager").get_parent().add_child(this_ghost)
 		this_ghost.position = position
 		this_ghost.texture = sprite.texture
 		this_ghost.flip_h = sprite.flip_h

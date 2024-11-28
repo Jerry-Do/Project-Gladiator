@@ -1,14 +1,15 @@
 extends Enemy
 
 
-var sHealth: int = 10
-var sSpeed: float = 500
+var sHealth: int = 8
+var sSpeed: float = 400
 var sDamage: float = 2
+var sArmor : float = 3
 var sFameAmount : float = 2
 var wind_up_time : bool =  2
 
 func _init():
-	super._init(sHealth, sSpeed, sDamage, sFameAmount)
+	super._init(sHealth, sSpeed, sDamage, sArmor, 	sFameAmount)
 	
 
 	

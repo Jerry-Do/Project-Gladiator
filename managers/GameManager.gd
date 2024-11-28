@@ -93,7 +93,7 @@ func _on_fame_multiplier_timer_timeout():
 	killCount = 0
 
 func _on_weapon_timer_timeout():
-	if newWeapon.get_parent() == self:
+	if newWeapon.get_parent() == get_parent():
 		get_parent().remove_child(newWeapon)
 		ui.set_new_weapon_alert_visibility(false)
 		ui.set_new_weapon_timer_alert_visibility(false)
@@ -113,7 +113,7 @@ func UpgradeChose(scene_path: String, item_name : String):
 func StartWave():
 	get_tree().paused = false
 	enemy_spawner.maxAllow += 1
-	enemy_spawner.spawnCount = 0
+	#enemy_spawner.spawnCount = 0
 	environment_spawner.SpawnEnvironemnt()
 	#ui.set_wave_finisher_alert_visibility(false, currentWave)
 

@@ -200,7 +200,6 @@ debug_enabled = true
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="CollisionTimer" to="." method="_on_collision_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
 
 [editable path="SoftCollision"]

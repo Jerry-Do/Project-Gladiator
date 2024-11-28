@@ -4,12 +4,13 @@ extends Enemy
 var sHealth:int = 3
 var sSpeed: float = 350
 var sDamage: float = 1
+var sArmor : float = 1
 var sFameAmount : float = 1
 var wind_up_time : bool =  2
 
 
 func _init():
-	super._init(sHealth, sSpeed, sDamage, sFameAmount)
+	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount)
 	
 
 	

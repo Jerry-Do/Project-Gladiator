@@ -30,3 +30,7 @@ func intialize(new_item_path):
 func _on_texture_button_pressed():
 	ChooseItem.emit(item_path,item_name)
 	game_manager.DestroyUpgradeSceneAndStartNewWave()
+
+
+func _on_timer_timeout():
+	$TextureButton.disabled = false

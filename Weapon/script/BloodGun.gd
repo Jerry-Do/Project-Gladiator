@@ -19,7 +19,7 @@ func shoot():
 	var BULLET = null
 	if restore_health_mode == false:
 		BULLET = preload("res://Weapon/bullet/BloodBullet.tscn")
-		player.SetHealth(-1)
+		player.stats.SetHealth(-1)
 	else:
 		BULLET = preload("res://Weapon/bullet/RestoreBloodBullet.tscn")
 	var new_bullet = BULLET.instantiate()
@@ -27,7 +27,7 @@ func shoot():
 	new_bullet.global_rotation = %Shootingpoint.global_rotation
 	%Shootingpoint.add_child(new_bullet)	
 	shootFlag = false
-	$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
+	StartCooldownTimer()
 		
 func UseGunAbility():
 	restore_health_mode = true

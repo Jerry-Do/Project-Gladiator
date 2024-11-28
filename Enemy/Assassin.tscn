@@ -270,8 +270,9 @@ wait_time = 0.25
 autostart = true
 
 [node name="Attack" type="Area2D" parent="."]
+visible = false
 position = Vector2(-13, 26)
-collision_layer = 64
+collision_layer = 0
 collision_mask = 69
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
@@ -298,6 +299,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1, -2)
 scale = Vector2(4.75, 4.4375)
 texture = ExtResource("13_rkidd")

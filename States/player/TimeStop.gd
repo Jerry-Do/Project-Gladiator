@@ -20,7 +20,7 @@ func enter() -> void:
 	orginal_speed_scale = 	parent.animated_sprite.speed_scale
 	if parent.perfect_dogde_collided:
 		parent.perfect_time_stop_state = true
-		parent.SetHealth(-parent.damage_amount)
+		parent.stats.SetHealth(-parent.damage_amount)
 		parent.Cleanse()
 		parent.perfect_dodge_timer.stop()
 		print("Perfect")
@@ -36,7 +36,7 @@ func enter() -> void:
 
 	
 func process_physics(delta: float):
-	if  usingFlag == true && parent.stats.ReturnCurrentDashTime() > 0 &&  Input.is_action_pressed("dash") && parent.status_dictionary["Stun"] == false && parent.status_dictionary["TimeStopDisable"] == false:
+	if  usingFlag == true && parent.stats.ReturnCurrentDashTime() > 0 &&  Input.is_action_pressed("dash") && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
 		parent.stats.SetDashTime(-delta * (1 if parent.perfect_time_stop_state == false else 2))
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 		parent.recharge_flag = false

@@ -1,0 +1,207 @@
+[gd_scene load_steps=25 format=3 uid="uid://bq2g0u78ttc7m"]
+
+[ext_resource type="Script" path="res://Enemy/script/Snare.gd" id="1_ugp5w"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_bqcea"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="3_4rldw"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="4_a2v7m"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="5_fwlym"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="6_w08hw"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="7_xofp4"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_qwc2y"]
+[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_idqjb"]
+[ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="10_ghf2f"]
+[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="11_u0ij8"]
+[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="12_i0w5w"]
+[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="13_keig1"]
+[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="14_1u53u"]
+[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="15_qyq0w"]
+[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="16_emy15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67u5o"]
+radius = 22.496
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
+radius = 155.663
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
+size = Vector2(29, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
+size = Vector2(33, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
+size = Vector2(65, 35)
+
+[sub_resource type="Animation" id="Animation_4t1hr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_u0ij8")]
+}
+
+[sub_resource type="Animation" id="Animation_imwtc"]
+resource_name = "run"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_u0ij8"), ExtResource("12_i0w5w"), ExtResource("13_keig1"), ExtResource("14_1u53u"), ExtResource("15_qyq0w"), ExtResource("16_emy15")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb2a6"]
+_data = {
+"RESET": SubResource("Animation_4t1hr"),
+"run": SubResource("Animation_imwtc")
+}
+
+[node name="Snare" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(600, 320)
+scale = Vector2(1.00939, 1)
+disable_mode = 1
+collision_layer = 0
+collision_mask = 27
+script = ExtResource("1_ugp5w")
+
+[node name="SoftCollision" parent="." instance=ExtResource("2_bqcea")]
+scale = Vector2(0.755759, 0.0916106)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+visible = false
+position = Vector2(0, -21.8315)
+scale = Vector2(1.52927, 3.61978)
+shape = SubResource("CircleShape2D_67u5o")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+debug_enabled = true
+
+[node name="AttackRange" type="Area2D" parent="."]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 21
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(7.50004, -24.8333)
+scale = Vector2(4.77714, 4.48571)
+shape = SubResource("CircleShape2D_hkrb0")
+
+[node name="AttackWindup" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_4rldw")
+starting_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
+script = ExtResource("4_a2v7m")
+dead_state = NodePath("../Dead")
+stun_state = NodePath("../Stun")
+move_state = NodePath(".")
+attack_state = NodePath("../Attack")
+
+[node name="Dead" type="Node" parent="StateControl"]
+script = ExtResource("5_fwlym")
+
+[node name="Stun" type="Node" parent="StateControl"]
+script = ExtResource("6_w08hw")
+
+[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("7_xofp4")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MovementController" type="Node" parent="."]
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -24)
+rotation = -3.14159
+scale = Vector2(2.28506, -1.71179)
+texture = ExtResource("8_qwc2y")
+
+[node name="Back" type="Area2D" parent="."]
+visible = false
+disable_mode = 1
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("9_idqjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(-16, -20)
+shape = SubResource("RectangleShape2D_vff1d")
+debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
+
+[node name="Front" type="Area2D" parent="."]
+visible = false
+disable_mode = 1
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("9_idqjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
+position = Vector2(17, -19)
+shape = SubResource("RectangleShape2D_lm1mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, -21)
+shape = SubResource("RectangleShape2D_h4mvs")
+
+[node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="TurnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+autostart = true
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(29.7209, -3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Aim"]
+position = Vector2(2, -2)
+scale = Vector2(1.75, 1.5625)
+texture = ExtResource("10_ghf2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.29832e-06, -1)
+scale = Vector2(3.0625, 2.9375)
+texture = ExtResource("11_u0ij8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sb2a6")
+}
+
+[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+
+[editable path="SoftCollision"]

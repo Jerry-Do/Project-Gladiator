@@ -42,5 +42,5 @@ func shoot():
 		if round(charge) == round(max_charge):
 			charge = 0
 			speed_bar._set_speed(charge)
-		$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
+		StartCooldownTimer()
 		

@@ -1,8 +1,10 @@
 Sprite2D
+AnimationTree
+AnimatedSprite2D
+Timer
 AnimationPlayer
 CollisionShape2D
 Area2D
-Timer
 ItemList
 Node2D
 Node
@@ -10,5 +12,3 @@ Line2D
 CharacterBody2D
 Label
 CenterContainer
-RichTextLabel
-TextEdit

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpninsm3bsivs"]
 
-[ext_resource type="Script" path="res://debugtools/scripts/DropDown.gd" id="1_2rr2y"]
+[ext_resource type="Script" path="res://debugtools/scripts/ItemDropDown.gd" id="1_2rr2y"]
 
 [node name="DropDown" type="Control"]
 layout_mode = 3

@@ -2,7 +2,7 @@ extends Weapon
 
 class_name MachineGun
 var _cMaxAmmo = 30
-var _cRateOfFire = 0.25
+var _cRateOfFire = 0.15
 var _cReloadTime = 3
 
 func _init():
@@ -22,4 +22,4 @@ func shoot():
 		%Shootingpoint.add_child(new_bullet)
 		currentAmmo -=1
 		shootFlag = false
-		$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
+		StartCooldownTimer()

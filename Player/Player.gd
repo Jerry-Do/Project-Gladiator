@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var game_manager = get_node("../GameManager")
+@onready var game_manager : GameManager = get_node("../GameManager")
 @onready var weaponNode: Node2D = get_node("Weapon")
 @onready var itemNode: Node2D = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
@@ -19,7 +19,7 @@ var perfect_time_stop_state = false
 var can_crit = false
 var shield_amount : int
 var dashTime = 2
-var currentWeapon: Node2D
+var currentWeapon: Weapon
 var direction : Vector2
 var currentItem: Node2D
 var invincibleState : bool = false
@@ -58,11 +58,13 @@ func _process(delta):
 func _input(event):
 	state_machine.process_input(event)
 	if currentWeapon:
-		if event.is_action_pressed("left_click") && status_dictionary.stun == false:			
+		if event.is_action_pressed("left_click") && status_dictionary.stun == false && currentWeapon.reloadFlag == false :			
 			currentWeapon.shoot()	
 			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		if event.is_action_pressed("right_click") && currentWeapon.has_method("UseGunAbility"):
 			currentWeapon.UseGunAbility()
+		if event.is_action_pressed("reload"):
+			currentWeapon.StartReloadTimer()
 	if currentItem: 
 		if event.is_action_pressed("ui_use_relic"):
 			currentItem.Use()
@@ -89,12 +91,13 @@ func PickUpWeapon(weapon: Weapon):
 
 func MinusHealth(amount : int, is_backshot = false):
 	if !invincibleState:
-		damage_amount = amount * 2 if is_backshot else amount * 1
-		damage_amount -= stats.ReturnArmor()
+		damage_amount = amount * 2 if is_backshot else amount * 1	
+		damage_amount /= ( 1 + stats.ReturnArmor() / 100.0)
 		if shield_amount > 0:	
 			shield_amount += damage_amount
 			get_node("Item/EnergyShield").TakingDamage(damage_amount)
 			healthBar._set_shield(damage_amount)
+			game_manager.AdjustFame(-1)
 		else:
 			stats.SetHealth(damage_amount)
 	
@@ -104,10 +107,11 @@ func PickUpBomerang():
 	currentWeapon.currentAmmo += 1
 	currentWeapon.sprite.set_visible(true)
 
-func SetStatusTrue(name: String, duration: float):
-	status_dictionary[name] = true
-	await get_tree().create_timer(duration).timeout
-	status_dictionary[name] = false
+func SetStatusTrue(name_s: String, duration: float):
+	if status_dictionary[name_s] == false:
+		status_dictionary[name_s] = true
+		await get_tree().create_timer(duration).timeout
+		status_dictionary[name_s] = false
 
 
 func _on_interaction_range_area_entered(area):

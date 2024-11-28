@@ -1,7 +1,7 @@
 extends Node
 
 var rechargeTime = 3
-var baseArmor = 3
+var baseArmor = 5
 var maxHealth = 50
 var baseSpeed = 600
 var baseCritChance = 0

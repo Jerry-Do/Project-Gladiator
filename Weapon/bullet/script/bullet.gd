@@ -21,6 +21,6 @@ func _on_area_entered(area):
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")
 			var new_label = crit_label.instantiate()
-			get_node("../../../../../../../Level").add_child(new_label)
+			get_tree().get_first_node_in_group("GameManager").get_parent().add_child(new_label)
 			new_label.position = position	
 		queue_free()

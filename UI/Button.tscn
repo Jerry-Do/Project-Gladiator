@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://buvg61hesrl0q"]
+[gd_scene load_steps=5 format=3 uid="uid://buvg61hesrl0q"]
 
 [ext_resource type="Texture2D" uid="uid://427ydx1r7hp6" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png" id="1_5c2dp"]
 [ext_resource type="Script" path="res://UI/script/Button.gd" id="1_058vi"]
 [ext_resource type="Texture2D" uid="uid://b5oo5dgxx56x8" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png" id="2_toic4"]
-[ext_resource type="Texture2D" uid="uid://bjmujypyevm6j" path="res://Sprite/Player/potion.png" id="3_qqfql"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5bcxl"]
 line_spacing = 5.0
@@ -23,6 +22,7 @@ script = ExtResource("1_058vi")
 layout_mode = 0
 offset_right = 405.0
 offset_bottom = 499.0
+disabled = true
 texture_normal = ExtResource("1_5c2dp")
 texture_pressed = ExtResource("2_toic4")
 
@@ -81,8 +81,12 @@ text = "
 label_settings = SubResource("LabelSettings_5bcxl")
 autowrap_mode = 2
 
+[node name="Timer" type="Timer" parent="TextureButton"]
+one_shot = true
+autostart = true
+
 [node name="ItemSprite" type="Sprite2D" parent="."]
-position = Vector2(208, 91)
-texture = ExtResource("3_qqfql")
+position = Vector2(197.333, 66.6667)
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="TextureButton/Timer" to="." method="_on_timer_timeout"]
