@@ -11,6 +11,7 @@ func _physics_process(delta):
 	super._physics_process(delta)
 
 func _on_area_entered(area):
+	super(area)
 	health -= 1
 	damage -= 1
 	var random = 0

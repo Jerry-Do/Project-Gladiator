@@ -11,4 +11,4 @@ func _on_enemy_list_item_clicked(index, at_position, mouse_button_index):
 	var spawnPos : Vector2 = Vector2.ZERO
 	newEnemy.position = Vector2(564,379)
 	newEnemy.rotation = rotation
-	get_tree().get_first_node_in_group("GameManager").add_child(newEnemy)
+	get_tree().get_first_node_in_group("GameManager").get_parent().add_child(newEnemy)

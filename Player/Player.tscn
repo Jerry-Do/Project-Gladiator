@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://j7b5738f8mjj"]
+[gd_scene load_steps=33 format=3 uid="uid://j7b5738f8mjj"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ascps"]
 [ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
 [ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
 [ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
+[ext_resource type="Script" path="res://Player/PlayerItem.gd" id="6_f4342"]
 [ext_resource type="Script" path="res://States/player/TimeStop.gd" id="7_44754"]
 [ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="8_a4w7n"]
 [ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="8_jpsj1"]
@@ -131,7 +132,7 @@ collision_mask = 5
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ascps")
 
-[node name="Stats" parent="." instance=ExtResource("14_bvtpy")]
+[node name="Stats" parent="." groups=["player"] instance=ExtResource("14_bvtpy")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -5)
@@ -153,6 +154,7 @@ position = Vector2(-3, -1)
 
 [node name="Item" type="Node2D" parent="."]
 position = Vector2(-2, -5)
+script = ExtResource("6_f4342")
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_qb1iw")

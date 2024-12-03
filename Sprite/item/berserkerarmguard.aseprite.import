@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://clftx3l1uujnw"
+path="res://.godot/imported/berserkerarmguard.aseprite-fb448778d3690bfcb0af8b44a19476d2.res"
+
+[deps]
+
+source_file="res://Sprite/item/berserkerarmguard.aseprite"
+dest_files=["res://.godot/imported/berserkerarmguard.aseprite-fb448778d3690bfcb0af8b44a19476d2.res"]
+
+[params]
+

@@ -1,17 +1,20 @@
 
-extends Item
+extends Tech
 @export var amount = 0
 var recharge_flag = false
 @export var evo_amount = 0
 var current_damage_blocked
 
 func _ready():
+	super()
 	duplicate_flag = true
+	price = 30
 	item_name = "EnergyShield"
 	display_name = "Energy Shield"
 	item_description = "Gives the player a shield of " + str(amount) + " damage." + \
 	"When evolved, the shield will explode and stun surrouding enemies for 1 second"
-	evolve_condition_text = ""
+	faction = "tech"
+	evolve_condition_text = "After blocking a certain amount of damage"
 	if get_parent() == player.get_node("Item"):
 		DoJob()
 		$Sprite2D.hide()

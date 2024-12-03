@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crqrm13wssg8b"]
+[gd_scene load_steps=3 format=3 uid="uid://crqrm13wssg8b"]
 
 [ext_resource type="Script" path="res://UI/script/UpgradeScene.gd" id="1_p72f6"]
+[ext_resource type="Texture2D" uid="uid://cfadqte0da8cw" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X1/Panel Empty Green.png" id="2_bmsfs"]
 
 [node name="UpgradeScreen" type="Control"]
 process_mode = 2
@@ -11,15 +12,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
-c_items = ["res://Item/Boots.tscn", "res://Item/DamageChip.tscn"]
-u_items = ["res://Item/CoolingSystem.tscn", "res://Item/EnergyCell.tscn", "res://Item/HealthKit.tscn", "res://Item/GoldenGloves.tscn"]
+c_items = ["res://Item/Boots.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn"]
+u_items = ["res://Item/EnergyCell.tscn", "res://Item/HealthKit.tscn", "res://Item/RubberSkin.tscn"]
 r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn"]
 
-[node name="Pos1" type="Node2D" parent="."]
-position = Vector2(97, 132)
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1150, 650)
+layout_mode = 0
+offset_left = -8.0
+offset_right = 1142.0
+offset_bottom = 650.0
+alignment = 1
 
-[node name="Pos2" type="Node2D" parent="."]
-position = Vector2(517, 132)
+[node name="Node" type="Node" parent="HBoxContainer2"]
+unique_name_in_owner = true
 
-[node name="Pos3" type="Node2D" parent="."]
-position = Vector2(853, 131)
+[node name="Pos1" type="Node2D" parent="HBoxContainer2/Node"]
+position = Vector2(101, 131)
+
+[node name="Pos2" type="Node2D" parent="HBoxContainer2/Node"]
+position = Vector2(521, 131)
+
+[node name="Pos3" type="Node2D" parent="HBoxContainer2/Node"]
+position = Vector2(857, 130)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_left = 461.0
+offset_top = 517.0
+offset_right = 691.0
+offset_bottom = 582.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SkipBtn" type="TextureButton" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("2_bmsfs")
+texture_pressed = ExtResource("2_bmsfs")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/SkipBtn"]
+process_mode = 4
+visibility_layer = 2
+layout_mode = 0
+offset_left = 41.0
+offset_top = 8.0
+offset_right = 76.0
+offset_bottom = 33.0
+text = "Skip
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="UpgradeBtn" type="TextureButton" parent="HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_bmsfs")
+texture_pressed = ExtResource("2_bmsfs")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/HBoxContainer2/UpgradeBtn"]
+clip_children = 2
+light_mask = 0
+layout_mode = 0
+offset_left = 23.0
+offset_top = -9.0
+offset_right = 93.0
+offset_bottom = 14.0
+text = "Upgrade"
+fit_content = true
+
+[connection signal="mouse_entered" from="HBoxContainer" to="." method="_on_h_box_container_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/SkipBtn" to="." method="_on_skip_btn_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/UpgradeBtn" to="." method="_on_upgrade_btn_pressed"]

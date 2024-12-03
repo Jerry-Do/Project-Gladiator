@@ -11,6 +11,7 @@ class_name  UI
 @onready var newWeaponAlert = %NewWeaponAlert
 @onready var timerText = %TimerText
 @onready var fameLabel = %Fame
+@onready var currencyText = %Currency
 
 func update_fame_text(currentFame):
 	fameLabel.text = "Fame: " + str(currentFame) 
@@ -51,3 +52,6 @@ func FormatString(value, format : String) -> String:
 
 func set_timer(value):
 	timerText.text = "Time: " + FormatString(value, "%d")
+
+func update_currency_text(value : int):
+	currencyText.text = "Currency: " + str(value)

@@ -18,7 +18,7 @@ layout_mode = 0
 offset_top = 2.0
 offset_right = 228.0
 offset_bottom = 218.0
-item_count = 10
+item_count = 12
 item_0/text = "HealthKit"
 item_1/text = "BerserkerArmguard"
 item_2/text = "BerserkerChestplate"
@@ -29,6 +29,8 @@ item_6/text = "EnergyCell"
 item_7/text = "EnergyShield"
 item_8/text = "GoldenGloves"
 item_9/text = "EMPField"
+item_10/text = "RubberSkin"
+item_11/text = "LeechSeed"
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

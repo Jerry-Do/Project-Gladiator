@@ -1,5 +1,5 @@
 extends Node
-
+class_name Stats
 var rechargeTime = 3
 var baseArmor = 5
 var maxHealth = 50
@@ -11,6 +11,7 @@ var maxExperience = 0
 var maxDashTime = 2
 var maxHealthAllowed = maxHealth
 var stats = {
+	"Level" : 1.0,
 	"Base_Damage_Mod": baseDamageMod,
 	"Damage_Mod": baseDamageMod,
 	"Base_Armor": baseArmor,
@@ -94,3 +95,10 @@ func SetArmor(amount):
 
 func ReturnArmor():
 	return stats.Armor
+
+func LevelUp():
+	stats.Base_Armor += 1
+	stats.Base_Damage_Mod += 1
+	maxHealth += 1
+	stats.Health += 1
+	stats.Level += 1

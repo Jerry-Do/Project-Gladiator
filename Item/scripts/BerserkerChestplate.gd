@@ -1,5 +1,5 @@
 
-extends Item
+extends Tech
 @export var amount = 0
 @export var missing_health = 0
 var player_flag = false
@@ -8,7 +8,9 @@ var base_damage
 var fullset
 
 func _ready():
+	super()
 	duplicate_flag = false
+	price = 46
 	item_name = "BerserkerChestplate"
 	display_name = "Berserker Chestplate"
 	item_description = "Increase the player's damage based on missing health ("+ str(missing_health)+"% Missing health = "+ str(amount) +"% Damage Mod)"

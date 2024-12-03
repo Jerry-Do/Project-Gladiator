@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://67khr7vm2aji"
+path="res://.godot/imported/critorb.aseprite-06a98bf9ea7b46f91da183c0642c8a40.res"
+
+[deps]
+
+source_file="res://Sprite/item/critorb.aseprite"
+dest_files=["res://.godot/imported/critorb.aseprite-06a98bf9ea7b46f91da183c0642c8a40.res"]
+
+[params]
+

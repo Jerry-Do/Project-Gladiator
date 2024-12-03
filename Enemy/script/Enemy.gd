@@ -4,7 +4,7 @@ class_name Enemy
 var player : Player = get_tree().get_first_node_in_group("player")
 
 @onready 
-var game_manager = get_tree().get_first_node_in_group("GameManager")
+var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager")
 
 
 @onready
@@ -28,7 +28,7 @@ var target_sprite = $Target
 @onready
 var animation_player : AnimationPlayer = $AnimationPlayer
 
-var health: int
+var health: float
 var speed: float
 var damage: float
 var armor : float 
@@ -36,30 +36,31 @@ var fameAmount : int
 var chase: bool
 var inRange: bool = false
 var playerHitBox : Node2D
-
+var level : int
+var evo_flag : bool = false
 var is_target = false
 var curse_timer
+var currency_amount : int
+var delta_count : float = 0
+var leech_dmg_timer : float = 1
 var status_dictionary = {
 	"stun" : false,
 	"slow" : false,
-	"vulnerable" : false
+	"vulnerable" : false,
+	"leeched" : false
 }
 var status_timers : Array
 var timer_counters = 0
-func _init(health: int, speed: float, damage: float, armor : float ,fame : int):
-	curse_timer = Timer.new()
-	add_child(curse_timer)
-	curse_timer.wait_time = 99
-	curse_timer.one_shot = true
-	curse_timer.connect("timeout", _on_curse_timer_timeout)
+func _init(health: int, speed: float, damage: float, armor : float ,fame : int, currency : int):
 	self.health = health
 	self.speed = speed
 	self.damage = damage
 	self.fameAmount = fame
 	self.armor = armor
+	self.currency_amount = currency
 	
 func _ready() -> void:
-	self.health += game_manager.currentWave
+	LevelUp()
 	state_manager.init(self, movement_controller)	
 
 
@@ -67,9 +68,14 @@ func _ready() -> void:
 	
 func _physics_process(delta: float):
 	state_manager.process_physics(delta)
+	if status_dictionary.leeched:
+		delta_count += delta
+		if delta_count >= leech_dmg_timer:
+			health -= 0.5
+			player.stats.SetHealth(0.5)
 	
 
-func MinusHealth(amount : int, is_backshot: bool):
+func MinusHealth(amount : float, is_backshot: bool):
 	amount /= ( 1 + armor / 100.0)
 	health -= (amount * (1.2 if is_backshot else 1))
 	return health
@@ -93,7 +99,7 @@ func _on_ghost_timer_timeout():
 func SetTarget():
 	is_target = true
 	target_sprite.show()
-	curse_timer.start()
+	$CurseTimer.start()
 	
 
 func _on_curse_timer_timeout():
@@ -109,3 +115,17 @@ func SetStatusTrue(name_s: String, duration: float):
 		status_dictionary[name_s] = true
 		await get_tree().create_timer(duration).timeout
 		status_dictionary[name_s] = false
+
+func LevelUp():
+	level = game_manager.currentWave
+	health += 1
+	damage += 1
+	fameAmount += 1
+	armor += 0.25
+	if level == 10:	
+		evo_flag = true
+
+func OnDead():
+	game_manager.AdjustCurrency(currency_amount)	
+
+	

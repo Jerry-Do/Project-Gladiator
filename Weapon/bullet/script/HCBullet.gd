@@ -28,13 +28,13 @@ func _on_detection_range_body_entered(body):
 	if lock_on_target != null:
 		return
 	if body.has_method("MinusHealth"):
-		print("lock on")
 		if body.is_target:
 			lock_on_target = body
 
 
 
 func _on_area_entered(area):
+	super(area)
 	var random = 0
 	var crit_chance = 100 - player.stats.ReturnCritChance()
 	if player.can_crit:
@@ -43,7 +43,6 @@ func _on_area_entered(area):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
 		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
 		if random == crit_chance:
-			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")
 			var new_label = crit_label.instantiate()
 			get_node("../../../../../../../Level").add_child(new_label)

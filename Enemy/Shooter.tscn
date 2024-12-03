@@ -73,8 +73,8 @@ _data = {
 position = Vector2(600, 320)
 scale = Vector2(1.00939, 1)
 disable_mode = 1
-collision_layer = 0
-collision_mask = 27
+collision_layer = 10
+collision_mask = 17
 script = ExtResource("1_mv28k")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_6671a")]
@@ -198,11 +198,16 @@ libraries = {
 "": SubResource("AnimationLibrary_sb2a6")
 }
 
+[node name="CurseTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
 
 [editable path="SoftCollision"]

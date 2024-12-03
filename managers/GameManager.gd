@@ -6,12 +6,12 @@ class_name GameManager
 @onready var weaponSpawnPoints = %WeaponSpawnPoints
 @onready var round_timer = %RoundTimer
 @onready var environment_spawner = %EnvironmentSpawner
+
 @export var duplication_array : Array
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float
 @export var maxFame : int = -1
-
 
 var pick_up_weapon = false
 var timeSlowFlag : bool = false
@@ -25,7 +25,8 @@ var newWeapon : Weapon
 var oldWeapon : Weapon
 var currentWave : int = 1
 var currentFame : int = 0
-
+var currency : int = 0
+var player : Player
 
 func UpdateAmmo(value):
 	ui.update_ammo_text(value)
@@ -33,7 +34,6 @@ func UpdateAmmo(value):
 func UpdateItemSprite(spritePath):
 	ui.update_item_sprite(spritePath)
 	
-
 	
 func _process(_delta):
 	ui.set_timer(round_timer.time_left)
@@ -80,7 +80,8 @@ func AdjustFameMultiplier(value):
 	
 
 func WaveComplete():
-	#ui.set_wave_finisher_alert_visibility(true, currentWave)
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.SelfDestruct()
 	var upgrade_scene = preload("res://UI/UpgradeScene.tscn")
 	var upgrade_scene_instantiate = upgrade_scene.instantiate()
 	ui.add_child(upgrade_scene_instantiate)
@@ -98,16 +99,19 @@ func _on_weapon_timer_timeout():
 		ui.set_new_weapon_alert_visibility(false)
 		ui.set_new_weapon_timer_alert_visibility(false)
 
-func UpgradeChose(scene_path: String, item_name : String):
-	var player = get_node("../Player")
-	var item = load(scene_path)
-	var new_item = item.instantiate()
-	if duplication_array.find(item_name) != -1:
-		player.get_node("Item").get_node(item_name).Duplicate()
-		return null
-	player.get_node("Item").add_child(new_item)
-	duplication_array.append(new_item.ReturnName())
-	new_item.item_sprite.hide()
+func UpgradeChose(scene_path: String, item_name : String, price : int):
+	if currency >= price:
+		var item = load(scene_path)
+		var new_item : Item = item.instantiate()
+		if duplication_array.find(item_name) != -1:
+			player.get_node("Item").get_node(item_name).Duplicate()
+			return null
+		player.get_node("Item").add_child(new_item)
+		duplication_array.append(new_item.ReturnName())
+		player.get_node("Item").IncreaseType(new_item.ReturnFaction())
+		new_item.item_sprite.hide()
+		AdjustCurrency(-price)
+		DestroyUpgradeSceneAndStartNewWave()
 
 
 func StartWave():
@@ -142,5 +146,12 @@ func _on_round_timer_timeout():
 		WaveComplete()
 		
 
-
+func AdjustCurrency(value):
+	currency += value
+	currency = clamp(currency, 0, currency)
+	ui.update_currency_text(currency)
 		
+func LevelUpPlayer():
+	if currency >= (player.stats.stats.Level * 10):
+		player.LevelUp()
+		DestroyUpgradeSceneAndStartNewWave()

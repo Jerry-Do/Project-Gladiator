@@ -217,14 +217,34 @@ unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 
+[node name="Currency" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.97925
+anchor_top = 3.79592
+anchor_right = 4.53942
+anchor_bottom = 4.79592
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Currency" type="Label" parent="Control/Currency"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kill:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
 [node name="DropDown" parent="." instance=ExtResource("2_tjfbs")]
-visible = false
 offset_left = -3.0
 offset_top = 423.0
 offset_right = -3.0
 offset_bottom = 423.0
 
 [node name="DropDown2" parent="." instance=ExtResource("5_unkvc")]
+visible = false
 offset_left = 925.0
 offset_top = 424.0
 offset_right = 925.0

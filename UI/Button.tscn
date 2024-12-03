@@ -6,22 +6,25 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5bcxl"]
 line_spacing = 5.0
-font_size = 40
+font_size = 42
 
 [node name="Button" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -747.0
+offset_bottom = -259.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_058vi")
+discount_threshold = 10
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_right = 405.0
-offset_bottom = 499.0
+offset_bottom = 378.0
 disabled = true
 texture_normal = ExtResource("1_5c2dp")
 texture_pressed = ExtResource("2_toic4")
@@ -29,9 +32,9 @@ texture_pressed = ExtResource("2_toic4")
 [node name="Description" type="CenterContainer" parent="TextureButton"]
 layout_mode = 0
 offset_left = 29.3333
-offset_top = 140.0
+offset_top = 230.667
 offset_right = 729.333
-offset_bottom = 540.0
+offset_bottom = 630.667
 scale = Vector2(0.5, 0.486)
 
 [node name="Description" type="Label" parent="TextureButton/Description"]
@@ -46,10 +49,10 @@ autowrap_mode = 2
 
 [node name="Name" type="CenterContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = 50.6667
-offset_top = 100.0
-offset_right = 750.666
-offset_bottom = 500.0
+offset_left = -32.0
+offset_top = 74.6667
+offset_right = 667.999
+offset_bottom = 474.666
 scale = Vector2(0.414894, 0.3726)
 
 [node name="name" type="Label" parent="TextureButton/Name"]
@@ -63,12 +66,31 @@ label_settings = SubResource("LabelSettings_5bcxl")
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Faction" type="CenterContainer" parent="TextureButton"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 130.667
+offset_right = 667.999
+offset_bottom = 530.666
+scale = Vector2(0.414894, 0.3726)
+
+[node name="faction" type="Label" parent="TextureButton/Faction"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 400)
+layout_direction = 1
+layout_mode = 2
+text = "NAME
+"
+label_settings = SubResource("LabelSettings_5bcxl")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="EvoCon" type="CenterContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 251.0
-offset_right = 733.0
-offset_bottom = 651.0
+offset_left = 33.3333
+offset_top = 356.0
+offset_right = 733.333
+offset_bottom = 756.0
 scale = Vector2(0.5, 0.486)
 
 [node name="EvoCon" type="Label" parent="TextureButton/EvoCon"]
@@ -84,6 +106,25 @@ autowrap_mode = 2
 [node name="Timer" type="Timer" parent="TextureButton"]
 one_shot = true
 autostart = true
+
+[node name="Price" type="CenterContainer" parent="TextureButton"]
+layout_mode = 0
+offset_left = -33.3333
+offset_top = 101.333
+offset_right = 666.667
+offset_bottom = 501.334
+scale = Vector2(0.414894, 0.3726)
+
+[node name="price" type="Label" parent="TextureButton/Price"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 400)
+layout_direction = 1
+layout_mode = 2
+text = "NAME
+"
+label_settings = SubResource("LabelSettings_5bcxl")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 position = Vector2(197.333, 66.6667)

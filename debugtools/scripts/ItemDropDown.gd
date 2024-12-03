@@ -5,5 +5,5 @@ extends Control
 func _on_item_list_item_selected(index):
 	var item_name = $ItemList.get_item_text(index)
 	var path = "res://Item/" + item_name + ".tscn"
-	game_manager.UpgradeChose(path, item_name)
+	game_manager.UpgradeChose(path, item_name,0)
 	

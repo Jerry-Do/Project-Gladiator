@@ -7,10 +7,11 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
+@onready var item_inventory = $Item
 @onready var target_sprite = $Target
 @onready var state_machine = $StateControl
 @onready var movement_component = $MovementComponent
-@onready var stats = $Stats
+@onready var stats : Stats = $Stats
 @onready var perfect_dodge_timer = %PerfectTimeSlowTimer
 @export var max_speed: int = 100
 
@@ -29,7 +30,8 @@ var is_invisible = false
 var damage_amount = 0
 var status_dictionary = {
 	"stun" : false,
-	"timeStopDisable" : false
+	"timeStopDisable" : false,
+	"slow" : false
 }
 var interactable = null
 signal CreateDescription(weapon : Weapon)
@@ -40,6 +42,7 @@ func _ready():
 	healthBar.init_health(stats.ReturnHealth())
 	fuelBar.init_fuel(dashTime)
 	state_machine.init(self, movement_component)
+	game_manager.player = self
 	
 func _physics_process(delta):
 	state_machine.process_physics(delta)
@@ -139,3 +142,6 @@ func _on_perfect_dodge_zone_area_entered(area):
 
 func _on_perfect_dodge_timer_timeout():
 	perfect_dogde_collided = false
+
+func LevelUp():
+	stats.LevelUp()

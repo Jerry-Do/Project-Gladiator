@@ -92,7 +92,7 @@ size = Vector2(71.843, 67.2344)
 
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(598, 320)
-collision_layer = 0
+collision_layer = 10
 collision_mask = 0
 script = ExtResource("1_f5gde")
 
@@ -150,7 +150,7 @@ texture = ExtResource("8_wpy22")
 [node name="Back" type="Area2D" parent="."]
 visible = false
 position = Vector2(1, 20)
-collision_layer = 0
+collision_layer = 10
 collision_mask = 11
 script = ExtResource("9_qjxfl")
 
@@ -208,6 +208,10 @@ position = Vector2(34, -26.5)
 scale = Vector2(0.91867, 0.907274)
 shape = SubResource("RectangleShape2D_0ylwy")
 
+[node name="CurseTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
@@ -216,5 +220,6 @@ shape = SubResource("RectangleShape2D_0ylwy")
 [connection signal="area_entered" from="Attack" to="StateControl/Move" method="_on_attack_area_entered"]
 [connection signal="area_exited" from="Attack" to="StateControl/Move" method="_on_attack_area_exited"]
 [connection signal="body_entered" from="Attack" to="StateControl/Move" method="_on_attack_body_entered"]
+[connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
 
 [editable path="SoftCollision"]

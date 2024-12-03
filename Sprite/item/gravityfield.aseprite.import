@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://duryxcqslbeec"
+path="res://.godot/imported/gravityfield.aseprite-2385f7ed68f11b139ef8ef9fd48d24e0.res"
+
+[deps]
+
+source_file="res://Sprite/item/gravityfield.aseprite"
+dest_files=["res://.godot/imported/gravityfield.aseprite-2385f7ed68f11b139ef8ef9fd48d24e0.res"]
+
+[params]
+

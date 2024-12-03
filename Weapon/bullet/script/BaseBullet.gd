@@ -4,6 +4,7 @@ var travelled_dist = 0
 var damage : int
 var speed : int
 var crit_chance 
+var leech_seed : bool
 const RANGE = 1500
 @onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 @onready var sprite = $Bullet
@@ -14,6 +15,11 @@ func _init(_damage, _speed):
 	speed = _speed
 
 
+func _ready():
+	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
+	if ls != null:
+		if ls.active:
+			leech_seed = ls.active
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * speed * delta
@@ -31,3 +37,12 @@ func _on_ghost_timer_timeout():
 		this_ghost.flip_h = sprite.flip_h
 		this_ghost.scale = scale
 		this_ghost.rotation = rotation
+
+
+func _on_area_entered(area):
+	if leech_seed:
+		area.SetStatusOther("leeched" , 5)
+		var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
+		if ls != null:
+			ls.StartCooldown()
+		

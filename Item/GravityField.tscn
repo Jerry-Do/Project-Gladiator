@@ -96,7 +96,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gy3d"]
 radius = 180.0
 
-[node name="EMPField" type="Node2D"]
+[node name="GravityField" type="Node2D"]
 script = ExtResource("1_jyuh5")
 slow_duration = 1
 no_enemy_slow_to_evo = 10

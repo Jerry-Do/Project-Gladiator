@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cnh4awm4jerg4"
+path="res://.godot/imported/feetenchanment.aseprite-e5acd5eca331e2a8b53935823062d49c.res"
+
+[deps]
+
+source_file="res://Sprite/item/feetenchanment.aseprite"
+dest_files=["res://.godot/imported/feetenchanment.aseprite-e5acd5eca331e2a8b53935823062d49c.res"]
+
+[params]
+

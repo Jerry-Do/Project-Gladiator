@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c84h40rww2vs2"]
 
-[ext_resource type="Script" path="res://Item/scripts/Boots.gd" id="1_q18vw"]
+[ext_resource type="Script" path="res://Item/scripts/FeetEnchanment.gd" id="1_q18vw"]
 [ext_resource type="Texture2D" uid="uid://dc5h18u0hlfsk" path="res://resource/16x16 RPG Item Pack/Item__50.png" id="2_m1i2q"]
 
 [node name="Boots" type="Node2D"]

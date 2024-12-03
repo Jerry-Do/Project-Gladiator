@@ -12,13 +12,14 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	var random = RandomNumberGenerator.new().randi_range(1, 10)
 	if area.has_method("TakingDamageForPlayer"):
-		area.TakingDamageForPlayer(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false)
+		area.TakingDamageForPlayer(damage if random != 1 else damage * 2, true if area.get_name() == "Back" else false,get_parent().get_parent())
 		if random == 1:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")
 			var new_label = crit_label.instantiate()
 			get_tree().get_first_node_in_group("player").get_parent().add_child(new_label)
-			new_label.position = position	
+			new_label.position = position
+			
 		queue_free()
 
 func _on_ghost_timer_timeout():

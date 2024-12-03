@@ -8,9 +8,10 @@ var sFameAmount : float = 1
 var sArmor : float =  0
 var wind_up_time : bool = 1
 @onready var aim : Marker2D = $Aim
+var sCurrency : int = 2
 
 func _init():
-	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount)
+	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount, sCurrency)
 	
 
 	

@@ -48,8 +48,8 @@ func _on_attack_area_entered(area):
 	if area.has_method("SetStatusPlayer"):
 		parent.status_dictionary.stun = true
 		%Attack.get_child(0).call_deferred("set_disabled", true)
-		area.SetStatusPlayer("stun", 2)
-		area.TakingDamageForPlayer(-parent.sDamage, true if area.get_name() == "Back" else false)
+		area.SetStatusPlayer("slow", 2)
+		area.TakingDamageForPlayer(-parent.sDamage, true if area.get_name() == "Back" else false, parent)
 		%StunTimer.start()
 	
 

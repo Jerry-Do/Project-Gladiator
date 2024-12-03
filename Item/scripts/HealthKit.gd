@@ -1,5 +1,5 @@
 
-extends Item
+extends Biochemical
 @export var amount = 1
 #Evo con: regens enough health
 #Evo effect: regen rate is faster
@@ -7,9 +7,12 @@ extends Item
 var health_regened = 0
 
 func _ready():
+	super()
 	duplicate_flag = true
+	price = 20
 	item_name = "HealthKit"
 	display_name = "Health Kit"
+	faction = "Biochemical"
 	item_description = "Player regenerates " + str(amount) + " health overtime, health regeneration rate is increased when evolved"
 	evolve_condition_text = "Regenerate " + str(evo_amount) + " health"
 	return null

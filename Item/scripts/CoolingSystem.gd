@@ -1,11 +1,13 @@
 
-extends Item
+extends Tech
 @export var amount = 0
 
 
 
 func _ready():
+	super()
 	duplicate_flag = true
+	price = 10
 	item_name = "CoolingSystem"
 	display_name = "Cooling System"
 	item_description = "Decrase the recharge time for time stop by " + str(amount) + " %"

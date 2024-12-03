@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvjn63114lmsk"]
+
+[ext_resource type="Script" path="res://Item/scripts/RubberSkin.gd" id="1_mnw5f"]
+[ext_resource type="Texture2D" uid="uid://di8yfm4jvqi7i" path="res://resource/16x16 RPG Item Pack/Item__63.png" id="2_dmpfl"]
+
+[node name="RubberSkin" type="Node2D"]
+script = ExtResource("1_mnw5f")
+reflect_percentage = 50
+heal_percentage = 10
+evolve_amount = 20
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_dmpfl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

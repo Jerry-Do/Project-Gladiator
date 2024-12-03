@@ -1,12 +1,14 @@
-extends Item
+extends Tech
 @export var slow_duration = 0
 @export var no_enemy_slow_to_evo = 0
 var no_current_enemy_slow = 0
 
 func _ready():
+	super()
 	duplicate_flag = false
-	item_name = "EMPField"
-	display_name = "EMP Field"
+	price = 15
+	item_name = "GravitationalField"
+	display_name = "Gravitational Field"
 	item_description = "Decrease the movement speed of enemies by 50% in a radius for " \
 	+ str(slow_duration) + ", increase to " + str(slow_duration * 2) + " and in a bigger radius"
 	evolve_condition_text = "Slow " + str( no_enemy_slow_to_evo) + " enemies at the same time "

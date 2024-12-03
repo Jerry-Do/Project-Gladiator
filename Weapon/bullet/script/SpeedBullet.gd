@@ -13,6 +13,7 @@ func _physics_process(delta):
 
 
 func _on_area_entered(area):
+	super(area)
 	var random = 0
 	var crit_chance = 100 - player.stats.ReturnCritChance()
 	if player.can_crit:

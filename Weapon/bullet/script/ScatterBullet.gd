@@ -9,9 +9,9 @@ func _init():
 
 func _physics_process(delta):
 	super._physics_process(delta)
-
-
-func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	
+func _on_area_entered(area):
+	super(area)
 	var random = 0
 	var crit_chance = 100 - player.stats.ReturnCritChance()
 	if player.can_crit:
