@@ -12,29 +12,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
-c_items = ["res://Item/Boots.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn"]
-u_items = ["res://Item/EnergyCell.tscn", "res://Item/HealthKit.tscn", "res://Item/RubberSkin.tscn"]
-r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn"]
+c_items = ["res://Item/LegEnchantment.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn", "res://Item/ArmEnhantment.tscn", "res://Item/ChestEnhancement.tscn"]
+u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn"]
+r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn"]
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -102.0
+offset_top = -109.0
+offset_right = 1508.0
+offset_bottom = 845.0
+color = Color(0.298039, 0.298039, 0.298039, 0.411765)
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1150, 650)
 layout_mode = 0
-offset_left = -8.0
-offset_right = 1142.0
-offset_bottom = 650.0
+offset_left = -87.0
+offset_top = 56.0
+offset_right = 1063.0
+offset_bottom = 706.0
+theme_override_constants/separation = 400
 alignment = 1
 
-[node name="Node" type="Node" parent="HBoxContainer2"]
-unique_name_in_owner = true
+[node name="Pos1" type="Control" parent="ButtonsContainer"]
+layout_mode = 2
 
-[node name="Pos1" type="Node2D" parent="HBoxContainer2/Node"]
-position = Vector2(101, 131)
+[node name="Pos2" type="Control" parent="ButtonsContainer"]
+layout_mode = 2
 
-[node name="Pos2" type="Node2D" parent="HBoxContainer2/Node"]
-position = Vector2(521, 131)
-
-[node name="Pos3" type="Node2D" parent="HBoxContainer2/Node"]
-position = Vector2(857, 130)
+[node name="Pos3" type="Control" parent="ButtonsContainer"]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 100)

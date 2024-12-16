@@ -48,8 +48,9 @@ func _on_attack_area_entered(area):
 	if area.has_method("SetStatusPlayer"):
 		parent.status_dictionary.stun = true
 		%Attack.get_child(0).call_deferred("set_disabled", true)
-		area.SetStatusPlayer("slow", 2)
+		area.SetStatusPlayer("slow" if parent.evo_flag == false else "stun", 2)
 		area.TakingDamageForPlayer(-parent.sDamage, true if area.get_name() == "Back" else false, parent)
+		parent.game_manager.AdjustFame(-(parent.game_manager.currentFame * 0.10))
 		%StunTimer.start()
 	
 

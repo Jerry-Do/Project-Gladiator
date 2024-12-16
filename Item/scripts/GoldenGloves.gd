@@ -7,9 +7,10 @@ func _ready():
 	super()
 	duplicate_flag = true
 	price = 14
+	effect_base_amount = amount
 	item_name = "GoldenGloves"
 	display_name = "Golden Gloves"
-	item_description = "Increase crit rate by " + str(amount) + " %"
+	item_description = "Increase crit rate by " + str(EffectAmount()) + " %"
 	if get_parent() == player.get_node("Item"):
 		DoJob()
 	return null
@@ -17,3 +18,6 @@ func _ready():
 func DoJob():
 	player.can_crit = true
 	player.stats.SetCritChance(5)
+
+func UpdateDescription():
+	item_description = "Increase crit rate by " + str(EffectAmount()) + " %"

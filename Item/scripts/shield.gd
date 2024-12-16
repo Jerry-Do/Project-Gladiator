@@ -3,15 +3,16 @@ extends Tech
 @export var amount = 0
 var recharge_flag = false
 @export var evo_amount = 0
-var current_damage_blocked
+var current_damage_blocked = 0
 
 func _ready():
 	super()
 	duplicate_flag = true
 	price = 30
 	item_name = "EnergyShield"
+	effect_base_amount = amount
 	display_name = "Energy Shield"
-	item_description = "Gives the player a shield of " + str(amount) + " damage." + \
+	item_description = "Gives the player a shield of " + str(EffectAmount()) + " damage." + \
 	"When evolved, the shield will explode and stun surrouding enemies for 1 second"
 	faction = "tech"
 	evolve_condition_text = "After blocking a certain amount of damage"
@@ -48,3 +49,7 @@ func DoJob():
 func _on_area_2d_area_entered(area):
 	if area.has_method("SetStatusOther"):
 		area.SetStatusOther("stun", 1)
+
+func UpdateDescription():
+	item_description = "Gives the player a shield of " + str(EffectAmount()) + " damage." + \
+	"When evolved, the shield will explode and stun surrouding enemies for 1 second"

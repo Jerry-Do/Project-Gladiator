@@ -1,15 +1,33 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbdnfryte7sfj"]
 
 [ext_resource type="Script" path="res://Item/scripts/LeechSeed.gd" id="1_hyg3w"]
-[ext_resource type="Texture2D" uid="uid://siykm1c8i15h" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/potion_yellow.png" id="2_plyt5"]
+[ext_resource type="Texture2D" uid="uid://4e0jjxnm8me6" path="res://Sprite/spriteimage/item/leechseed.png" id="2_tnqtj"]
 
-[node name="LeechSpeed" type="Node2D"]
+[node name="LeechSeed" type="Node2D"]
 script = ExtResource("1_hyg3w")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(24.5, -23.5)
 scale = Vector2(4.0625, 3.9375)
-texture = ExtResource("2_plyt5")
+texture = ExtResource("2_tnqtj")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/leechseed.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0a63a0e2640fec65e0b251b136b55bcd"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

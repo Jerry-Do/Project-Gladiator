@@ -27,14 +27,17 @@ var currentWave : int = 1
 var currentFame : int = 0
 var currency : int = 0
 var player : Player
+var pop_up : bool = false
 
-func UpdateAmmo(value):
-	ui.update_ammo_text(value)
-
-func UpdateItemSprite(spritePath):
-	ui.update_item_sprite(spritePath)
 	
-	
+func _input(event):	
+	if event.is_action_pressed("stats_screen") && pop_up == false:
+		if ui.get_node_or_null("InfoScene") != null:
+			ui.get_node_or_null("InfoScene").queue_free()
+			get_tree().paused = false
+		else:
+			CreateStatsScreen()
+		
 func _process(_delta):
 	ui.set_timer(round_timer.time_left)
 	if %FameMultiplierTimer.is_stopped() == false:
@@ -46,6 +49,12 @@ func _process(_delta):
 	else:
 		ui.set_new_weapon_alert_visibility(false)
 		ui.set_new_weapon_timer_alert_visibility(false)
+
+func UpdateAmmo(value):
+	ui.update_ammo_text(value)
+
+func UpdateItemSprite(spritePath):
+	ui.update_item_sprite(spritePath)
 	
 func SpawnWeapon():
 	var children = weaponSpawnPoints.get_children()
@@ -72,6 +81,7 @@ func AdjustKill(value):
 	
 func AdjustFame(value):
 	currentFame += value * fameMultiplier
+	currentFame = clamp(currentFame, 0, currentFame)
 	ui.update_fame_text(currentFame)
 	
 func AdjustFameMultiplier(value):
@@ -86,6 +96,7 @@ func WaveComplete():
 	var upgrade_scene_instantiate = upgrade_scene.instantiate()
 	ui.add_child(upgrade_scene_instantiate)
 	environment_spawner.DestroyEnvironment()
+	pop_up = true
 	get_tree().paused = true
 	currentWave+=1
 
@@ -105,6 +116,7 @@ func UpgradeChose(scene_path: String, item_name : String, price : int):
 		var new_item : Item = item.instantiate()
 		if duplication_array.find(item_name) != -1:
 			player.get_node("Item").get_node(item_name).Duplicate()
+			DestroyUpgradeSceneAndStartNewWave()
 			return null
 		player.get_node("Item").add_child(new_item)
 		duplication_array.append(new_item.ReturnName())
@@ -123,6 +135,7 @@ func StartWave():
 
 func DestroyUpgradeSceneAndStartNewWave():
 	ui.remove_child(ui.get_node("UpgradeScreen"))
+	pop_up = false
 	StartWave()
 	
 func CreateWeaponDescription(weapon : Weapon):
@@ -153,5 +166,12 @@ func AdjustCurrency(value):
 		
 func LevelUpPlayer():
 	if currency >= (player.stats.stats.Level * 10):
+		AdjustCurrency(-player.stats.stats.Level * 10)
 		player.LevelUp()
 		DestroyUpgradeSceneAndStartNewWave()
+
+func CreateStatsScreen():
+	var stats_scene = preload("res://UI/InfoScreen.tscn")
+	var stats_scene_instantiate = stats_scene.instantiate()
+	ui.add_child(stats_scene_instantiate)
+	get_tree().paused = true

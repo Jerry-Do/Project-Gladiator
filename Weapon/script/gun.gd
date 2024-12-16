@@ -3,7 +3,7 @@ extends Weapon
 
 
 var _cMaxAmmo = 8
-var _cRateOfFire = 0.1
+var _cRateOfFire = 0.5
 var _cReloadTime = 1.5
 
 func _init():

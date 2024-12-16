@@ -17,9 +17,7 @@ class_name Player
 
 var perfect_dogde_collided : bool = false
 var perfect_time_stop_state = false
-var can_crit = false
 var shield_amount : int
-var dashTime = 2
 var currentWeapon: Weapon
 var direction : Vector2
 var currentItem: Node2D
@@ -28,10 +26,15 @@ var recharge_flag : bool = false
 var taking_damage : bool = false
 var is_invisible = false
 var damage_amount = 0
+var can_crit = false
+var left_click_pressed : bool = false
 var status_dictionary = {
 	"stun" : false,
 	"timeStopDisable" : false,
 	"slow" : false
+}
+var buff_dictionary = {
+	"endurance" : false
 }
 var interactable = null
 signal CreateDescription(weapon : Weapon)
@@ -40,7 +43,7 @@ func _ready():
 	self.stats.connect("no_health", game_manager.GameOver)
 	connect("CreateDescription", game_manager.CreateWeaponDescription)
 	healthBar.init_health(stats.ReturnHealth())
-	fuelBar.init_fuel(dashTime)
+	fuelBar.init_fuel(stats.maxDashTime)
 	state_machine.init(self, movement_component)
 	game_manager.player = self
 	
@@ -56,14 +59,15 @@ func _process(delta):
 	if movement_component.get_movement_direction().sign().x != scale.y && movement_component.get_movement_direction().x != 0:
 		set_scale(Vector2(1, scale.y*-1))
 		set_rotation_degrees(get_rotation_degrees() + 180 * -1)
+	if Input.is_action_pressed("left_click") :
+		if currentWeapon && status_dictionary.stun == false && currentWeapon.reloadFlag == false:
+			currentWeapon.shoot()	
+			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 	state_machine.process_frame(delta)
 	
 func _input(event):
 	state_machine.process_input(event)
 	if currentWeapon:
-		if event.is_action_pressed("left_click") && status_dictionary.stun == false && currentWeapon.reloadFlag == false :			
-			currentWeapon.shoot()	
-			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		if event.is_action_pressed("right_click") && currentWeapon.has_method("UseGunAbility"):
 			currentWeapon.UseGunAbility()
 		if event.is_action_pressed("reload"):
@@ -84,7 +88,7 @@ func PickUpWeapon(weapon: Weapon):
 	if weapon != null:
 		get_parent().call_deferred("remove_child", weapon)
 	if currentWeapon != null:	
-		currentWeapon.Queue_Free()
+		currentWeapon.queue_free()
 		weaponNode.call_deferred("remove_child", currentWeapon)
 	weaponNode.call_deferred("add_child", weapon)
 	currentWeapon = weapon
@@ -95,7 +99,8 @@ func PickUpWeapon(weapon: Weapon):
 func MinusHealth(amount : int, is_backshot = false):
 	if !invincibleState:
 		damage_amount = amount * 2 if is_backshot else amount * 1	
-		damage_amount /= ( 1 + stats.ReturnArmor() / 100.0)
+		damage_amount -= damage_amount * ( 1 + (stats.ReturnArmor()/2.0)) / 100.0
+		damage_amount -= (5 if item_inventory.item_sets["bioenhancement"] else 0)
 		if shield_amount > 0:	
 			shield_amount += damage_amount
 			get_node("Item/EnergyShield").TakingDamage(damage_amount)
@@ -113,7 +118,7 @@ func PickUpBomerang():
 func SetStatusTrue(name_s: String, duration: float):
 	if status_dictionary[name_s] == false:
 		status_dictionary[name_s] = true
-		await get_tree().create_timer(duration).timeout
+		await get_tree().create_timer(((duration / 2) if item_inventory.item_sets["bioenhancement"] else duration)).timeout
 		status_dictionary[name_s] = false
 
 

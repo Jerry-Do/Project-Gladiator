@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b4s88mng03cmm"
+path="res://.godot/imported/rubberskin.aseprite-fdcdb11d92fb09ceaa4f973f11d50df4.res"
+
+[deps]
+
+source_file="res://Sprite/item/rubberskin.aseprite"
+dest_files=["res://.godot/imported/rubberskin.aseprite-fdcdb11d92fb09ceaa4f973f11d50df4.res"]
+
+[params]
+

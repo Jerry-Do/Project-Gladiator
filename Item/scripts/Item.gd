@@ -1,6 +1,7 @@
 extends Node
 class_name Item
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var player_item = player.get_node("Item")
 @onready var item_sprite = $ItemSprite
 @onready var item_description
 var duplicate_flag : bool
@@ -9,6 +10,7 @@ var item_name : String
 var display_name : String
 var evolve_condition_text : String
 var evolve_flag : bool = false
+var effect_base_amount : float = 0
 var quantity = 1 : set = _set_quantity
 var price : int
 
@@ -40,5 +42,11 @@ func ReturnFaction():
 	return faction
 	
 func Duplicate():
-	_set_quantity(1)
-	DoJob()
+	if duplicate_flag == true:
+		_set_quantity(1)
+		call("UpdateDescription")
+		DoJob()
+
+func EffectAmount():
+	return quantity * effect_base_amount
+	

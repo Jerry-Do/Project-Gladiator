@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://hk73y30c1el7"]
+
+[ext_resource type="Script" path="res://UI/script/ItemList.gd" id="1_hf2v5"]
+[ext_resource type="Script" path="res://UI/script/ItemGridContainer.gd" id="2_o2eif"]
+
+[node name="StatsScene" type="Control"]
+clip_children = 1
+visibility_layer = 9
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 385.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 1469.0
+offset_bottom = 799.0
+color = Color(0, 0, 0, 0.745098)
+
+[node name="ItemList" type="VBoxContainer" parent="."]
+process_mode = 2
+visible = false
+layout_direction = 1
+layout_mode = 1
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 1146.0
+offset_bottom = 645.0
+theme_override_constants/separation = 110
+script = ExtResource("1_hf2v5")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+script = ExtResource("2_o2eif")

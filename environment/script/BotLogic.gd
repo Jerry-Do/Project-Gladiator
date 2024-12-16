@@ -1,4 +1,4 @@
-extends Interactalbe
+extends Interactable
 
 var damage = 0
 var shoot_flag = true

@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhvknet5e4r06"]
+
+[ext_resource type="Script" path="res://environment/script/MaterialCollectionPlant.gd" id="1_fchbk"]
+[ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_w15fr"]
+[ext_resource type="Script" path="res://environment/script/InteractArea.gd" id="3_a4fqi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
+radius = 34.2345
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xnuey"]
+radius = 324.347
+
+[node name="MaterialCollectionTower" type="Node2D" groups=["environment"]]
+script = ExtResource("1_fchbk")
+required_amount = 1
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_w15fr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -49.0
+offset_top = -38.0
+offset_right = 52.0
+offset_bottom = -15.0
+text = "Press F to Fix"
+
+[node name="InteractArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("3_a4fqi")
+
+[node name="InteractionRange" type="CollisionShape2D" parent="InteractArea"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_5mnqc")
+
+[node name="TimerLabel" type="RichTextLabel" parent="."]
+offset_left = -137.0
+offset_top = -89.0
+offset_right = 151.0
+offset_bottom = -66.0
+size_flags_horizontal = 0
+text = "rer"
+fit_content = true
+autowrap_mode = 2
+
+[node name="AmountLabel" type="RichTextLabel" parent="."]
+offset_left = -137.0
+offset_top = -60.0
+offset_right = 151.0
+offset_bottom = -37.0
+text = "d"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Border" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Border"]
+
+[node name="Border" type="CollisionShape2D" parent="Border"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_xnuey")
+disabled = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Border" to="." method="_on_border_area_entered"]
+[connection signal="area_exited" from="Border" to="." method="_on_border_area_exited"]

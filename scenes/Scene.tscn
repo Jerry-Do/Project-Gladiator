@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=14 format=3 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_e0c10"]
 [ext_resource type="Script" path="res://managers/GameManager.gd" id="2_3k0w7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="5_m2sr4"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
 [ext_resource type="Script" path="res://scenes/EnvironmentSpawner.gd" id="7_lagx3"]
+[ext_resource type="PackedScene" uid="uid://dhvknet5e4r06" path="res://environment/MaterialCollectionTower.tscn" id="8_xewfr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -118,20 +119,24 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 2, 1, 131073, 2, 65537, 131073, 
 
 [node name="GameManager" type="Node2D" parent="." groups=["GameManager"]]
 unique_name_in_owner = true
+process_mode = 3
 position = Vector2(1, 0)
 script = ExtResource("2_3k0w7")
-weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
+weapons = ["res://Weapon/Glave.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
 maxKillCount = 15
 fameMultiTimeFrame = 5.0
 maxFame = 10
 
 [node name="WeaponTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
+process_mode = 1
 wait_time = 10.0
 one_shot = true
 
 [node name="FameMultiplierTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
+process_mode = 1
+one_shot = true
 
 [node name="WeaponSpawnPoints" type="Node" parent="GameManager"]
 unique_name_in_owner = true
@@ -150,6 +155,7 @@ position = Vector2(1231, 595)
 
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
+process_mode = 1
 wait_time = 999.0
 autostart = true
 
@@ -197,7 +203,10 @@ position = Vector2(100, 481)
 position = Vector2(1227, 561)
 
 [node name="HandGun" parent="." instance=ExtResource("7_ku020")]
-position = Vector2(440, 297)
+position = Vector2(514, 260)
+
+[node name="MaterialCollectionTower" parent="." instance=ExtResource("8_xewfr")]
+position = Vector2(727, 313)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

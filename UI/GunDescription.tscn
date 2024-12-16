@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceo06s2imdy6o"]
 
-[ext_resource type="Script" path="res://UI/GunDescription.gd" id="1_kessv"]
+[ext_resource type="Script" path="res://UI/script/GunDescription.gd" id="1_kessv"]
 [ext_resource type="Texture2D" uid="uid://bxf1mblemfbws" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X3/Card X6.png" id="1_rx64r"]
 
 [node name="GunDescription" type="Control"]

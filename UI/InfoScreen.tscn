@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://hk73y30c1el7"]
+
+[ext_resource type="Script" path="res://UI/script/InfoScreen.gd" id="1_hh6nd"]
+
+[node name="InfoScene" type="Control"]
+clip_children = 1
+visibility_layer = 9
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 385.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hh6nd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -48.0
+offset_top = -39.0
+offset_right = 1465.0
+offset_bottom = 790.0
+color = Color(0, 0, 0, 0.745098)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 27.0
+offset_top = 63.0
+offset_right = 704.0
+offset_bottom = 602.0
+color = Color(1, 1, 1, 0.313726)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect2"]
+unique_name_in_owner = true
+process_mode = 2
+z_index = 2
+layout_mode = 0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 70.0
+offset_bottom = 64.0
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+columns = 5
+
+[node name="StatsBackground" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 751.0
+offset_top = 61.0
+offset_right = 1065.0
+offset_bottom = 604.0
+color = Color(1, 1, 1, 0.392157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 313.0
+offset_bottom = 545.0
+
+[node name="Level" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Level:"
+fit_content = true
+
+[node name="Health" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Health:"
+fit_content = true
+
+[node name="Base_Damage_Mod" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Base Damage Mod:"
+fit_content = true
+
+[node name="Damage_Mod" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Damage Mode:"
+fit_content = true
+
+[node name="Base_Armor" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Base Armor:"
+fit_content = true
+
+[node name="Armor" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Armor:"
+fit_content = true
+
+[node name="Crit_Chance" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Crit Chance:"
+fit_content = true
+
+[node name="Crit_Damage" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Crit Damage:"
+fit_content = true
+
+[node name="Speed" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Movement Speed:"
+fit_content = true
+
+[node name="Dash_Time" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Time Stop Duration:"
+fit_content = true
+
+[node name="Recharge_Time" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Recharge Time:"
+fit_content = true
+
+[node name="Biochemical" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 23.0
+offset_right = 179.0
+offset_bottom = 63.0
+text = "wdad"
+
+[node name="Tech" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 24.0
+offset_right = 585.0
+offset_bottom = 64.0
+text = "wdad"

@@ -23,19 +23,21 @@ discount_threshold = 10
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 405.0
-offset_bottom = 378.0
+offset_right = 448.0
+offset_bottom = 633.0
 disabled = true
 texture_normal = ExtResource("1_5c2dp")
 texture_pressed = ExtResource("2_toic4")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Description" type="CenterContainer" parent="TextureButton"]
+[node name="Description" type="BoxContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = 29.3333
-offset_top = 230.667
-offset_right = 729.333
-offset_bottom = 630.667
-scale = Vector2(0.5, 0.486)
+offset_left = 33.3333
+offset_top = 216.0
+offset_right = 733.333
+offset_bottom = 616.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Description" type="Label" parent="TextureButton/Description"]
 unique_name_in_owner = true
@@ -47,50 +49,12 @@ text = "LO
 label_settings = SubResource("LabelSettings_5bcxl")
 autowrap_mode = 2
 
-[node name="Name" type="CenterContainer" parent="TextureButton"]
+[node name="EvoCon" type="BoxContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = -32.0
-offset_top = 74.6667
-offset_right = 667.999
-offset_bottom = 474.666
-scale = Vector2(0.414894, 0.3726)
-
-[node name="name" type="Label" parent="TextureButton/Name"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(700, 400)
-layout_direction = 1
-layout_mode = 2
-text = "NAME
-"
-label_settings = SubResource("LabelSettings_5bcxl")
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Faction" type="CenterContainer" parent="TextureButton"]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 130.667
-offset_right = 667.999
-offset_bottom = 530.666
-scale = Vector2(0.414894, 0.3726)
-
-[node name="faction" type="Label" parent="TextureButton/Faction"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(700, 400)
-layout_direction = 1
-layout_mode = 2
-text = "NAME
-"
-label_settings = SubResource("LabelSettings_5bcxl")
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="EvoCon" type="CenterContainer" parent="TextureButton"]
-layout_mode = 0
-offset_left = 33.3333
-offset_top = 356.0
-offset_right = 733.333
-offset_bottom = 756.0
+offset_left = 38.6667
+offset_top = 416.0
+offset_right = 738.667
+offset_bottom = 816.0
 scale = Vector2(0.5, 0.486)
 
 [node name="EvoCon" type="Label" parent="TextureButton/EvoCon"]
@@ -107,27 +71,55 @@ autowrap_mode = 2
 one_shot = true
 autostart = true
 
-[node name="Price" type="CenterContainer" parent="TextureButton"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = -33.3333
-offset_top = 101.333
-offset_right = 666.667
-offset_bottom = 501.334
-scale = Vector2(0.414894, 0.3726)
+offset_left = 61.3333
+offset_top = 100.0
+offset_right = 461.333
+offset_bottom = 282.0
+scale = Vector2(0.5, 0.5)
 
-[node name="price" type="Label" parent="TextureButton/Price"]
+[node name="Name" type="BoxContainer" parent="TextureButton/VBoxContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="TextureButton/VBoxContainer/Name"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(700, 400)
+custom_minimum_size = Vector2(400, 50)
 layout_direction = 1
 layout_mode = 2
 text = "NAME
 "
 label_settings = SubResource("LabelSettings_5bcxl")
-horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Faction" type="BoxContainer" parent="TextureButton/VBoxContainer"]
+layout_mode = 2
+
+[node name="faction" type="Label" parent="TextureButton/VBoxContainer/Faction"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_direction = 1
+layout_mode = 2
+text = "NAME
+"
+label_settings = SubResource("LabelSettings_5bcxl")
+autowrap_mode = 2
+
+[node name="Price" type="BoxContainer" parent="TextureButton/VBoxContainer"]
+layout_mode = 2
+
+[node name="price" type="Label" parent="TextureButton/VBoxContainer/Price"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_direction = 1
+layout_mode = 2
+text = "NAME
+"
+label_settings = SubResource("LabelSettings_5bcxl")
 autowrap_mode = 2
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-position = Vector2(197.333, 66.6667)
+position = Vector2(210.667, 82.6667)
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="TextureButton/Timer" to="." method="_on_timer_timeout"]

@@ -6,7 +6,7 @@
 [node name="BerserkerChestplate" type="Node2D"]
 script = ExtResource("1_2nswb")
 amount = 1
-missing_health = 3
+missing_health = 2
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_p46bh")

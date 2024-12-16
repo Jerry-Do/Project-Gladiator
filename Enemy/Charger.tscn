@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1m8txa8wqk3b"]
+[gd_scene load_steps=25 format=3 uid="uid://1m8txa8wqk3b"]
 
 [ext_resource type="Script" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_ofscd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_wpy22"]
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_qjxfl"]
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="13_ds7dx"]
+[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="14_d04a0"]
 [ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="14_yvax3"]
 [ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="15_pomqu"]
 [ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="16_hrpgh"]
@@ -211,6 +212,14 @@ shape = SubResource("RectangleShape2D_0ylwy")
 [node name="CurseTimer" type="Timer" parent="."]
 wait_time = 8.0
 one_shot = true
+
+[node name="Healthbar" parent="." instance=ExtResource("14_d04a0")]
+visible = false
+z_index = 3
+offset_left = -42.0
+offset_top = -46.0
+offset_right = 42.0
+offset_bottom = -39.0
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
