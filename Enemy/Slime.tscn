@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=26 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" path="res://Enemy/script/Slime.gd" id="1_kkhy6"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_sl4u6"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dntlp2r8oeoic" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png" id="13_i2kum"]
 [ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="14_um5ay"]
 [ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="15_l3m8p"]
+[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="17_tv0le"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3t8h2"]
 radius = 86.0562
@@ -199,6 +200,14 @@ debug_enabled = true
 [node name="CurseTimer" type="Timer" parent="."]
 wait_time = 8.0
 one_shot = true
+
+[node name="Healthbar" parent="." instance=ExtResource("17_tv0le")]
+visible = false
+z_index = 3
+offset_left = -38.0
+offset_top = -41.0
+offset_right = 46.0
+offset_bottom = -34.0
 
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]

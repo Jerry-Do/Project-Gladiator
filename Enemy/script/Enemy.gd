@@ -28,6 +28,10 @@ var target_sprite = $Target
 @onready
 var animation_player : AnimationPlayer = $AnimationPlayer
 
+signal OnDeath(enemy)
+
+var health_bar : HealthBar
+var flipped : bool = false
 var health: float
 var speed: float
 var damage: float
@@ -55,15 +59,17 @@ func _init(health: int, speed: float, damage: float, armor : float ,fame : int, 
 	self.health = health
 	self.speed = speed
 	self.damage = damage
-	self.fameAmount = fame
+	self.fameAmount = 1
 	self.armor = armor
 	self.currency_amount = currency
 	
 func _ready() -> void:
+	health_bar = $Healthbar
 	LevelUp()
 	state_manager.init(self, movement_controller)	
-
-
+	health_bar.init_health(self.health)
+	if player.get_node("Item").get_node_or_null("BrainChip") != null:
+		health_bar.show()
 
 	
 func _physics_process(delta: float):
@@ -73,11 +79,12 @@ func _physics_process(delta: float):
 		if delta_count >= leech_dmg_timer:
 			health -= 0.5
 			player.stats.SetHealth(0.5)
-	
-
+			
 func MinusHealth(amount : float, is_backshot: bool):
-	amount /= ( 1 + armor / 100.0)
-	health -= (amount * (1.2 if is_backshot else 1))
+	amount *= (1.2 if is_backshot else 1)
+	amount /= ( 1 + (armor/2.0)/ 100.0)
+	health -= amount
+	health_bar._set_health(health)
 	return health
 
 	
@@ -118,14 +125,15 @@ func SetStatusTrue(name_s: String, duration: float):
 
 func LevelUp():
 	level = game_manager.currentWave
-	health += 1
-	damage += 1
-	fameAmount += 1
-	armor += 0.25
-	if level == 10:	
+	health += level
+	damage += level
+	fameAmount += level
+	armor += level * 0.25
+	if level == 7:	
 		evo_flag = true
 
 func OnDead():
 	game_manager.AdjustCurrency(currency_amount)	
+	OnDeath.emit(self)
 
 	

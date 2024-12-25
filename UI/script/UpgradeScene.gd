@@ -11,10 +11,10 @@ var rng_gen = RandomNumberGenerator.new()
 func _ready():
 	%UpgradeBtn.tooltip_text = "Takes " + str(player.stats.stats.Level * 10) + " currency to increase health, base damage mod, and more by 1"
 	var player_items = player.get_node("Item")
-	for child in %Node.get_children():
+	for child in $ButtonsContainer.get_children():
 		randomize()
-		var random_amount = rng_gen.randi_range(0,game_manager.currentFame) / 100.0		
-		var random_noo =  randf() + 10
+		var random_amount = rng_gen.randi_range(0,game_manager.currentFame) / 1000.0		
+		var random_noo =  randf_range(0.0,1.0) + random_amount
 		if random_noo < 0.8:
 			array_to_use = c_items
 		elif random_noo < 0.95:
@@ -44,7 +44,7 @@ func _ready():
 		spawned_items.append(random_no)
 		var button = preload("res://UI/Button.tscn")
 		var new_button = button.instantiate()
-		add_child(new_button)
+		child.add_child(new_button)
 		new_button.intialize(array_to_use[random_no])
 		new_button.position = child.position
 		

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://mlavct3bk3ee"
+path="res://.godot/imported/berserkerhelmet.aseprite-1a23eee9d8013d3c92be895add65b4ca.res"
+
+[deps]
+
+source_file="res://Sprite/item/berserkerhelmet.aseprite"
+dest_files=["res://.godot/imported/berserkerhelmet.aseprite-1a23eee9d8013d3c92be895add65b4ca.res"]
+
+[params]
+

@@ -35,8 +35,8 @@ func OnEnemyKilled():
 func _on_spawn_timer_timeout():
 	var randomNo = rng.randi_range(0, enemies.size() - 1) #enemies.size() - 1
 	var randomSpawnPos = rng.randi_range(1,4)
-	var enemy = load(enemies[randomNo])
-	var newEnemy = enemy.instantiate()
+	var spawn_point = preload("res://Enemy/EnemySpawnPoint.tscn")
+	var real = spawn_point.instantiate()
 	var spawnPos : Vector2 = Vector2.ZERO
 	match randomSpawnPos:
 		1:
@@ -50,8 +50,9 @@ func _on_spawn_timer_timeout():
 
 		4:
 			spawnPos = spawnPoint4.global_position
-	newEnemy.position = spawnPos
-	newEnemy.rotation = rotation
-	get_parent().add_child(newEnemy)
+	real.position = spawnPos
+	real.rotation = rotation
+	get_parent().add_child(real)
+	real.Instantiate(enemies[randomNo])
 	spawnCount +=  1
 	spawnFlag = true

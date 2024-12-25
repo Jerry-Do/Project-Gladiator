@@ -19,7 +19,7 @@ position = Vector2(52, -4)
 
 [node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
 unique_name_in_owner = true
-position = Vector2(42, -8)
+position = Vector2(-1.33334, 1.33333)
 scale = Vector2(2, 2)
 
 [node name="Cooldown" type="Timer" parent="."]

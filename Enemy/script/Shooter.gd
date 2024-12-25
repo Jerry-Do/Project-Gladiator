@@ -26,7 +26,8 @@ func AttackPlayer():
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position = aim.global_position
 	new_bullet.global_rotation = aim.global_rotation
-	aim.add_child(new_bullet)
+	new_bullet.shooter = self
+	player.get_parent().add_child(new_bullet)
 	%AttackWindup.start(wind_up_time)
 
 func PlayerLeft():

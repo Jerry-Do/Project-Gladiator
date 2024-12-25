@@ -1,6 +1,6 @@
 
 extends Biochemical
-@export var amount = 1
+@export var amount : float = 0
 #Evo con: regens enough health
 #Evo effect: regen rate is faster
 @export var evo_amount = 0
@@ -10,15 +10,14 @@ func _ready():
 	super()
 	duplicate_flag = true
 	price = 20
-	item_name = "HealthKit"
-	display_name = "Health Kit"
+	effect_base_amount = amount
+	item_name = "RegenarativeTissue"
+	display_name = "Regenarative Tissue"
 	faction = "Biochemical"
-	item_description = "Player regenerates " + str(amount) + " health overtime, health regeneration rate is increased when evolved"
+	item_description = "Player regenerates " + str(EffectAmount()) + " health overtime, health regeneration rate is increased when evolved"
 	evolve_condition_text = "Regenerate " + str(evo_amount) + " health"
 	return null
 
-func Duplicate():
-	_set_quantity(1)
 
 
 func _on_timer_timeout():
@@ -32,3 +31,5 @@ func EvolveCheck():
 		$Timer.wait_time /= 2
 		evolve_flag = true
 		
+func UpdateDescription():
+	item_description = "Player regenerates " + str(EffectAmount()) + " health overtime, health regeneration rate is increased when evolved"

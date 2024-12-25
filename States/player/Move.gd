@@ -31,5 +31,5 @@ func process_physics(delta: float):
 	if parent.status_dictionary.stun == true:
 		parent.velocity = Vector2.ZERO
 	parent.move_and_slide()
-	GetDistance.emit(parent.velocity.length() * delta)
+	#GetDistance.emit(parent.velocity.length() * delta)
 	return null

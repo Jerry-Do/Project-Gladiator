@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ed2puct5wmcr"]
+
+[ext_resource type="Script" path="res://Weapon/bullet/script/GlaveBullet.gd" id="1_lq4yg"]
+[ext_resource type="Texture2D" uid="uid://ctd1lxbhmn5r6" path="res://Sprite/Player/bomerang.png" id="2_g2udu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgv1h"]
+size = Vector2(8.79393, 7.49605)
+
+[node name="BomerangBullet" type="Area2D"]
+top_level = true
+position = Vector2(291, 275)
+scale = Vector2(2, 2)
+collision_layer = 10
+collision_mask = 14
+script = ExtResource("1_lq4yg")
+damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.75, -0.25)
+scale = Vector2(2.10372, 2.46797)
+shape = SubResource("RectangleShape2D_hgv1h")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+texture = ExtResource("2_g2udu")
+offset = Vector2(0, 15)
+
+[node name="ReturnTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

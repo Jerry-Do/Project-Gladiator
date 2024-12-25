@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdqmcqtxd5h1"]
+
+[ext_resource type="Script" path="res://UI/script/ItemIcon.gd" id="1_23dcd"]
+[ext_resource type="Texture2D" uid="uid://ctd1lxbhmn5r6" path="res://Sprite/Player/bomerang.png" id="1_j6vqm"]
+
+[node name="ItemIcon" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1102.0
+offset_bottom = -598.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 51.0
+color = Color(0.629675, 0.629675, 0.629675, 0.32549)
+
+[node name="Container" type="BoxContainer" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 0
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 51.0
+script = ExtResource("1_23dcd")
+
+[node name="ItemSprite" type="Sprite2D" parent="Container"]
+unique_name_in_owner = true
+position = Vector2(25, 34)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_j6vqm")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+layout_mode = 2
+offset_left = 34.0
+offset_top = 29.0
+offset_right = 50.0
+offset_bottom = 52.0
+text = "rg
+"
+horizontal_alignment = 3
+
+[connection signal="mouse_entered" from="Container" to="Container" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Container" to="Container" method="_on_mouse_exited"]

@@ -26,3 +26,6 @@ func ReflectDamage(attacker : Enemy, amount : float):
 	if no_times_getting_hit >= evolve_amount:
 		var heal_amount = reflect_percentage * (heal_percentage / 100)
 		player.stats.SetHealth(heal_amount)
+
+func UpdateDescription():
+	item_description = "Reflect " + str(reflect_percentage) +"% pre-mitigated damage dealt to the player. After evolving, also heals " + str(heal_percentage) +"of"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbvrgkofoh0o"]
+
+[ext_resource type="Script" path="res://Item/scripts/ChestEnchantment.gd" id="1_tslby"]
+[ext_resource type="Texture2D" uid="uid://dc5h18u0hlfsk" path="res://resource/16x16 RPG Item Pack/Item__50.png" id="2_r5hxa"]
+
+[node name="ChestEnhancement" type="Node2D"]
+script = ExtResource("1_tslby")
+amount = 10
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_r5hxa")

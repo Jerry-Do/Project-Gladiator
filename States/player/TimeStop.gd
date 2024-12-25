@@ -37,7 +37,7 @@ func enter() -> void:
 	
 func process_physics(delta: float):
 	if  usingFlag == true && parent.stats.ReturnCurrentDashTime() > 0 &&  Input.is_action_pressed("dash") && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
-		parent.stats.SetDashTime(-delta * (1 if parent.perfect_time_stop_state == false else 2))
+		parent.stats.SetDashTime(-delta * 7)
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentDashTime())
 		parent.recharge_flag = false
 	else:

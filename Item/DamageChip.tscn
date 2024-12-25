@@ -1,11 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://oswpripjvily"]
 
 [ext_resource type="Script" path="res://Item/scripts/DamageChip.gd" id="1_0vqs1"]
-[ext_resource type="Texture2D" uid="uid://dc5h18u0hlfsk" path="res://resource/16x16 RPG Item Pack/Item__50.png" id="2_et2cl"]
+[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_7ai44"]
 
 [node name="DamageChip" type="Node2D"]
 script = ExtResource("1_0vqs1")
 amount = 25
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_et2cl")
+texture_filter = 1
+texture = ExtResource("2_7ai44")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprite/spriteimage/item",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/damagemod.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"

@@ -14,6 +14,7 @@ var price
 signal ChooseItem(item_path,item_name,price)
 
 func intialize(new_item_path):
+	var player_item : PlayerItem = game_manager.player.get_node("Item")
 	if new_item_path != null:
 		connect("ChooseItem", game_manager.UpgradeChose)
 		item_path = new_item_path
@@ -28,11 +29,15 @@ func intialize(new_item_path):
 		item_name_label.text = new_item.ReturnDisplayName()
 		faction_label.text = new_item.ReturnFaction()
 		price = new_item.ReturnPrice()
-		if game_manager.currentFame >= discount_threshold && new_item.ReturnFaction() != game_manager.player.get_node("Item").dominant_type:
+		if game_manager.currentFame >= discount_threshold && new_item.ReturnFaction() != player_item .dominant_type:
 			var random_no = randi_range(0,1)
 			if random_no == 1:
 				discount_flag = true
 				price /= 2
+		if player_item.get_node_or_null("LoyaltyCard") != null && player_item .get_node("Item").dominant_type == "tech":
+			var diff = clamp(player_item.item_types.tech - player_item.item_types.biochemical, player_item.item_types.tech - player_item.item_types.biochemical, 3)
+			discount_flag = true
+			price *= (1.0 - (diff * player_item.get_node_or_null("LoyaltyCard").amount) / 100.0)
 		price_label.text = ("Price: " if discount_flag == false else "Discount price: ")  + str(price)
 		if new_item.ReturnEvoText() != null:
 			%EvoCon.text = "EvoCon: " + new_item.ReturnEvoText()

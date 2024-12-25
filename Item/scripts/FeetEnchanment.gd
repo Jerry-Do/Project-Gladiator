@@ -7,16 +7,17 @@ extends Biochemical
 var distance_traveled : float
 var evolved_flag = false
 var original_speed : float
+var fullset = false
 
 func _ready():
 	super()
 	duplicate_flag = true
 	price = 8
-	item_name = "Feet Enchantment"
-	display_name = "Feet Enchantment"
-	item_description = "Increase the player movement speed by " + str(amount) + " %, increase to " + str(amount * evolve_amount) + " % when evolved"
-	evolve_condition_text = "Move until evolution"
-	faction = "Biochemical"
+	effect_base_amount = amount
+	item_name = "Leg Enhancement"
+	display_name = "Leg Enhancement"
+	item_description = "Increase the player movement speed by " + str(EffectAmount()) + " %"
+	evolve_condition_text = "Collect all three enchantments to have Endurance. Endurance: reduce damage by flat amount and decrease the time of status effects"
 	if get_parent() == player.get_node("Item"):
 		original_speed = player.stats.ReturnSpeed()
 		DoJob()
@@ -28,10 +29,11 @@ func DoJob():
 	
 	
 func EvolveCheck(amount):
-	distance_traveled += amount
-	if distance_traveled > distance_to_evo && evolved_flag == false:
-		amount *= evolve_amount
-		player.stats.SetSpeed(original_speed * (1 + ((amount * quantity)/100.0)))
-		evolved_flag = true
+	if player.get_node("Item").find_child("ArmEnhancement", false, false) != null && player.get_node("Item").find_child("ChestEnhancement", false, false) != null:
+		player.get_node("Item").get_node("ArmEnhancement").fullset = true
+		player.get_node("Item").get_node("ChestEnhancement").fullset = true
+		fullset = true
 
-	
+
+func UpdateDescription():
+	item_description = "Increase the player movement speed by " + str(EffectAmount()) + " %, increase to " + str(amount * evolve_amount) + " % when evolved"

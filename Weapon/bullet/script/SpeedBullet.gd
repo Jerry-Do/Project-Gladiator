@@ -23,8 +23,11 @@ func _on_area_entered(area):
 		if fully_charged:
 			damage += extra_damage			
 		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
-		if amount <= 0 && fully_charged:
-			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
+		if amount <= 0:
+			if adrenaline_rush:
+				OnEnemyKilled.emit()
+			if fully_charged:
+				get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 		if random == crit_chance:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")

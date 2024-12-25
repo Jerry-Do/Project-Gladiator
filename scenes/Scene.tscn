@@ -118,20 +118,24 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 2, 1, 131073, 2, 65537, 131073, 
 
 [node name="GameManager" type="Node2D" parent="." groups=["GameManager"]]
 unique_name_in_owner = true
+process_mode = 3
 position = Vector2(1, 0)
 script = ExtResource("2_3k0w7")
-weapons = ["res://Weapon/Bomerang.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
+weapons = ["res://Weapon/Glave.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
 maxKillCount = 15
 fameMultiTimeFrame = 5.0
 maxFame = 10
 
 [node name="WeaponTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
+process_mode = 1
 wait_time = 10.0
 one_shot = true
 
 [node name="FameMultiplierTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
+process_mode = 1
+one_shot = true
 
 [node name="WeaponSpawnPoints" type="Node" parent="GameManager"]
 unique_name_in_owner = true
@@ -150,7 +154,8 @@ position = Vector2(1231, 595)
 
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
-wait_time = 999.0
+process_mode = 1
+wait_time = 45.0
 autostart = true
 
 [node name="PlayerSpawner" type="Node2D" parent="."]
@@ -161,6 +166,7 @@ script = ExtResource("3_4a00c")
 unique_name_in_owner = true
 position = Vector2(577, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
+maxAllow = 8
 
 [node name="s1" parent="Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -180,7 +186,8 @@ unique_name_in_owner = true
 [node name="EnvironmentSpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("7_lagx3")
-environment_props = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn"]
+environment_props = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn", "res://environment/DataCollectionTower.tscn", "res://environment/MaterialCollectionTower.tscn"]
+mega_struct_props = ["res://environment/MaterialCollectionTower.tscn", "res://environment/DataCollectionTower.tscn"]
 
 [node name="EnvironmentSpawnPoints" type="Node" parent="EnvironmentSpawner"]
 
@@ -196,8 +203,11 @@ position = Vector2(100, 481)
 [node name="e4" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
 position = Vector2(1227, 561)
 
+[node name="MegaStruct" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
+position = Vector2(582, 290)
+
 [node name="HandGun" parent="." instance=ExtResource("7_ku020")]
-position = Vector2(440, 297)
+position = Vector2(514, 260)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]
