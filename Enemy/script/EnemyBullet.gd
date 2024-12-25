@@ -1,6 +1,6 @@
 extends BaseBullet
 
-var c_damage = 6
+var c_damage = 3
 var c_speed = 1000
 var shooter
 func _init():
@@ -12,7 +12,7 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	var random = RandomNumberGenerator.new().randi_range(1, 10)
 	if area.has_method("TakingDamageForPlayer"):
-		area.TakingDamageForPlayer(-damage if random != 1 else -damage * 2, true if area.get_name() == "Back" else false,shooter)
+		area.TakingDamageForPlayer(-damage if random != 1 else -damage * 2, true if area.get_name() == "Back" else false,shooter if get_parent() != null else null)
 		game_manager.AdjustFame(-(game_manager.currentFame * 0.10))
 		if random == 1:
 			print("crit")

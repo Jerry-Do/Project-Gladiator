@@ -1,6 +1,6 @@
 extends BaseBullet
 
-var c_damage = 4
+var c_damage = 99
 var c_speed = 1000
 
 func _init():
@@ -17,7 +17,8 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
-		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		if area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false) <= 0 && adrenaline_rush:
+			OnEnemyKilled.emit()
 		if random == crit_chance:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")

@@ -18,8 +18,9 @@ func _on_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		#the bracket checks if the bullet crits or not and after if the bullet hit behind enemy then it will add extra damage
 		var actual_damage = ( damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) ) + 5 if area.get_name() == "Back" else 0
-		actual_damage *= 1 + (player.stats.ReturnDamageMod() / 100)
-		area.TakingDamageForOther(actual_damage,  true if area.get_name() == "Back" else false)
+		actual_damage *= 1 + (player.stats.ReturnDamageMod() / 100)	
+		if area.TakingDamageForOther(actual_damage,  true if area.get_name() == "Back" else false) <= 0 && adrenaline_rush:
+			OnEnemyKilled.emit()
 		if area.get_parent().health <= 0:
 			get_parent().get_parent().get_parent().can_use_ability = true
 			get_parent().get_parent().get_parent().cooldown_timer.stop()

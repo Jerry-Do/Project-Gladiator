@@ -5,7 +5,7 @@ var done : bool = false
 func Interaction():
 	super()
 	%Border.disabled = false
-	$Timer.start(5)
+	$Timer.start(25)
 
 func _process(delta):
 	if interacted && done == false:
@@ -15,7 +15,7 @@ func _process(delta):
 		
 
 func _on_border_area_exited(area):
-	if success == false:
+	if area.has_method("TakingDamageForPlayer") && done == false:
 		$Timer.stop()
 		$TimerLabel.text = "Objective Failed"
 		done = true

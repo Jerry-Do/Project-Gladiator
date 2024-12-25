@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3wtor7rbs2ni"]
+[gd_scene load_steps=7 format=3 uid="uid://b3wtor7rbs2ni"]
 
 [ext_resource type="Script" path="res://environment/script/DataCollectionTower.gd" id="1_mxrl2"]
 [ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_sf2om"]
 [ext_resource type="Script" path="res://environment/script/InteractArea.gd" id="3_70txc"]
+[ext_resource type="Texture2D" uid="uid://bkf4cepd2to10" path="res://environment/circle.png" id="4_n2rj4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
 radius = 34.2345
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnuey"]
-radius = 221.02
+radius = 1165.0
 
 [node name="DataCollectionTower" type="Node2D" groups=["environment"]]
 script = ExtResource("1_mxrl2")
@@ -48,14 +49,35 @@ offset_bottom = -37.0
 autowrap_mode = 2
 
 [node name="Border" type="Area2D" parent="."]
-collision_layer = 5
+collision_layer = 0
 collision_mask = 5
 script = ExtResource("3_70txc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Border"]
+texture_filter = 1
+position = Vector2(-7.00003, 4.50004)
+scale = Vector2(34.8438, 36.1406)
+texture = ExtResource("4_n2rj4")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/circle.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8682e57be5cbd9be947b41590c0e6228"
 
 [node name="Border" type="CollisionShape2D" parent="Border"]
 unique_name_in_owner = true
+position = Vector2(2, 3)
 shape = SubResource("CircleShape2D_xnuey")
 disabled = true
 

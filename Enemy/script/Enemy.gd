@@ -28,7 +28,7 @@ var target_sprite = $Target
 @onready
 var animation_player : AnimationPlayer = $AnimationPlayer
 
-signal OnKilled()
+signal OnDeath(enemy)
 
 var health_bar : HealthBar
 var flipped : bool = false
@@ -134,6 +134,6 @@ func LevelUp():
 
 func OnDead():
 	game_manager.AdjustCurrency(currency_amount)	
-	OnKilled.emit()
+	OnDeath.emit(self)
 
 	

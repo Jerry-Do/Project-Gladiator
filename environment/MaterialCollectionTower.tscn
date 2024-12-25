@@ -1,18 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhvknet5e4r06"]
+[gd_scene load_steps=7 format=3 uid="uid://dhvknet5e4r06"]
 
 [ext_resource type="Script" path="res://environment/script/MaterialCollectionPlant.gd" id="1_fchbk"]
 [ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_w15fr"]
 [ext_resource type="Script" path="res://environment/script/InteractArea.gd" id="3_a4fqi"]
+[ext_resource type="Texture2D" uid="uid://bkf4cepd2to10" path="res://environment/circle.png" id="4_rwipp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
 radius = 34.2345
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnuey"]
-radius = 324.347
+radius = 798.214
 
 [node name="MaterialCollectionTower" type="Node2D" groups=["environment"]]
 script = ExtResource("1_fchbk")
-required_amount = 1
+base_required_amount = 5
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -56,7 +57,7 @@ offset_left = -137.0
 offset_top = -60.0
 offset_right = 151.0
 offset_bottom = -37.0
-text = "d"
+text = "Enemy Killed:"
 fit_content = true
 autowrap_mode = 2
 
@@ -64,12 +65,32 @@ autowrap_mode = 2
 collision_layer = 10
 collision_mask = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="Border"]
-
 [node name="Border" type="CollisionShape2D" parent="Border"]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_xnuey")
 disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Border/Border"]
+texture_filter = 1
+position = Vector2(10, 1.50003)
+scale = Vector2(24.25, 24.8281)
+texture = ExtResource("4_rwipp")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/circle.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8682e57be5cbd9be947b41590c0e6228"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Border" to="." method="_on_border_area_entered"]

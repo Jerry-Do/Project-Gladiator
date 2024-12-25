@@ -18,7 +18,8 @@ func _on_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		player.SetHealth(1)
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
-		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		if area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)  && adrenaline_rush:
+			OnEnemyKilled.emit()
 		if random == crit_chance:
 			print("crit")
 			var crit_label = preload("res://UI/Critlabel.tscn")

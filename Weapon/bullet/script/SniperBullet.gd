@@ -21,7 +21,8 @@ func _on_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
 		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
-		if amount <= 0: 
+		if amount <= 0  && adrenaline_rush:
+			OnEnemyKilled.emit()
 			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 		if random == crit_chance:
 			print("crit")

@@ -13,8 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
 c_items = ["res://Item/LegEnchantment.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn", "res://Item/ArmEnhantment.tscn", "res://Item/ChestEnhancement.tscn"]
-u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn"]
-r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn"]
+u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn", "res://Item/AdrenalineRush.tscn"]
+r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn", "res://Item/HomingMissle.tscn"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
