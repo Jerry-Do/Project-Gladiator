@@ -11,7 +11,7 @@ var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager
 var softCollision = $SoftCollision
 
 @onready 
-var spawner = get_node("../Spawner")
+var spawner = get_tree().get_first_node_in_group("GameManager").get_node("Spawner")
 
 @onready 
 var sprite = $Sprite2D
@@ -123,6 +123,7 @@ func SetStatusTrue(name_s: String, duration: float):
 		await get_tree().create_timer(duration).timeout
 		status_dictionary[name_s] = false
 
+	
 func LevelUp():
 	level = game_manager.currentWave
 	health += level
@@ -133,7 +134,10 @@ func LevelUp():
 		evo_flag = true
 
 func OnDead():
-	game_manager.AdjustCurrency(currency_amount)	
+	var extra_material_amount = 0
+	if player.get_node("Item").get_node_or_null("GamblerDice") != null:
+		extra_material_amount = randi_range(0, player.get_node("Item").get_node_or_null("GamblerDice").amount)
+	game_manager.AdjustCurrency(currency_amount + extra_material_amount)	
 	OnDeath.emit(self)
 
 	

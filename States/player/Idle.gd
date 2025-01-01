@@ -1,11 +1,11 @@
 extends State
 @export
 var move_state: State
-
+@export 
+var time_stop_state : State
 func enter() -> void:
 	super()
 	parent.animated_sprite.play("idle")
-	#parent.velocity.x = 0
 	
 func exit() -> void:
 	parent.animated_sprite.stop()

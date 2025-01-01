@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://vxk4juxnedu0"]
+
+[ext_resource type="Script" path="res://States/StateController.gd" id="1_54iby"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="2_4g3li"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="3_0qxa5"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="4_05j80"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="5_d4ce5"]
+
+[node name="StateControl" type="Node" node_paths=PackedStringArray("starting_state")]
+script = ExtResource("1_54iby")
+starting_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="." node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
+script = ExtResource("2_4g3li")
+dead_state = NodePath("../Dead")
+stun_state = NodePath("../Stun")
+move_state = NodePath(".")
+attack_state = NodePath("../Attack")
+
+[node name="Dead" type="Node" parent="."]
+script = ExtResource("3_0qxa5")
+
+[node name="Stun" type="Node" parent="." node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("4_05j80")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[node name="Attack" type="Node" parent="." node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("5_d4ce5")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")

@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=14 format=3 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Texture2D" uid="uid://dcv2kj34pxllo" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_e0c10"]
 [ext_resource type="Script" path="res://managers/GameManager.gd" id="2_3k0w7"]
-[ext_resource type="Script" path="res://managers/PlayerSpawner.gd" id="3_4a00c"]
+[ext_resource type="Script" path="res://managers/spawner/PlayerSpawner.gd" id="3_4a00c"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://managers/spawner/spawner.tscn" id="4_gl8g4"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="5_m2sr4"]
+[ext_resource type="Script" path="res://managers/EventManagers.gd" id="6_irc80"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
-[ext_resource type="Script" path="res://scenes/EnvironmentSpawner.gd" id="7_lagx3"]
+[ext_resource type="Script" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2v4t8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -155,56 +156,59 @@ position = Vector2(1231, 595)
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 45.0
+wait_time = 15.0
 autostart = true
 
-[node name="PlayerSpawner" type="Node2D" parent="."]
-position = Vector2(584, 223)
-script = ExtResource("3_4a00c")
-
-[node name="Spawner" parent="." instance=ExtResource("4_gl8g4")]
+[node name="Spawner" parent="GameManager" instance=ExtResource("4_gl8g4")]
 unique_name_in_owner = true
-position = Vector2(577, 267)
+position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Assassin.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn"]
-maxAllow = 8
 
-[node name="s1" parent="Spawner" index="1"]
+[node name="s1" parent="GameManager/Spawner" index="1"]
 position = Vector2(-456, -160)
 
-[node name="s2" parent="Spawner" index="2"]
+[node name="s2" parent="GameManager/Spawner" index="2"]
 position = Vector2(449, -187)
 
-[node name="s3" parent="Spawner" index="3"]
+[node name="s3" parent="GameManager/Spawner" index="3"]
 position = Vector2(-465, 289)
 
-[node name="s4" parent="Spawner" index="4"]
+[node name="s4" parent="GameManager/Spawner" index="4"]
 position = Vector2(375, 245)
+
+[node name="EnvironmentSpawner" type="Node2D" parent="GameManager"]
+unique_name_in_owner = true
+position = Vector2(-1, 0)
+script = ExtResource("7_lagx3")
+environment_props = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn"]
+mega_struct_props = ["res://environment/MaterialCollectionTower.tscn", "res://environment/DataCollectionTower.tscn"]
+
+[node name="EnvironmentSpawnPoints" type="Node" parent="GameManager/EnvironmentSpawner"]
+
+[node name="e1" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
+position = Vector2(186, 207)
+
+[node name="e2" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
+position = Vector2(1196, 98)
+
+[node name="e3" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
+position = Vector2(100, 481)
+
+[node name="e4" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
+position = Vector2(1227, 561)
+
+[node name="MegaStruct" type="Node2D" parent="GameManager/EnvironmentSpawner"]
+position = Vector2(582, 290)
+
+[node name="PlayerSpawner" type="Node2D" parent="GameManager"]
+position = Vector2(583, 223)
+script = ExtResource("3_4a00c")
+
+[node name="EventManager" type="Node2D" parent="GameManager"]
+script = ExtResource("6_irc80")
 
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
-
-[node name="EnvironmentSpawner" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("7_lagx3")
-environment_props = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn", "res://environment/DataCollectionTower.tscn", "res://environment/MaterialCollectionTower.tscn"]
-mega_struct_props = ["res://environment/MaterialCollectionTower.tscn", "res://environment/DataCollectionTower.tscn"]
-
-[node name="EnvironmentSpawnPoints" type="Node" parent="EnvironmentSpawner"]
-
-[node name="e1" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(186, 207)
-
-[node name="e2" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(1196, 98)
-
-[node name="e3" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(100, 481)
-
-[node name="e4" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(1227, 561)
-
-[node name="MegaStruct" type="Node2D" parent="EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(582, 290)
 
 [node name="HandGun" parent="." instance=ExtResource("7_ku020")]
 position = Vector2(514, 260)
@@ -213,4 +217,4 @@ position = Vector2(514, 260)
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]
 [connection signal="timeout" from="GameManager/RoundTimer" to="GameManager" method="_on_round_timer_timeout"]
 
-[editable path="Spawner"]
+[editable path="GameManager/Spawner"]

@@ -1,12 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvq3tmc5pgvqm"]
+[gd_scene load_steps=32 format=3 uid="uid://bvq3tmc5pgvqm"]
 
 [ext_resource type="Script" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_2kd31"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="5_xw7xd"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_1m5qa"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_h8e80"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_2otfs"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_4oyor"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_qxovh"]
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_u1jx8"]
 [ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="12_fls7x"]
@@ -19,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="18_bwjel"]
 [ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="18_wddmo"]
 [ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="19_h062b"]
+[ext_resource type="PackedScene" uid="uid://vxk4juxnedu0" path="res://EnemyState.tscn" id="19_x1l18"]
 [ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="20_rtxx8"]
 [ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="21_simmw"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="22_7no0n"]
@@ -208,28 +204,6 @@ shape = SubResource("CircleShape2D_hkrb0")
 [node name="AttackWindup" type="Timer" parent="."]
 unique_name_in_owner = true
 
-[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("5_xw7xd")
-starting_state = NodePath("Move")
-
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("6_1m5qa")
-dead_state = NodePath("../Dead")
-stun_state = NodePath("../Stun")
-move_state = NodePath(".")
-attack_state = NodePath("../Attack")
-
-[node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("7_h8e80")
-
-[node name="Stun" type="Node" parent="StateControl"]
-script = ExtResource("8_2otfs")
-
-[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("9_4oyor")
-move_state = NodePath("../Move")
-dead_state = NodePath("../Dead")
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MovementController" type="Node" parent="."]
@@ -320,12 +294,11 @@ offset_top = -50.0
 offset_right = 45.0
 offset_bottom = -43.0
 
-[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[node name="StateControl" parent="." instance=ExtResource("19_x1l18")]
+
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
-[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
+[connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
 

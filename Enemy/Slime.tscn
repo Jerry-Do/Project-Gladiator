@@ -1,19 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=22 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" path="res://Enemy/script/Slime.gd" id="1_kkhy6"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_sl4u6"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="5_pekyf"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_m6gm6"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_n8w6a"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_wvfs4"]
 [ext_resource type="Script" path="res://Enemy/script/movement_controller.gd" id="9_inugo"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_rgvpm"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
 [ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="10_rnjbw"]
 [ext_resource type="Texture2D" uid="uid://cj7os7hgbjb4e" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png" id="11_pxwbt"]
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_yf58g"]
 [ext_resource type="Texture2D" uid="uid://dxyaipjj47xjl" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png" id="12_0j6jw"]
 [ext_resource type="Texture2D" uid="uid://dntlp2r8oeoic" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png" id="13_i2kum"]
+[ext_resource type="PackedScene" uid="uid://vxk4juxnedu0" path="res://EnemyState.tscn" id="13_nfcg3"]
 [ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="14_um5ay"]
 [ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="15_l3m8p"]
 [ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="17_tv0le"]
@@ -96,42 +92,17 @@ scale = Vector2(0.389486, -0.179903)
 shape = SubResource("CircleShape2D_3t8h2")
 
 [node name="AttackRange" type="Area2D" parent="."]
-visible = false
 disable_mode = 1
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(6, -20.3333)
+position = Vector2(6, -8.99999)
 scale = Vector2(1.85714, 4.48571)
 shape = SubResource("RectangleShape2D_8y685")
 
 [node name="AttackWindup" type="Timer" parent="."]
 unique_name_in_owner = true
-
-[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("5_pekyf")
-starting_state = NodePath("Move")
-
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("6_m6gm6")
-dead_state = NodePath("../Dead")
-stun_state = NodePath("../Stun")
-move_state = NodePath(".")
-attack_state = NodePath("../Attack")
-
-[node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("7_n8w6a")
-
-[node name="Stun" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("8_wvfs4")
-move_state = NodePath("../Move")
-dead_state = NodePath("../Dead")
-
-[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("9_rgvpm")
-move_state = NodePath("../Move")
-dead_state = NodePath("../Dead")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -150,7 +121,6 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("10_30tjh")
 
 [node name="Back" type="Area2D" parent="."]
-visible = false
 position = Vector2(1, 15)
 disable_mode = 1
 collision_layer = 11
@@ -163,7 +133,6 @@ shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
-visible = false
 position = Vector2(-1, 14)
 disable_mode = 1
 collision_layer = 10
@@ -209,11 +178,11 @@ offset_top = -41.0
 offset_right = 46.0
 offset_bottom = -34.0
 
-[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[node name="StateControl" parent="." instance=ExtResource("13_nfcg3")]
+
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
+[connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
 [connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
 
 [editable path="SoftCollision"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://8mpll3a3mrco"
+path="res://.godot/imported/gamblerdice.aseprite-2a49cb4e0a154f96ba73d8868ae8cb10.res"
+
+[deps]
+
+source_file="res://Sprite/item/gamblerdice.aseprite"
+dest_files=["res://.godot/imported/gamblerdice.aseprite-2a49cb4e0a154f96ba73d8868ae8cb10.res"]
+
+[params]
+

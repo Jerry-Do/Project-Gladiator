@@ -13,6 +13,7 @@ class_name GameManager
 @export var fameMultiTimeFrame : float
 @export var maxFame : int = -1
 
+static var instance : GameManager = null
 var pick_up_weapon = false
 var timeSlowFlag : bool = false
 var rng = RandomNumberGenerator.new()
@@ -29,6 +30,11 @@ var currency : int = 0
 var player : Player
 var pop_up : bool = false
 
+signal RoundEnd
+signal RoundStart
+
+func _ready():
+	instance = self
 	
 func _input(event):	
 	if event.is_action_pressed("stats_screen") && pop_up == false:
@@ -99,6 +105,7 @@ func WaveComplete():
 	pop_up = true
 	get_tree().paused = true
 	currentWave+=1
+	RoundEnd.emit()
 
 func _on_fame_multiplier_timer_timeout():
 	%FameMultiplierTimer.stop()
@@ -132,6 +139,7 @@ func StartWave():
 	#enemy_spawner.spawnCount = 0
 	environment_spawner.SpawnEnvironemnt()
 	#ui.set_wave_finisher_alert_visibility(false, currentWave)
+	RoundStart.emit()
 
 func DestroyUpgradeSceneAndStartNewWave():
 	ui.remove_child(ui.get_node("UpgradeScreen"))

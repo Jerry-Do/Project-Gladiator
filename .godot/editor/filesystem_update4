@@ -1,0 +1,14 @@
+res://scenes/Scene.tscn
+res://States/player/Idle.gd
+res://States/player/Movement_getter.gd
+res://States/Enemy/MoveEnemy.gd
+res://Weapon/HCRevolver.tscn
+res://Player/Player.tscn
+res://Item/LoyaltyCard.tscn
+res://Item/RandomDamageGenerator.tscn
+res://debugtools/ItemDropDown.tscn
+res://UI/UpgradeScene.tscn
+res://UI/ui.tscn
+res://managers/spawner/Spawner.gd
+res://Enemy/script/Enemy.gd
+res://managers/EventManagers.gd

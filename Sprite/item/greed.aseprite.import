@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d0tilcrfukvrj"
+path="res://.godot/imported/greed.aseprite-33904e2e0055f12bf7f1eff0be1deffe.res"
+
+[deps]
+
+source_file="res://Sprite/item/greed.aseprite"
+dest_files=["res://.godot/imported/greed.aseprite-33904e2e0055f12bf7f1eff0be1deffe.res"]
+
+[params]
+

@@ -239,7 +239,6 @@ text = "Kill:
 label_settings = SubResource("LabelSettings_pakyj")
 
 [node name="DropDown" parent="." instance=ExtResource("2_tjfbs")]
-visible = false
 offset_left = -3.0
 offset_top = 423.0
 offset_right = -3.0

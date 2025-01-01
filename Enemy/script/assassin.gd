@@ -3,7 +3,7 @@ extends Enemy
 
 var sHealth:int = 3
 var sSpeed: float = 350
-var sDamage: float = 9
+var sDamage: float = 0
 var sArmor : float = 1
 var sFameAmount : float = 1
 var wind_up_time : bool =  2
@@ -25,7 +25,7 @@ func _physics_process(delta):
 func AttackPlayer():
 	$Attack.show()
 	$Attack.get_child(1).play("attack",-1,2)
-	%AttackWindup.start(2)
+	%AttackWindup.start(3)
 
 func PlayerLeft():
 	$Attack.hide()

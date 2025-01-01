@@ -20,19 +20,22 @@ func _ready():
 	+ str(dmg_amount) + " damage bonus"
 	return null
 
-func DoJob(): 
-	in_state = true
-	if in_state && evolve_flag == false:
-		enemy_killed += 1
-		if enemy_killed >= evo_amount:
-			evolve_flag = true
-	if evolve_flag && dmg_buffed == false:
-		player.stats.SetDamageMod(cal_dmg_mod)
-		cal_dmg_mod = player.stats.ReturnBaseDamageMod() * ((dmg_amount)/100)
-		dmg_buffed = true
-	og_speed = player.stats.ReturnSpeed()	
-	player.stats.SetSpeed(player.stats.ReturnSpeed() + player.stats.ReturnSpeed() * (amount/100.00))
-	$Timer.start(duration)
+func DoJob(): 	
+	if in_state == false:
+		in_state = true
+		if evolve_flag == false:		
+			enemy_killed += 1
+			if enemy_killed >= evo_amount:
+				evolve_flag = true
+		if evolve_flag && dmg_buffed == false:
+			player.stats.SetDamageMod(cal_dmg_mod)
+			cal_dmg_mod = player.stats.ReturnBaseDamageMod() * ((dmg_amount)/100)
+			dmg_buffed = true
+		og_speed = player.stats.ReturnSpeed()	
+		player.stats.SetSpeed(player.stats.ReturnSpeed() + player.stats.ReturnSpeed() * (amount/100.00))
+		$Timer.start(duration)
+	else:
+		$Timer.start(duration)
 
 func _on_timer_timeout():
 	if evolve_flag && dmg_buffed == true:

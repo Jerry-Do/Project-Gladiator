@@ -1,12 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://chlri8tgr500q"]
+[gd_scene load_steps=30 format=3 uid="uid://chlri8tgr500q"]
 
 [ext_resource type="Script" path="res://Enemy/script/assassin.gd" id="1_uqywf"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_cco5b"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="5_u4tn3"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="6_mo1vd"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="7_j6jcm"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="8_evfrc"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="9_o6f11"]
+[ext_resource type="PackedScene" uid="uid://vxk4juxnedu0" path="res://EnemyState.tscn" id="4_mn0ar"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_i832f"]
 [ext_resource type="Texture2D" uid="uid://dc1cspjor6qp2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png" id="11_2gken"]
 [ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_7it7i"]
@@ -46,10 +42,10 @@ func MakePath():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
-size = Vector2(29, 41)
+size = Vector2(29, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
-size = Vector2(33, 41)
+size = Vector2(33, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
 size = Vector2(65, 47)
@@ -83,10 +79,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cg74m"]
 resource_name = "attack"
-length = 0.4
+length = 0.5
 step = 0.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -107,10 +115,22 @@ tracks/1/path = NodePath("CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.167985, 0.389998),
+"times": PackedFloat32Array(0.167985, 0.499998),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eu717"]
@@ -168,7 +188,6 @@ collision_mask = 26
 script = ExtResource("1_uqywf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1, -2)
 scale = Vector2(4.75, 4.4375)
 texture = ExtResource("13_rkidd")
@@ -203,29 +222,7 @@ shape = SubResource("RectangleShape2D_rqhi1")
 unique_name_in_owner = true
 one_shot = true
 
-[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("5_u4tn3")
-starting_state = NodePath("Move")
-
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("6_mo1vd")
-dead_state = NodePath("../Dead")
-stun_state = NodePath("../Stun")
-move_state = NodePath(".")
-attack_state = NodePath("../Attack")
-
-[node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("7_j6jcm")
-
-[node name="Stun" type="Node" parent="StateControl"]
-script = ExtResource("8_evfrc")
-
-[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("9_o6f11")
-move_state = NodePath("../Move")
-dead_state = NodePath("../Dead")
-
-[node name="Timer" type="Timer" parent="."]
+[node name="StateControl" parent="." instance=ExtResource("4_mn0ar")]
 
 [node name="MovementController" type="Node" parent="."]
 script = SubResource("GDScript_l34si")
@@ -242,24 +239,22 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("10_i832f")
 
 [node name="Back" type="Area2D" parent="."]
-visible = false
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("11_7it7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
-position = Vector2(-16, -20)
+position = Vector2(-15, -4.5)
 shape = SubResource("RectangleShape2D_vff1d")
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
-visible = false
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("11_7it7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
-position = Vector2(17, -19)
+position = Vector2(18, -5)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -319,12 +314,9 @@ offset_top = -45.0
 offset_right = 52.0
 offset_bottom = -38.0
 
-[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="CollisionTimer" to="StateControl/Move" method="_on_collision_timer_timeout"]
-[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
+[connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="Attack/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]

@@ -159,9 +159,10 @@ script = ExtResource("6_f4342")
 script = ExtResource("4_qb1iw")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state")]
+[node name="Idle" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "time_stop_state")]
 script = ExtResource("4_wngjq")
 move_state = NodePath("../Move")
+time_stop_state = NodePath("../TimeStop")
 
 [node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("time_stop_state", "idle_state")]
 script = ExtResource("6_8bmt5")

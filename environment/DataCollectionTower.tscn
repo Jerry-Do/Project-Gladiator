@@ -9,7 +9,7 @@
 radius = 34.2345
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnuey"]
-radius = 1165.0
+radius = 756.292
 
 [node name="DataCollectionTower" type="Node2D" groups=["environment"]]
 script = ExtResource("1_mxrl2")
@@ -55,8 +55,8 @@ script = ExtResource("3_70txc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Border"]
 texture_filter = 1
-position = Vector2(-7.00003, 4.50004)
-scale = Vector2(34.8438, 36.1406)
+position = Vector2(5.49992, 17)
+scale = Vector2(23.7344, 23.1563)
 texture = ExtResource("4_n2rj4")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}

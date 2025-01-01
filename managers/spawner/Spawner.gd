@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var game_manager = get_node("../GameManager")
+@onready var game_manager = get_parent()
 @export var enemies : Array
 @export var interval : float
 @onready var spawnPoint1 = $s1
@@ -33,7 +33,7 @@ func OnEnemyKilled():
 		#WaveComplete.emit()
 
 func _on_spawn_timer_timeout():
-	var randomNo = rng.randi_range(0, enemies.size() - 1) #enemies.size() - 1
+	var randomNo = rng.randi_range(1, 1) #enemies.size() - 1
 	var randomSpawnPos = rng.randi_range(1,4)
 	var spawn_point = preload("res://Enemy/EnemySpawnPoint.tscn")
 	var real = spawn_point.instantiate()
