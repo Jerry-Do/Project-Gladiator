@@ -1,0 +1,220 @@
+[gd_scene load_steps=26 format=3 uid="uid://cgjvdg6e3swkd"]
+
+[ext_resource type="Script" path="res://Enemy/script/Summoner.gd" id="1_lcrm0"]
+[ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="2_7f4rt"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="3_5ftq2"]
+[ext_resource type="Script" path="res://Enemy/script/movement_controller.gd" id="4_g8uls"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="5_6ts0y"]
+[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="6_grj61"]
+[ext_resource type="Texture2D" uid="uid://cj7os7hgbjb4e" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png" id="7_jd42t"]
+[ext_resource type="Texture2D" uid="uid://dxyaipjj47xjl" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png" id="8_bslyd"]
+[ext_resource type="Texture2D" uid="uid://dntlp2r8oeoic" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png" id="9_lxj27"]
+[ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="10_u76av"]
+[ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="11_o4pn0"]
+[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="12_vpfsh"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="13_143lt"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="14_3xas6"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="15_a50bs"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="16_qjmev"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="17_ktvvj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3t8h2"]
+radius = 86.0562
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ck1fm"]
+radius = 52.2385
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
+size = Vector2(29, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
+size = Vector2(61.5, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
+size = Vector2(65, 47)
+
+[sub_resource type="Animation" id="Animation_m8q45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7f4rt")]
+}
+
+[sub_resource type="Animation" id="Animation_3qo57"]
+resource_name = "run"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_7f4rt"), ExtResource("7_jd42t"), ExtResource("8_bslyd"), ExtResource("9_lxj27"), ExtResource("10_u76av"), ExtResource("11_o4pn0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bx07p"]
+_data = {
+"RESET": SubResource("Animation_m8q45"),
+"run": SubResource("Animation_3qo57")
+}
+
+[node name="Summoner" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(599, 322)
+collision_layer = 2
+collision_mask = 17
+slide_on_ceiling = false
+safe_margin = 0.001
+script = ExtResource("1_lcrm0")
+enemies = ["res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Slime.tscn", "res://Enemy/Summoner.tscn"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -5)
+scale = Vector2(3.25, 3)
+texture = ExtResource("2_7f4rt")
+
+[node name="SoftCollision" parent="." instance=ExtResource("3_5ftq2")]
+visible = false
+position = Vector2(25, -25)
+scale = Vector2(0.693025, 0.752784)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(-30.526, 10.7264)
+scale = Vector2(0.389486, -0.179903)
+shape = SubResource("CircleShape2D_3t8h2")
+
+[node name="AttackRange" type="Area2D" parent="."]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(6, -8.99999)
+scale = Vector2(4.11652, 3.86564)
+shape = SubResource("CircleShape2D_ck1fm")
+
+[node name="AttackWindup" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MovementController" type="Node" parent="."]
+script = ExtResource("4_g8uls")
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -24)
+rotation = -3.14159
+scale = Vector2(2.28506, -1.71179)
+texture = ExtResource("5_6ts0y")
+
+[node name="Back" type="Area2D" parent="."]
+position = Vector2(1, 15)
+disable_mode = 1
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("6_grj61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(-16, -20)
+shape = SubResource("RectangleShape2D_vff1d")
+disabled = true
+debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
+
+[node name="Front" type="Area2D" parent="."]
+position = Vector2(-1, 14)
+disable_mode = 1
+collision_layer = 10
+collision_mask = 21
+script = ExtResource("6_grj61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
+position = Vector2(2.75, -19)
+shape = SubResource("RectangleShape2D_lm1mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, -23.5)
+shape = SubResource("RectangleShape2D_h4mvs")
+
+[node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="TurnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bx07p")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="CurseTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="Healthbar" parent="." instance=ExtResource("12_vpfsh")]
+visible = false
+z_index = 3
+offset_left = -38.0
+offset_top = -41.0
+offset_right = 46.0
+offset_bottom = -34.0
+
+[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("13_143lt")
+starting_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
+script = ExtResource("14_3xas6")
+dead_state = NodePath("../Dead")
+stun_state = NodePath("../Stun")
+move_state = NodePath(".")
+attack_state = NodePath("../Attack")
+
+[node name="Dead" type="Node" parent="StateControl"]
+script = ExtResource("15_a50bs")
+
+[node name="Stun" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("16_qjmev")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("17_ktvvj")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
+[connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
+[connection signal="timeout" from="TurnTimer" to="StateControl/Move" method="_on_turn_timer_timeout"]
+[connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
+
+[editable path="SoftCollision"]

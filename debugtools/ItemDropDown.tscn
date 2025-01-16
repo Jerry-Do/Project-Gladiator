@@ -18,7 +18,7 @@ layout_mode = 0
 offset_top = 2.0
 offset_right = 228.0
 offset_bottom = 218.0
-item_count = 18
+item_count = 21
 item_0/text = "HealthKit"
 item_1/text = "BerserkerArmguard"
 item_2/text = "BerserkerChestplate"
@@ -37,6 +37,9 @@ item_14/text = "AdrenalineRush"
 item_15/text = "HomingMissle"
 item_16/text = "GamblersDice"
 item_17/text = "RandomDamageGenerator"
+item_18/text = "R.W.G"
+item_19/text = "DefenseGlave"
+item_20/text = "LaserArmItem"
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cnc6l4r30gksh"
+path="res://.godot/imported/brainchip.aseprite-6190229dd3df5954ad3c04f9fbc42e82.res"
+
+[deps]
+
+source_file="res://Sprite/item/brainchip.aseprite"
+dest_files=["res://.godot/imported/brainchip.aseprite-6190229dd3df5954ad3c04f9fbc42e82.res"]
+
+[params]
+

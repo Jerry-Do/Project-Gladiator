@@ -9,6 +9,7 @@ func _ready():
 	price = 100
 	item_name = "R.D.G"
 	display_name = "R.D.G"
+	name = item_name
 	item_description = "At the start of every round gain a random amount of dmg mod between " + str(percentage) + "of the -current balnce and the current balance"
 	if get_parent() == player.get_node("Item"):
 		GameManager.instance.connect("RoundStart", self.DoJob)

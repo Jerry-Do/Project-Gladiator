@@ -20,15 +20,9 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
-		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, faction, random == crit_chance)
 		if amount <= 0  && adrenaline_rush:
 			OnEnemyKilled.emit()
 			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
-		if random == crit_chance:
-			print("crit")
-			var crit_label = preload("res://UI/Critlabel.tscn")
-			var new_label = crit_label.instantiate()
-			get_node("../../../../../../../Level").add_child(new_label)
-			new_label.position = position	
 	if health <= 0:
 		queue_free()

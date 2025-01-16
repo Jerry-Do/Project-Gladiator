@@ -13,8 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
 c_items = ["res://Item/LegEnchantment.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn", "res://Item/ArmEnhantment.tscn", "res://Item/ChestEnhancement.tscn"]
-u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn", "res://Item/AdrenalineRush.tscn", "res://Item/GamblersDice.tscn"]
-r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn", "res://Item/HomingMissle.tscn", "res://Item/Greed.tscn", "res://Item/RandomDamageGenerator.tscn"]
+u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn", "res://Item/AdrenalineRush.tscn", "res://Item/GamblersDice.tscn", "res://Item/DefenseGlave.tscn"]
+r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn", "res://Item/HomingMissle.tscn", "res://Item/Greed.tscn", "res://Item/RandomDamageGenerator.tscn", "res://Item/R.W.G.tscn", "res://Item/ItemOverclock.tscn", "res://Item/LaserArmItem.tscn"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -27,10 +27,10 @@ color = Color(0.298039, 0.298039, 0.298039, 0.411765)
 [node name="ButtonsContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1150, 650)
 layout_mode = 0
-offset_left = -87.0
-offset_top = 56.0
-offset_right = 1063.0
-offset_bottom = 706.0
+offset_left = -119.0
+offset_top = 225.0
+offset_right = 1031.0
+offset_bottom = 875.0
 theme_override_constants/separation = 400
 alignment = 1
 

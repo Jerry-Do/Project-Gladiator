@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bysmxhlta12cd"]
 
 [ext_resource type="Script" path="res://Item/scripts/HomingMissle.gd" id="1_qn00a"]
-[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_dqmlw"]
+[ext_resource type="Texture2D" uid="uid://bljo1t1rbjfrt" path="res://Sprite/spriteimage/item/homingmissle.png" id="2_r4hyi"]
 
 [node name="HomingMissle" type="Node2D"]
 script = ExtResource("1_qn00a")
@@ -10,7 +10,7 @@ damage = 5.0
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_dqmlw")
+texture = ExtResource("2_r4hyi")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}
@@ -25,9 +25,9 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://Sprite/item/damagemod.aseprite"
+"source": "res://Sprite/item/homingmissle.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+metadata/_aseprite_wizard_source_file_hash_ = "000ea061d596fa4d2bf958832df11464"
 
 [node name="Timer" type="Timer" parent="."]
 

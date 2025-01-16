@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://obknonqb2wr0"]
+
+[ext_resource type="Script" path="res://Item/etc/LaserArm.gd" id="1_3fj71"]
+[ext_resource type="Texture2D" uid="uid://t8834ccufx2l" path="res://Sprite/spriteimage/item/LaserBot.png" id="2_ro4gq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7v5y"]
+radius = 23.7381
+
+[node name="LaserBot" type="Area2D"]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_3fj71")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(0.83594, 0.8125)
+texture = ExtResource("2_ro4gq")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {
+"source": "res://Sprite/item/LaserBot.aseprite"
+}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprite/spriteimage/item",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/damagemod.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(10.5973, 11.3582)
+shape = SubResource("CircleShape2D_u7v5y")
+
+[node name="AimTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1, -2)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

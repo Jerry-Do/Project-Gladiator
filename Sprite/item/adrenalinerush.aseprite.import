@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ch36pt7kubfiv"
+path="res://.godot/imported/adrenalinerush.aseprite-9926aa006ad1d5beef9d01a80dab959d.res"
+
+[deps]
+
+source_file="res://Sprite/item/adrenalinerush.aseprite"
+dest_files=["res://.godot/imported/adrenalinerush.aseprite-9926aa006ad1d5beef9d01a80dab959d.res"]
+
+[params]
+

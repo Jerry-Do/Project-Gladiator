@@ -6,6 +6,8 @@ var player : Player = get_tree().get_first_node_in_group("player")
 @onready 
 var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager")
 
+@onready 
+var event_manager : EventManager = get_tree().get_first_node_in_group("GameManager").get_node("EventManager")
 
 @onready
 var softCollision = $SoftCollision
@@ -32,10 +34,14 @@ signal OnDeath(enemy)
 
 var health_bar : HealthBar
 var flipped : bool = false
-var health: float
-var speed: float
-var damage: float
-var armor : float 
+var stats_dic = {
+	"health" : 0,
+	"speed" : 0,
+	"damage" : 0,
+	"armor" : 0,
+	"windup_time" : 0
+}
+var faction : String = ""
 var fameAmount : int
 var chase: bool
 var inRange: bool = false
@@ -55,19 +61,21 @@ var status_dictionary = {
 }
 var status_timers : Array
 var timer_counters = 0
-func _init(health: int, speed: float, damage: float, armor : float ,fame : int, currency : int):
-	self.health = health
-	self.speed = speed
-	self.damage = damage
-	self.fameAmount = 1
-	self.armor = armor
+func _init(health: int, speed: float, damage: float, armor : float ,fame : int, currency : int, faction : String, windup_time : float):
+	self.stats_dic.health = health
+	self.stats_dic.speed = speed * (1.5 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
+	self.stats_dic.damage = damage
+	self.fameAmount = 1 * (2 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
+	self.stats_dic.armor = armor
+	self.stats_dic.windup_time = windup_time / (2 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
 	self.currency_amount = currency
+	self.faction = faction
 	
 func _ready() -> void:
 	health_bar = $Healthbar
 	LevelUp()
 	state_manager.init(self, movement_controller)	
-	health_bar.init_health(self.health)
+	health_bar.init_health(self.stats_dic.health)
 	if player.get_node("Item").get_node_or_null("BrainChip") != null:
 		health_bar.show()
 
@@ -77,16 +85,27 @@ func _physics_process(delta: float):
 	if status_dictionary.leeched:
 		delta_count += delta
 		if delta_count >= leech_dmg_timer:
-			health -= 0.5
-			player.stats.SetHealth(0.5)
+			var dmg = 0.5 * (2  if player.get_node("Item").item_critable else 1)
+			stats_dic.health -= dmg
+			CreateDamageLabel(dmg, false)
+			delta_count = 0
+			player.stats.SetHealth(dmg)
 			
-func MinusHealth(amount : float, is_backshot: bool):
-	amount *= (1.2 if is_backshot else 1)
-	amount /= ( 1 + (armor/2.0)/ 100.0)
-	health -= amount
-	health_bar._set_health(health)
-	return health
+func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
+	amount *= (1.2 if is_backshot else 1.0  )
+	amount *= (1.1 if self.faction != faction else 1.0)
+	amount /= ( 1 + (stats_dic.armor/2.0)/ 100.0)
+	CreateDamageLabel(amount, crit)
+	stats_dic.health -= amount
+	health_bar._set_health(stats_dic.health)
+	return stats_dic.health
 
+func CreateDamageLabel(amount : float, crit : bool):
+	var dmg_label = preload("res://UI/DamageLabel.tscn")
+	var real =  dmg_label.instantiate()
+	real.position = position
+	real.get_child(0).text = ("Critical: " if crit else "") + ("%.2f" % -amount)
+	get_tree().get_first_node_in_group("GameManager").get_parent().add_child(real)
 	
 func ReturnFame():
 	return fameAmount
@@ -126,10 +145,10 @@ func SetStatusTrue(name_s: String, duration: float):
 	
 func LevelUp():
 	level = game_manager.currentWave
-	health += level
-	damage += level
+	stats_dic.health += level
+	stats_dic.damage += level * (2 if event_manager.event_dict.frenzy_hormone else 1)
 	fameAmount += level
-	armor += level * 0.25
+	stats_dic.armor += level * 0.25
 	if level == 7:	
 		evo_flag = true
 
@@ -139,5 +158,6 @@ func OnDead():
 		extra_material_amount = randi_range(0, player.get_node("Item").get_node_or_null("GamblerDice").amount)
 	game_manager.AdjustCurrency(currency_amount + extra_material_amount)	
 	OnDeath.emit(self)
+
 
 	

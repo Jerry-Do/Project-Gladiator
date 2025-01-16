@@ -11,6 +11,7 @@ func _ready():
 	effect_base_amount = amount
 	item_name = "CoolingSystem"
 	display_name = "Cooling System"
+	name = item_name
 	item_description = "Decrase the recharge time for time stop by " + str(EffectAmount()) + " %"
 	if get_parent() == player.get_node("Item"):
 		DoJob()

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bliqu86lr6f0g"
+path="res://.godot/imported/berserkerchestplate.aseprite-3d150087cc729850f5d7b471f9aee928.res"
+
+[deps]
+
+source_file="res://Sprite/item/berserkerchestplate.aseprite"
+dest_files=["res://.godot/imported/berserkerchestplate.aseprite-3d150087cc729850f5d7b471f9aee928.res"]
+
+[params]
+

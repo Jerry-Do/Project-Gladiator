@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8puv2f4j3ahw"]
+
+[ext_resource type="Texture2D" uid="uid://b8bvxpeclmtfv" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/3.png" id="1_d1tev"]
+[ext_resource type="Script" path="res://Item/etc/Laser.gd" id="2_2g7ss"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_m4t86"]
+b = Vector2(0, 0)
+
+[node name="Laser" type="Line2D"]
+scale = Vector2(3.67865, 4.76)
+closed = true
+width = 1.0
+texture = ExtResource("1_d1tev")
+end_cap_mode = 1
+script = ExtResource("2_2g7ss")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("SegmentShape2D_m4t86")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

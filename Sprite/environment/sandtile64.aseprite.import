@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bdg5875kxsbj1"
+path="res://.godot/imported/sandtile64.aseprite-4664750a880621747359656f8b8899f2.res"
+
+[deps]
+
+source_file="res://Sprite/environment/sandtile64.aseprite"
+dest_files=["res://.godot/imported/sandtile64.aseprite-4664750a880621747359656f8b8899f2.res"]
+
+[params]
+

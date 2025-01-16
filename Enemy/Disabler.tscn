@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvq3tmc5pgvqm"]
+[gd_scene load_steps=36 format=3 uid="uid://bvq3tmc5pgvqm"]
 
 [ext_resource type="Script" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_2kd31"]
@@ -13,11 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="17_5alke"]
 [ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="18_bwjel"]
 [ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="18_wddmo"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="19_1q61o"]
 [ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="19_h062b"]
-[ext_resource type="PackedScene" uid="uid://vxk4juxnedu0" path="res://EnemyState.tscn" id="19_x1l18"]
+[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="20_kxef2"]
 [ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="20_rtxx8"]
 [ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="21_simmw"]
+[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="21_u7fs7"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="22_7no0n"]
+[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="22_hd4r3"]
+[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="23_ksxti"]
 [ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="23_res6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnhwa"]
@@ -163,7 +167,7 @@ _data = {
 
 [node name="Disabler" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(600, 320)
-collision_layer = 10
+collision_layer = 0
 collision_mask = 21
 script = ExtResource("1_t4xhl")
 
@@ -294,8 +298,33 @@ offset_top = -50.0
 offset_right = 45.0
 offset_bottom = -43.0
 
-[node name="StateControl" parent="." instance=ExtResource("19_x1l18")]
+[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("19_1q61o")
+starting_state = NodePath("Move")
 
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
+script = ExtResource("20_kxef2")
+dead_state = NodePath("../Dead")
+stun_state = NodePath("../Stun")
+move_state = NodePath(".")
+attack_state = NodePath("../Attack")
+
+[node name="Dead" type="Node" parent="StateControl"]
+script = ExtResource("21_u7fs7")
+
+[node name="Stun" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("22_hd4r3")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
+script = ExtResource("23_ksxti")
+move_state = NodePath("../Move")
+dead_state = NodePath("../Dead")
+
+[connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
 [connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]

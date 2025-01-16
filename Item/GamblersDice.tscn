@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq8y6ejpumynt"]
 
 [ext_resource type="Script" path="res://Item/scripts/GamblersDice.gd" id="1_en2nr"]
-[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_h5840"]
+[ext_resource type="Texture2D" uid="uid://85lo03mlleu6" path="res://Sprite/spriteimage/item/gamblerdice.png" id="2_i08bo"]
 
 [node name="GamblerDice" type="Node2D"]
 script = ExtResource("1_en2nr")
@@ -10,7 +10,7 @@ m_price = 50
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_h5840")
+texture = ExtResource("2_i08bo")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}
@@ -25,6 +25,6 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://Sprite/item/damagemod.aseprite"
+"source": "res://Sprite/item/gamblerdice.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+metadata/_aseprite_wizard_source_file_hash_ = "9240f1fc35f31b89621c68d273928404"

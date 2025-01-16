@@ -2,7 +2,7 @@ extends Node
 class_name Stats
 var rechargeTime: float = 3.0
 var baseArmor: float = 5.0
-var maxHealth: float = 50.0
+var maxHealth: float = 80.0
 var baseSpeed: float = 600.0
 var baseCritChance: float = 0.0
 var baseCritDamage: float = 25.0

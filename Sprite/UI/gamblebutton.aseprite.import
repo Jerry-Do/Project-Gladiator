@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://co2fjbmvl7xr"
+path="res://.godot/imported/gamblebutton.aseprite-b168cbb04bbf21302fab4c93ce959163.res"
+
+[deps]
+
+source_file="res://Sprite/UI/gamblebutton.aseprite"
+dest_files=["res://.godot/imported/gamblebutton.aseprite-b168cbb04bbf21302fab4c93ce959163.res"]
+
+[params]
+

@@ -1,4 +1,4 @@
-extends Tech
+extends Risk
 @export var amount = 0
 @export var evo_amount = 0
 @export var extra_stat_amount = 0
@@ -10,6 +10,7 @@ func _ready():
 	price = 5
 	item_name = "LoyaltyCard"
 	display_name = "Loyalty Card"
+	name = item_name
 	item_description = "If the dominant item type is tech, then the future tech items will have a discount, based on the difference between the number of tech items and biochem (" + str(amount) + ") for 1 item"
 	evolve_condition_text = "Have 5 tech items"
 	if get_parent() == player.get_node("Item"):

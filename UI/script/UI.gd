@@ -7,12 +7,11 @@ class_name  UI
 @onready var fameMultiLabel = %FameMultiplier
 @onready var fameMultiTimerLabel = %FameMultiTimer
 @onready var WeaponTimerLabel = %WeaponTimerText
-@onready var itemSprite = %ItemSprite
 @onready var newWeaponAlert = %NewWeaponAlert
 @onready var timerText = %TimerText
 @onready var fameLabel = %Fame
 @onready var currencyText = %Currency
-
+@onready var eventLabel = %Event
 func update_fame_text(currentFame):
 	fameLabel.text = "Fame: " + str(currentFame) 
 
@@ -33,11 +32,6 @@ func update_fameMultiTimer_text(value):
 func update_WeaponTimer_text(value):
 	WeaponTimerLabel.text = "Weapon Timer: " + FormatString(value, "%d")
 
-func update_item_sprite(spritePath):
-	if spritePath:
-		itemSprite.texture = load(spritePath)
-	else:
-		itemSprite.texture = null
 
 func set_new_weapon_alert_visibility(flag):
 	newWeaponAlert.visible = flag
@@ -55,3 +49,15 @@ func set_timer(value):
 
 func update_currency_text(value : int):
 	currencyText.text = "Currency: " + str(value)
+
+func ShowEvent(event_no : int):
+	%CurrentEvent.show()
+	match event_no:
+		0:
+			%Event.text = "Frezy hormone fills up the arena"
+		1:
+			%Event.text = "Orbital strikes commencing"
+			
+	await get_tree().create_timer(5).timeout
+	%CurrentEvent.hide()
+		

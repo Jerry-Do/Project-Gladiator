@@ -13,6 +13,7 @@ func _ready():
 	price = 30
 	item_name = "RubberSkin"
 	display_name = "Rubber Skin"
+	name = item_name
 	item_description = "Reflect " + str(reflect_percentage) +"% pre-mitigated damage dealt to the player. After evolving, also heals " + str(heal_percentage) +"of"
 	evolve_condition_text = "Getting hit 20 times"
 	if get_parent() == player.get_node("Item"):
@@ -21,11 +22,16 @@ func _ready():
 	return null
 
 func ReflectDamage(attacker : Enemy, amount : float):
-	var reflect_dmg = abs(amount) * (reflect_percentage / 100.0)
-	no_times_getting_hit += 1
-	if no_times_getting_hit >= evolve_amount:
-		var heal_amount = reflect_percentage * (heal_percentage / 100)
-		player.stats.SetHealth(heal_amount)
+	if attacker != null:
+		var random = 0
+		var crit_chance = 100 - player.stats.ReturnCritChance()
+		if player.get_node("Item").item_critable:
+			random = RandomNumberGenerator.new().randi_range(1, crit_chance)
+		var reflect_dmg = abs(amount * (2 if random == crit_chance else 1)) * (reflect_percentage / 100.0)
+		no_times_getting_hit += 1
+		if no_times_getting_hit >= evolve_amount:
+			var heal_amount = reflect_percentage * (heal_percentage / 100)
+			player.stats.SetHealth(heal_amount)
 
 func UpdateDescription():
 	item_description = "Reflect " + str(reflect_percentage) +"% pre-mitigated damage dealt to the player. After evolving, also heals " + str(heal_percentage) +"of"

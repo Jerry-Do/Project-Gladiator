@@ -6,6 +6,7 @@ class_name GameManager
 @onready var weaponSpawnPoints = %WeaponSpawnPoints
 @onready var round_timer = %RoundTimer
 @onready var environment_spawner = %EnvironmentSpawner
+@onready var event_manager = $EventManager
 
 @export var duplication_array : Array
 @export var weapons : Array
@@ -14,6 +15,7 @@ class_name GameManager
 @export var maxFame : int = -1
 
 static var instance : GameManager = null
+var can_spawn_weapon : bool = true
 var pick_up_weapon = false
 var timeSlowFlag : bool = false
 var rng = RandomNumberGenerator.new()
@@ -82,7 +84,8 @@ func AdjustKill(value):
 	if currentKill == maxKill:
 		currentKill = 0
 		AdjustFameMultiplier(0.2)
-		SpawnWeapon()
+		if can_spawn_weapon:
+			SpawnWeapon()
 	ui.update_kill_text(currentKill, maxKill)
 	
 func AdjustFame(value):
@@ -165,6 +168,7 @@ func _on_round_timer_timeout():
 		GameOver()
 	else:
 		WaveComplete()
+		%WeaponTimer.timeout
 		
 
 func AdjustCurrency(value):

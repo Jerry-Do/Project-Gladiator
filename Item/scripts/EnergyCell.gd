@@ -11,6 +11,7 @@ func _ready():
 	item_name = "EnergyCell"
 	display_name = "Energy Cell"
 	effect_base_amount = amount
+	name = item_name
 	item_description = "Increase the duration of time slow by" +str(EffectAmount()) + " %"
 	if get_parent() == player.get_node("Item"):
 		DoJob()

@@ -11,6 +11,7 @@ func _ready():
 	price = 5
 	effect_base_amount = amount
 	item_name = "ArmEnhancement"
+	name = item_name
 	display_name = "Arm Enhancement"
 	item_description = "Increase base damage mod by " + str(EffectAmount()) + " %"
 	evolve_condition_text = "Collect all three enchantments to have Endurance. Endurance: reduce damage by flat amount and decrease the time of status effects"

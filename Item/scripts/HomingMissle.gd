@@ -7,7 +7,8 @@ func _ready():
 	price = 40
 	item_name = "HomingMissle"
 	display_name = "Homing Missle"
-	item_description = "Shoots a homing missle after " + str(cooldown) + " seconds, dealing " + str(damage) + " damage, and explodes on hit"
+	name = item_name
+	item_description = "Shoots homing missles after " + str(cooldown) + " seconds, dealing " + str(damage) + " damage, and explodes on hit. Number of missles equals with the number of tech items, capped at 5"
 	if get_parent() == player.get_node("Item"):
 		DoJob()
 	return null
@@ -17,9 +18,10 @@ func DoJob():
 
 
 func _on_timer_timeout():
-	var missle = preload("res://Item/etc/HMissle.tscn")
-	var real = missle.instantiate()
-	real.damage = damage
-	real.global_position = self.global_position
-	real.rotation = self.rotation
-	player.get_parent().add_child(real)
+	for i in clamp(player.get_node("Item").item_types.tech, player.get_node("Item").item_types.tech, 5):
+		var missle = preload("res://Item/etc/HMissle.tscn")
+		var real = missle.instantiate()
+		real.damage = damage
+		real.global_position = self.global_position
+		real.rotation = self.rotation
+		player.get_parent().add_child(real)

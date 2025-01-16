@@ -13,6 +13,7 @@ func _ready():
 	price = 46
 	effect_base_amount = amount
 	item_name = "BerserkerChestplate"
+	name = item_name
 	display_name = "Berserker Chestplate"
 	item_description = "Increase the player's damage based on missing health ("+ str(missing_health)+"% Missing health = "+ str(EffectAmount()) +"% Damage Mod)"
 	evolve_condition_text = "Collect three pieces of the berserker set to get set bonus. Set bonus Rage: reduce the player's max health by half, and increase the effectiveness of the items"

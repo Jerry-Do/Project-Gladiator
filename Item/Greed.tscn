@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://d32jlf428ybpq"]
 
 [ext_resource type="Script" path="res://Item/scripts/Greed.gd" id="1_oqxnb"]
-[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_jvp2l"]
+[ext_resource type="Texture2D" uid="uid://cqd2o5ew1b6se" path="res://Sprite/spriteimage/item/greed.png" id="2_gbcm2"]
 
 [node name="Greed" type="Node2D"]
 script = ExtResource("1_oqxnb")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_jvp2l")
+texture = ExtResource("2_gbcm2")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}
@@ -23,6 +23,6 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://Sprite/item/damagemod.aseprite"
+"source": "res://Sprite/item/greed.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+metadata/_aseprite_wizard_source_file_hash_ = "e520d4023a989e210215f1623a711d60"

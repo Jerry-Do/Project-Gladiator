@@ -41,7 +41,7 @@ func MakePath():
 size = Vector2(29, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
-size = Vector2(33, 41)
+size = Vector2(54.5, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
 size = Vector2(65, 47)
@@ -149,7 +149,6 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("8_wpy22")
 
 [node name="Back" type="Area2D" parent="."]
-visible = false
 position = Vector2(1, 20)
 collision_layer = 10
 collision_mask = 11
@@ -158,17 +157,17 @@ script = ExtResource("9_qjxfl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
 position = Vector2(-16, -20)
 shape = SubResource("RectangleShape2D_vff1d")
+disabled = true
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
-visible = false
 position = Vector2(-8, 19)
 collision_layer = 10
 collision_mask = 11
 script = ExtResource("9_qjxfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
-position = Vector2(17, -19)
+position = Vector2(6.25, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

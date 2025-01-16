@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cemm7f7hcgcpv"
+path="res://.godot/imported/orbitalstrike.aseprite-4acea0cd591c820a82a625a40441028a.res"
+
+[deps]
+
+source_file="res://Sprite/item/orbitalstrike.aseprite"
+dest_files=["res://.godot/imported/orbitalstrike.aseprite-4acea0cd591c820a82a625a40441028a.res"]
+
+[params]
+

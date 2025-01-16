@@ -11,6 +11,7 @@ func _ready():
 	price = 30
 	item_name = "EnergyShield"
 	effect_base_amount = amount
+	name = item_name
 	display_name = "Energy Shield"
 	item_description = "Gives the player a shield of " + str(EffectAmount()) + " damage." + \
 	"When evolved, the shield will explode and stun surrouding enemies for 1 second"

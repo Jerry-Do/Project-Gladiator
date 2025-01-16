@@ -1,9 +1,57 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfao8leyxgpwg"]
 
-[ext_resource type="Script" path="res://environment/script/BotLogic.gd" id="1_lgvaf"]
 [ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_dyxqt"]
 [ext_resource type="Script" path="res://environment/script/InteractArea.gd" id="3_3d60i"]
 [ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="4_0rnno"]
+
+[sub_resource type="GDScript" id="GDScript_flnma"]
+script/source = "extends Interactable
+
+var damage = 0
+var shoot_flag = true
+
+@onready var interaction_range : CollisionShape2D = %InteractionRange
+@onready var attack_range : CollisionShape2D = %AttackRange
+@onready var aim : Marker2D = %Marker2D
+var target : Node = null
+var targets : Array
+	
+
+func Interaction():
+	super()
+	attack_range.disabled = false
+	$Downtime.start()
+	
+func _on_downtime_timeout():
+	#if interacted:
+		#target = get_tree().get_first_node_in_group(\"enemy\")
+		#if target != null:
+			#aim.set_rotation(get_angle_to(target.global_position))
+			#var BULLET = preload(\"res://Weapon/bullet/BotBullet.tscn\")
+			#var new_bullet = BULLET.instantiate()
+			#new_bullet.global_position = aim.global_position
+			#new_bullet.global_rotation = aim.global_rotation
+			#get_parent().add_child(new_bullet)
+	if interacted:
+		if targets.is_empty() != true:
+			aim.set_rotation(get_angle_to(targets.front().global_position))
+			var BULLET = preload(\"res://Weapon/bullet/BotBullet.tscn\")
+			var new_bullet = BULLET.instantiate()
+			new_bullet.global_position = aim.global_position
+			new_bullet.global_rotation = aim.global_rotation
+			get_parent().add_child(new_bullet)
+		
+
+
+func _on_attack_range_area_entered(area):
+	if area.has_method(\"TakingDamageForOther\"):
+		targets.append(area)
+
+
+func _on_attack_range_area_exited(area):
+	if area.has_method(\"TakingDamageForOther\"):
+		targets.erase(area)
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
 radius = 34.2345
@@ -12,14 +60,14 @@ radius = 34.2345
 radius = 289.002
 
 [node name="Bot" type="CharacterBody2D" groups=["environment"]]
-script = ExtResource("1_lgvaf")
+script = SubResource("GDScript_flnma")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_dyxqt")
 
 [node name="Downtime" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true

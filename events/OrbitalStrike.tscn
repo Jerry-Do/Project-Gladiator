@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://chi4wi2x61hpp"]
+
+[ext_resource type="Texture2D" uid="uid://d4bm24brxo1bn" path="res://events/orbitalstrike.png" id="1_pehha"]
+[ext_resource type="Script" path="res://events/scripts/OrbitalStrike.gd" id="1_wxbee"]
+[ext_resource type="Texture2D" uid="uid://bmyspkf87jk27" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_2.png" id="3_xvrx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf4fr"]
+size = Vector2(119, 29.25)
+
+[sub_resource type="Animation" id="Animation_7ob7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_tf4fr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_oh613"]
+resource_name = "strike"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StrikeSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.233333, 0.3, 0.366667, 0.433333, 0.5, 0.566667, 0.633333, 0.7, 0.766667, 0.833333, 0.9, 0.966667, 1.03333, 1.1, 1.16667, 1.23333, 1.3, 1.36667, 1.43333, 1.5, 1.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.866667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_tf4fr")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.866667, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgam7"]
+_data = {
+"RESET": SubResource("Animation_7ob7v"),
+"strike": SubResource("Animation_oh613")
+}
+
+[node name="OrbitalStrike" type="Area2D"]
+position = Vector2(1, -1)
+script = ExtResource("1_wxbee")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fgam7")
+}
+speed_scale = 1.5
+movie_quit_on_finish = true
+
+[node name="StrikeSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5, -288)
+scale = Vector2(2.3125, 9.625)
+texture = ExtResource("1_pehha")
+hframes = 5
+vframes = 5
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Sprite/item/orbitalstrike.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8748fab96aa0ca092f252787f2ad672c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 7.625)
+shape = SubResource("RectangleShape2D_tf4fr")
+disabled = true
+
+[node name="Marker" type="Sprite2D" parent="."]
+position = Vector2(-0.500008, 7.00002)
+scale = Vector2(7.0625, 2.5625)
+texture = ExtResource("3_xvrx8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4rayiejdtcv0"]
 
 [ext_resource type="Script" path="res://Item/scripts/AdrenalineRush.gd" id="1_01pgl"]
-[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_pl2is"]
+[ext_resource type="Texture2D" uid="uid://l5tuv4hws30k" path="res://Sprite/spriteimage/item/adrenalinerush.png" id="2_fexkh"]
 
 [node name="AdrenalineRush" type="Node2D"]
 script = ExtResource("1_01pgl")
@@ -10,7 +10,9 @@ duration = 5
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_pl2is")
+position = Vector2(1, -1)
+scale = Vector2(0.390625, 0.359375)
+texture = ExtResource("2_fexkh")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}
@@ -25,9 +27,9 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://Sprite/item/damagemod.aseprite"
+"source": "res://Sprite/item/adrenalinerush.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+metadata/_aseprite_wizard_source_file_hash_ = "3c50e6a72f041b89b8e52633648c41a5"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

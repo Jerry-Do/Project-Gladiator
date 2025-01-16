@@ -12,12 +12,12 @@ var stun_state: State
 func enter() -> void:
 	super()
 	parent.inRange = true
-	parent.speed = 0
+	parent.stats_dic.speed = 0
 	%AttackWindup.start(parent.wind_up_time)
 
 
 func process_physics(_delta: float) -> State:
-	if parent.health <= 0:
+	if parent.stats_dic.health <= 0:
 		return dead_state
 	if parent.inRange == false:
 		return move_state

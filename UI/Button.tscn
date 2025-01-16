@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://buvg61hesrl0q"]
 
-[ext_resource type="Texture2D" uid="uid://427ydx1r7hp6" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X2.png" id="1_5c2dp"]
 [ext_resource type="Script" path="res://UI/script/Button.gd" id="1_058vi"]
-[ext_resource type="Texture2D" uid="uid://b5oo5dgxx56x8" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X2/Card X3.png" id="2_toic4"]
+[ext_resource type="Texture2D" uid="uid://7mx211ui65fp" path="res://Sprite/UI/techbutton1.png" id="2_mt5vq"]
+[ext_resource type="Texture2D" uid="uid://868fxwlw54j5" path="res://Sprite/UI/techbutton2.png" id="3_jb7qd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5bcxl"]
 line_spacing = 5.0
@@ -13,30 +13,33 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -747.0
-offset_bottom = -259.0
+offset_left = -163.0
+offset_top = 111.0
+offset_right = -910.0
+offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_058vi")
-discount_threshold = 10
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 448.0
-offset_bottom = 633.0
+offset_left = -101.333
+offset_top = -188.0
+offset_right = 548.667
+offset_bottom = 445.0
 disabled = true
-texture_normal = ExtResource("1_5c2dp")
-texture_pressed = ExtResource("2_toic4")
+texture_normal = ExtResource("2_mt5vq")
+texture_pressed = ExtResource("3_jb7qd")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Description" type="BoxContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = 33.3333
-offset_top = 216.0
-offset_right = 733.333
-offset_bottom = 616.0
+offset_left = 141.0
+offset_top = 286.333
+offset_right = 841.0
+offset_bottom = 686.333
 scale = Vector2(0.5, 0.5)
 
 [node name="Description" type="Label" parent="TextureButton/Description"]
@@ -51,10 +54,10 @@ autowrap_mode = 2
 
 [node name="EvoCon" type="BoxContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = 38.6667
-offset_top = 416.0
-offset_right = 738.667
-offset_bottom = 816.0
+offset_left = 139.667
+offset_top = 370.333
+offset_right = 839.667
+offset_bottom = 770.333
 scale = Vector2(0.5, 0.486)
 
 [node name="EvoCon" type="Label" parent="TextureButton/EvoCon"]
@@ -73,10 +76,10 @@ autostart = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureButton"]
 layout_mode = 0
-offset_left = 61.3333
-offset_top = 100.0
-offset_right = 461.333
-offset_bottom = 282.0
+offset_left = 149.333
+offset_top = 133.333
+offset_right = 649.333
+offset_bottom = 315.334
 scale = Vector2(0.5, 0.5)
 
 [node name="Name" type="BoxContainer" parent="TextureButton/VBoxContainer"]
@@ -119,7 +122,8 @@ label_settings = SubResource("LabelSettings_5bcxl")
 autowrap_mode = 2
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-position = Vector2(210.667, 82.6667)
+position = Vector2(216, -97.3333)
+scale = Vector2(2, 2)
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="TextureButton/Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://cotc24jekbbcc"]
+
+[ext_resource type="Script" path="res://Item/scripts/DefenseGlave.gd" id="1_0w1th"]
+[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_x1q33"]
+[ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="3_f03ml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8umcq"]
+radius = 16.0312
+
+[node name="DefenseGlave" type="Node2D"]
+script = ExtResource("1_0w1th")
+radius = 50
+speed = 5.0
+damage = 4
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_x1q33")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprite/spriteimage/item",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/damagemod.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+
+[node name="Glave" type="Area2D" parent="."]
+position = Vector2(-91, -12)
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Glave"]
+shape = SubResource("CircleShape2D_8umcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Glave"]
+position = Vector2(0.499996, 4.76837e-07)
+scale = Vector2(1.6875, 1.875)
+texture = ExtResource("3_f03ml")
+
+[node name="Glave2" type="Area2D" parent="."]
+position = Vector2(64, -68)
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Glave2"]
+shape = SubResource("CircleShape2D_8umcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Glave2"]
+position = Vector2(0.499996, 4.76837e-07)
+scale = Vector2(1.6875, 1.875)
+texture = ExtResource("3_f03ml")
+
+[node name="Glave3" type="Area2D" parent="."]
+position = Vector2(40, 75)
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Glave3"]
+shape = SubResource("CircleShape2D_8umcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Glave3"]
+position = Vector2(0.499996, 4.76837e-07)
+scale = Vector2(1.6875, 1.875)
+texture = ExtResource("3_f03ml")
+
+[connection signal="area_entered" from="Glave" to="." method="_on_glave_area_entered"]
+[connection signal="area_entered" from="Glave2" to="." method="_on_glave_area_entered"]
+[connection signal="area_entered" from="Glave3" to="." method="_on_glave_area_entered"]

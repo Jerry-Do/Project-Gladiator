@@ -32,5 +32,5 @@ func _on_ghost_timer_timeout():
 
 func _on_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
-		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, "", false)
 		queue_free()

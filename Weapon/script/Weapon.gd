@@ -9,6 +9,7 @@ var bulletName:String
 var pickedUpFlag : bool
 var description : String
 var w_name : String
+var faction : String
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 @onready var sprite = $Gun
@@ -17,13 +18,14 @@ var player : Player
 var currentAmmo = 0
 
 
-func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime, cDescription, cName):
+func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime, cDescription, cName, cFaction):
 	self.bulletName = bullet
 	self.rateOfFire = cRateOfFire
 	self.reloadTime = cReloadTime
 	self.maxAmmo = cMaxAmmo
 	self.description =  cDescription
 	self.w_name = cName
+	self.faction = cFaction
 	currentAmmo = maxAmmo
 
 
@@ -50,7 +52,8 @@ func _on_player_detector_body_entered(body):
 		body.PickUpWeapon(self)
 		position = Vector2.ZERO
 		pickedUpFlag = true
-	
+		
+		
 func ReturnDescription() -> String:
 	return description
 	

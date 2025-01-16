@@ -9,8 +9,9 @@ func _ready():
 	duplicate_flag = true
 	price = 5
 	effect_base_amount = amount
-	item_name = "ChestEnchance"
+	item_name = "ChestEnhancement"
 	display_name = "Chest Enchance"
+	name = item_name
 	item_description = "Increase base armor mod by " + str(EffectAmount()) + " %"
 	evolve_condition_text = "Collect all three enchantments to have Endurance. Endurance: reduce damage by flat amount and decrease the time of status effects"
 	if get_parent() == player.get_node("Item"):

@@ -19,12 +19,12 @@ func process_input(_event : InputEvent) -> State:
 	return null
 		
 func process_physics(_delta: float) -> State:
-	if parent.health <= 0:
+	if parent.stats_dic.health <= 0:
 		return dead_state
 	if parent.player != null:
 		if  parent.player.is_invisible == false && parent.status_dictionary.stun == false:
 			direction = (parent.player.position - parent.position).normalized()
-			parent.velocity = direction * (parent.speed * 0.5 if parent.status_dictionary.slow else parent.speed)
+			parent.velocity = direction * (parent.stats_dic.speed * 0.5 if parent.status_dictionary.slow else parent.stats_dic.speed)
 			if parent.softCollision.IsColliding():
 				parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
 			parent.velocity = parent.velocity if parent.status_dictionary.slow == false else parent.velocity / 2
@@ -49,7 +49,7 @@ func _on_attack_area_entered(area):
 		parent.status_dictionary.stun = true
 		%Attack.get_child(0).call_deferred("set_disabled", true)
 		area.SetStatusPlayer("slow" if parent.evo_flag == false else "stun", 2)
-		area.TakingDamageForPlayer(-parent.sDamage, true if area.get_name() == "Back" else false, parent)
+		area.TakingDamageForPlayer(-parent.stats_dic.damage, true if area.get_name() == "Back" else false, parent)
 		parent.game_manager.AdjustFame(-(parent.game_manager.currentFame * 0.10))
 		%StunTimer.start()
 	

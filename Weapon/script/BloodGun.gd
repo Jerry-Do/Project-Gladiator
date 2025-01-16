@@ -5,12 +5,13 @@ extends Weapon
 var _cMaxAmmo = 10
 var _cRateOfFire = 0.1
 var _cReloadTime = 1.5
+var _cFaction = "biochemical"
 var restore_health_mode = false
 
 func _init():
 	var description = "Consumes health to deal increase damage, right click to switch mode to restore health instead"
 	var w_name = "Bloodgun"
-	super._init("res://Weapon/bullet/BloodBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
+	super._init("res://Weapon/bullet/BloodBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name, _cFaction)
 	
 func _process(delta):
 	super._process(delta)	
@@ -25,7 +26,8 @@ func shoot():
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position = %Shootingpoint.global_position
 	new_bullet.global_rotation = %Shootingpoint.global_rotation
-	%Shootingpoint.add_child(new_bullet)	
+	new_bullet.faction = _cFaction
+	player.get_parent().add_child(new_bullet)	
 	shootFlag = false
 	StartCooldownTimer()
 		

@@ -197,10 +197,12 @@ one_shot = true
 
 [node name="Back" parent="." instance=ExtResource("8_qmrd3")]
 collision_mask = 5
+monitoring = false
 
 [node name="CollisionShape2D" parent="Back" instance=ExtResource("9_tmoh4")]
 position = Vector2(-16, -3.5)
 shape = SubResource("RectangleShape2D_hy6dn")
+disabled = true
 script = null
 
 [node name="Front" type="Area2D" parent="."]
@@ -209,7 +211,7 @@ collision_mask = 5
 script = ExtResource("9_6761q")
 
 [node name="CollisionShape2D" parent="Front" instance=ExtResource("11_7n4bc")]
-position = Vector2(14.5, -5)
+position = Vector2(-0.500008, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -15,6 +15,7 @@ func _ready():
 	price = 60
 	effect_base_amount = amount
 	item_name = "AdrenalineRush"
+	name = item_name
 	display_name = "Adrenaline Rush"
 	item_description = "Increase movement speed by " + str(amount) + " % on enemy killed for" + str(duration) + ". Also grants " \
 	+ str(dmg_amount) + " damage bonus"

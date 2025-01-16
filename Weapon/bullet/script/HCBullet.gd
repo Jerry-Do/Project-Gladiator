@@ -41,13 +41,8 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
-		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false)
+		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, faction,random == crit_chance)
 		if amount <= 0:
 			get_parent().get_parent().get_parent().target_bullet_flag = true
-		if random == crit_chance:
-			var crit_label = preload("res://UI/Critlabel.tscn")
-			var new_label = crit_label.instantiate()
-			get_node("../../../../../../../Level").add_child(new_label)
-			new_label.position = position	
 		queue_free()
 		

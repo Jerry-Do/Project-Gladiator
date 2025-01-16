@@ -1,5 +1,8 @@
 extends Area2D
 class_name BaseBullet
+@onready var game_manager = get_tree().get_first_node_in_group("GameManager")
+@onready var sprite = $Bullet
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 var travelled_dist = 0
 var damage : int
 var speed : int
@@ -7,27 +10,28 @@ var crit_chance
 var leech_seed : bool
 var adrenaline_rush : bool
 const RANGE = 1500
-@onready var game_manager = get_tree().get_first_node_in_group("GameManager")
-@onready var sprite = $Bullet
-@onready var player : Player = get_tree().get_first_node_in_group("player")
+var faction
 
 signal OnEnemyKilled
 
 func _init(_damage, _speed):
-	
 	damage = _damage
 	speed = _speed
 
 
 func _ready():
 	var thing = player.get_node("Item").get_node_or_null("AdrenalineRush")
+	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
+	var event_manager : EventManager = game_manager.get_node("EventManager")
 	if thing != null:
 		adrenaline_rush = true
 		connect("OnEnemyKilled", thing.DoJob)
-	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
 	if ls != null:
 		if ls.active:
 			leech_seed = ls.active
+	if event_manager.event_dict.frenzy_hormone:
+		damage *= 2
+		
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * speed * delta

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cn334nxav1wkm"
+path="res://.godot/imported/LaserBot.aseprite-29736669b215b44939799bdbd6e54e1a.res"
+
+[deps]
+
+source_file="res://Sprite/item/LaserBot.aseprite"
+dest_files=["res://.godot/imported/LaserBot.aseprite-29736669b215b44939799bdbd6e54e1a.res"]
+
+[params]
+

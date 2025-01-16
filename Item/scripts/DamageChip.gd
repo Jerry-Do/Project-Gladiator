@@ -11,6 +11,7 @@ func _ready():
 	effect_base_amount = amount
 	item_name = "DamageChip"
 	display_name = "Damage Chip"
+	name = item_name
 	item_description = "Increase damage mod by " + str(EffectAmount()) + " %"
 	if get_parent() == player.get_node("Item"):
 		DoJob()

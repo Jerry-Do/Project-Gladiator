@@ -7,11 +7,12 @@ var _cRateOfFire = 0.75
 var _cReloadTime = 1.25
 var charge : float = 0
 var max_charge : float = 5.0
+var _cFaction = "biochemical"
 @onready var speed_bar = $SpeedBar
 func _init():
 	var description = "Moving charges up the gun. When fully charged, consume all the charges to deal extra damage"
 	var w_name = "Speed gun"
-	super._init("res://Weapon/bullet/SpeedBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
+	super._init("res://Weapon/bullet/SpeedBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name,_cFaction)
 	
 
 func _ready():
@@ -33,7 +34,8 @@ func shoot():
 			var new_bullet = BULLET.instantiate()
 			new_bullet.global_position = %Shootingpoint.global_position
 			new_bullet.global_rotation = %Shootingpoint.global_rotation
-			%Shootingpoint.add_child(new_bullet)
+			new_bullet.faction = _cFaction
+			player.get_parent().add_child(new_bullet)
 			if round(charge) == round(max_charge):
 				new_bullet.fully_charged = true
 			currentAmmo -=1

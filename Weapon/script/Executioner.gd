@@ -6,11 +6,12 @@ var _cMaxAmmo = 4
 var _cRateOfFire = 1.25
 var _cReloadTime = 2
 var can_use_ability : bool = true
+var _cFaction = "R.I.S.K"
 @onready var cooldown_timer : Timer = $SkillCooldown
 func _init():
 	var description = "Right click to go into stealh mode, killing an enemy refresh the cooldown of the stealth mode. Deals extra damage when attacking from behind an enemy"
 	var w_name = "Executioner"
-	super._init("res://Weapon/bullet/ExecutionerBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name)
+	super._init("res://Weapon/bullet/ExecutionerBullet.tscn", _cRateOfFire, _cMaxAmmo, _cReloadTime, description, w_name, _cFaction)
 	
 func _process(delta):
 	super._process(delta)	
@@ -21,7 +22,8 @@ func shoot():
 		var new_bullet = BULLET.instantiate()
 		new_bullet.global_position = %Shootingpoint.global_position
 		new_bullet.global_rotation = %Shootingpoint.global_rotation
-		%Shootingpoint.add_child(new_bullet)
+		new_bullet.faction = _cFaction
+		player.get_parent().add_child(new_bullet)
 		currentAmmo -=1
 		shootFlag = false
 		StartCooldownTimer()

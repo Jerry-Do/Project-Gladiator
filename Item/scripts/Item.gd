@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name Item
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var player_item = player.get_node("Item")
@@ -7,6 +7,7 @@ class_name Item
 var duplicate_flag : bool
 var faction : String
 var item_name : String
+var critable : bool = false
 var display_name : String
 var evolve_condition_text : String
 var evolve_flag : bool = false

@@ -2,6 +2,7 @@ extends Control
 
 var item_path : String
 @onready var item_sprite = $ItemSprite
+@onready var texture_button = $TextureButton
 @onready var description = %Description
 @onready var price_label = %price
 @onready var faction_label = %faction
@@ -14,14 +15,26 @@ var price
 signal ChooseItem(item_path,item_name,price)
 
 func intialize(new_item_path):
-	var player_item : PlayerItem = game_manager.player.get_node("Item")
 	if new_item_path != null:
-		connect("ChooseItem", game_manager.UpgradeChose)
+		var player_item : PlayerItem = game_manager.player.get_node("Item")
+		if new_item_path != null:
+			connect("ChooseItem", game_manager.UpgradeChose)
 		item_path = new_item_path
 		var item = load(new_item_path)
 		var new_item : Item = item.instantiate()
 		var discount_flag : bool = false
 		add_child(new_item)
+		match new_item.ReturnFaction().to_lower():
+			"biochemical":
+				var normal_texture = preload("res://Sprite/UI/biobutton1.png")
+				var press_texture = preload("res://Sprite/UI/biobutton2.png")
+				texture_button.set_texture_normal(press_texture)
+				texture_button.set_texture_pressed(press_texture)
+			"r.i.s.k":
+				var normal_texture = preload("res://Sprite/UI/gamblebutton1.png")
+				var press_texture = preload("res://Sprite/UI/gamblebutton2.png")
+				texture_button.set_texture_normal(press_texture)
+				texture_button.set_texture_pressed(press_texture)				
 		new_item.item_sprite.hide()
 		item_sprite.texture = new_item.ReturnItemSprite()
 		description.text = new_item.ReturnItemDescription()
@@ -34,10 +47,8 @@ func intialize(new_item_path):
 			if random_no == 1:
 				discount_flag = true
 				price /= 2
-		if player_item.get_node_or_null("LoyaltyCard") != null && player_item .get_node("Item").dominant_type == "tech":
-			var diff = clamp(player_item.item_types.tech - player_item.item_types.biochemical, player_item.item_types.tech - player_item.item_types.biochemical, 3)
-			discount_flag = true
-			price *= (1.0 - (diff * player_item.get_node_or_null("LoyaltyCard").amount) / 100.0)
+		if player_item.get_node_or_null("LoyaltyCard") != null:
+			pass
 		price_label.text = ("Price: " if discount_flag == false else "Discount price: ")  + str(price)
 		if new_item.ReturnEvoText() != null:
 			%EvoCon.text = "EvoCon: " + new_item.ReturnEvoText()

@@ -13,7 +13,7 @@ func _ready():
 	effect_base_amount = amount
 	item_name = "RegenarativeTissue"
 	display_name = "Regenarative Tissue"
-	faction = "Biochemical"
+	name = item_name
 	item_description = "Player regenerates " + str(EffectAmount()) + " health overtime, health regeneration rate is increased when evolved"
 	evolve_condition_text = "Regenerate " + str(evo_amount) + " health"
 	return null

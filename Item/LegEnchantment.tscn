@@ -10,6 +10,8 @@ evolve_amount = 5
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(19, 18.5)
+scale = Vector2(2.1875, 2.15625)
 texture = ExtResource("2_gol0b")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
@@ -27,7 +29,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://Sprite/item/feetenchanment.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "c207ed78e2df9a82cfd3027ccfae400d"
+metadata/_aseprite_wizard_source_file_hash_ = "6374e38d70507cab1944bd4d9c273dcd"
 
 [node name="Timer" type="Timer" parent="."]
 

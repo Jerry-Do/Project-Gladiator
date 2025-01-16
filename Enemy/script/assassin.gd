@@ -8,9 +8,10 @@ var sArmor : float = 1
 var sFameAmount : float = 1
 var wind_up_time : bool =  2
 var sCurrency : int = 3
+var sFaction = "R.I.S.K"
 
 func _init():
-	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount, sCurrency)
+	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount, sCurrency, sFaction)
 	
 
 	
@@ -36,7 +37,7 @@ func PlayerLeft():
 
 func _on_attack_area_entered(area):
 	if(area != null && playerHitBox != null):
-		playerHitBox.TakingDamageForPlayer(-sDamage, true if playerHitBox.get_name() == "Back" else false, self)
+		playerHitBox.TakingDamageForPlayer(-stats_dic.damage, true if playerHitBox.get_name() == "Back" else false, self)
 		game_manager.AdjustFame(-(game_manager.currentFame * 0.10))
 		if evo_flag:
 			game_manager.AdjustCurrency(-(game_manager.currency * 0.10))

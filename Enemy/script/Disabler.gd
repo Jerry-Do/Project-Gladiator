@@ -8,9 +8,10 @@ var sArmor : float = 1
 var sFameAmount : float = 1
 var wind_up_time : bool = 5
 var sCurrency : int = 2
+var sFaction = "tech"
 
 func _init():
-	super._init(sHealth, sSpeed, sDamage, sArmor ,sFameAmount, sCurrency)
+	super._init(sHealth, sSpeed, sDamage, sArmor ,sFameAmount, sCurrency, sFaction, wind_up_time)
 	
 
 	
@@ -20,7 +21,7 @@ func _physics_process(delta):
 func AttackPlayer():
 	$Attack.show()
 	$Attack.get_child(2).play("explosion")
-	$AttackWindup.start(wind_up_time)
+	$AttackWindup.start(stats_dic.windup_time)
 
 func PlayerLeft():
 	inRange = false
@@ -31,5 +32,5 @@ func PlayerLeft():
 func _on_attack_area_entered(area):
 	if area.has_method("SetStatusPlayer"):
 		area.SetStatusPlayer("timeStopDisable", 8)
-		area.TakingDamageForPlayer(-sDamage, true if area.get_name() == "Back" else false, self)
+		area.TakingDamageForPlayer(-stats_dic.damage, true if area.get_name() == "Back" else false, self)
 		game_manager.AdjustFame(-(game_manager.currentFame * 0.10))

@@ -16,6 +16,7 @@ func _ready():
 	effect_base_amount = amount
 	item_name = "Leg Enhancement"
 	display_name = "Leg Enhancement"
+	name = item_name
 	item_description = "Increase the player movement speed by " + str(EffectAmount()) + " %"
 	evolve_condition_text = "Collect all three enchantments to have Endurance. Endurance: reduce damage by flat amount and decrease the time of status effects"
 	if get_parent() == player.get_node("Item"):

@@ -11,7 +11,7 @@ var direction : Vector2
 var turn_flag : bool = false
 func enter() -> void:
 	super()
-	parent.speed = parent.sSpeed
+	parent.stats_dic.speed = parent.sSpeed
 	parent.animation_player.play("run",-1,5)
 
 
@@ -19,19 +19,19 @@ func process_input(_event : InputEvent) -> State:
 	return null
 		
 func process_physics(_delta: float) -> State:
-	if parent.health <= 0:
+	if parent.stats_dic.health <= 0:
 		return dead_state
 	if parent.status_dictionary.stun:
 		return stun_state
 	if parent.player != null:
 		if  parent.player.is_invisible == false:
-			parent.speed = parent.sSpeed
+			parent.stats_dic.speed = parent.sSpeed
 			var direction = (parent.player.position - parent.position).normalized()
 			if parent.playerHitBox != null:
 				return attack_state
-			parent.velocity = direction * parent.speed 
+			parent.velocity = direction * parent.stats_dic.speed 
 			if parent.softCollision.IsColliding():
-				parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
+				parent.velocity += parent.softCollision.GetPushVector() * _delta * 2000	
 			parent.velocity = parent.velocity if parent.status_dictionary.slow == false else parent.velocity / 2
 			parent.move_and_slide()
 		else:

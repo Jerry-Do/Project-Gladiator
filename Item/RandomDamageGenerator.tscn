@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkmaaw22sddh5"]
 
 [ext_resource type="Script" path="res://Item/scripts/RandomDamageGenerator.gd" id="1_bj6uw"]
-[ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_m1wm0"]
+[ext_resource type="Texture2D" uid="uid://vsq47yt3lywt" path="res://Sprite/spriteimage/item/rdg.png" id="2_emwsu"]
 
 [node name="RandomDamageGenerator" type="Node2D"]
 script = ExtResource("1_bj6uw")
@@ -9,7 +9,7 @@ percentage = 25.0
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_m1wm0")
+texture = ExtResource("2_emwsu")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}
@@ -24,6 +24,6 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://Sprite/item/damagemod.aseprite"
+"source": "res://Sprite/item/rdg.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f8791a03ef7482bf266580b93e17571b"
+metadata/_aseprite_wizard_source_file_hash_ = "c0187bbf3ed7aa3762afd016a1cec33b"
