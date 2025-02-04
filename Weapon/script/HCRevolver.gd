@@ -22,7 +22,7 @@ func shoot():
 		new_bullet.position = %Shootingpoint.global_position 
 		new_bullet.rotation = %Shootingpoint.global_rotation
 		new_bullet.faction = _cFaction
-		player.get_parent().add_child(new_bullet)			
+		add_child(new_bullet)			
 		shootFlag = false		
 		currentAmmo -=1
 		StartCooldownTimer()

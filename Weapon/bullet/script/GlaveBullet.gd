@@ -1,12 +1,12 @@
 extends Area2D
-@onready var game_manager = get_node("../../../../GameManager")
+@onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 @onready var player = get_tree().get_first_node_in_group("player")
 var travelled_dist = 0
 var returnFlag : bool 
 @export var damage : int
 @onready var sprite = $Bullet
 var leech_seed
-var faction 
+var faction = "tech"
 func _ready():
 	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
 	if ls != null:

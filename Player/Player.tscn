@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
 [ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
 [ext_resource type="Script" path="res://Player/PlayerItem.gd" id="6_f4342"]
-[ext_resource type="Script" path="res://States/player/TimeStop.gd" id="7_44754"]
 [ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="8_a4w7n"]
 [ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="8_jpsj1"]
 [ext_resource type="PackedScene" uid="uid://b3rt641lalewe" path="res://hitboxes/BackHitbox.tscn" id="8_qmrd3"]
@@ -13,6 +12,7 @@
 [ext_resource type="Script" path="res://Player/TakingDamageForPlayer.gd" id="9_6761q"]
 [ext_resource type="PackedScene" uid="uid://ddr3kchg8b5xo" path="res://hitboxes/Back.tscn" id="9_tmoh4"]
 [ext_resource type="PackedScene" uid="uid://gf8e7mfhnvda" path="res://hitboxes/Front.tscn" id="11_7n4bc"]
+[ext_resource type="Script" path="res://States/player/Dash.gd" id="11_fshry"]
 [ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="13_emvkc"]
 [ext_resource type="PackedScene" uid="uid://c22vb6fmvbg7k" path="res://Player/PlayerStats.tscn" id="14_bvtpy"]
 
@@ -159,43 +159,34 @@ script = ExtResource("6_f4342")
 script = ExtResource("4_qb1iw")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "time_stop_state")]
+[node name="Idle" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dash_state")]
 script = ExtResource("4_wngjq")
 move_state = NodePath("../Move")
-time_stop_state = NodePath("../TimeStop")
+dash_state = NodePath("../Dash")
 
-[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("time_stop_state", "idle_state")]
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("idle_state", "dash_state")]
 script = ExtResource("6_8bmt5")
-time_stop_state = NodePath("../TimeStop")
 idle_state = NodePath("../Idle")
+dash_state = NodePath("../Dash")
 
-[node name="TimeStop" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "time_stop_state", "idle_state")]
+[node name="Dash" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state")]
 unique_name_in_owner = true
-script = ExtResource("7_44754")
+script = ExtResource("11_fshry")
 move_state = NodePath("../Move")
-time_stop_state = NodePath(".")
-idle_state = NodePath("../Idle")
 
 [node name="Timer" type="Node" parent="."]
-
-[node name="DashTimer" type="Timer" parent="Timer"]
-unique_name_in_owner = true
-
-[node name="GhostTimer" type="Timer" parent="Timer"]
-unique_name_in_owner = true
-wait_time = 0.05
-
-[node name="OverheatTimer" type="Timer" parent="Timer"]
-unique_name_in_owner = true
-wait_time = 3.0
-autostart = true
 
 [node name="PerfectTimeSlowTimer" type="Timer" parent="Timer"]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
+[node name="DashCooldown" type="Timer" parent="Timer"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="Back" parent="." instance=ExtResource("8_qmrd3")]
+visible = false
 collision_mask = 5
 monitoring = false
 
@@ -206,6 +197,7 @@ disabled = true
 script = null
 
 [node name="Front" type="Area2D" parent="."]
+visible = false
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("9_6761q")
@@ -235,16 +227,17 @@ scale = Vector2(5.23982, 4.93753)
 shape = SubResource("CircleShape2D_ep4sk")
 
 [node name="PerfectDodgeZone" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 64
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectDodgeZone"]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_dm073")
 
-[connection signal="timeout" from="Timer/DashTimer" to="StateControl/TimeStop" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Timer/GhostTimer" to="StateControl/TimeStop" method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]
+[connection signal="timeout" from="Timer/DashCooldown" to="StateControl/Dash" method="_on_dash_cooldown_timeout"]
 [connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
 [connection signal="area_entered" from="PerfectDodgeZone" to="." method="_on_perfect_dodge_zone_area_entered"]

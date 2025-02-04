@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6vhhlk0sc1fj"]
+
+[ext_resource type="Script" path="res://States/player/TimeStop.gd" id="1_ev5iq"]
+
+[node name="TimeSlow" type="Node"]
+script = ExtResource("1_ev5iq")
+
+[node name="TimeStopRechargeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="OverheatTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="GhostTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="TimeStopRechargeTimer" to="." method="_on_time_stop_recharge_timer_timeout"]
+[connection signal="timeout" from="OverheatTimer" to="." method="_on_overheat_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b05ic4q6mjdwu"]
+
+[ext_resource type="Script" path="res://skills/CocoonSkill.gd" id="1_akrqf"]
+
+[node name="CocoonSkill" type="Node"]
+script = ExtResource("1_akrqf")
+
+[node name="RechargeTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]

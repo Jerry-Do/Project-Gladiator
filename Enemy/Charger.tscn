@@ -149,6 +149,7 @@ scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("8_wpy22")
 
 [node name="Back" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, 20)
 collision_layer = 10
 collision_mask = 11
@@ -161,6 +162,7 @@ disabled = true
 debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
+visible = false
 position = Vector2(-8, 19)
 collision_layer = 10
 collision_mask = 11

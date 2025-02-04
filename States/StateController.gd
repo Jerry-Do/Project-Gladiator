@@ -9,6 +9,7 @@ func init(_parent : Node2D, movement_component):
 	for child in get_children(): 
 		child.parent = _parent
 		child.movement_component = movement_component
+		child.skill_state = get_child(3)
 	change_state(starting_state)
 
 func change_state(new_state : State) -> void:

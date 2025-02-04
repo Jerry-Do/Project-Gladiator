@@ -37,26 +37,30 @@ var buff_dictionary = {
 	"endurance" : false
 }
 var interactable = null
+var can_time_stop : bool = true
 signal CreateDescription(weapon : Weapon)
 	
 func _ready():
 	self.stats.connect("no_health", game_manager.GameOver)
 	connect("CreateDescription", game_manager.CreateWeaponDescription)
 	healthBar.init_health(stats.ReturnHealth())
-	fuelBar.init_fuel(stats.maxDashTime)
+	fuelBar.init_fuel(stats.maxFuel)
+	var skill = load("res://skills/" + SkillPicker.chosen_skill +".tscn")
+	var real = skill.instantiate()
+	state_machine.add_child(real)
 	state_machine.init(self, movement_component)
 	game_manager.player = self
 	
 func _physics_process(delta):
 	state_machine.process_physics(delta)
+	
 	if currentWeapon:
 		currentWeapon.playerDetector.set_monitoring(false)
 		currentWeapon.look_at(get_global_mouse_position())
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		
 func _process(delta):
-	#taking_damage = false
-
+	
 	if Input.is_action_pressed("left_click") :
 		if currentWeapon && status_dictionary.stun == false && currentWeapon.reloadFlag == false:
 			currentWeapon.shoot()	

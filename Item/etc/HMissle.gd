@@ -42,7 +42,7 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
-		var amount = area.TakingDamageForOther(damage, false, faction, random == crit_chance)
+		var amount = area.TakingDamageForOther(damage, false, "tech", random == crit_chance)
 		var explosion = preload("res://Item/etc/ExplosionRange.tscn")
 		var real = explosion.instantiate()
 		real.global_position = global_position

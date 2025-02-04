@@ -35,7 +35,7 @@ func process_physics(_delta: float) -> State:
 			parent.velocity = parent.velocity if parent.status_dictionary.slow == false else parent.velocity / 2
 			parent.move_and_slide()
 		else:
-			parent.speed = 0
+			parent.stats_dic.speed = 0
 	return null
 
 func process_frame(_delta : float) -> State:

@@ -24,7 +24,7 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		lock_on_targets.append(area)
-		if lock_on_targets.is_empty() != true:
+		if lock_on_targets.is_empty() != true && real == null:
 			var laser = preload("res://Item/etc/Laser.tscn")
 			real = laser.instantiate()
 			real.damage = damage

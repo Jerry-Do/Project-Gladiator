@@ -18,9 +18,9 @@ func CreateEvent():
 	if game_manager.currentWave >= no_round_to_activate:
 		for i in event_dict:
 			event_dict[i] = false
-		var randon_no = randi_range(1,4)
-		if randon_no == 4:
-			var event = randi_range(0,event_dict.size()-1)
+		var randon_no = randi_range(1,2)
+		if randon_no == 2:
+			var event = randi_range(1,1)
 			match event:
 				0:
 					event_dict.frenzy_hormone = true

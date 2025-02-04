@@ -2,13 +2,13 @@ extends Node
 class_name Stats
 var rechargeTime: float = 3.0
 var baseArmor: float = 5.0
-var maxHealth: float = 80.0
+var maxHealth: float = 100.0
 var baseSpeed: float = 600.0
 var baseCritChance: float = 0.0
 var baseCritDamage: float = 25.0
 var baseDamageMod: float = 10.0
 var maxExperience: float = 0.0
-var maxDashTime : float = 2.0
+var maxFuel : float = 5
 var maxHealthAllowed = maxHealth
 var stats = {
 	"Level" : 1.0,
@@ -20,7 +20,7 @@ var stats = {
 	"Crit_Chance": baseCritChance,
 	"Crit_Damage" : baseCritDamage,
 	"Speed" : baseSpeed,
-	"Dash_Time" : maxDashTime,
+	"Fuel" : maxFuel,
 	"Recharge_Time" : rechargeTime
 }
 signal health_change
@@ -45,14 +45,14 @@ func SetSpeed(value):
 func ReturnSpeed():
 	return stats.Speed
 
-func SetDashTime(value):
-	stats.Dash_Time += value
+func SetFuel(value):
+	stats.Fuel += value
 	
-func ReturnMaxDashTime():
-	return maxDashTime
+func ReturnMaxFuel():
+	return maxFuel
 	
-func ReturnCurrentDashTime():
-	return stats.Dash_Time 
+func ReturnCurrentFuel():
+	return stats.Fuel 
 	
 func SetBaseDamageMod(amount):
 	stats.Base_Damage_Mod += amount
@@ -60,7 +60,7 @@ func SetBaseDamageMod(amount):
 	SetDamageMod(0)
 	
 func SetDamageMod(amount):
-	stats.Damage_Mod = stats.Base_Damage_Mod + amount
+	stats.Damage_Mod += stats.Base_Damage_Mod + amount
 	
 
 func ReturnDamageMod():

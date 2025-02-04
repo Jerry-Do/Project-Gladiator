@@ -80,6 +80,7 @@ text = "Press F to Fix"
 
 [node name="InteractArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 collision_layer = 32
 collision_mask = 32
 script = ExtResource("3_3d60i")
@@ -89,6 +90,7 @@ unique_name_in_owner = true
 shape = SubResource("CircleShape2D_5mnqc")
 
 [node name="AttackRange" type="Area2D" parent="."]
+visible = false
 collision_layer = 10
 collision_mask = 10
 script = ExtResource("3_3d60i")
@@ -100,6 +102,7 @@ disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]

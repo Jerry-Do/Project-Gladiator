@@ -43,6 +43,6 @@ func _on_area_entered(area):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
 		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, faction,random == crit_chance)
 		if amount <= 0:
-			get_parent().get_parent().get_parent().target_bullet_flag = true
+			get_parent().target_bullet_flag = true
 		queue_free()
 		

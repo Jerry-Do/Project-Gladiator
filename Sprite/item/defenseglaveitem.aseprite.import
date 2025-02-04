@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://chq1qtbyphqym"
+path="res://.godot/imported/defenseglaveitem.aseprite-e724f9caf620a092b401b569b31d29c5.res"
+
+[deps]
+
+source_file="res://Sprite/item/defenseglaveitem.aseprite"
+dest_files=["res://.godot/imported/defenseglaveitem.aseprite-e724f9caf620a092b401b569b31d29c5.res"]
+
+[params]
+

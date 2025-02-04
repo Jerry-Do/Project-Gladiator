@@ -90,7 +90,7 @@ autostart = true
 unique_name_in_owner = true
 position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Summoner.tscn"]
-maxAllow = 5
+maxAllow = 0
 
 [node name="s1" parent="GameManager/Spawner" index="1"]
 position = Vector2(-456, -160)
