@@ -1,14 +1,5 @@
-Timer
 RichTextLabel
-Area2D
-CharacterBody2D
-CollisionPolygon2D
-Line2D
-RayCast2D
+Timer
+EventManager
 CollisionShape2D
-Sprite2D
-Marker2D
-Node2D
-TileMapLayer
-Node
-AnimationPlayer
+Area2D

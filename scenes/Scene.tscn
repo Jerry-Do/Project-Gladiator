@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=4 uid="uid://d370fajn62la7"]
 
-[ext_resource type="Script" path="res://managers/GameManager.gd" id="2_3k0w7"]
+[ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
-[ext_resource type="Script" path="res://managers/spawner/PlayerSpawner.gd" id="3_4a00c"]
+[ext_resource type="Script" uid="uid://cvukqfnjnvkdu" path="res://managers/spawner/PlayerSpawner.gd" id="3_4a00c"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://managers/spawner/spawner.tscn" id="4_gl8g4"]
-[ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/ui.tscn" id="5_m2sr4"]
-[ext_resource type="Script" path="res://managers/EventManagers.gd" id="6_irc80"]
+[ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://ui.tscn" id="5_m2sr4"]
+[ext_resource type="Script" uid="uid://qwno6dwhfodv" path="res://managers/EventManagers.gd" id="6_irc80"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
-[ext_resource type="Script" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
+[ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -90,7 +90,7 @@ autostart = true
 unique_name_in_owner = true
 position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Summoner.tscn"]
-maxAllow = 0
+maxAllow = 5
 
 [node name="s1" parent="GameManager/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -110,32 +110,36 @@ position = Vector2(-1, 0)
 script = ExtResource("7_lagx3")
 environment_props = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn"]
 mega_struct_props = ["res://environment/MaterialCollectionTower.tscn", "res://environment/DataCollectionTower.tscn"]
+max_props = 9
 
 [node name="EnvironmentSpawnPoints" type="Node" parent="GameManager/EnvironmentSpawner"]
 
 [node name="e1" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(186, 207)
+position = Vector2(36, -29)
 
 [node name="e2" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(1196, 98)
+position = Vector2(1295, -18)
 
 [node name="e3" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(100, 481)
+position = Vector2(70, 603)
 
 [node name="e4" type="Node2D" parent="GameManager/EnvironmentSpawner/EnvironmentSpawnPoints"]
-position = Vector2(1227, 561)
+position = Vector2(1248, 600)
 
 [node name="MegaStruct" type="Node2D" parent="GameManager/EnvironmentSpawner"]
 position = Vector2(582, 290)
 
-[node name="EventManager" type="Node2D" parent="GameManager"]
-script = ExtResource("6_irc80")
-no_round_to_activate = 1
-orbital_strike_wait_time = 1.5
-
-[node name="EventTimer" type="Timer" parent="GameManager/EventManager"]
-wait_time = 1.75
+[node name="Timer" type="Timer" parent="GameManager/EnvironmentSpawner"]
+wait_time = 5.0
 autostart = true
+
+[node name="EventManager" type="Node" parent="GameManager"]
+script = ExtResource("6_irc80")
+no_round_to_activate = 7
+orbital_strike_wait_time = 1.0
+metadata/_custom_type_script = "uid://qwno6dwhfodv"
+
+[node name="Timer" type="Timer" parent="GameManager/EventManager"]
 
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
@@ -150,6 +154,7 @@ script = ExtResource("3_4a00c")
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]
 [connection signal="timeout" from="GameManager/RoundTimer" to="GameManager" method="_on_round_timer_timeout"]
-[connection signal="timeout" from="GameManager/EventManager/EventTimer" to="GameManager/EventManager" method="_on_event_timer_timeout"]
+[connection signal="timeout" from="GameManager/EnvironmentSpawner/Timer" to="GameManager/EnvironmentSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="GameManager/EventManager/Timer" to="GameManager/EventManager" method="_on_timer_timeout"]
 
 [editable path="GameManager/Spawner"]

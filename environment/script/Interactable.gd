@@ -1,4 +1,4 @@
-extends Node2D
+extends EnvironmentProps
 class_name Interactable
 
 @onready var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager")

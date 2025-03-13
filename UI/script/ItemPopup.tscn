@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0rqrocxgq7n6"]
 
-[ext_resource type="Script" path="res://UI/script/ItemPopup.gd" id="1_53v5p"]
+[ext_resource type="Script" uid="uid://xerd5vachqsk" path="res://UI/script/ItemPopup.gd" id="1_53v5p"]
 [ext_resource type="Texture2D" uid="uid://bjtwrgcjspckg" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X1/Card X1.png" id="1_l1j80"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4mvdr"]

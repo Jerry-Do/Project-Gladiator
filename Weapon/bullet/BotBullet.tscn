@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwipyn5n6oph6"]
 
-[ext_resource type="Script" path="res://Weapon/bullet/script/BotBullet.gd" id="1_wro77"]
+[ext_resource type="Script" uid="uid://c465okrpeer3g" path="res://Weapon/bullet/script/BotBullet.gd" id="1_wro77"]
 [ext_resource type="Texture2D" uid="uid://dn3mlfydct62y" path="res://Sprite/Player/Bullet.png" id="2_qwxse"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]

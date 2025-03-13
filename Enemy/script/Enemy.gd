@@ -32,7 +32,7 @@ var animation_player : AnimationPlayer = $AnimationPlayer
 
 signal OnDeath(enemy)
 
-var health_bar : HealthBar
+#var health_bar : HealthBar
 var flipped : bool = false
 var stats_dic = {
 	"health" : 0,
@@ -45,7 +45,7 @@ var faction : String = ""
 var fameAmount : int
 var chase: bool
 var inRange: bool = false
-var playerHitBox : Node2D
+var thingHitBox : Node2D
 var level : int
 var evo_flag : bool = false
 var is_target = false
@@ -61,9 +61,10 @@ var status_dictionary = {
 }
 var status_timers : Array
 var timer_counters = 0
+##TODO: create stats calculator for enemies, for when frenzy hormone event and risky business
 func _init(health: int, speed: float, damage: float, armor : float ,fame : int, currency : int, faction : String, windup_time : float):
 	self.stats_dic.health = health
-	self.stats_dic.speed = speed * (1.5 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
+	self.stats_dic.speed = speed / 2 * (1.5 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
 	self.stats_dic.damage = damage
 	self.fameAmount = 1 * (2 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
 	self.stats_dic.armor = armor
@@ -72,12 +73,12 @@ func _init(health: int, speed: float, damage: float, armor : float ,fame : int, 
 	self.faction = faction
 	
 func _ready() -> void:
-	health_bar = $Healthbar
+	#health_bar = $Healthbar
 	LevelUp()
 	state_manager.init(self, movement_controller)	
-	health_bar.init_health(self.stats_dic.health)
-	if player.get_node("Item").get_node_or_null("BrainChip") != null:
-		health_bar.show()
+	#health_bar.init_health(self.stats_dic.health)
+	#if player.get_node("Item").get_node_or_null("BrainChip") != null:
+		#health_bar.show()
 
 	
 func _physics_process(delta: float):
@@ -97,7 +98,7 @@ func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool
 	amount /= ( 1 + (stats_dic.armor/2.0)/ 100.0)
 	CreateDamageLabel(amount, crit)
 	stats_dic.health -= amount
-	health_bar._set_health(stats_dic.health)
+	#health_bar._set_health(stats_dic.health)
 	return stats_dic.health
 
 func CreateDamageLabel(amount : float, crit : bool):
@@ -156,8 +157,7 @@ func OnDead():
 	var extra_material_amount = 0
 	if player.get_node("Item").get_node_or_null("GamblerDice") != null:
 		extra_material_amount = randi_range(0, player.get_node("Item").get_node_or_null("GamblerDice").amount)
-	game_manager.AdjustCurrency(currency_amount + extra_material_amount)	
-	OnDeath.emit(self)
-
+	game_manager.AdjustCurrency(currency_amount + extra_material_amount)
+	player.get_node("StateControl").get_node_or_null("Dash").ResetDash()
 
 	

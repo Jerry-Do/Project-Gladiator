@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3myfqjlj6tdm"]
 
-[ext_resource type="Script" path="res://Sprite/Ghost.gd" id="1_65sbm"]
+[ext_resource type="Script" uid="uid://cyuli4y4usk3g" path="res://Sprite/Ghost.gd" id="1_65sbm"]
 
 [node name="Ghost" type="Sprite2D"]
 scale = Vector2(2, 2)

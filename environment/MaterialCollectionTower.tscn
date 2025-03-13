@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhvknet5e4r06"]
 
-[ext_resource type="Script" path="res://environment/script/MaterialCollectionPlant.gd" id="1_fchbk"]
+[ext_resource type="Script" uid="uid://b3slgdfeq1r6j" path="res://environment/script/MaterialCollectionPlant.gd" id="1_fchbk"]
 [ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_w15fr"]
-[ext_resource type="Script" path="res://environment/script/InteractArea.gd" id="3_a4fqi"]
+[ext_resource type="Script" uid="uid://cfwrliq4uyowa" path="res://environment/script/InteractArea.gd" id="3_a4fqi"]
 [ext_resource type="Texture2D" uid="uid://bkf4cepd2to10" path="res://environment/circle.png" id="4_rwipp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
@@ -11,7 +11,7 @@ radius = 34.2345
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnuey"]
 radius = 798.214
 
-[node name="MaterialCollectionTower" type="Node2D" groups=["environment"]]
+[node name="MaterialCollectionTower" type="Area2D" groups=["environment"]]
 script = ExtResource("1_fchbk")
 base_required_amount = 5
 

@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 class_name Player
 
@@ -13,14 +14,14 @@ class_name Player
 @onready var movement_component = $MovementComponent
 @onready var stats : Stats = $Stats
 @onready var perfect_dodge_timer = %PerfectTimeSlowTimer
+@onready var state_controller = $StateControl
 @export var max_speed: int = 100
 
+var just_dash : bool = false
 var perfect_dogde_collided : bool = false
 var perfect_time_stop_state = false
 var shield_amount : int
 var currentWeapon: Weapon
-var direction : Vector2
-var currentItem: Node2D
 var invincibleState : bool = false
 var recharge_flag : bool = false
 var taking_damage : bool = false
@@ -31,13 +32,15 @@ var left_click_pressed : bool = false
 var status_dictionary = {
 	"stun" : false,
 	"timeStopDisable" : false,
-	"slow" : false
+	"slow" : false,
+	"overheat" : false
 }
 var buff_dictionary = {
 	"endurance" : false
 }
 var interactable = null
 var can_time_stop : bool = true
+var dash_charges : float = 1
 signal CreateDescription(weapon : Weapon)
 	
 func _ready():
@@ -53,15 +56,14 @@ func _ready():
 	
 func _physics_process(delta):
 	state_machine.process_physics(delta)
-	
 	if currentWeapon:
 		currentWeapon.playerDetector.set_monitoring(false)
 		currentWeapon.look_at(get_global_mouse_position())
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
+		just_dash = false
 		
 func _process(delta):
-	
-	if Input.is_action_pressed("left_click") :
+	if Input.is_action_pressed("left_click"):
 		if currentWeapon && status_dictionary.stun == false && currentWeapon.reloadFlag == false:
 			currentWeapon.shoot()	
 			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
@@ -74,13 +76,6 @@ func _input(event):
 			currentWeapon.UseGunAbility()
 		if event.is_action_pressed("reload"):
 			currentWeapon.StartReloadTimer()
-	if currentItem: 
-		if event.is_action_pressed("ui_use_relic"):
-			currentItem.Use()
-			itemNode.remove_child(currentItem)
-			currentItem.queue_free()
-			currentItem = null
-			game_manager.UpdateItemSprite(null)
 	if interactable:
 		if event.is_action_pressed("interact"):
 			interactable.Interaction()

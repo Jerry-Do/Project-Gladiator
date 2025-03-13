@@ -1,8 +1,8 @@
-extends Interactable
+extends MegaStruct
 
 @export var base_required_amount : int = 0
 var enemies : Array = []
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 var success : bool = false
 var done : bool = false
 var amount : int = 0
@@ -37,6 +37,7 @@ func _on_timer_timeout():
 	$TimerLabel.text = text
 	$AmountLabel.hide()
 	done = true
+	queue_free()
 		
 
 

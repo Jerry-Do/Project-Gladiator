@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx7hgp3kdwno"]
 
-[ext_resource type="Script" path="res://Item/scripts/EnergyCell.gd" id="1_6ii20"]
+[ext_resource type="Script" uid="uid://ge5u0lfebgaf" path="res://Item/scripts/EnergyCell.gd" id="1_6ii20"]
 [ext_resource type="Texture2D" uid="uid://dfhqwpp2n32uj" path="res://Sprite/spriteimage/item/energycell.png" id="2_p64p6"]
 
 [node name="EnergyCell" type="Node2D"]

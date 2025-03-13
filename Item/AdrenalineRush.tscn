@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4rayiejdtcv0"]
 
-[ext_resource type="Script" path="res://Item/scripts/AdrenalineRush.gd" id="1_01pgl"]
+[ext_resource type="Script" uid="uid://cy6cu8dbepd8i" path="res://Item/scripts/AdrenalineRush.gd" id="1_01pgl"]
 [ext_resource type="Texture2D" uid="uid://l5tuv4hws30k" path="res://Sprite/spriteimage/item/adrenalinerush.png" id="2_fexkh"]
 
 [node name="AdrenalineRush" type="Node2D"]

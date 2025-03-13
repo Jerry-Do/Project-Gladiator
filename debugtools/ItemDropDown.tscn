@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpninsm3bsivs"]
 
-[ext_resource type="Script" path="res://debugtools/scripts/ItemDropDown.gd" id="1_2rr2y"]
+[ext_resource type="Script" uid="uid://hq3smm8jl77t" path="res://debugtools/scripts/ItemDropDown.gd" id="1_2rr2y"]
 
 [node name="DropDown" type="Control"]
 layout_mode = 3
@@ -18,7 +18,7 @@ layout_mode = 0
 offset_top = 2.0
 offset_right = 228.0
 offset_bottom = 218.0
-item_count = 21
+item_count = 23
 item_0/text = "HealthKit"
 item_1/text = "BerserkerArmguard"
 item_2/text = "BerserkerChestplate"
@@ -40,6 +40,8 @@ item_17/text = "RandomDamageGenerator"
 item_18/text = "R.W.G"
 item_19/text = "DefenseGlave"
 item_20/text = "LaserArmItem"
+item_21/text = "Pauldron"
+item_22/text = "DashRecovery"
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

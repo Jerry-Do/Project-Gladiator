@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://clbvrgkofoh0o"]
 
-[ext_resource type="Script" path="res://Item/scripts/ChestEnchantment.gd" id="1_tslby"]
+[ext_resource type="Script" uid="uid://ngsx2hhl58t" path="res://Item/scripts/ChestEnchantment.gd" id="1_tslby"]
 [ext_resource type="Texture2D" uid="uid://skuipnygih1g" path="res://Sprite/spriteimage/item/chestenhancement.png" id="2_pue1g"]
 
 [node name="ChestEnhancement" type="Node2D"]

@@ -1,4 +1,4 @@
-extends Interactable
+extends MegaStruct
 
 var success : bool = false
 var done : bool = false
@@ -11,7 +11,8 @@ func _process(delta):
 	if interacted && done == false:
 		var actualString =  "%d" % $Timer.time_left 
 		$TimerLabel.text = "Time: " + actualString
-		
+	if done:
+		queue_free()
 		
 
 func _on_border_area_exited(area):

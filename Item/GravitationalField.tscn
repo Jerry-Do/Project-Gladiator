@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cn5u62841560f"]
 
-[ext_resource type="Script" path="res://Item/scripts/GravitationalField.gd" id="1_561lv"]
+[ext_resource type="Script" uid="uid://bo2a8hjo762mi" path="res://Item/scripts/GravitationalField.gd" id="1_561lv"]
 [ext_resource type="Texture2D" uid="uid://frn61bvkvvd2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f0.png" id="2_skfow"]
 [ext_resource type="Texture2D" uid="uid://e3dvduh1qasd" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f1.png" id="3_853qn"]
 [ext_resource type="Texture2D" uid="uid://pd8s0pqce2ye" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f2.png" id="4_i5bhf"]
@@ -89,8 +89,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8gqf"]
 _data = {
-"RESET": SubResource("Animation_cd68o"),
-"emit": SubResource("Animation_fymlx")
+&"RESET": SubResource("Animation_cd68o"),
+&"emit": SubResource("Animation_fymlx")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gy3d"]

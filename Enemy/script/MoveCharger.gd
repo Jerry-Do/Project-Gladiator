@@ -64,8 +64,8 @@ func _on_stun_timer_timeout():
 
 
 func _on_attack_body_entered(body):
-	if body.has_method("SetCollisionShapeDisabled"):
-		body.call_deferred("SetCollisionShapeDisabled")
+	if body.has_method("DestroyProps"):
+		body.call_deferred("DestroyProp")
 		parent.status_dictionary.stun = true
 		%Attack.get_child(0).call_deferred("set_disabled", true)
 		%StunTimer.start()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddspe3b3a4vrq"]
 
-[ext_resource type="Script" path="res://Enemy/script/EnemySpawnPoint.gd" id="1_5r8bl"]
+[ext_resource type="Script" uid="uid://brh6ryo8smyro" path="res://Enemy/script/EnemySpawnPoint.gd" id="1_5r8bl"]
 [ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="2_q56kv"]
 
 [node name="EnemySpawnPoint" type="Node2D"]

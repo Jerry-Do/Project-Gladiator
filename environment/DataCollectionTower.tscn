@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3wtor7rbs2ni"]
 
-[ext_resource type="Script" path="res://environment/script/DataCollectionTower.gd" id="1_mxrl2"]
+[ext_resource type="Script" uid="uid://birorq0qoqx60" path="res://environment/script/DataCollectionTower.gd" id="1_mxrl2"]
 [ext_resource type="Texture2D" uid="uid://b51ay7wnxcb4i" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="2_sf2om"]
-[ext_resource type="Script" path="res://environment/script/InteractArea.gd" id="3_70txc"]
+[ext_resource type="Script" uid="uid://cfwrliq4uyowa" path="res://environment/script/InteractArea.gd" id="3_70txc"]
 [ext_resource type="Texture2D" uid="uid://bkf4cepd2to10" path="res://environment/circle.png" id="4_n2rj4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mnqc"]
@@ -11,7 +11,7 @@ radius = 34.2345
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnuey"]
 radius = 756.292
 
-[node name="DataCollectionTower" type="Node2D" groups=["environment"]]
+[node name="DataCollectionTower" type="Area2D" groups=["environment"]]
 script = ExtResource("1_mxrl2")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
@@ -82,5 +82,4 @@ shape = SubResource("CircleShape2D_xnuey")
 disabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Border" to="." method="_on_border_area_entered"]
 [connection signal="area_exited" from="Border" to="." method="_on_border_area_exited"]

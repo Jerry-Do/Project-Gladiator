@@ -38,7 +38,7 @@ func _on_area_entered(area):
 	var random = 0
 	var crit_chance = 100 - player.stats.ReturnCritChance()
 	if player.can_crit:
-		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
+		random = RandomNumberGenerator.new().randi_range(1, crit_chance + 1)
 	if area.has_method("TakingDamageForOther"):
 		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
 		var amount = area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, faction,random == crit_chance)

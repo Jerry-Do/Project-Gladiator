@@ -5,7 +5,7 @@ extends Node
 var animation_name : String
 
 
-var parent : Player
+var parent : Node2D
 
 var movement_component
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DropResource" load_steps=3 format=3 uid="uid://ds11pnvyhu65"]
+
+[ext_resource type="Script" uid="uid://cp8ebhkvpitaf" path="res://drops/resource/drop_resource.gd" id="1_2yial"]
+[ext_resource type="Texture2D" uid="uid://bo6do3bqvguwp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/potion_red.png" id="2_jqawt"]
+
+[resource]
+script = ExtResource("1_2yial")
+name = "AmmoPack"
+texture = ExtResource("2_jqawt")
+amount = 25

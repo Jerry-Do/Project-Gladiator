@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://fi7wr8xetsfl"]
 
-[ext_resource type="Script" path="res://Weapon/script/Glave.gd" id="1_fjs7d"]
+[ext_resource type="Script" uid="uid://8awhqoo1374x" path="res://Weapon/script/Glave.gd" id="1_fjs7d"]
 [ext_resource type="Texture2D" uid="uid://ctd1lxbhmn5r6" path="res://Sprite/Player/bomerang.png" id="2_yb4la"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]

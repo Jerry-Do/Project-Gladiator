@@ -1,0 +1,243 @@
+[gd_scene load_steps=33 format=3 uid="uid://j7b5738f8mjj"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_ascps"]
+[ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
+[ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
+[ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
+[ext_resource type="Script" path="res://Player/PlayerItem.gd" id="6_f4342"]
+[ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="8_a4w7n"]
+[ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="8_jpsj1"]
+[ext_resource type="PackedScene" uid="uid://b3rt641lalewe" path="res://hitboxes/BackHitbox.tscn" id="8_qmrd3"]
+[ext_resource type="Script" path="res://States/player/Movement_getter.gd" id="8_w4ebw"]
+[ext_resource type="Script" path="res://Player/TakingDamageForPlayer.gd" id="9_6761q"]
+[ext_resource type="PackedScene" uid="uid://ddr3kchg8b5xo" path="res://hitboxes/Back.tscn" id="9_tmoh4"]
+[ext_resource type="PackedScene" uid="uid://gf8e7mfhnvda" path="res://hitboxes/Front.tscn" id="11_7n4bc"]
+[ext_resource type="Script" path="res://States/player/Dash.gd" id="11_fshry"]
+[ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="13_emvkc"]
+[ext_resource type="PackedScene" uid="uid://c22vb6fmvbg7k" path="res://Player/PlayerStats.tscn" id="14_bvtpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_polg6"]
+atlas = ExtResource("8_jpsj1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iralx"]
+atlas = ExtResource("8_jpsj1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klfk3"]
+atlas = ExtResource("8_jpsj1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8jow"]
+atlas = ExtResource("8_jpsj1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk35x"]
+atlas = ExtResource("8_jpsj1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekbfd"]
+atlas = ExtResource("8_jpsj1")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imndk"]
+atlas = ExtResource("8_a4w7n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrce3"]
+atlas = ExtResource("8_a4w7n")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tm6f"]
+atlas = ExtResource("8_a4w7n")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceep2"]
+atlas = ExtResource("8_a4w7n")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uugn"]
+atlas = ExtResource("8_a4w7n")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on6a2"]
+atlas = ExtResource("8_a4w7n")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxp6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_polg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iralx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klfk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8jow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk35x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekbfd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imndk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrce3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tm6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceep2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uugn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on6a2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6dn"]
+size = Vector2(26, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmgx"]
+size = Vector2(35, 43)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ep4sk"]
+radius = 21.5894
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm073"]
+size = Vector2(80, 77)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-61, -29)
+collision_layer = 5
+collision_mask = 5
+up_direction = Vector2(0, 1)
+script = ExtResource("1_ascps")
+
+[node name="Stats" parent="." groups=["player"] instance=ExtResource("14_bvtpy")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -5)
+scale = Vector2(4.9375, 4.25)
+sprite_frames = SubResource("SpriteFrames_yxp6f")
+animation = &"run"
+speed_scale = 2.0
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("8_w4ebw")
+
+[node name="Weapon" type="Node2D" parent="."]
+z_index = 1
+scale = Vector2(1.5, 1.5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, -1)
+
+[node name="Item" type="Node2D" parent="."]
+position = Vector2(-2, -5)
+script = ExtResource("6_f4342")
+
+[node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("4_qb1iw")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dash_state")]
+script = ExtResource("4_wngjq")
+move_state = NodePath("../Move")
+dash_state = NodePath("../Dash")
+
+[node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("idle_state", "dash_state")]
+script = ExtResource("6_8bmt5")
+idle_state = NodePath("../Idle")
+dash_state = NodePath("../Dash")
+
+[node name="Dash" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state")]
+unique_name_in_owner = true
+script = ExtResource("11_fshry")
+move_state = NodePath("../Move")
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="PerfectTimeSlowTimer" type="Timer" parent="Timer"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="Timer"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Back" parent="." instance=ExtResource("8_qmrd3")]
+visible = false
+collision_mask = 5
+monitoring = false
+
+[node name="CollisionShape2D" parent="Back" instance=ExtResource("9_tmoh4")]
+position = Vector2(-16, -3.5)
+shape = SubResource("RectangleShape2D_hy6dn")
+disabled = true
+script = null
+
+[node name="Front" type="Area2D" parent="."]
+visible = false
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("9_6761q")
+
+[node name="CollisionShape2D" parent="Front" instance=ExtResource("11_7n4bc")]
+position = Vector2(-0.500008, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, -5.5)
+shape = SubResource("RectangleShape2D_1bmgx")
+
+[node name="Target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -0.5)
+scale = Vector2(2.625, 2.5625)
+texture = ExtResource("13_emvkc")
+
+[node name="InteractionRange" type="Area2D" parent="."]
+visible = false
+collision_layer = 32
+collision_mask = 32
+
+[node name="InteractionRange" type="CollisionShape2D" parent="InteractionRange"]
+position = Vector2(2, -2)
+scale = Vector2(5.23982, 4.93753)
+shape = SubResource("CircleShape2D_ep4sk")
+
+[node name="PerfectDodgeZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 64
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectDodgeZone"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_dm073")
+
+[connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]
+[connection signal="timeout" from="Timer/DashCooldown" to="StateControl/Dash" method="_on_dash_cooldown_timeout"]
+[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
+[connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
+[connection signal="area_entered" from="PerfectDodgeZone" to="." method="_on_perfect_dodge_zone_area_entered"]

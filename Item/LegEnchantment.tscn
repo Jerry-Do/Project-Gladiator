@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c84h40rww2vs2"]
 
-[ext_resource type="Script" path="res://Item/scripts/FeetEnchanment.gd" id="1_4ixsi"]
+[ext_resource type="Script" uid="uid://oh3bbi0ysgvu" path="res://Item/scripts/FeetEnchanment.gd" id="1_4ixsi"]
 [ext_resource type="Texture2D" uid="uid://c2dd2sdusft72" path="res://Sprite/spriteimage/item/feetenchanment.png" id="2_gol0b"]
 
 [node name="LegEnhancement" type="Node2D"]

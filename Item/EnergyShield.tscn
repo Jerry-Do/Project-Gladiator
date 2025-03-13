@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr4o2n2gq4tem"]
 
-[ext_resource type="Script" path="res://Item/scripts/shield.gd" id="1_3uiw5"]
+[ext_resource type="Script" uid="uid://ch35dihwb3nko" path="res://Item/scripts/shield.gd" id="1_3uiw5"]
 [ext_resource type="Texture2D" uid="uid://cckfm63ufqh55" path="res://Sprite/spriteimage/item/energyshield.png" id="2_5h38f"]
 [ext_resource type="Texture2D" uid="uid://frn61bvkvvd2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f0.png" id="3_glan1"]
 
@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qndm"]
 _data = {
-"RESET": SubResource("Animation_tjju0"),
-"explode": SubResource("Animation_4d4wa")
+&"RESET": SubResource("Animation_tjju0"),
+&"explode": SubResource("Animation_4d4wa")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrnbq"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btl660clt1nrk"]
 
-[ext_resource type="Script" path="res://Weapon/bullet/script/ExecutionerBullet.gd" id="1_iwat8"]
+[ext_resource type="Script" uid="uid://dpc746m2sxeyw" path="res://Weapon/bullet/script/ExecutionerBullet.gd" id="1_iwat8"]
 [ext_resource type="Texture2D" uid="uid://dn3mlfydct62y" path="res://Sprite/Player/Bullet.png" id="2_hcpj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]

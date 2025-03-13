@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8puv2f4j3ahw"]
 
 [ext_resource type="Texture2D" uid="uid://b8bvxpeclmtfv" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/3.png" id="1_d1tev"]
-[ext_resource type="Script" path="res://Item/etc/Laser.gd" id="2_2g7ss"]
+[ext_resource type="Script" uid="uid://1e62ih13fo6i" path="res://Item/etc/Laser.gd" id="2_2g7ss"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_m4t86"]
 b = Vector2(0, 0)

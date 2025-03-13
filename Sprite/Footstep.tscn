@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://wb22q71x3blb"]
 
-[ext_resource type="Script" path="res://Sprite/Footstep.gd" id="2_65csy"]
+[ext_resource type="Script" uid="uid://dtp64x4mm626j" path="res://Sprite/Footstep.gd" id="2_65csy"]
 
 [sub_resource type="Curve" id="Curve_3gjjh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.343284, 0.97), 0.0, 0.0, 0, 0, Vector2(0.570895, 0.68), 0.0, 0.0, 0, 0, Vector2(0.742537, 0), 0.0, 0.0, 0, 0]

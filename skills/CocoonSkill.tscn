@@ -1,10 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://b05ic4q6mjdwu"]
 
-[ext_resource type="Script" path="res://skills/CocoonSkill.gd" id="1_akrqf"]
+[ext_resource type="Script" uid="uid://dyalso4gr6v37" path="res://skills/CocoonSkill.gd" id="1_akrqf"]
 
 [node name="CocoonSkill" type="Node"]
 script = ExtResource("1_akrqf")
+consume_rate = 100.0
 
 [node name="RechargeTimer" type="Timer" parent="."]
 
+[node name="OverheatTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]
+[connection signal="timeout" from="OverheatTimer" to="." method="_on_overheat_timer_timeout"]

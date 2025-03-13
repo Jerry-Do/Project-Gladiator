@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhk1j7p4h5at8"]
 
-[ext_resource type="Script" path="res://Item/scripts/LoyaltyCard.gd" id="1_gyju5"]
+[ext_resource type="Script" uid="uid://r4c4ooqofqbo" path="res://Item/scripts/LoyaltyCard.gd" id="1_gyju5"]
 [ext_resource type="Texture2D" uid="uid://dc5h18u0hlfsk" path="res://resource/16x16 RPG Item Pack/Item__50.png" id="2_w3r0x"]
 
 [node name="LoyaltyCard" type="Node2D"]

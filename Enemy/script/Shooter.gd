@@ -21,7 +21,7 @@ func _physics_process(delta):
 	if player != null:
 		aim.set_rotation(get_angle_to(player.position) * scale.y)
 
-func AttackPlayer():
+func Attack():
 	player.target_sprite.show()
 	var BULLET = preload("res://Enemy/etc/EnemyBullet.tscn")
 	var new_bullet = BULLET.instantiate()
@@ -34,6 +34,6 @@ func AttackPlayer():
 
 func PlayerLeft():
 	inRange = false
-	playerHitBox = null
+	thingHitBox = null
 	if player != null:
 		player.target_sprite.hide()

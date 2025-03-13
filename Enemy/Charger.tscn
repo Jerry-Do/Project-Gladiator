@@ -1,14 +1,14 @@
 [gd_scene load_steps=25 format=3 uid="uid://1m8txa8wqk3b"]
 
-[ext_resource type="Script" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
+[ext_resource type="Script" uid="uid://cp7mdmn6uqv3r" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_ofscd"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="3_5raok"]
-[ext_resource type="Script" path="res://Enemy/script/MoveCharger.gd" id="4_k7a44"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="5_qldku"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="3_5raok"]
+[ext_resource type="Script" uid="uid://cskxtrru8gnf4" path="res://Enemy/script/MoveCharger.gd" id="4_k7a44"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="5_qldku"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_wpy22"]
-[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_qjxfl"]
+[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_qjxfl"]
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="13_ds7dx"]
-[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="14_d04a0"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="14_d04a0"]
 [ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="14_yvax3"]
 [ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="15_pomqu"]
 [ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="16_hrpgh"]
@@ -83,9 +83,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5yv68"]
 _data = {
-"RESET": SubResource("Animation_kr35j"),
-"idle": SubResource("Animation_ldv1r"),
-"run": SubResource("Animation_f14eg")
+&"RESET": SubResource("Animation_kr35j"),
+&"idle": SubResource("Animation_ldv1r"),
+&"run": SubResource("Animation_f14eg")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ylwy"]

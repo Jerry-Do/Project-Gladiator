@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://chi4wi2x61hpp"]
 
 [ext_resource type="Texture2D" uid="uid://d4bm24brxo1bn" path="res://events/orbitalstrike.png" id="1_pehha"]
-[ext_resource type="Script" path="res://events/scripts/OrbitalStrike.gd" id="1_wxbee"]
+[ext_resource type="Script" uid="uid://ba8ruyyxp7d25" path="res://events/scripts/OrbitalStrike.gd" id="1_wxbee"]
 [ext_resource type="Texture2D" uid="uid://bmyspkf87jk27" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_2.png" id="3_xvrx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf4fr"]
@@ -76,8 +76,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fgam7"]
 _data = {
-"RESET": SubResource("Animation_7ob7v"),
-"strike": SubResource("Animation_oh613")
+&"RESET": SubResource("Animation_7ob7v"),
+&"strike": SubResource("Animation_oh613")
 }
 
 [node name="OrbitalStrike" type="Area2D"]

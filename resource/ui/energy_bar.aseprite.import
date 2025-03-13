@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://df0jupvih8mxe"
+path="res://.godot/imported/energy_bar.aseprite-747712f938813a7c127e38885a85bb5d.res"
+
+[deps]
+
+source_file="res://resource/ui/energy_bar.aseprite"
+dest_files=["res://.godot/imported/energy_bar.aseprite-747712f938813a7c127e38885a85bb5d.res"]
+
+[params]
+

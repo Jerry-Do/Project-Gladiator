@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq8y6ejpumynt"]
 
-[ext_resource type="Script" path="res://Item/scripts/GamblersDice.gd" id="1_en2nr"]
+[ext_resource type="Script" uid="uid://dqtkxuie3oeif" path="res://Item/scripts/GamblersDice.gd" id="1_en2nr"]
 [ext_resource type="Texture2D" uid="uid://85lo03mlleu6" path="res://Sprite/spriteimage/item/gamblerdice.png" id="2_i08bo"]
 
 [node name="GamblerDice" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgubp2djgpd61"]
 
-[ext_resource type="Script" path="res://Item/scripts/BerserkerArmguard.gd" id="1_ughr3"]
+[ext_resource type="Script" uid="uid://2ov3g8c6pies" path="res://Item/scripts/BerserkerArmguard.gd" id="1_ughr3"]
 [ext_resource type="Texture2D" uid="uid://cx33mj7r3fus8" path="res://Sprite/spriteimage/item/berserkerarmguard.png" id="2_f5nws"]
 
 [node name="BerserkerArmguard" type="Node2D"]

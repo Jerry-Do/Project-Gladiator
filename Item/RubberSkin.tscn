@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvjn63114lmsk"]
 
-[ext_resource type="Script" path="res://Item/scripts/RubberSkin.gd" id="1_mnw5f"]
+[ext_resource type="Script" uid="uid://byrkhnve7y12x" path="res://Item/scripts/RubberSkin.gd" id="1_mnw5f"]
 [ext_resource type="Texture2D" uid="uid://cbbeae3mkmudy" path="res://Sprite/spriteimage/item/rubberskin.png" id="2_rkr5a"]
 
 [node name="RubberSkin" type="Node2D"]

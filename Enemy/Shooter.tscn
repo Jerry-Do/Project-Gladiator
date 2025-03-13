@@ -1,31 +1,28 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbgol3ftdidov"]
+[gd_scene load_steps=25 format=3 uid="uid://dbgol3ftdidov"]
 
-[ext_resource type="Script" path="res://Enemy/script/Shooter.gd" id="1_mv28k"]
+[ext_resource type="Script" uid="uid://crt5h8dh2635n" path="res://Enemy/script/Shooter.gd" id="1_mv28k"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_6671a"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_ul2y7"]
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="11_c2516"]
-[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_in2y1"]
+[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_in2y1"]
 [ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="12_a30j3"]
 [ext_resource type="Texture2D" uid="uid://c8dcdik3ybafx" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="12_xspr4"]
 [ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="13_s2wlq"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="13_v0n16"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="13_v0n16"]
 [ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="14_e1cgu"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="14_uuvha"]
+[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="14_uuvha"]
 [ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="15_buidv"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="15_tng5n"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="16_bsx6w"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="15_tng5n"]
+[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="16_bsx6w"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="16_q1jmm"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="17_3kkpv"]
-[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="17_xxr41"]
+[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="17_3kkpv"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="17_xxr41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67u5o"]
 radius = 22.496
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
 radius = 100.679
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
-size = Vector2(24.407, 41.9648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(40.6186, 41)
@@ -66,8 +63,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sb2a6"]
 _data = {
-"RESET": SubResource("Animation_4t1hr"),
-"run": SubResource("Animation_imwtc")
+&"RESET": SubResource("Animation_4t1hr"),
+&"run": SubResource("Animation_imwtc")
 }
 
 [node name="Shooter" type="CharacterBody2D" groups=["enemy"]]
@@ -75,7 +72,7 @@ position = Vector2(600, 320)
 scale = Vector2(1.00939, 1)
 disable_mode = 1
 collision_layer = 0
-collision_mask = 27
+collision_mask = 26
 script = ExtResource("1_mv28k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -99,9 +96,8 @@ simplify_path = true
 debug_enabled = true
 
 [node name="AttackRange" type="Area2D" parent="."]
-disable_mode = 1
 collision_layer = 0
-collision_mask = 21
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 visible = false
@@ -127,27 +123,10 @@ rotation = -3.14159
 scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("10_ul2y7")
 
-[node name="Back" type="Area2D" parent="."]
-visible = false
-position = Vector2(-17.8326, 21)
-rotation = 1.57079
-scale = Vector2(1.69565, 0.60001)
-collision_layer = 11
-collision_mask = 11
-script = ExtResource("11_in2y1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
-position = Vector2(-15.9231, -9.90692)
-shape = SubResource("RectangleShape2D_vff1d")
-disabled = true
-one_way_collision = true
-one_way_collision_margin = 0.0
-debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
-
 [node name="Front" type="Area2D" parent="."]
 visible = false
-collision_layer = 11
-collision_mask = 11
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("11_in2y1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
@@ -178,7 +157,7 @@ texture = ExtResource("12_xspr4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sb2a6")
+&"": SubResource("AnimationLibrary_sb2a6")
 }
 
 [node name="CurseTimer" type="Timer" parent="."]
@@ -221,7 +200,6 @@ dead_state = NodePath("../Dead")
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
 [connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
 [connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
 

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DropArray" load_steps=2 format=3 uid="uid://de4lvh58f8tb6"]
+
+[ext_resource type="Script" uid="uid://moorqb04ejc8" path="res://environment/script/DropArray.gd" id="1_02csr"]
+
+[resource]
+script = ExtResource("1_02csr")
+drop_array = ["res://drops/FuelPack.tscn", "res://drops/HealthPotion.tscn", "res://drops/AmmoPack.tscn"]

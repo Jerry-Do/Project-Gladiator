@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://5e7y8jk681le"]
 
-[ext_resource type="Script" path="res://Item/scripts/ArmEnchantment.gd" id="1_ot58n"]
+[ext_resource type="Script" uid="uid://cefw1wcp33m8b" path="res://Item/scripts/ArmEnchantment.gd" id="1_ot58n"]
 [ext_resource type="Texture2D" uid="uid://dvlqmuoxw1ljn" path="res://Sprite/spriteimage/item/armenhancement.png" id="2_wu7ik"]
 
 [node name="ArmEnhancement" type="Node2D"]

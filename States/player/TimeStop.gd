@@ -8,7 +8,7 @@ var idleState : State
 var tmp 
 
 @onready
-var dash_timer = %TimeStopRechargeTimer
+var dash_timer = %RechargeTimer
 
 @onready
 var overheat_timer = %OverheatTimer
@@ -17,13 +17,17 @@ var overheat_timer = %OverheatTimer
 var ghost_timer = %GhostTimer
 
 var in_state : bool
-
+@export var consume_rate : float
 var orginal_speed_scale = 	0
+##TODO: On player lvl 6, enable perfect dodge zone
 func _ready():
+	dash_state = get_parent().get_node("Dash")
 	move_state = get_parent().get_node("Move")
 	idleState = get_parent().get_node("Idle")
+	
 func enter() -> void:
 	super()
+	parent.get_node("PerfectDodgeZone").monitoring = (true if parent.stats.stats["Level"] == 6 else false)
 	if parent.can_time_stop && parent.status_dictionary["timeStopDisable"] == false:
 		orginal_speed_scale = 	parent.animated_sprite.speed_scale
 		if parent.perfect_dogde_collided:
@@ -46,21 +50,29 @@ func enter() -> void:
 	
 func process_physics(delta: float):
 	if in_state:
-		if  usingFlag == true && parent.stats.ReturnCurrentFuel() > 0 &&  Input.is_action_pressed("use_skill") && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
-			parent.stats.SetFuel(-delta)
+		if  usingFlag == true && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
+			parent.stats.SetFuel(-delta * consume_rate)
 			parent.fuelBar._set_fuel(parent.stats.ReturnCurrentFuel())
 			parent.recharge_flag = false
 		else:
+			if parent.get_node("Item").get_node_or_null("CoolingSystem") == null:
+				parent.status_dictionary.overheat = true
 			if super.get_movement_direction().length() != 0:
 					return move_state
 			return idleState
 	return super(delta)
 
-
+func process_input(_event : InputEvent) -> State:
+	if _event.is_action_pressed("dash") && parent.dash_charge > 0:
+		get_parent().previous_state = self
+		return dash_state
+	if _event.is_action_pressed("use_skill"):
+		return move_state
+	return null
 	
 
 func _on_ghost_timer_timeout():
-	if Input.is_action_pressed("use_skill") && parent.stats.ReturnCurrentFuel() > 0 && usingFlag == true:
+	if in_state && parent.stats.ReturnCurrentFuel() > 0 && usingFlag == true:
 		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
 		get_parent().get_parent().get_parent().add_child(this_ghost)
 		this_ghost.position = parent.position
@@ -77,7 +89,9 @@ func exit():
 		usingFlag = false
 		Engine.time_scale = 1.0
 		parent.stats.SetSpeed(tmp)
-		dash_timer.start(parent.stats.ReturnChargeTime())
+		$RechargeTimer.start($RechargeTimer.wait_time if parent.status_dictionary["overheat"] else $RechargeTimer.wait_time * 1.5)
+		if parent.status_dictionary.overheat:
+			$%OverheatTimer.start(parent.stats.ReturnMaxFuel() / parent.stats.ReturnRechargeRate())
 		parent.game_manager.timeSlowFlag = false
 		parent.invincibleState = false
 		parent.animated_sprite.speed_scale = orginal_speed_scale
@@ -85,3 +99,9 @@ func exit():
 
 func _on_time_stop_recharge_timer_timeout():
 	parent.recharge_flag = true
+
+
+
+
+func _on_overheat_timer_timeout():
+	parent.status_dictionary.overheat = false

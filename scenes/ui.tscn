@@ -1,0 +1,254 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjkqe7gy0n4gr"]
+
+[ext_resource type="Script" uid="uid://bsgeufm4hnf0p" path="res://UI/script/UI.gd" id="1_clehj"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="2_g042w"]
+[ext_resource type="PackedScene" uid="uid://bpninsm3bsivs" path="res://debugtools/ItemDropDown.tscn" id="2_tjfbs"]
+[ext_resource type="PackedScene" uid="uid://d33f6q17cdc2p" path="res://UI/Fuelbar.tscn" id="3_gy42b"]
+[ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="5_unkvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pakyj"]
+font_size = 24
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_clehj")
+
+[node name="Control" type="Control" parent="."]
+z_index = -2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 243.0
+offset_bottom = 99.0
+
+[node name="NewWeaponAlert" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.19087
+anchor_top = 0.816327
+anchor_right = 2.37344
+anchor_bottom = 1.70408
+scale = Vector2(1.76, 1.6)
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="NewWeaponAlertText" type="Label" parent="Control/NewWeaponAlert"]
+layout_mode = 2
+text = "New Weapon Just Dropped!!!
+"
+
+[node name="WeaponTimer" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.08714
+anchor_top = 3.39796
+anchor_right = 3.70124
+anchor_bottom = 4.39796
+offset_left = -424.0
+offset_top = -183.0
+offset_right = -331.0
+offset_bottom = -183.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="WeaponTimerText" type="Label" parent="Control/WeaponTimer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Disappear in:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Ammo" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.2449
+anchor_right = 0.614108
+anchor_bottom = 2.2449
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Ammo" type="Label" parent="Control/Ammo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ammo:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Kill" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.99585
+anchor_top = 0.530612
+anchor_right = 4.55602
+anchor_bottom = 1.53061
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Kill" type="Label" parent="Control/Kill"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kill:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="CurrentEvent" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.25311
+anchor_top = 0.581633
+anchor_right = 2.81328
+anchor_bottom = 1.58163
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Event" type="Label" parent="Control/CurrentEvent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kill:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Fame" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.96266
+anchor_top = 3.10204
+anchor_right = 4.52283
+anchor_bottom = 4.10204
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Fame" type="Label" parent="Control/Fame"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fame:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="FameMultiplier" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.48548
+anchor_top = 1.21429
+anchor_right = 4.53942
+anchor_bottom = 2.21429
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="FameMultiplier" type="Label" parent="Control/FameMultiplier"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fame Multiplier:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="FameMultiTimer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.93776
+anchor_top = 2.13265
+anchor_right = 4.51452
+anchor_bottom = 3.13265
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="FameMultiTimer" type="Label" parent="Control/FameMultiTimer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Timer:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Healthbar" parent="Control" instance=ExtResource("2_g042w")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 389.0
+offset_bottom = 49.0
+
+[node name="Timer" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 503.0
+offset_top = 18.0
+offset_right = 576.0
+offset_bottom = 64.0
+scale = Vector2(1.75801, 1.1555)
+
+[node name="TimerText" type="Label" parent="Control/Timer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Currency" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.97925
+anchor_top = 3.79592
+anchor_right = 4.53942
+anchor_bottom = 4.79592
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Currency" type="Label" parent="Control/Currency"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kill:
+"
+label_settings = SubResource("LabelSettings_pakyj")
+
+[node name="Fuelbar" parent="Control" instance=ExtResource("3_gy42b")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 31.0
+offset_top = 67.0
+offset_right = 271.0
+offset_bottom = 71.0
+scale = Vector2(1.50155, 3.74483)
+
+[node name="DropDown" parent="." instance=ExtResource("2_tjfbs")]
+offset_left = -3.0
+offset_top = 423.0
+offset_right = -3.0
+offset_bottom = 423.0
+
+[node name="DropDown2" parent="." instance=ExtResource("5_unkvc")]
+visible = false
+offset_left = 925.0
+offset_top = 424.0
+offset_right = 925.0
+offset_bottom = 424.0

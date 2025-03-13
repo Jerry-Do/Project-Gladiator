@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl3jyi1puomxa"]
 
 [ext_resource type="Texture2D" uid="uid://c415qv8m11sq1" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/5_1.png" id="2_ne7f1"]
-[ext_resource type="Script" path="res://Weapon/script/ScatterGun.gd" id="3_el4nq"]
+[ext_resource type="Script" uid="uid://bfnbpn43bkmem" path="res://Weapon/script/ScatterGun.gd" id="3_el4nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
 

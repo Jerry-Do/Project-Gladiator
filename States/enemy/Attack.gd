@@ -25,7 +25,7 @@ func process_physics(_delta: float) -> State:
 	
 func _on_attack_windup_timeout():
 	if parent.inRange:
-		parent.AttackPlayer()
+		parent.Attack()
 
 
 func _on_attack_range_area_exited(area):

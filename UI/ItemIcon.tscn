@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdqmcqtxd5h1"]
 
-[ext_resource type="Script" path="res://UI/script/ItemIcon.gd" id="1_23dcd"]
+[ext_resource type="Script" uid="uid://bq88qgwr8iywj" path="res://UI/script/ItemIcon.gd" id="1_23dcd"]
 [ext_resource type="Texture2D" uid="uid://ctd1lxbhmn5r6" path="res://Sprite/Player/bomerang.png" id="1_j6vqm"]
 
 [node name="ItemIcon" type="Control"]

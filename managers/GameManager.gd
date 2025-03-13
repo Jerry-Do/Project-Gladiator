@@ -121,7 +121,7 @@ func _on_weapon_timer_timeout():
 		ui.set_new_weapon_timer_alert_visibility(false)
 
 func UpgradeChose(scene_path: String, item_name : String, price : int):
-	if currency >= price:
+	if currency >= price || player.get_node("Item").get_node_or_null("RiskyBusiness") != null:
 		var item = load(scene_path)
 		var new_item : Item = item.instantiate()
 		if duplication_array.find(item_name) != -1:
@@ -140,7 +140,6 @@ func StartWave():
 	get_tree().paused = false
 	enemy_spawner.maxAllow += 1
 	#enemy_spawner.spawnCount = 0
-	environment_spawner.SpawnEnvironemnt()
 	#ui.set_wave_finisher_alert_visibility(false, currentWave)
 	RoundStart.emit()
 

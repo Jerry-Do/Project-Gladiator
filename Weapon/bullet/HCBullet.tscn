@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cafsb65f272w8"]
 
-[ext_resource type="Script" path="res://Weapon/bullet/script/HCBullet.gd" id="1_jqjja"]
+[ext_resource type="Script" uid="uid://r2as7kmii3mv" path="res://Weapon/bullet/script/HCBullet.gd" id="1_jqjja"]
 [ext_resource type="Texture2D" uid="uid://dn3mlfydct62y" path="res://Sprite/Player/Bullet.png" id="2_7yk70"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]

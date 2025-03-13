@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DropResource" load_steps=3 format=3 uid="uid://c17svddcfqfkk"]
+
+[ext_resource type="Script" uid="uid://cp8ebhkvpitaf" path="res://drops/resource/drop_resource.gd" id="1_84khc"]
+[ext_resource type="Texture2D" uid="uid://ck81m2uiw2t2b" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/potion_green.png" id="2_cwv3v"]
+
+[resource]
+script = ExtResource("1_84khc")
+name = "FuelPack"
+texture = ExtResource("2_cwv3v")
+amount = 10

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgtfauqo652ah"]
+
+[ext_resource type="Script" uid="uid://dk4e4k31vwg00" path="res://skills/GunslingerSkill.gd" id="1_vbfet"]
+
+[node name="GunslingerSkill" type="Node"]
+script = ExtResource("1_vbfet")
+consume_rate = 1.0
+
+[node name="RechargeTimer" type="Timer" parent="."]
+
+[node name="OverheatTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]
+[connection signal="timeout" from="OverheatTimer" to="." method="_on_overheat_timer_timeout"]

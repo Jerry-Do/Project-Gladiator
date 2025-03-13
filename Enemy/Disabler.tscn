@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://bvq3tmc5pgvqm"]
 
-[ext_resource type="Script" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
+[ext_resource type="Script" uid="uid://pn5rqxjx14q4" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_2kd31"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_qxovh"]
-[ext_resource type="Script" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_u1jx8"]
+[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_u1jx8"]
 [ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="12_fls7x"]
 [ext_resource type="Texture2D" uid="uid://dakbe0e6umag3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png" id="13_wk6c6"]
 [ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="14_0r14c"]
@@ -13,16 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="17_5alke"]
 [ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="18_bwjel"]
 [ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="18_wddmo"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="19_1q61o"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="19_1q61o"]
 [ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="19_h062b"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="20_kxef2"]
+[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="20_kxef2"]
 [ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="20_rtxx8"]
 [ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="21_simmw"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="21_u7fs7"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="21_u7fs7"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="22_7no0n"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="22_hd4r3"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="23_ksxti"]
-[ext_resource type="PackedScene" uid="uid://boklyp3icpha" path="res://UI/Bars/Healthbar.tscn" id="23_res6o"]
+[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="22_hd4r3"]
+[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="23_ksxti"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="23_res6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnhwa"]
 radius = 30.4108
@@ -124,8 +124,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_88lwm"]
 _data = {
-"RESET": SubResource("Animation_tumow"),
-"explosion": SubResource("Animation_rq50d")
+&"RESET": SubResource("Animation_tumow"),
+&"explosion": SubResource("Animation_rq50d")
 }
 
 [sub_resource type="Animation" id="Animation_63x2t"]
@@ -161,8 +161,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fx8wj"]
 _data = {
-"RESET": SubResource("Animation_63x2t"),
-"run": SubResource("Animation_2nsm2")
+&"RESET": SubResource("Animation_63x2t"),
+&"run": SubResource("Animation_2nsm2")
 }
 
 [node name="Disabler" type="CharacterBody2D" groups=["enemy"]]

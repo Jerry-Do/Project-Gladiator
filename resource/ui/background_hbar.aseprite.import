@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d1t48dgig12e6"
+path="res://.godot/imported/background_hbar.aseprite-0a78a4cb9bcb6d45326dd9fc0e7e613e.res"
+
+[deps]
+
+source_file="res://resource/ui/background_hbar.aseprite"
+dest_files=["res://.godot/imported/background_hbar.aseprite-0a78a4cb9bcb6d45326dd9fc0e7e613e.res"]
+
+[params]
+

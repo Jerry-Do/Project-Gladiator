@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwkxcbkfrjdcv"]
 
-[ext_resource type="Script" path="res://UI/script/DamageLabel.gd" id="1_vw0n4"]
+[ext_resource type="Script" uid="uid://d3egomrmg4nnv" path="res://UI/script/DamageLabel.gd" id="1_vw0n4"]
 
 [node name="DamageLabel" type="Control"]
 layout_mode = 3

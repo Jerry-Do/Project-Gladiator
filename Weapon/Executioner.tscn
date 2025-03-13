@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4lcel1hv5in2"]
 
-[ext_resource type="Script" path="res://Weapon/script/Executioner.gd" id="1_tm5s1"]
+[ext_resource type="Script" uid="uid://b75180tnibmia" path="res://Weapon/script/Executioner.gd" id="1_tm5s1"]
 [ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="2_unhnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]

@@ -19,15 +19,19 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 
-func AttackPlayer():
-	if playerHitBox != null:
-		playerHitBox.TakingDamageForPlayer(-stats_dic.damage, true if playerHitBox.get_name() == "Back" else false, self)
-		game_manager.AdjustFame(-(game_manager.currentFame * 0.10))
-		%AttackWindup.start(stats_dic.windup_time)
+func Attack():
+	if thingHitBox != null:
+		if thingHitBox.has_method("TakingDamageForPlayer"):
+			thingHitBox.TakingDamageForPlayer(-stats_dic.damage, true if thingHitBox.get_name() == "Back" else false, self)
+			game_manager.AdjustFame(-(game_manager.currentFame * 0.10))
+			%AttackWindup.start(stats_dic.windup_time)
+		elif thingHitBox.has_method("DestroyProp"):
+			thingHitBox.DestroyProp()
+			%AttackWindup.start(stats_dic.windup_time)
 
 func PlayerLeft():
 	inRange = false
-	playerHitBox = null
+	thingHitBox = null
 
 func OnDead():
 	super()

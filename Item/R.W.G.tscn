@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7pq8mtj5bv03"]
 
-[ext_resource type="Script" path="res://Item/scripts/R.W.G.gd" id="1_dafex"]
+[ext_resource type="Script" uid="uid://gc7oobry0mgl" path="res://Item/scripts/R.W.G.gd" id="1_dafex"]
 [ext_resource type="Texture2D" uid="uid://dt0vhao8tyk5f" path="res://Sprite/spriteimage/item/R.W.G.png" id="2_xtf0g"]
 
 [node name="RandomWeaponGenerator" type="Node2D"]

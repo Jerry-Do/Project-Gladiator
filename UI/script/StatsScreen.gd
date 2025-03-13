@@ -6,8 +6,6 @@ func _ready():
 	for i in get_child_count():
 		if get_child(i).name == "Health" :
 			get_child(i).text += " " + str(player_stats.maxHealth)
-		elif get_child(i).name == "Dash_Time":
-			get_child(i).text += " " + str(player_stats.maxDashTime)
 		else:
 			get_child(i).text += " " + str(player_stats.stats[get_child(i).name])
 		

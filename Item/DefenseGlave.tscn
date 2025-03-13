@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cotc24jekbbcc"]
 
-[ext_resource type="Script" path="res://Item/scripts/DefenseGlave.gd" id="1_0w1th"]
+[ext_resource type="Script" uid="uid://01u2yoem8btr" path="res://Item/scripts/DefenseGlave.gd" id="1_0w1th"]
 [ext_resource type="Texture2D" uid="uid://bwsbt8pbw06rn" path="res://Sprite/spriteimage/item/defenseglaveitem.png" id="2_hfp3j"]
-[ext_resource type="Texture2D" uid="uid://pdshxd8cr5xv" path="res://Item/defenseglave.png" id="3_vuonx"]
+[ext_resource type="Texture2D" uid="uid://pdshxd8cr5xv" path="res://Sprite/spriteimage/defenseglave.png" id="3_vuonx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8umcq"]
 radius = 24.0

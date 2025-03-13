@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh7cga6kbwvcm"]
 
-[ext_resource type="Script" path="res://scenes/title.gd" id="1_1ce27"]
+[ext_resource type="Script" uid="uid://bqiu1kj24kgcj" path="res://scenes/title.gd" id="1_1ce27"]
 
 [sub_resource type="Animation" id="Animation_2nqh3"]
 resource_name = "fade_out"
@@ -22,8 +22,8 @@ resource_name = "fade_pit"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0rirm"]
 _data = {
-"fade_out": SubResource("Animation_2nqh3"),
-"fade_pit": SubResource("Animation_fm768")
+&"fade_out": SubResource("Animation_2nqh3"),
+&"fade_pit": SubResource("Animation_fm768")
 }
 
 [node name="Title" type="Node2D"]
@@ -39,7 +39,7 @@ text = "Play
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0rirm")
+&"": SubResource("AnimationLibrary_0rirm")
 }
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]

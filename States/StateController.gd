@@ -5,12 +5,19 @@ var starting_state: State
 
 var current_state: State
 
+var previous_state : State
 func init(_parent : Node2D, movement_component):
-	for child in get_children(): 
-		child.parent = _parent
-		child.movement_component = movement_component
-		child.skill_state = get_child(3)
-	change_state(starting_state)
+	if get_parent().name == "Player":
+		for child in get_children(): 
+			child.parent = _parent
+			child.movement_component = movement_component
+			child.skill_state = get_child(3)
+		change_state(starting_state)
+	else:
+		for child in get_children(): 
+			child.parent = _parent
+			child.movement_component = movement_component
+		change_state(starting_state)
 
 func change_state(new_state : State) -> void:
 	if current_state:

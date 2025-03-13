@@ -27,7 +27,7 @@ func process_physics(_delta: float) -> State:
 		if  parent.player.is_invisible == false:
 			parent.stats_dic.speed = parent.sSpeed
 			var direction = (parent.player.position - parent.position).normalized()
-			if parent.playerHitBox != null:
+			if parent.thingHitBox != null:
 				return attack_state
 			parent.velocity = direction * parent.stats_dic.speed 
 			if parent.softCollision.IsColliding():
@@ -46,7 +46,7 @@ func process_frame(_delta : float) -> State:
 
 func _on_attack_range_area_entered(area):
 	if area.has_method("TakingDamageForPlayer"):
-		parent.playerHitBox = area
+		parent.thingHitBox = area
 
 
 func _on_turn_timer_timeout():

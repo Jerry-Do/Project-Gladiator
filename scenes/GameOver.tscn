@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://6dgd2npennlc"]
 
-[ext_resource type="Script" path="res://scenes/GameOver.gd" id="1_c0s1b"]
+[ext_resource type="Script" uid="uid://ca01u2cuq8ei2" path="res://scenes/GameOver.gd" id="1_c0s1b"]
 
 [sub_resource type="Animation" id="Animation_2nqh3"]
 resource_name = "fade_out"
@@ -22,8 +22,8 @@ resource_name = "fade_pit"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0rirm"]
 _data = {
-"fade_out": SubResource("Animation_2nqh3"),
-"fade_pit": SubResource("Animation_fm768")
+&"fade_out": SubResource("Animation_2nqh3"),
+&"fade_pit": SubResource("Animation_fm768")
 }
 
 [node name="GameOver" type="Node2D"]

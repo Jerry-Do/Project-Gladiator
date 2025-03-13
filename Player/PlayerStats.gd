@@ -1,16 +1,18 @@
 extends Node
 class_name Stats
 var rechargeTime: float = 3.0
-var baseArmor: float = 5.0
+var baseArmor: float = 9999.0
 var maxHealth: float = 100.0
 var baseSpeed: float = 600.0
 var baseCritChance: float = 0.0
 var baseCritDamage: float = 25.0
 var baseDamageMod: float = 10.0
 var maxExperience: float = 0.0
-var maxFuel : float = 5
+var maxFuel : float = 100
 var maxHealthAllowed = maxHealth
-var stats = {
+var rechargeRate : float = 15.0
+var baseDashCooldown : float = 2.0
+var stats : Dictionary[String, float]= {
 	"Level" : 1.0,
 	"Health" : maxHealth,
 	"Base_Damage_Mod": baseDamageMod,
@@ -21,17 +23,17 @@ var stats = {
 	"Crit_Damage" : baseCritDamage,
 	"Speed" : baseSpeed,
 	"Fuel" : maxFuel,
-	"Recharge_Time" : rechargeTime
+	"Recharge_Time" : rechargeTime,
+	"Recharge_Rate" : rechargeRate,
+	"Dash_Cooldown" : baseDashCooldown
 }
 signal health_change
 signal no_health
 
 func SetHealth(value):
-	stats.Health += value
+	stats.Health = clamp(stats.Health + value, stats.Health + value, maxHealthAllowed)
 	if health_change.get_connections().size() > 0:
 		health_change.emit()
-	if stats.Health > maxHealthAllowed:
-		stats.Health = maxHealthAllowed
 	if stats.Health <= 0:
 		emit_signal("no_health")
 	get_parent().healthBar._set_health(ReturnHealth())
@@ -46,7 +48,8 @@ func ReturnSpeed():
 	return stats.Speed
 
 func SetFuel(value):
-	stats.Fuel += value
+	stats.Fuel = clamp(stats.Fuel + value, stats.Fuel + value, maxFuel)
+	
 	
 func ReturnMaxFuel():
 	return maxFuel
@@ -99,6 +102,18 @@ func SetArmor(amount):
 func ReturnArmor():
 	return stats.Armor
 
+func SetRechargeRate(percentage : float):
+	rechargeRate += rechargeRate * percentage
+
+func ReturnRechargeRate() -> float:
+	return rechargeRate
+
+func SetDashCooldown(amount : float) : 
+	stats.Dash_Cooldown += amount
+
+func ReturnDashCooldown() -> float:
+	return stats.Dash_Cooldown
+	
 func LevelUp():
 	stats.Base_Armor += 1
 	stats.Base_Damage_Mod += 1

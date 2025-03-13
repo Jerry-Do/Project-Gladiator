@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkmaaw22sddh5"]
 
-[ext_resource type="Script" path="res://Item/scripts/RandomDamageGenerator.gd" id="1_bj6uw"]
+[ext_resource type="Script" uid="uid://b2tfki5414x3s" path="res://Item/scripts/RandomDamageGenerator.gd" id="1_bj6uw"]
 [ext_resource type="Texture2D" uid="uid://vsq47yt3lywt" path="res://Sprite/spriteimage/item/rdg.png" id="2_emwsu"]
 
 [node name="RandomDamageGenerator" type="Node2D"]

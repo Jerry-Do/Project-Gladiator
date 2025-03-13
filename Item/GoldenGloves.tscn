@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xc7iddrsisil"]
 
-[ext_resource type="Script" path="res://Item/scripts/GoldenGloves.gd" id="1_b0t6k"]
+[ext_resource type="Script" uid="uid://dwrejbxexkjx6" path="res://Item/scripts/GoldenGloves.gd" id="1_b0t6k"]
 [ext_resource type="Texture2D" uid="uid://cib142ysvkmby" path="res://resource/16x16 RPG Item Pack/Item__60.png" id="2_kx8ag"]
 
 [node name="GoldenGloves" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwvp6614nw353"]
 
-[ext_resource type="Script" path="res://Item/scripts/BerserkerChestplate.gd" id="1_2nswb"]
+[ext_resource type="Script" uid="uid://dhnnc7gy51meb" path="res://Item/scripts/BerserkerChestplate.gd" id="1_2nswb"]
 [ext_resource type="Texture2D" uid="uid://dxe6wsoy4jhpl" path="res://Sprite/spriteimage/item/berserkerchestplate.png" id="2_ww7ob"]
 
 [node name="BerserkerChestplate" type="Node2D"]

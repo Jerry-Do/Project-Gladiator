@@ -1,6 +1,6 @@
 extends Node2D
 class_name Item
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var player_item = player.get_node("Item")
 @onready var item_sprite = $ItemSprite
 @onready var item_description
@@ -14,6 +14,7 @@ var evolve_flag : bool = false
 var effect_base_amount : float = 0
 var quantity = 1 : set = _set_quantity
 var price : int
+var can_crit : bool
 
 func ReturnItemSprite():
 	return item_sprite.texture

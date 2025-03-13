@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d32jlf428ybpq"]
 
-[ext_resource type="Script" path="res://Item/scripts/Greed.gd" id="1_oqxnb"]
+[ext_resource type="Script" uid="uid://dhjq8s37tiswv" path="res://Item/scripts/Greed.gd" id="1_oqxnb"]
 [ext_resource type="Texture2D" uid="uid://cqd2o5ew1b6se" path="res://Sprite/spriteimage/item/greed.png" id="2_gbcm2"]
 
 [node name="Greed" type="Node2D"]

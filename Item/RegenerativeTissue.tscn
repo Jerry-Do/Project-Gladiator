@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj0kyts8grb5l"]
 
-[ext_resource type="Script" path="res://Item/scripts/HealthKit.gd" id="1_ev4e6"]
+[ext_resource type="Script" uid="uid://cnrw2sfmpa6a5" path="res://Item/scripts/HealthKit.gd" id="1_ev4e6"]
 [ext_resource type="Texture2D" uid="uid://d1h3386tyej1f" path="res://Sprite/spriteimage/item/regenativetissue.png" id="2_3wigs"]
 
 [node name="RegenarativeTissue" type="Node2D"]

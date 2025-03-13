@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://co0t23qxqi0dn"]
 
-[ext_resource type="Script" path="res://Item/scripts/BrainChip.gd" id="1_xirnu"]
+[ext_resource type="Script" uid="uid://c7re3q0b8u1sx" path="res://Item/scripts/BrainChip.gd" id="1_xirnu"]
 [ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_o4pcp"]
 
 [node name="ItemOverclock" type="Node2D"]

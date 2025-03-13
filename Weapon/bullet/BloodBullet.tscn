@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpq3rhko4vvqu"]
 
-[ext_resource type="Script" path="res://Weapon/bullet/script/BloodBullet.gd" id="1_l0vla"]
+[ext_resource type="Script" uid="uid://m1ndvp46vmda" path="res://Weapon/bullet/script/BloodBullet.gd" id="1_l0vla"]
 [ext_resource type="Texture2D" uid="uid://dn3mlfydct62y" path="res://Sprite/Player/Bullet.png" id="2_i8khe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]

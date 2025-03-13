@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bysmxhlta12cd"]
 
-[ext_resource type="Script" path="res://Item/scripts/HomingMissle.gd" id="1_qn00a"]
+[ext_resource type="Script" uid="uid://chschx7ap5tx2" path="res://Item/scripts/HomingMissle.gd" id="1_qn00a"]
 [ext_resource type="Texture2D" uid="uid://bljo1t1rbjfrt" path="res://Sprite/spriteimage/item/homingmissle.png" id="2_r4hyi"]
 
 [node name="HomingMissle" type="Node2D"]

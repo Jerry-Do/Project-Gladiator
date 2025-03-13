@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp7a5fah4dd46"]
 
-[ext_resource type="Script" path="res://debugtools/scripts/EnemyDropDown.gd" id="1_7xopj"]
+[ext_resource type="Script" uid="uid://coe1cky46ulu1" path="res://debugtools/scripts/EnemyDropDown.gd" id="1_7xopj"]
 
 [node name="EDropDown" type="Control"]
 layout_mode = 3

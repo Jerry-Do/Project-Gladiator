@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DropResource" load_steps=3 format=3 uid="uid://rlrmbo0ye21s"]
+
+[ext_resource type="Script" uid="uid://cp8ebhkvpitaf" path="res://drops/resource/drop_resource.gd" id="1_cpctx"]
+[ext_resource type="Texture2D" uid="uid://bo6do3bqvguwp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/potion_red.png" id="2_b3vy8"]
+
+[resource]
+script = ExtResource("1_cpctx")
+name = "HealthPotion"
+texture = ExtResource("2_b3vy8")
+amount = 10

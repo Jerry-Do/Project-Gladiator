@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hk73y30c1el7"]
 
-[ext_resource type="Script" path="res://UI/script/InfoScreen.gd" id="1_hh6nd"]
+[ext_resource type="Script" uid="uid://bbnmenmu78l5u" path="res://UI/script/InfoScreen.gd" id="1_hh6nd"]
 
 [node name="InfoScene" type="Control"]
 clip_children = 1
@@ -109,14 +109,15 @@ layout_mode = 2
 text = "Movement Speed:"
 fit_content = true
 
-[node name="Dash_Time" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
-layout_mode = 2
-text = "Time Stop Duration:"
-fit_content = true
-
 [node name="Recharge_Time" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
 layout_mode = 2
 text = "Recharge Time:"
+fit_content = true
+
+[node name="Dash_Cooldown" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+layout_mode = 2
+text = "Dash Cooldown:
+"
 fit_content = true
 
 [node name="Biochemical" type="RichTextLabel" parent="."]

@@ -1,18 +1,18 @@
 [gd_scene load_steps=33 format=3 uid="uid://j7b5738f8mjj"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_ascps"]
-[ext_resource type="Script" path="res://States/StateController.gd" id="4_qb1iw"]
-[ext_resource type="Script" path="res://States/player/Idle.gd" id="4_wngjq"]
-[ext_resource type="Script" path="res://States/player/Move.gd" id="6_8bmt5"]
-[ext_resource type="Script" path="res://Player/PlayerItem.gd" id="6_f4342"]
+[ext_resource type="Script" uid="uid://dqxdd7ixbmdm6" path="res://Player/Player.gd" id="1_ascps"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="4_qb1iw"]
+[ext_resource type="Script" uid="uid://ss5ny27luty3" path="res://States/player/Idle.gd" id="4_wngjq"]
+[ext_resource type="Script" uid="uid://11b5s8cimdjk" path="res://States/player/Move.gd" id="6_8bmt5"]
+[ext_resource type="Script" uid="uid://cu4nchxlb8kpw" path="res://Player/PlayerItem.gd" id="6_f4342"]
 [ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="8_a4w7n"]
 [ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="8_jpsj1"]
 [ext_resource type="PackedScene" uid="uid://b3rt641lalewe" path="res://hitboxes/BackHitbox.tscn" id="8_qmrd3"]
-[ext_resource type="Script" path="res://States/player/Movement_getter.gd" id="8_w4ebw"]
-[ext_resource type="Script" path="res://Player/TakingDamageForPlayer.gd" id="9_6761q"]
+[ext_resource type="Script" uid="uid://dbnbbi1ykbl5v" path="res://States/player/Movement_getter.gd" id="8_w4ebw"]
+[ext_resource type="Script" uid="uid://diukwq24ibdmp" path="res://Player/TakingDamageForPlayer.gd" id="9_6761q"]
 [ext_resource type="PackedScene" uid="uid://ddr3kchg8b5xo" path="res://hitboxes/Back.tscn" id="9_tmoh4"]
 [ext_resource type="PackedScene" uid="uid://gf8e7mfhnvda" path="res://hitboxes/Front.tscn" id="11_7n4bc"]
-[ext_resource type="Script" path="res://States/player/Dash.gd" id="11_fshry"]
+[ext_resource type="Script" uid="uid://ybqnjsxfbcjt" path="res://States/player/Dash.gd" id="11_fshry"]
 [ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="13_emvkc"]
 [ext_resource type="PackedScene" uid="uid://c22vb6fmvbg7k" path="res://Player/PlayerStats.tscn" id="14_bvtpy"]
 
@@ -123,11 +123,9 @@ size = Vector2(35, 43)
 radius = 21.5894
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm073"]
-size = Vector2(80, 77)
+size = Vector2(89, 86)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(-61, -29)
-collision_layer = 5
 collision_mask = 5
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ascps")
@@ -169,10 +167,11 @@ script = ExtResource("6_8bmt5")
 idle_state = NodePath("../Idle")
 dash_state = NodePath("../Dash")
 
-[node name="Dash" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state")]
+[node name="Dash" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dash_state")]
 unique_name_in_owner = true
 script = ExtResource("11_fshry")
 move_state = NodePath("../Move")
+dash_state = NodePath(".")
 
 [node name="Timer" type="Node" parent="."]
 
@@ -183,6 +182,7 @@ one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="Timer"]
 unique_name_in_owner = true
+wait_time = 4.0
 one_shot = true
 
 [node name="Back" parent="." instance=ExtResource("8_qmrd3")]
@@ -197,6 +197,7 @@ disabled = true
 script = null
 
 [node name="Front" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 collision_layer = 5
 collision_mask = 5
@@ -206,7 +207,6 @@ script = ExtResource("9_6761q")
 position = Vector2(-0.500008, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1.5, -5.5)
 shape = SubResource("RectangleShape2D_1bmgx")
 
@@ -233,7 +233,7 @@ collision_mask = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectDodgeZone"]
-position = Vector2(0, -3.5)
+position = Vector2(1.5, -4)
 shape = SubResource("RectangleShape2D_dm073")
 
 [connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]

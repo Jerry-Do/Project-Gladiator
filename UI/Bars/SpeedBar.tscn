@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfehxsghtnitc"]
+[gd_scene load_steps=4 format=3 uid="uid://cpqcj7k2wn2h5"]
 
-[ext_resource type="Script" path="res://UI/Bars/SpeedBar.gd" id="1_ek3d3"]
+[ext_resource type="Script" uid="uid://cxb7jn7kks4ah" path="res://UI/Bars/SpeedBar.gd" id="1_noj5o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr1ko"]
 bg_color = Color(0.000745091, 0.00237402, 0.00112973, 1)
@@ -23,4 +23,4 @@ theme_override_styles/background = SubResource("StyleBoxFlat_fr1ko")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dbv58")
 max_value = 10.0
 show_percentage = false
-script = ExtResource("1_ek3d3")
+script = ExtResource("1_noj5o")

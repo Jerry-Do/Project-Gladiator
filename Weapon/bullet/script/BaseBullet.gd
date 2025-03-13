@@ -15,11 +15,13 @@ var faction
 signal OnEnemyKilled
 
 func _init(_damage, _speed):
+	
 	damage = _damage
 	speed = _speed
 
 
 func _ready():
+	damage  *= (1 if player.just_dash == false else 2)
 	var thing = player.get_node("Item").get_node_or_null("AdrenalineRush")
 	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
 	var event_manager : EventManager = game_manager.get_node("EventManager")
@@ -52,6 +54,9 @@ func _on_ghost_timer_timeout():
 
 
 func _on_area_entered(area):
+	if area.has_method("DestroyProp"):
+		queue_free()
+		area.DestroyProp()
 	if leech_seed:
 		area.SetStatusOther("leeched" , 5)
 		var ls = player.get_node("Item").get_node_or_null("LeechSpeed")

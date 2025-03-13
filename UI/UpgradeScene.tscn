@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crqrm13wssg8b"]
 
-[ext_resource type="Script" path="res://UI/script/UpgradeScene.gd" id="1_p72f6"]
+[ext_resource type="Script" uid="uid://dhel5dpdvwx4l" path="res://UI/script/UpgradeScene.gd" id="1_p72f6"]
 [ext_resource type="Texture2D" uid="uid://cfadqte0da8cw" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X1/Panel Empty Green.png" id="2_bmsfs"]
 
 [node name="UpgradeScreen" type="Control"]
@@ -12,9 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p72f6")
-c_items = ["res://Item/LegEnchantment.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn", "res://Item/ArmEnhantment.tscn", "res://Item/ChestEnhancement.tscn"]
-u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn", "res://Item/AdrenalineRush.tscn", "res://Item/GamblersDice.tscn", "res://Item/DefenseGlave.tscn"]
-r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn", "res://Item/HomingMissle.tscn", "res://Item/Greed.tscn", "res://Item/RandomDamageGenerator.tscn", "res://Item/R.W.G.tscn", "res://Item/ItemOverclock.tscn", "res://Item/LaserArmItem.tscn"]
+c_items = ["res://Item/LegEnchantment.tscn", "res://Item/DamageChip.tscn", "res://Item/CoolingSystem.tscn", "res://Item/GoldenGloves.tscn", "res://Item/ArmEnhantment.tscn", "res://Item/ChestEnhancement.tscn", "res://Item/DashRecovery.tscn"]
+u_items = ["res://Item/EnergyCell.tscn", "res://Item/RegenerativeTissue.tscn", "res://Item/RubberSkin.tscn", "res://Item/LoyaltyCard.tscn", "res://Item/GravitationalField.tscn", "res://Item/EnergyShield.tscn", "res://Item/BrainChip.tscn", "res://Item/AdrenalineRush.tscn", "res://Item/GamblersDice.tscn", "res://Item/DefenseGlave.tscn", "res://Item/HardenShoulder.tscn"]
+r_items = ["res://Item/BerserkerArmguard.tscn", "res://Item/BerserkerChestplate.tscn", "res://Item/LeechSeed.tscn", "res://Item/HomingMissle.tscn", "res://Item/Greed.tscn", "res://Item/RandomDamageGenerator.tscn", "res://Item/R.W.G.tscn", "res://Item/ItemOverclock.tscn", "res://Item/LaserArmItem.tscn", null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://vxk4juxnedu0"]
 
-[ext_resource type="Script" path="res://States/StateController.gd" id="1_54iby"]
-[ext_resource type="Script" path="res://States/Enemy/MoveEnemy.gd" id="2_4g3li"]
-[ext_resource type="Script" path="res://States/Enemy/dead.gd" id="3_0qxa5"]
-[ext_resource type="Script" path="res://States/Enemy/Stun.gd" id="4_05j80"]
-[ext_resource type="Script" path="res://States/Enemy/Attack.gd" id="5_d4ce5"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="1_54iby"]
+[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="2_4g3li"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="3_0qxa5"]
+[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="4_05j80"]
+[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="5_d4ce5"]
 
 [node name="StateControl" type="Node" node_paths=PackedStringArray("starting_state")]
 script = ExtResource("1_54iby")

@@ -16,14 +16,16 @@ func exit() -> void:
 func process_input(_event : InputEvent) -> State:
 	if get_movement_direction().length() != 0:
 		return move_state
-	if _event.is_action_pressed("use_skill") && parent.can_time_stop && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
+	if _event.is_action_pressed("use_skill") && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] \
+	== false && parent.status_dictionary["overheat"] == false:
 		return skill_state
-	if _event.is_action_pressed("dash") && dash_state.can_dash:
+	if _event.is_action_pressed("dash")  && parent.dash_charges > 0:
+		get_parent().previous_state = self
 		return dash_state
 	return null
 	
 func process_physics(delta: float):
 	if parent.recharge_flag && parent.stats.ReturnCurrentFuel() < parent.stats.ReturnMaxFuel():
-		parent.stats.SetFuel(delta)
+		parent.stats.SetFuel(delta * parent.stats.ReturnRechargeRate())
 		parent.fuelBar._set_fuel(parent.stats.ReturnCurrentFuel())
 		

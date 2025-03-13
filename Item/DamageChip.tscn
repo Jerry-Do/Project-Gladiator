@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://oswpripjvily"]
 
-[ext_resource type="Script" path="res://Item/scripts/DamageChip.gd" id="1_0vqs1"]
+[ext_resource type="Script" uid="uid://dxm2xb0bxf7gx" path="res://Item/scripts/DamageChip.gd" id="1_0vqs1"]
 [ext_resource type="Texture2D" uid="uid://o0dhcjfdu8v7" path="res://Sprite/spriteimage/item/damagemod.png" id="2_7ai44"]
 
 [node name="DamageChip" type="Node2D"]
