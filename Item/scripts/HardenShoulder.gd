@@ -19,6 +19,9 @@ func _process(delta):
 		hitbox.monitoring = false
 	
 func _on_area_2d_area_entered(area):
-	var crit_chance = 100 - player.stats.ReturnCritChance()
-	var random = RandomNumberGenerator.new().randi_range(1, crit_chance + 1)
+	var random = -1
+	var crit_chance = -2
+	if player.get_node("Item").item_critable:
+		crit_chance = 100 - player.stats.ReturnCritChance()
+		random = RandomNumberGenerator.new().randi_range(1, crit_chance + 1)
 	area.TakingDamageForOther(effect_base_amount, false, faction, (random == crit_chance))

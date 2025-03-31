@@ -104,7 +104,6 @@ func WaveComplete():
 	var upgrade_scene = preload("res://UI/UpgradeScene.tscn")
 	var upgrade_scene_instantiate = upgrade_scene.instantiate()
 	ui.add_child(upgrade_scene_instantiate)
-	environment_spawner.DestroyEnvironment()
 	pop_up = true
 	get_tree().paused = true
 	currentWave+=1

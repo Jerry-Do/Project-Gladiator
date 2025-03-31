@@ -7,6 +7,7 @@
 script = ExtResource("1_qn00a")
 cooldown = 2.0
 damage = 5.0
+item_per_rocket = 4
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture_filter = 1

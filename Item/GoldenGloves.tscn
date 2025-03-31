@@ -5,7 +5,7 @@
 
 [node name="GoldenGloves" type="Node2D"]
 script = ExtResource("1_b0t6k")
-amount = 5
+amount = 20
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_kx8ag")

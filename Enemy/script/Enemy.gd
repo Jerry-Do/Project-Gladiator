@@ -41,6 +41,7 @@ var stats_dic = {
 	"armor" : 0,
 	"windup_time" : 0
 }
+
 var faction : String = ""
 var fameAmount : int
 var chase: bool
@@ -63,12 +64,18 @@ var status_timers : Array
 var timer_counters = 0
 ##TODO: create stats calculator for enemies, for when frenzy hormone event and risky business
 func _init(health: int, speed: float, damage: float, armor : float ,fame : int, currency : int, faction : String, windup_time : float):
+	if GameManager.instance.event_manager.event_dict.frenzy_hormone:
+		speed *= 1.25 
+		fame *= 2 
+		damage *= 1.25
+		windup_time /= 2
+	
 	self.stats_dic.health = health
-	self.stats_dic.speed = speed / 2 * (1.5 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
+	self.stats_dic.speed = speed
 	self.stats_dic.damage = damage
-	self.fameAmount = 1 * (2 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
+	self.fameAmount = fame
 	self.stats_dic.armor = armor
-	self.stats_dic.windup_time = windup_time / (2 if GameManager.instance.event_manager.event_dict.frenzy_hormone else 1)
+	self.stats_dic.windup_time = windup_time 
 	self.currency_amount = currency
 	self.faction = faction
 	
@@ -76,6 +83,11 @@ func _ready() -> void:
 	#health_bar = $Healthbar
 	LevelUp()
 	state_manager.init(self, movement_controller)	
+	if player.get_node("Item").get_node_or_null("RiskyBusiness") != null && GameManager.instance.currency < 0:
+		var item  = player.get_node("Item").get_node_or_null("RiskyBusiness")
+		self.stats_dic.damage *= 1.0 + (item.amount * absf(GameManager.instance.currency))
+		self.stats_dic.speed *= 1.0 + (item.amount * absf(GameManager.instance.currency))
+		self.stats_dic.health *= 1.0 + (item.amount * absf(GameManager.instance.currency))
 	#health_bar.init_health(self.stats_dic.health)
 	#if player.get_node("Item").get_node_or_null("BrainChip") != null:
 		#health_bar.show()

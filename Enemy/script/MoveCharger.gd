@@ -59,12 +59,12 @@ func _on_attack_area_entered(area):
 func _on_stun_timer_timeout():
 	parent.status_dictionary.stun = false
 	%Attack.get_child(0).disabled = false
-	parent.PlayerLeft()
+
 	
 
 
 func _on_attack_body_entered(body):
-	if body.has_method("DestroyProps"):
+	if body.has_method("DestroyProp"):
 		body.call_deferred("DestroyProp")
 		parent.status_dictionary.stun = true
 		%Attack.get_child(0).call_deferred("set_disabled", true)

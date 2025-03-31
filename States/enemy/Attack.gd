@@ -1,5 +1,5 @@
 extends State
-
+class_name Attack
 @export 
 var move_state : State
 
@@ -29,6 +29,6 @@ func _on_attack_windup_timeout():
 
 
 func _on_attack_range_area_exited(area):
-	if area.has_method("TakingDamageForPlayer"):
+	if area.has_method("TakingDamageForPlayer") ||  area.has_method("DestroyProp"):
 		parent.PlayerLeft()
 	

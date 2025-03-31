@@ -15,7 +15,7 @@ func _ready():
 	item_name = "LeechSeed"
 	display_name = "Leech Seed"
 	name = item_name
-	item_description = "After " + str(timer.wait_time) + " seconds, infuse the next shot with the leech seed. " +\
+	item_description = "After certain seconds, infuse the next shot with the leech seed. " +\
 	"The leech seed damage the enemy over time, and heals the player for the same amount. After evolving, if the " + \
 	"enemy dies while the seed is still active, a tree will be spawn at the position, and start to emitting posion gas"
 	evolve_condition_text = "Kill " + str(evo_amount) + " enemies while the seed is still active"

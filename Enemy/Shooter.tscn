@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="15_tng5n"]
 [ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="16_bsx6w"]
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="16_q1jmm"]
-[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="17_3kkpv"]
+[ext_resource type="Script" uid="uid://qorwq34ujt31" path="res://States/Enemy/AttackShooter.gd" id="17_jr7q4"]
 [ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="17_xxr41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67u5o"]
@@ -192,7 +192,7 @@ move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
 [node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("17_3kkpv")
+script = ExtResource("17_jr7q4")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 

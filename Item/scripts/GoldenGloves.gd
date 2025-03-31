@@ -5,7 +5,7 @@ extends Tech
 
 func _ready():
 	super()
-	duplicate_flag = true
+	duplicate_flag = false
 	price = 14
 	effect_base_amount = amount
 	item_name = "GoldenGloves"
@@ -18,7 +18,7 @@ func _ready():
 
 func DoJob():
 	player.can_crit = true
-	player.stats.SetCritChance(5)
+	player.stats.SetCritChance(amount)
 
 func UpdateDescription():
 	item_description = "Increase crit rate by " + str(EffectAmount()) + " %"

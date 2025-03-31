@@ -83,7 +83,7 @@ position = Vector2(1231, 595)
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 999.0
+wait_time = 99.0
 autostart = true
 
 [node name="Spawner" parent="GameManager" instance=ExtResource("4_gl8g4")]

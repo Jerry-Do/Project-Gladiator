@@ -10,8 +10,8 @@ radius = 11.0114
 top_level = true
 position = Vector2(279, 297)
 scale = Vector2(2, 2)
-collision_layer = 0
-collision_mask = 5
+collision_layer = 12
+collision_mask = 13
 script = ExtResource("1_82y86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
