@@ -24,12 +24,7 @@ func _physics_process(delta):
 		queue_free()
 
 
-func _on_detection_range_body_entered(body):
-	if lock_on_target != null:
-		return
-	if body.has_method("MinusHealth"):
-		if body.is_target:
-			lock_on_target = body
+	
 
 
 
@@ -46,3 +41,17 @@ func _on_area_entered(area):
 			get_parent().target_bullet_flag = true
 		queue_free()
 		
+
+
+func _on_detection_range_area_entered(area):
+	if lock_on_target != null:
+		return
+	if area.has_method("TakingDamageForOther"):
+		if area.get_parent().is_target:
+			monitoring = false
+			lock_on_target = area
+
+
+func _on_lock_on_targer_detection_area_entered(area):
+	if area == lock_on_target:
+		monitoring = true

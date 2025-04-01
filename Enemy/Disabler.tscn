@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvq3tmc5pgvqm"]
+[gd_scene load_steps=35 format=3 uid="uid://bvq3tmc5pgvqm"]
 
 [ext_resource type="Script" uid="uid://pn5rqxjx14q4" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_2kd31"]
@@ -29,9 +29,6 @@ radius = 30.4108
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
 radius = 50.2974
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
-size = Vector2(29, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(33, 41)
@@ -197,8 +194,6 @@ visible = false
 position = Vector2(1, -11)
 scale = Vector2(-0.686151, 0.687031)
 disable_mode = 1
-collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(7.50004, -24.8333)
@@ -223,22 +218,10 @@ rotation = -3.14159
 scale = Vector2(2.48192, -2.42049)
 texture = ExtResource("10_qxovh")
 
-[node name="Back" type="Area2D" parent="."]
-visible = false
-collision_layer = 11
-collision_mask = 11
-script = ExtResource("11_u1jx8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
-position = Vector2(-16, -20)
-shape = SubResource("RectangleShape2D_vff1d")
-debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
-
 [node name="Front" type="Area2D" parent="."]
 visible = false
-disable_mode = 1
 collision_layer = 10
-collision_mask = 17
+collision_mask = 4
 script = ExtResource("11_u1jx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
@@ -278,12 +261,12 @@ texture = ExtResource("12_fls7x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Attack"]
 libraries = {
-"": SubResource("AnimationLibrary_88lwm")
+&"": SubResource("AnimationLibrary_88lwm")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fx8wj")
+&"": SubResource("AnimationLibrary_fx8wj")
 }
 
 [node name="CurseTimer" type="Timer" parent="."]
@@ -326,7 +309,7 @@ dead_state = NodePath("../Dead")
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="body_entered" from="Back" to="Back" method="_on_body_entered"]
+[connection signal="area_entered" from="Front" to="Front" method="_on_area_entered"]
 [connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]

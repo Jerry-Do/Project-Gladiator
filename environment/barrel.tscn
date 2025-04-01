@@ -12,7 +12,7 @@ size = Vector2(25, 53.3262)
 
 [node name="Barrel" type="Area2D" groups=["environment"]]
 scale = Vector2(1, 0.993882)
-collision_layer = 44
+collision_layer = 45
 collision_mask = 2
 script = ExtResource("1_ukyyx")
 drop_array = ExtResource("2_s1kpn")

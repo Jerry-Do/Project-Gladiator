@@ -45,7 +45,7 @@ func process_frame(_delta : float) -> State:
 
 
 func _on_attack_range_area_entered(area):
-	if area.has_method("TakingDamageForPlayer") || area.has_method("DestroyProp") :
+	if area.has_method("TakingDamageForPlayer") || area.has_method("DestroyProp"):
 		parent.thingHitBox = area
 
 

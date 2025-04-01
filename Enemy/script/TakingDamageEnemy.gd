@@ -13,3 +13,9 @@ func _on_body_entered(body):
 	if body.has_method("SetCollisionShapeDisabled"):
 		body.call_deferred("SetCollisionShapeDisabled")
 		get_parent().SetStatusTrue("stun", 1)
+	
+
+
+func _on_area_entered(area):
+	if area.has_method("TakingDamageForPlayer"):
+		area.TakingDamageForPlayer(-get_parent().stats_dic["damage"],false,self)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=12 format=4 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://qwno6dwhfodv" path="res://managers/EventManagers.gd" id="6_irc80"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
+[ext_resource type="PackedScene" uid="uid://jjel6oav4qw4" path="res://Weapon/HCRevolver.tscn" id="9_dod7h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -83,7 +84,7 @@ position = Vector2(1231, 595)
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 99.0
+wait_time = 9909.0
 autostart = true
 
 [node name="Spawner" parent="GameManager" instance=ExtResource("4_gl8g4")]
@@ -150,6 +151,9 @@ position = Vector2(614, 280)
 [node name="PlayerSpawner" type="Node2D" parent="."]
 position = Vector2(584, 223)
 script = ExtResource("3_4a00c")
+
+[node name="HCRevolver" parent="." instance=ExtResource("9_dod7h")]
+position = Vector2(377, 337)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

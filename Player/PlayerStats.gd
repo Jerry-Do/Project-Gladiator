@@ -1,7 +1,7 @@
 extends Node
 class_name Stats
 var rechargeTime: float = 3.0
-var baseArmor: float = 9999.0
+var baseArmor: float = 9.0
 var maxHealth: float = 100.0
 var baseSpeed: float = 600.0
 var baseCritChance: float = 0.0

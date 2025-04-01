@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://1m8txa8wqk3b"]
+[gd_scene load_steps=24 format=3 uid="uid://1m8txa8wqk3b"]
 
 [ext_resource type="Script" uid="uid://cp7mdmn6uqv3r" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_ofscd"]
@@ -36,9 +36,6 @@ func MakePath():
 	##else:
 		##$AnimatedSprite2D.play(\"idle\")
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vff1d"]
-size = Vector2(29, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(54.5, 41)
@@ -92,9 +89,8 @@ _data = {
 size = Vector2(71.843, 67.2344)
 
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(598, 320)
 collision_layer = 10
-collision_mask = 12
+collision_mask = 13
 script = ExtResource("1_f5gde")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -147,19 +143,6 @@ position = Vector2(1, -24)
 rotation = -3.14159
 scale = Vector2(2.28506, -1.71179)
 texture = ExtResource("8_wpy22")
-
-[node name="Back" type="Area2D" parent="."]
-visible = false
-position = Vector2(1, 20)
-collision_layer = 10
-collision_mask = 11
-script = ExtResource("9_qjxfl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
-position = Vector2(-16, -20)
-shape = SubResource("RectangleShape2D_vff1d")
-disabled = true
-debug_color = Color(0.923643, 0.253234, 0.286375, 0.42)
 
 [node name="Front" type="Area2D" parent="."]
 visible = false
