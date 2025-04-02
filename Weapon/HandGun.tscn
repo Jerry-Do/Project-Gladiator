@@ -22,7 +22,7 @@ position = Vector2(42, -8)
 scale = Vector2(2, 2)
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.35
 autostart = true
 
 [node name="PlayerDetector" type="Area2D" parent="."]

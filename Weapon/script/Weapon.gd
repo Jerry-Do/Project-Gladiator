@@ -67,9 +67,17 @@ func Reload():
 	reloadFlag = false
 
 func StartCooldownTimer():
-	$Cooldown.start(self.rateOfFire  if game_manager.timeSlowFlag == false else self.rateOfFire * 0.25)
+	var im = player.get_node("Item").get_node_or_null("IllegalModification")
+	var rate_of_fire : float = self.rateOfFire 
+	if im != null:
+		rate_of_fire = self.rateOfFire  - self.rateOfFire  * (im.EffectAmount() / 100.0)
+	$Cooldown.start(rate_of_fire  if game_manager.timeSlowFlag == false else rate_of_fire * 0.25)
 
 
 func StartReloadTimer():
+	var soh = player.get_node("Item").get_node_or_null("SleightOfHand")
+	var reload_time : float = reloadTime
+	if soh != null:
+		reload_time = reloadTime - reloadTime * (soh.EffectAmount() / 100.0)
 	reloadFlag = true
-	$ReloadTimer.start(reloadTime if game_manager.timeSlowFlag == false else reloadTime * 0.25)
+	$ReloadTimer.start(reload_time if game_manager.timeSlowFlag == false else reload_time * 0.25)

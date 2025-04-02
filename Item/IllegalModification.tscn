@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c41beoqetr7ek"]
+
+[ext_resource type="Script" uid="uid://2e6jencs8kt" path="res://Item/scripts/IllegalModification.gd" id="1_mdvja"]
+[ext_resource type="Texture2D" uid="uid://cib142ysvkmby" path="res://resource/16x16 RPG Item Pack/Item__60.png" id="2_ao67g"]
+
+[node name="IllegalModification" type="Node2D"]
+script = ExtResource("1_mdvja")
+amount = 10
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ao67g")

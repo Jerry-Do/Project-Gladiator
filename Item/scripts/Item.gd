@@ -46,7 +46,6 @@ func ReturnFaction():
 func Duplicate():
 	if duplicate_flag == true:
 		_set_quantity(1)
-		#call("UpdateDescription")
 		DoJob()
 
 func EffectAmount():
