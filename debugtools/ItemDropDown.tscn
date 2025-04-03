@@ -18,7 +18,7 @@ layout_mode = 0
 offset_top = 2.0
 offset_right = 228.0
 offset_bottom = 218.0
-item_count = 26
+item_count = 27
 item_0/text = "HealthKit"
 item_1/text = "BerserkerArmguard"
 item_2/text = "BerserkerChestplate"
@@ -45,6 +45,7 @@ item_22/text = "DashRecovery"
 item_23/text = "RiskyBusiness"
 item_24/text = "SleightOfHand"
 item_25/text = "IllegalModification"
+item_26/text = "ProjectileAcceleration"
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

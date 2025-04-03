@@ -3,6 +3,7 @@ class_name BaseBullet
 @onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 @onready var sprite = $Bullet
 @onready var player : Player = get_tree().get_first_node_in_group("player")
+@onready var pa : Item = player.itemNode.get_node_or_null("ProjectileAcceleration")
 var travelled_dist = 0
 var damage : int
 var speed : int
@@ -10,12 +11,12 @@ var crit_chance
 var leech_seed : bool
 var adrenaline_rush : bool
 const RANGE = 1500
-var faction
+var faction : String
+var counter : float = 0
 
 signal OnEnemyKilled
 
 func _init(_damage, _speed):
-	
 	damage = _damage
 	speed = _speed
 
@@ -40,6 +41,7 @@ func _physics_process(delta):
 	travelled_dist += speed * delta
 	if travelled_dist > RANGE:
 		queue_free()
+	
 
 
 func _on_ghost_timer_timeout():
@@ -54,6 +56,9 @@ func _on_ghost_timer_timeout():
 
 
 func _on_area_entered(area):
+	if pa != null:
+			damage = clampf(damage + damage * (pa.EffectAmount() * (roundi(travelled_dist) / pa.dmg_per_distant)), damage, damage * 2)
+			print("Dmg increased" , damage)
 	if area.has_method("DestroyProp"):
 		queue_free()
 		area.DestroyProp()

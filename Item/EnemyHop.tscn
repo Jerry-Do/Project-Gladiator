@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdprhhyibrueu"]
+
+[ext_resource type="Script" uid="uid://b3xj3ng5ymanf" path="res://Item/scripts/EnemyHop.gd" id="1_i8j24"]
+[ext_resource type="Texture2D" uid="uid://l5tuv4hws30k" path="res://Sprite/spriteimage/item/adrenalinerush.png" id="2_j11ks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8j24"]
+size = Vector2(49, 67)
+
+[node name="EnemyHop" type="Node2D"]
+script = ExtResource("1_i8j24")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(0.390625, 0.359375)
+texture = ExtResource("2_j11ks")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprite/spriteimage/item",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/adrenalinerush.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3c50e6a72f041b89b8e52633648c41a5"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -10.5)
+shape = SubResource("RectangleShape2D_i8j24")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
