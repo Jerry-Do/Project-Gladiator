@@ -1,5 +1,6 @@
 extends Enemy
-
+##TODO:
+##add cooldown to dodge
 @onready var aim : Marker2D = $Aim
 var sHealth:int = 5
 var sSpeed: float = 200
@@ -9,12 +10,14 @@ var sArmor : float =  0
 var wind_up_time : bool = 1
 var sFaction : String = "tech"
 var sCurrency : int = 2
-
+var is_dodging : bool = false
 func _init():
 	super._init(sHealth, sSpeed, sDamage, sArmor,sFameAmount, sCurrency, sFaction, wind_up_time)
 	
 func _ready():
 	super()
+	if evo_flag:
+		is_dodging = true
 	
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -37,3 +40,15 @@ func PlayerLeft():
 	thingHitBox = null
 	if player != null:
 		player.target_sprite.hide()
+
+func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
+	if is_dodging:
+		is_dodging = false
+		%DodgeCooldown.start()
+		return stats_dic.health
+	else:
+		return super(amount, is_backshot, faction, crit)
+
+
+func _on_dodge_timer_timeout():
+	is_dodging = true

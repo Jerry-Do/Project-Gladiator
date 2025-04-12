@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjkqe7gy0n4gr"]
+[gd_scene load_steps=5 format=3 uid="uid://bjkqe7gy0n4gr"]
 
 [ext_resource type="Script" uid="uid://bsgeufm4hnf0p" path="res://UI/script/UI.gd" id="1_clehj"]
 [ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="2_g042w"]
-[ext_resource type="PackedScene" uid="uid://bpninsm3bsivs" path="res://debugtools/ItemDropDown.tscn" id="2_tjfbs"]
 [ext_resource type="PackedScene" uid="uid://d33f6q17cdc2p" path="res://UI/Fuelbar.tscn" id="3_gy42b"]
-[ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="5_unkvc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pakyj"]
 font_size = 24
@@ -165,7 +163,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FameMultiplier" type="Label" parent="Control/FameMultiplier"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Fame Multiplier:
+text = "Fame Multiplier: 1.0
 "
 label_settings = SubResource("LabelSettings_pakyj")
 
@@ -238,16 +236,3 @@ layout_mode = 2
 text = "Kill:
 "
 label_settings = SubResource("LabelSettings_pakyj")
-
-[node name="DropDown" parent="." instance=ExtResource("2_tjfbs")]
-offset_left = -3.0
-offset_top = 423.0
-offset_right = -3.0
-offset_bottom = 423.0
-
-[node name="DropDown2" parent="." instance=ExtResource("5_unkvc")]
-visible = false
-offset_left = 925.0
-offset_top = 424.0
-offset_right = 925.0
-offset_bottom = 424.0

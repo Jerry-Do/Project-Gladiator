@@ -77,6 +77,7 @@ func _input(event):
 		if event.is_action_pressed("reload"):
 			currentWeapon.StartReloadTimer()
 	if interactable:
+		
 		if event.is_action_pressed("interact"):
 			interactable.Interaction()
 	if event.is_action_pressed("move_left"):

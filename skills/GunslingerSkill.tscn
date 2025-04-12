@@ -4,7 +4,7 @@
 
 [node name="GunslingerSkill" type="Node"]
 script = ExtResource("1_vbfet")
-consume_rate = 1.0
+consume_rate = 10.0
 
 [node name="RechargeTimer" type="Timer" parent="."]
 

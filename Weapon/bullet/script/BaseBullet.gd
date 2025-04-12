@@ -57,8 +57,8 @@ func _on_ghost_timer_timeout():
 
 func _on_area_entered(area):
 	if pa != null:
-			damage = clampf(damage + damage * (pa.EffectAmount() * (roundi(travelled_dist) / pa.dmg_per_distant)), damage, damage * 2)
-			print("Dmg increased" , damage)
+		damage = clampf(damage + damage * (pa.EffectAmount() * (roundi(travelled_dist) / pa.dmg_per_distant)), damage, damage * 2)
+		print("Dmg increased" , damage)
 	if area.has_method("DestroyProp"):
 		queue_free()
 		area.DestroyProp()
@@ -67,4 +67,6 @@ func _on_area_entered(area):
 		var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
 		if ls != null:
 			ls.StartCooldown()
-		
+
+func BulletIden():
+	pass

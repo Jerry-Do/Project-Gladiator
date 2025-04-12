@@ -17,7 +17,8 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		player.SetHealth(1)
-		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) * (1 + (player.stats.ReturnDamageMod() / 100)))
+		damage *= (1 + (player.stats.ReturnDamageMod() / 100))
+		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)))
 		if area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, faction, random == crit_chance)  && adrenaline_rush:
 			OnEnemyKilled.emit()
 		queue_free()

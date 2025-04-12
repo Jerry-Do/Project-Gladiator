@@ -17,6 +17,7 @@ func _on_area_entered(area):
 		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
 	if area.has_method("TakingDamageForOther"):
 		#the bracket checks if the bullet crits or not and after if the bullet hit behind enemy then it will add extra damage
+		damage *= (1 + (player.stats.ReturnDamageMod() / 100))
 		var actual_damage = ( damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)) ) + 5 if area.get_name() == "Back" else 0
 		actual_damage *= 1 + (player.stats.ReturnDamageMod() / 100)	
 		if area.TakingDamageForOther(actual_damage,  true if area.get_name() == "Back" else false, faction, random == crit_chance) <= 0 && adrenaline_rush:

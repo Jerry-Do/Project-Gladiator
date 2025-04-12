@@ -7,8 +7,10 @@ var stun_state: State
 var move_state : State
 @export
 var attack_state : State
+
 var direction : Vector2
 var turn_flag : bool = false
+var is_dodging 
 func enter() -> void:
 	super()
 	parent.stats_dic.speed = parent.sSpeed
@@ -37,15 +39,9 @@ func process_physics(_delta: float) -> State:
 		else:
 			parent.stats_dic.speed = 0
 	return null
-
-func process_frame(_delta : float) -> State:
-	return null
-
 		
-
-
 func _on_attack_range_area_entered(area):
-	if area.has_method("TakingDamageForPlayer") || area.has_method("DestroyProp"):
+	if area.has_method("TakingDamageForPlayer") || (area.has_method("DestroyProp") && parent.name != "Disabler") :
 		parent.thingHitBox = area
 
 

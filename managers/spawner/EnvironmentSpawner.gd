@@ -11,7 +11,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	#get_parent().connect("RoundStart", SpawnMegaStruct())
-	SpawnMegaStruct()
+	#SpawnMegaStruct()
+	pass
 
 func SpawnEnvironemnt():
 	if spawned_props.size() < max_props:

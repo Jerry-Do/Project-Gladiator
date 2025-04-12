@@ -68,8 +68,7 @@ _data = {
 }
 
 [node name="Shooter" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(600, 320)
-scale = Vector2(1.00939, 1)
+scale = Vector2(1, 0.991)
 disable_mode = 1
 collision_layer = 0
 collision_mask = 26
@@ -104,16 +103,7 @@ position = Vector2(7.50004, -24.8333)
 scale = Vector2(4.77714, 4.48571)
 shape = SubResource("CircleShape2D_hkrb0")
 
-[node name="AttackWindup" type="Timer" parent="."]
-unique_name_in_owner = true
-
-[node name="Timer" type="Timer" parent="."]
-
 [node name="MovementController" type="Node" parent="."]
-
-[node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
 
 [node name="Target" type="Sprite2D" parent="."]
 visible = false
@@ -136,15 +126,6 @@ shape = SubResource("RectangleShape2D_lm1mg")
 visible = false
 position = Vector2(0.5, -21)
 shape = SubResource("RectangleShape2D_h4mvs")
-
-[node name="CollisionTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
-[node name="TurnTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.4
-autostart = true
 
 [node name="Aim" type="Marker2D" parent="."]
 position = Vector2(29.7209, -3)
@@ -195,12 +176,35 @@ script = ExtResource("17_jr7q4")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
+[node name="AttackWindup" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="TurnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+autostart = true
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="DodgeCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 8.0
+
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]
-[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
-[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="area_entered" from="Front" to="Front" method="_on_area_entered"]
 [connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]
 [connection signal="timeout" from="CurseTimer" to="." method="_on_curse_timer_timeout"]
+[connection signal="timeout" from="AttackWindup" to="StateControl/Attack" method="_on_attack_windup_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="DodgeCooldown" to="." method="_on_dodge_timer_timeout"]
 
 [editable path="SoftCollision"]

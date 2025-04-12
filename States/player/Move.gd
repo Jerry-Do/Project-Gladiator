@@ -26,7 +26,7 @@ func process_input(_event : InputEvent) -> State:
 	return null
 		
 func process_physics(delta: float):
-	var movement : Vector2 = get_movement_direction() * (parent.stats.ReturnSpeed() / (1 if parent.status_dictionary["slow"] == false else 2 ))
+	var movement : Vector2 = get_movement_direction().normalized() * (parent.stats.ReturnSpeed() / (1 if parent.status_dictionary["slow"] == false else 2 ))
 	if parent.recharge_flag && parent.stats.ReturnCurrentFuel() < parent.stats.ReturnMaxFuel() && usingFlag == false:
 		usingFlag = false
 		parent.stats.SetFuel(delta * parent.stats.ReturnRechargeRate())

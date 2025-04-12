@@ -18,7 +18,7 @@ func _init():
 func _physics_process(delta):
 	super._physics_process(delta)
 	
-func AttackPlayer():
+func Attack():
 	$Attack.show()
 	$Attack.get_child(2).play("explosion")
 	$AttackWindup.start(stats_dic.windup_time)

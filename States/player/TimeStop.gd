@@ -37,7 +37,7 @@ func enter() -> void:
 			parent.perfect_dodge_timer.stop()
 			print("Perfect")
 		tmp = parent.stats.ReturnSpeed()
-		ghost_timer.start(0.05 if parent.perfect_time_stop_state == false else 0.01)
+		ghost_timer.start(0.03 if parent.perfect_time_stop_state == false else 0.01)
 		parent.stats.SetSpeed(2000 if parent.perfect_time_stop_state == false else 6000)
 		usingFlag = true
 		Engine.time_scale = 0.3 if parent.perfect_time_stop_state == false else 0.1
@@ -91,7 +91,7 @@ func exit():
 		parent.stats.SetSpeed(tmp)
 		$RechargeTimer.start($RechargeTimer.wait_time if parent.status_dictionary["overheat"] else $RechargeTimer.wait_time * 1.5)
 		if parent.status_dictionary.overheat:
-			$%OverheatTimer.start(parent.stats.ReturnMaxFuel() / parent.stats.ReturnRechargeRate())
+			$OverheatTimer.start(parent.stats.ReturnMaxFuel() / parent.stats.ReturnRechargeRate())
 		parent.game_manager.timeSlowFlag = false
 		parent.invincibleState = false
 		parent.animated_sprite.speed_scale = orginal_speed_scale

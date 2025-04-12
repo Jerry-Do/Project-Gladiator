@@ -52,7 +52,12 @@ func _on_attack_area_entered(area):
 		area.TakingDamageForPlayer(-parent.stats_dic.damage, true if area.get_name() == "Back" else false, parent)
 		parent.game_manager.AdjustFame(-(parent.game_manager.currentFame * 0.10))
 		%StunTimer.start()
-	
+	if area.has_method("DestroyProp"):
+		area.call_deferred("DestroyProp")
+		parent.status_dictionary.stun = true
+		%Attack.get_child(0).call_deferred("set_disabled", true)
+		%StunTimer.start()
+
 
 
 
@@ -63,9 +68,5 @@ func _on_stun_timer_timeout():
 	
 
 
-func _on_attack_body_entered(body):
-	if body.has_method("DestroyProp"):
-		body.call_deferred("DestroyProp")
-		parent.status_dictionary.stun = true
-		%Attack.get_child(0).call_deferred("set_disabled", true)
-		%StunTimer.start()
+
+	
