@@ -33,7 +33,8 @@ func OnEnemyKilled():
 		#WaveComplete.emit()
 
 func _on_spawn_timer_timeout():
-	var randomNo = rng.randi_range(0,clamp(GameManager.instance.currentWave , GameManager.instance.currentWave,  enemies.size() - 1)) #clamp(GameManager.instance.currentWave , GameManager.instance.currentWave,  enemies.size() - 1)
+	#clamp(GameManager.instance.currentWave , GameManager.instance.currentWave,  enemies.size() - 1)
+	var randomNo = rng.randi_range(1,1) 
 	var randomSpawnPos = rng.randi_range(1,4)
 	var spawn_point = preload("res://Enemy/EnemySpawnPoint.tscn")
 	var real = spawn_point.instantiate()

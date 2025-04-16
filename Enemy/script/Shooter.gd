@@ -33,7 +33,9 @@ func Attack():
 	new_bullet.shooter = self
 	new_bullet.damage = stats_dic.damage
 	player.get_parent().add_child(new_bullet)
-	%AttackWindup.start(stats_dic.windup_time)
+	var wind_up_time = stats_dic["windup_time"] * (0.85 if buff_dictionary["atk_speed"] else 1)
+	%AttackWindup.start(wind_up_time)
+
 
 func PlayerLeft():
 	inRange = false

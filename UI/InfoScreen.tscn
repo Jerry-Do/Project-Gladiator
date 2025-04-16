@@ -69,9 +69,9 @@ layout_mode = 2
 text = "Level:"
 fit_content = true
 
-[node name="Health" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
+[node name="Max Health" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]
 layout_mode = 2
-text = "Health:"
+text = "Max Health:"
 fit_content = true
 
 [node name="Base_Damage_Mod" type="RichTextLabel" parent="StatsBackground/VBoxContainer"]

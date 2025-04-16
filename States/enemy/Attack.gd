@@ -13,7 +13,8 @@ func enter() -> void:
 	super()
 	parent.inRange = true
 	parent.stats_dic.speed = 0
-	%AttackWindup.start(parent.wind_up_time)
+	var wind_up_time = parent.stats_dic["windup_time"] * (0.85 if parent.buff_dictionary["atk_speed"] else 1)
+	%AttackWindup.start(wind_up_time)
 
 
 func process_physics(_delta: float) -> State:
@@ -29,6 +30,6 @@ func _on_attack_windup_timeout():
 
 
 func _on_attack_range_area_exited(area):
-	if area.has_method("TakingDamageForPlayer") ||  area.has_method("DestroyProp"):
+	if area.has_method("TakingDamageForPlayer") ||  (area.has_method("DestroyProp") && parent.name != "Disabler") :
 		parent.PlayerLeft()
 	

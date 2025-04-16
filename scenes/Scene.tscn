@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=13 format=4 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
 [ext_resource type="Script" uid="uid://cvukqfnjnvkdu" path="res://managers/spawner/PlayerSpawner.gd" id="3_4a00c"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://managers/spawner/spawner.tscn" id="4_gl8g4"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://ui.tscn" id="5_m2sr4"]
+[ext_resource type="PackedScene" uid="uid://cdoynk8tfk67p" path="res://drops/HealthPotion.tscn" id="6_dod7h"]
 [ext_resource type="Script" uid="uid://qwno6dwhfodv" path="res://managers/EventManagers.gd" id="6_irc80"]
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
+[ext_resource type="PackedScene" uid="uid://bot8mqogeao67" path="res://drops/AmmoPack.tscn" id="10_ydk4g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -39,6 +41,7 @@ sources/0 = SubResource("TileSetAtlasSource_mfeuo")
 [node name="Level" type="Node2D"]
 
 [node name="LayerHolder" type="Node2D" parent="."]
+z_index = -2
 position = Vector2(597, 310)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="LayerHolder"]
@@ -91,7 +94,6 @@ autostart = true
 unique_name_in_owner = true
 position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Summoner.tscn"]
-maxAllow = 5
 
 [node name="s1" parent="GameManager/Spawner" index="1"]
 position = Vector2(-456, -160)
@@ -112,7 +114,7 @@ position = Vector2(-1, 0)
 script = ExtResource("7_lagx3")
 environment_props = ["res://environment/barrel.tscn", "res://environment/ShootingBotActual.tscn"]
 mega_struct_props = ["res://environment/MaterialCollectionTower.tscn", "res://environment/DataCollectionTower.tscn"]
-max_props = 9
+max_props = 3
 
 [node name="EnvironmentSpawnPoints" type="Node" parent="GameManager/EnvironmentSpawner"]
 
@@ -143,6 +145,9 @@ metadata/_custom_type_script = "uid://qwno6dwhfodv"
 
 [node name="Timer" type="Timer" parent="GameManager/EventManager"]
 
+[node name="HealthPoition" parent="GameManager" instance=ExtResource("6_dod7h")]
+position = Vector2(519, 441)
+
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
 
@@ -152,6 +157,9 @@ position = Vector2(614, 280)
 [node name="PlayerSpawner" type="Node2D" parent="."]
 position = Vector2(584, 223)
 script = ExtResource("3_4a00c")
+
+[node name="AmmoPack" parent="." instance=ExtResource("10_ydk4g")]
+position = Vector2(697, 457)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

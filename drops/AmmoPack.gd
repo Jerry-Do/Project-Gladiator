@@ -1,9 +1,12 @@
 extends BaseDrop
 
-func Effect():
-	if  player.currentWeapon != null:
-		var amount = roundi(player.currentWeapon.currentAmmo * (drop_resource.amount / 100.00))
-		player.currentWeapon.currentAmmo = clamp(player.currentWeapon.currentAmmo + amount,  player.currentWeapon.currentAmmo + amount, player.currentWeapon.maxAmmo)
-		GameManager.instance.UpdateAmmo(player.currentWeapon.currentAmmo)
-		super()
-		
+func Effect(is_player : bool):
+	if is_player:
+		if  thing.currentWeapon != null:
+			var amount = roundi(thing.currentWeapon.currentAmmo * (drop_resource.amount / 100.00))
+			thing.currentWeapon.currentAmmo = clamp(thing.currentWeapon.currentAmmo + amount,  thing.currentWeapon.currentAmmo + amount, thing.currentWeapon.maxAmmo)
+			GameManager.instance.UpdateAmmo(thing.currentWeapon.currentAmmo)
+			super(true)
+	else:
+		thing.SetBuffTrue("atk_speed", 4)
+		super(false)

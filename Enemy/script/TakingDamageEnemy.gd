@@ -8,6 +8,8 @@ func TakingDamageForOther(amount, is_backshot, faction, crit):
 func SetStatusOther(s_name : String, duration : float):
 	get_parent().SetStatusTrue(s_name, duration)
 
+func SetBuffForEnemy(b_name: String, duration : float):
+	get_parent().SetBuffTrue(b_name, duration)
 
 func _on_body_entered(body):
 	if body.has_method("SetCollisionShapeDisabled"):

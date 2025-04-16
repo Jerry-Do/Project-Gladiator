@@ -6,29 +6,47 @@ var old_armor : float
 
 var in_state : bool = false
 
-@export var consume_rate : float 
-#TODO: on evl 1, create a shockwave that pushes and stuns enemies, distance and stun duration based on charging duration 
+var enemies_in_range : Array
+
+var tick : float = 0
+
+var tick_threshhold : float = 0.5
+@export var regen_amount : float = 0
+@export var consume_rate : float = 0
+@export var damage_amount : float = 0
+#TODO: on evl 1,
 func _ready():
 	dash_state = get_parent().get_node("Dash")
 	move_state = get_parent().get_node("Move")
 	idle_state = get_parent().get_node("Idle")
 	
 func enter() -> void:
-	print(parent.stats.ReturnCurrentFuel())
-	if roundf(parent.stats.ReturnCurrentFuel()) == parent.stats.ReturnMaxFuel():
-		old_armor = parent.stats.stats.Armor 
-		parent.status_dictionary.stun = true
-		parent.stats.SetArmor(999)
-		in_state = true
-
+	#if roundf(parent.stats.ReturnCurrentFuel()) == parent.stats.ReturnMaxFuel():
+	old_armor = parent.stats.stats.Armor 
+	parent.status_dictionary.stun = true
+	parent.stats.SetArmor(999)
+	in_state = true
+	if parent.item_inventory.dominant_type == "biochemical":
+		$RootZone.global_position = parent.global_position
+		$RootZone.monitoring = true
+		$RootZone.visible = true
+		regen_amount = 0
 	
 func process_physics(delta: float):
 	if in_state:
-		if parent.stats.ReturnCurrentFuel() > 0:
+
+		if parent.stats.ReturnCurrentFuel() > 0 :
+			tick += delta
 			parent.stats.SetFuel(-delta * 50)
 			parent.fuelBar._set_fuel(parent.stats.ReturnCurrentFuel())
-			parent.recharge_flag = false
-			parent.stats.SetHealth(delta * 10)
+			parent.recharge_flag = false	
+			if parent.item_inventory.dominant_type == "biochemical" && tick >= tick_threshhold:
+				for i in enemies_in_range:
+					i.TakingDamageForOther(damage_amount, false, "biochemical", false)
+					parent.stats.SetHealth(damage_amount)
+				tick = 0
+			else:
+				parent.stats.SetHealth(delta * 10)
 			
 		else:
 			if parent.get_node("Item").get_node_or_null("CoolingSystem") == null:
@@ -44,6 +62,9 @@ func process_input(_event : InputEvent) -> State:
 	
 func exit() -> void:
 	if in_state:
+		if parent.item_inventory.dominant_type == "biochemical":
+			$RootZone.monitoring = false
+			$RootZone.visible = false
 		parent.status_dictionary.stun = false
 		parent.stats.stats.Armor = old_armor
 		if parent.status_dictionary.overheat:
@@ -56,3 +77,8 @@ func _on_recharge_timer_timeout():
 
 func _on_overheat_timer_timeout():
 	parent.status_dictionary.overheat = false
+
+#
+func _on_root_zone_area_entered(area):
+	if area.has_method("TakingDamageForOther"):
+		enemies_in_range.append(area)

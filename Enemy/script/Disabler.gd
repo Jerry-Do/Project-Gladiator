@@ -25,7 +25,7 @@ func Attack():
 
 func PlayerLeft():
 	inRange = false
-	
+	thingHitBox = null
 
 
 

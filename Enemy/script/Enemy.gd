@@ -54,11 +54,17 @@ var curse_timer
 var currency_amount : int
 var delta_count : float = 0
 var leech_dmg_timer : float = 1
-var status_dictionary = {
+var status_dictionary : Dictionary[String, bool]= {
 	"stun" : false,
 	"slow" : false,
 	"vulnerable" : false,
 	"leeched" : false
+}
+var buff_dictionary : Dictionary[String, bool]= {
+	"dmg" : false,
+	"speed" : false,
+	"defense" : false,
+	"atk_speed" : false
 }
 var status_timers : Array
 var timer_counters = 0
@@ -155,6 +161,11 @@ func SetStatusTrue(name_s: String, duration: float):
 		await get_tree().create_timer(duration).timeout
 		status_dictionary[name_s] = false
 
+func SetBuffTrue(name_s: String, duration: float):
+	if buff_dictionary[name_s] == false:
+		buff_dictionary[name_s] = true
+		await get_tree().create_timer(duration).timeout
+		buff_dictionary[name_s] = false
 	
 func LevelUp():
 	level = game_manager.currentWave

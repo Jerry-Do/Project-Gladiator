@@ -5,14 +5,17 @@ class_name BaseDrop
 # Called when the node enters the scene tree for the first time.
 @onready var sprite : Sprite2D = $drop_sprite
 
-var player : Player 
+var thing 
 func _ready():
 	sprite.texture = drop_resource.texture
 
-func Effect():
+func Effect(is_player : bool):
 	queue_free()
 
 func _on_area_entered(area : Area2D):
 	if area.get_parent().name == "Player":
-		player = area.get_parent()
-		Effect()
+		thing = area.get_parent()
+		Effect(true)
+	if area.has_method("SetBuffForEnemy"):
+		thing = area.get_parent()
+		Effect(false)

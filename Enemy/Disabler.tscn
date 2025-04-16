@@ -28,7 +28,7 @@
 radius = 30.4108
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkrb0"]
-radius = 50.2974
+radius = 38.4288
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(33, 41)
@@ -190,7 +190,6 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="AttackRange" type="Area2D" parent="."]
-visible = false
 position = Vector2(1, -11)
 scale = Vector2(-0.686151, 0.687031)
 disable_mode = 1

@@ -30,7 +30,7 @@ func AttackPlayer():
 
 func PlayerLeft():
 	inRange = false
-	playerHitBox = null
+	
 
 func OnDead():
 	super()

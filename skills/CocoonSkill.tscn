@@ -1,14 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://b05ic4q6mjdwu"]
+[gd_scene load_steps=4 format=3 uid="uid://b05ic4q6mjdwu"]
 
 [ext_resource type="Script" uid="uid://dyalso4gr6v37" path="res://skills/CocoonSkill.gd" id="1_akrqf"]
+[ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="2_75pim"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4r4me"]
+radius = 162.077
 
 [node name="CocoonSkill" type="Node"]
 script = ExtResource("1_akrqf")
+regen_amount = 10.0
 consume_rate = 100.0
+damage_amount = 1.0
 
 [node name="RechargeTimer" type="Timer" parent="."]
 
 [node name="OverheatTimer" type="Timer" parent="."]
 
+[node name="RootZone" type="Area2D" parent="."]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RootZone"]
+shape = SubResource("CircleShape2D_4r4me")
+
+[node name="Sprite2D" type="Sprite2D" parent="RootZone"]
+z_index = -1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-4, -3)
+scale = Vector2(12.0062, 12.555)
+texture = ExtResource("2_75pim")
+
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]
 [connection signal="timeout" from="OverheatTimer" to="." method="_on_overheat_timer_timeout"]
+[connection signal="area_entered" from="RootZone" to="." method="_on_root_zone_area_entered"]

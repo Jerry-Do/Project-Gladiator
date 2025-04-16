@@ -9,6 +9,8 @@ size = Vector2(9.00901, 12.1287)
 
 [node name="HealthPoition" type="Area2D"]
 scale = Vector2(4.44, 4.04)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_w3qpp")
 drop_resource = ExtResource("2_msmil")
 
