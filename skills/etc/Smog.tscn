@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0ohch1tw777r"]
+
+[ext_resource type="Texture2D" uid="uid://frn61bvkvvd2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f0.png" id="1_0t24d"]
+[ext_resource type="Script" uid="uid://chngu5yfojf18" path="res://skills/etc/smog.gd" id="1_ojbl2"]
+[ext_resource type="Script" uid="uid://cyuli4y4usk3g" path="res://Sprite/Ghost.gd" id="3_yd1xf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojbl2"]
+radius = 9.80721
+
+[node name="Smog" type="Area2D"]
+scale = Vector2(1.025, 1)
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_ojbl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ojbl2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.66349, 0.999978, 0.71625, 1)
+position = Vector2(0.999999, 0.5)
+scale = Vector2(0.933, 1)
+texture = ExtResource("1_0t24d")
+script = ExtResource("3_yd1xf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

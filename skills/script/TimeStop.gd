@@ -28,6 +28,8 @@ func _ready():
 func enter() -> void:
 	super()
 	parent.get_node("PerfectDodgeZone").monitoring = (true if parent.stats.stats["Level"] == 6 else false)
+	if parent.item_inventory.dominant_type == "biochemical":
+		$SmogTimer.start(0.03)
 	if parent.can_time_stop && parent.status_dictionary["timeStopDisable"] == false:
 		orginal_speed_scale = 	parent.animated_sprite.speed_scale
 		if parent.perfect_dogde_collided:
@@ -74,7 +76,7 @@ func process_input(_event : InputEvent) -> State:
 func _on_ghost_timer_timeout():
 	if in_state && parent.stats.ReturnCurrentFuel() > 0 && usingFlag == true:
 		var this_ghost = preload("res://Sprite/Ghost.tscn").instantiate()
-		get_parent().get_parent().get_parent().add_child(this_ghost)
+		parent.get_parent().add_child(this_ghost)
 		this_ghost.position = parent.position
 		this_ghost.texture = parent.animated_sprite.sprite_frames.get_frame_texture("run",parent.animated_sprite.frame)
 		this_ghost.flip_h =  parent.animated_sprite.flip_h
@@ -86,6 +88,8 @@ func exit():
 		super()
 		parent.perfect_time_stop_state = false
 		parent.perfect_dodge_timer.start()
+		ghost_timer.stop()
+		$SmogTimer.stop()
 		usingFlag = false
 		Engine.time_scale = 1.0
 		parent.stats.SetSpeed(tmp)
@@ -105,3 +109,11 @@ func _on_time_stop_recharge_timer_timeout():
 
 func _on_overheat_timer_timeout():
 	parent.status_dictionary.overheat = false
+
+
+func _on_smog_timer_timeout():
+	var smog = preload("res://skills/etc/Smog.tscn").instantiate()
+	parent.get_parent().add_child(smog)
+	smog.position = parent.position
+	smog.scale = parent.animated_sprite.scale * parent.scale
+	smog.rotation = parent.rotation

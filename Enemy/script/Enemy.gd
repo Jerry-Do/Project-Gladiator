@@ -41,7 +41,7 @@ var stats_dic = {
 	"armor" : 0,
 	"windup_time" : 0
 }
-
+var maxHealth : float  = 0
 var faction : String = ""
 var fameAmount : int
 var chase: bool
@@ -53,12 +53,14 @@ var is_target = false
 var curse_timer
 var currency_amount : int
 var delta_count : float = 0
-var leech_dmg_timer : float = 1
+var dot_dmg_timer : float = 1
+var amount_dic : SEADictionary = SEADictionary.singleton
 var status_dictionary : Dictionary[String, bool]= {
 	"stun" : false,
 	"slow" : false,
 	"vulnerable" : false,
-	"leeched" : false
+	"leech" : false,
+	"poison": false
 }
 var buff_dictionary : Dictionary[String, bool]= {
 	"dmg" : false,
@@ -75,8 +77,8 @@ func _init(health: int, speed: float, damage: float, armor : float ,fame : int, 
 		fame *= 2 
 		damage *= 1.25
 		windup_time /= 2
-	
 	self.stats_dic.health = health
+	maxHealth = self.stats_dic.health
 	self.stats_dic.speed = speed
 	self.stats_dic.damage = damage
 	self.fameAmount = fame
@@ -94,6 +96,7 @@ func _ready() -> void:
 		self.stats_dic.damage *= 1.0 + (item.amount * absf(GameManager.instance.currency))
 		self.stats_dic.speed *= 1.0 + (item.amount * absf(GameManager.instance.currency))
 		self.stats_dic.health *= 1.0 + (item.amount * absf(GameManager.instance.currency))
+		maxHealth = self.stats_dic.health
 	#health_bar.init_health(self.stats_dic.health)
 	#if player.get_node("Item").get_node_or_null("BrainChip") != null:
 		#health_bar.show()
@@ -101,14 +104,22 @@ func _ready() -> void:
 	
 func _physics_process(delta: float):
 	state_manager.process_physics(delta)
-	if status_dictionary.leeched:
+	#If needed, then multiple the delta by an amount to make sure the tick is calculated normally when is in time slow
+	if status_dictionary.leech || status_dictionary.poison :
 		delta_count += delta
-		if delta_count >= leech_dmg_timer:
-			var dmg = 0.5 * (2  if player.get_node("Item").item_critable else 1)
-			stats_dic.health -= dmg
-			CreateDamageLabel(dmg, false)
-			delta_count = 0
-			player.stats.SetHealth(dmg)
+		if delta_count >= dot_dmg_timer:
+			if status_dictionary.leech:
+				var dmg = (amount_dic.debuff_dic["leech"] * maxHealth)  * (2  if player.get_node("Item").item_critable else 1)
+				stats_dic.health -= dmg
+				CreateDamageLabel(dmg, false)
+				delta_count = 0
+				player.stats.SetHealth(dmg)
+			if status_dictionary.poison:
+				var dmg = (amount_dic.debuff_dic["poison"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+				stats_dic.health -= dmg
+				CreateDamageLabel(dmg, false)
+				delta_count = 0
+				player.stats.SetHealth(dmg)
 			
 func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
 	amount *= (1.2 if is_backshot else 1.0  )

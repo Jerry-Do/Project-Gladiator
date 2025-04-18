@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6vhhlk0sc1fj"]
 
-[ext_resource type="Script" uid="uid://c4mxpfxpij8sm" path="res://States/player/TimeStop.gd" id="1_ev5iq"]
+[ext_resource type="Script" uid="uid://c4mxpfxpij8sm" path="res://skills/script/TimeStop.gd" id="1_ev5iq"]
 
 [node name="TimeSlow" type="Node"]
 script = ExtResource("1_ev5iq")
@@ -15,6 +15,9 @@ unique_name_in_owner = true
 [node name="GhostTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="SmogTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_time_stop_recharge_timer_timeout"]
 [connection signal="timeout" from="OverheatTimer" to="." method="_on_overheat_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="SmogTimer" to="." method="_on_smog_timer_timeout"]

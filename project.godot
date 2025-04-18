@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.4", "Mobile")
 
 PlayerStats="res://Player/PlayerStats.gd"
 SceneManager="*res://managers/SceneManager.gd"
-SkillPicker="*res://skills/SkillPicker.gd"
+SkillPicker="*res://skills/script/SkillPicker.gd"
 
 [display]
 

@@ -1,7 +1,7 @@
+Node
+Timer
 Sprite2D
 CollisionShape2D
 Area2D
-Timer
-Node
 RichTextLabel
 EventManager

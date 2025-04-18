@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgtfauqo652ah"]
 
-[ext_resource type="Script" uid="uid://dk4e4k31vwg00" path="res://skills/GunslingerSkill.gd" id="1_vbfet"]
+[ext_resource type="Script" uid="uid://dk4e4k31vwg00" path="res://skills/script/GunslingerSkill.gd" id="1_vbfet"]
 
 [node name="GunslingerSkill" type="Node"]
 script = ExtResource("1_vbfet")

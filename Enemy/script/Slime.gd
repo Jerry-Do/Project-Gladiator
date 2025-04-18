@@ -24,10 +24,8 @@ func Attack():
 		if thingHitBox.has_method("TakingDamageForPlayer"):
 			thingHitBox.TakingDamageForPlayer(-stats_dic.damage, true if thingHitBox.get_name() == "Back" else false, self)
 			game_manager.AdjustFame(-(game_manager.currentFame * 0.10))
-			%AttackWindup.start(stats_dic.windup_time)
 		elif thingHitBox.has_method("DestroyProp"):
 			thingHitBox.DestroyProp()
-			%AttackWindup.start(stats_dic.windup_time)
 
 func PlayerLeft():
 	inRange = false

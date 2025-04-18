@@ -39,7 +39,7 @@ text = "Retry
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0rirm")
+&"": SubResource("AnimationLibrary_0rirm")
 }
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
