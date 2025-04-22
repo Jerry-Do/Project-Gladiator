@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://difqxvwmhnycn"]
+[gd_scene load_steps=7 format=3 uid="uid://difqxvwmhnycn"]
 
 [ext_resource type="Texture2D" uid="uid://c3r5jbq83k6kk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png" id="1_na5r2"]
 [ext_resource type="Script" uid="uid://e4g65h77eq6l" path="res://environment/script/barrel.gd" id="1_ukyyx"]
-[ext_resource type="Resource" uid="uid://dt84s38wfa2b5" path="res://drops/resource/drop_array_resource.tres" id="2_s1kpn"]
+[ext_resource type="Script" uid="uid://dcflxlwjd1s15" path="res://drops/resource/drop_array.gd" id="2_s1kpn"]
+
+[sub_resource type="Resource" id="Resource_x2sh3"]
+script = ExtResource("2_s1kpn")
+drop_array = ["res://drops/HealthPotion.tscn", "res://drops/AmmoPack.tscn", "res://drops/FuelPack.tscn"]
+metadata/_custom_type_script = "uid://dcflxlwjd1s15"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3mw5"]
 size = Vector2(32, 57.3509)
@@ -15,7 +20,7 @@ scale = Vector2(1, 0.993882)
 collision_layer = 45
 collision_mask = 2
 script = ExtResource("1_ukyyx")
-drop_array = ExtResource("2_s1kpn")
+drop_array = SubResource("Resource_x2sh3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
@@ -37,3 +42,5 @@ shape = SubResource("RectangleShape2D_n3mw5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1.50923)
 shape = SubResource("RectangleShape2D_w7k4h")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

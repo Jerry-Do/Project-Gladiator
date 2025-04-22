@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SEADictionary" load_steps=2 format=3 uid="uid://ghbcblcvlkoq"]
+
+[ext_resource type="Script" uid="uid://ber7su6b5baso" path="res://etc/StatusEffectAmount.gd" id="1_86fr8"]
+
+[resource]
+script = ExtResource("1_86fr8")

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
 [ext_resource type="PackedScene" uid="uid://bot8mqogeao67" path="res://drops/AmmoPack.tscn" id="10_ydk4g"]
-[ext_resource type="Script" uid="uid://ber7su6b5baso" path="res://etc/StatusEffectAmount.gd" id="11_ayole"]
+[ext_resource type="PackedScene" uid="uid://b8hjbimriphth" path="res://environment/ExplosiveBarrel.tscn" id="11_ayole"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -162,8 +162,8 @@ script = ExtResource("3_4a00c")
 [node name="AmmoPack" parent="." instance=ExtResource("10_ydk4g")]
 position = Vector2(697, 457)
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("11_ayole")
+[node name="Barrel" parent="." instance=ExtResource("11_ayole")]
+position = Vector2(870, 330)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

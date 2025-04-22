@@ -13,7 +13,8 @@ func enter() -> void:
 	super()
 	parent.inRange = true
 	parent.stats_dic.speed = 0
-	var wind_up_time = parent.stats_dic["windup_time"] * (0.85 if parent.buff_dictionary["atk_speed"] else 1)
+	var wind_up_time = parent.stats_dic["windup_time"] * (parent.amount_dic.buff_dic["atk_speed"] if parent.buff_dictionary["atk_speed"] else 1)
+	wind_up_time = wind_up_time * ((1.0 + parent.amount_dic.debuff_dic["toxin"]) if parent.status_dictionary["toxin"] else 1)
 	%AttackWindup.start(wind_up_time)
 
 

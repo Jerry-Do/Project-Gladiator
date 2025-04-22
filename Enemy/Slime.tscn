@@ -1,22 +1,24 @@
-[gd_scene load_steps=26 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=27 format=3 uid="uid://dxvm2d58ye2sq"]
 
-[ext_resource type="Script" uid="uid://c6o3oge5cuwbh" path="res://Enemy/script/Slime.gd" id="1_kkhy6"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_sl4u6"]
-[ext_resource type="Script" uid="uid://crwsopcespl6v" path="res://Enemy/script/movement_controller.gd" id="9_inugo"]
-[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_30tjh"]
-[ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="10_rnjbw"]
-[ext_resource type="Texture2D" uid="uid://cj7os7hgbjb4e" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png" id="11_pxwbt"]
-[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_yf58g"]
-[ext_resource type="Texture2D" uid="uid://dxyaipjj47xjl" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png" id="12_0j6jw"]
-[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="13_7132p"]
-[ext_resource type="Texture2D" uid="uid://dntlp2r8oeoic" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png" id="13_i2kum"]
-[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="14_qgwfb"]
-[ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="14_um5ay"]
-[ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="15_l3m8p"]
-[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="15_xo4ua"]
-[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="16_2oqox"]
-[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="17_f2h5j"]
-[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="17_kexo0"]
+[ext_resource type="Script" uid="uid://c6o3oge5cuwbh" path="res://Enemy/script/Slime.gd" id="1_ehnmg"]
+[ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_qw700"]
+[ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="3_p3jfx"]
+[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="4_habnw"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="5_eybiy"]
+[ext_resource type="Script" uid="uid://crwsopcespl6v" path="res://Enemy/script/movement_controller.gd" id="6_bq7gk"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="7_vrmrc"]
+[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="8_ptdd6"]
+[ext_resource type="Texture2D" uid="uid://cj7os7hgbjb4e" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f1.png" id="9_eu6l3"]
+[ext_resource type="Texture2D" uid="uid://dxyaipjj47xjl" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f2.png" id="10_xx808"]
+[ext_resource type="Texture2D" uid="uid://dntlp2r8oeoic" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f3.png" id="11_ujos1"]
+[ext_resource type="Texture2D" uid="uid://dhgxrbnqm622n" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f4.png" id="12_2nfnv"]
+[ext_resource type="Texture2D" uid="uid://dow6u7ecmrrln" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f5.png" id="13_jw1xl"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="14_824oc"]
+[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="15_elocj"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="16_6owqv"]
+[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="17_3har5"]
+[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="18_cnl74"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="19_06mw7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3t8h2"]
 radius = 86.0562
@@ -42,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_rnjbw")]
+"values": [ExtResource("3_p3jfx")]
 }
 
 [sub_resource type="Animation" id="Animation_3qo57"]
@@ -58,7 +60,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("10_rnjbw"), ExtResource("11_pxwbt"), ExtResource("12_0j6jw"), ExtResource("13_i2kum"), ExtResource("14_um5ay"), ExtResource("15_l3m8p")]
+"values": [ExtResource("3_p3jfx"), ExtResource("9_eu6l3"), ExtResource("10_xx808"), ExtResource("11_ujos1"), ExtResource("12_2nfnv"), ExtResource("13_jw1xl")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bx07p"]
@@ -67,22 +69,22 @@ _data = {
 &"run": SubResource("Animation_3qo57")
 }
 
-[sub_resource type="GDScript" id="GDScript_fbrfo"]
-
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(4, 5)
 collision_layer = 10
 collision_mask = 0
 slide_on_ceiling = false
 safe_margin = 0.001
-script = ExtResource("1_kkhy6")
+script = ExtResource("1_ehnmg")
+amount_dic = ExtResource("2_qw700")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -5)
 scale = Vector2(3.25, 3)
-texture = ExtResource("10_rnjbw")
+texture = ExtResource("3_p3jfx")
+script = ExtResource("4_habnw")
 
-[node name="SoftCollision" parent="." instance=ExtResource("2_sl4u6")]
+[node name="SoftCollision" parent="." instance=ExtResource("5_eybiy")]
 visible = false
 position = Vector2(25, -25)
 scale = Vector2(0.693025, 0.752784)
@@ -108,7 +110,7 @@ unique_name_in_owner = true
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MovementController" type="Node" parent="."]
-script = ExtResource("9_inugo")
+script = ExtResource("6_bq7gk")
 
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.05
@@ -119,13 +121,13 @@ visible = false
 position = Vector2(1, -24)
 rotation = -3.14159
 scale = Vector2(2.28506, -1.71179)
-texture = ExtResource("10_30tjh")
+texture = ExtResource("7_vrmrc")
 
 [node name="Front" type="Area2D" parent="."]
 position = Vector2(-1, 14)
 collision_layer = 14
 collision_mask = 4
-script = ExtResource("11_yf58g")
+script = ExtResource("8_ptdd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(2.75, -19)
@@ -159,35 +161,34 @@ wait_time = 8.0
 one_shot = true
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("13_7132p")
+script = ExtResource("14_824oc")
 starting_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("14_qgwfb")
+script = ExtResource("15_elocj")
 dead_state = NodePath("../Dead")
 stun_state = NodePath("../Stun")
 move_state = NodePath(".")
 attack_state = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("15_xo4ua")
+script = ExtResource("16_6owqv")
 
 [node name="Stun" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("16_2oqox")
+script = ExtResource("17_3har5")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
 [node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("17_kexo0")
+script = ExtResource("18_cnl74")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
-[node name="Healthbar" parent="." instance=ExtResource("17_f2h5j")]
+[node name="Healthbar" parent="." instance=ExtResource("19_06mw7")]
 offset_left = -38.0
 offset_top = -36.0
 offset_right = 42.0
 offset_bottom = -27.0
-script = SubResource("GDScript_fbrfo")
 
 [connection signal="area_entered" from="AttackRange" to="StateControl/Move" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="StateControl/Attack" method="_on_attack_range_area_exited"]

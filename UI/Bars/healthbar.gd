@@ -1,7 +1,6 @@
 
 extends ProgressBar
 
-
 @onready var timer = $Timer
 @onready var damageBar = $DamageBar
 @onready var shield_bar = $ShieldBar

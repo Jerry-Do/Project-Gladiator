@@ -1,28 +1,29 @@
-[gd_scene load_steps=35 format=3 uid="uid://bvq3tmc5pgvqm"]
+[gd_scene load_steps=36 format=3 uid="uid://bvq3tmc5pgvqm"]
 
-[ext_resource type="Script" uid="uid://pn5rqxjx14q4" path="res://Enemy/script/Disabler.gd" id="1_t4xhl"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_2kd31"]
-[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_qxovh"]
-[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_u1jx8"]
-[ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="12_fls7x"]
-[ext_resource type="Texture2D" uid="uid://dakbe0e6umag3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png" id="13_wk6c6"]
-[ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="14_0r14c"]
-[ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="15_kkras"]
-[ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="16_tppl1"]
-[ext_resource type="Texture2D" uid="uid://biqeqg1vslpy8" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png" id="17_2pe1i"]
-[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="17_5alke"]
-[ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="18_bwjel"]
-[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="18_wddmo"]
-[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="19_1q61o"]
-[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="19_h062b"]
-[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="20_kxef2"]
-[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="20_rtxx8"]
-[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="21_simmw"]
-[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="21_u7fs7"]
-[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="22_7no0n"]
-[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="22_hd4r3"]
-[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="23_ksxti"]
-[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="23_res6o"]
+[ext_resource type="Script" uid="uid://pn5rqxjx14q4" path="res://Enemy/script/Disabler.gd" id="1_fdie8"]
+[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="2_bwhis"]
+[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="3_acbii"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="4_5k6tj"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="5_3qcj8"]
+[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="6_4dkuo"]
+[ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="7_3ol1w"]
+[ext_resource type="Texture2D" uid="uid://dakbe0e6umag3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png" id="8_oh2eq"]
+[ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="9_qju6w"]
+[ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="10_ulno0"]
+[ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="11_leafg"]
+[ext_resource type="Texture2D" uid="uid://biqeqg1vslpy8" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png" id="12_3n4i0"]
+[ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="13_q3cuq"]
+[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="14_v382m"]
+[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="15_rx0oc"]
+[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="16_iuhyi"]
+[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="17_v2r3r"]
+[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="18_rm40m"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="19_vaypu"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="20_cwagd"]
+[ext_resource type="Script" uid="uid://bhj4a4uln0osd" path="res://States/Enemy/MoveEnemy.gd" id="21_2nlwc"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="22_uds4n"]
+[ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="23_asixn"]
+[ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="24_a64nt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnhwa"]
 radius = 30.4108
@@ -51,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_fls7x")]
+"values": [ExtResource("7_3ol1w")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -92,7 +93,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.10553, 0.495014, 0.689846, 0.8987, 1.10405, 1.3094, 1.4913),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [null, ExtResource("12_fls7x"), ExtResource("13_wk6c6"), ExtResource("14_0r14c"), ExtResource("15_kkras"), ExtResource("16_tppl1"), ExtResource("17_2pe1i"), ExtResource("18_bwjel")]
+"values": [null, ExtResource("7_3ol1w"), ExtResource("8_oh2eq"), ExtResource("9_qju6w"), ExtResource("10_ulno0"), ExtResource("11_leafg"), ExtResource("12_3n4i0"), ExtResource("13_q3cuq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -137,7 +138,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("17_5alke")]
+"values": [ExtResource("2_bwhis")]
 }
 
 [sub_resource type="Animation" id="Animation_2nsm2"]
@@ -153,7 +154,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("17_5alke"), ExtResource("18_wddmo"), ExtResource("19_h062b"), ExtResource("20_rtxx8"), ExtResource("21_simmw"), ExtResource("22_7no0n")]
+"values": [ExtResource("2_bwhis"), ExtResource("14_v382m"), ExtResource("15_rx0oc"), ExtResource("16_iuhyi"), ExtResource("17_v2r3r"), ExtResource("18_rm40m")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fx8wj"]
@@ -166,14 +167,15 @@ _data = {
 position = Vector2(600, 320)
 collision_layer = 0
 collision_mask = 21
-script = ExtResource("1_t4xhl")
+script = ExtResource("1_fdie8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -17)
 scale = Vector2(3.3125, 2.8125)
-texture = ExtResource("17_5alke")
+texture = ExtResource("2_bwhis")
+script = ExtResource("3_acbii")
 
-[node name="SoftCollision" parent="." instance=ExtResource("2_2kd31")]
+[node name="SoftCollision" parent="." instance=ExtResource("4_5k6tj")]
 visible = false
 scale = Vector2(0.755759, 0.0916106)
 collision_layer = 16
@@ -215,13 +217,13 @@ visible = false
 position = Vector2(2.5749, -18.3304)
 rotation = -3.14159
 scale = Vector2(2.48192, -2.42049)
-texture = ExtResource("10_qxovh")
+texture = ExtResource("5_3qcj8")
 
 [node name="Front" type="Area2D" parent="."]
 visible = false
 collision_layer = 10
 collision_mask = 4
-script = ExtResource("11_u1jx8")
+script = ExtResource("6_4dkuo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(17, -19)
@@ -256,7 +258,7 @@ disabled = true
 visible = false
 position = Vector2(-1, -18)
 scale = Vector2(17.6875, 19)
-texture = ExtResource("12_fls7x")
+texture = ExtResource("7_3ol1w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Attack"]
 libraries = {
@@ -272,7 +274,7 @@ libraries = {
 wait_time = 8.0
 one_shot = true
 
-[node name="Healthbar" parent="." instance=ExtResource("23_res6o")]
+[node name="Healthbar" parent="." instance=ExtResource("19_vaypu")]
 visible = false
 z_index = 3
 offset_left = -39.0
@@ -281,26 +283,26 @@ offset_right = 45.0
 offset_bottom = -43.0
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("19_1q61o")
+script = ExtResource("20_cwagd")
 starting_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "stun_state", "move_state", "attack_state")]
-script = ExtResource("20_kxef2")
+script = ExtResource("21_2nlwc")
 dead_state = NodePath("../Dead")
 stun_state = NodePath("../Stun")
 move_state = NodePath(".")
 attack_state = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("21_u7fs7")
+script = ExtResource("22_uds4n")
 
 [node name="Stun" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("22_hd4r3")
+script = ExtResource("23_asixn")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
 [node name="Attack" type="Node" parent="StateControl" node_paths=PackedStringArray("move_state", "dead_state")]
-script = ExtResource("23_ksxti")
+script = ExtResource("24_a64nt")
 move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 

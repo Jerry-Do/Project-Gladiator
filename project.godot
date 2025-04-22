@@ -20,6 +20,10 @@ PlayerStats="res://Player/PlayerStats.gd"
 SceneManager="*res://managers/SceneManager.gd"
 SkillPicker="*res://skills/script/SkillPicker.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/stretch/mode="viewport"

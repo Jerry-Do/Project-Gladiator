@@ -1,7 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbgol3ftdidov"]
+[gd_scene load_steps=29 format=3 uid="uid://dbgol3ftdidov"]
 
 [ext_resource type="Script" uid="uid://crt5h8dh2635n" path="res://Enemy/script/Shooter.gd" id="1_mv28k"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_6671a"]
+[ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_jwn6t"]
+[ext_resource type="Shader" uid="uid://cf7npyvdymcpr" path="res://etc/HitFlash.gdshader" id="3_hf7sr"]
+[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="5_23hr5"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="10_ul2y7"]
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="11_c2516"]
 [ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="11_in2y1"]
@@ -17,6 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="16_q1jmm"]
 [ext_resource type="Script" uid="uid://qorwq34ujt31" path="res://States/Enemy/AttackShooter.gd" id="17_jr7q4"]
 [ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="17_xxr41"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_23hr5"]
+resource_local_to_scene = true
+shader = ExtResource("3_hf7sr")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67u5o"]
 radius = 22.496
@@ -72,11 +81,14 @@ scale = Vector2(1, 0.991)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_mv28k")
+amount_dic = ExtResource("2_jwn6t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_23hr5")
 position = Vector2(0, -1)
 scale = Vector2(3.0625, 2.9375)
 texture = ExtResource("11_c2516")
+script = ExtResource("5_23hr5")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_6671a")]
 scale = Vector2(0.755759, 0.0916106)

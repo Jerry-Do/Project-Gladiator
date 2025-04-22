@@ -27,7 +27,7 @@ func process_physics(_delta: float) -> State:
 		return stun_state
 	if parent.player != null:
 		if  parent.player.is_invisible == false:
-			parent.stats_dic.speed = parent.sSpeed * (1.5 if parent.buff_dictionary["speed"] == true else 1)
+			parent.stats_dic.speed = parent.sSpeed * (parent.amount_dic.buff_dic["speed"] if parent.buff_dictionary["speed"] == true else 1)
 			var direction = (parent.player.position - parent.position).normalized()
 			if parent.thingHitBox != null:
 				return attack_state

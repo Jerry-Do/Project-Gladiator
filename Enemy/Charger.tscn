@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://1m8txa8wqk3b"]
+[gd_scene load_steps=25 format=3 uid="uid://1m8txa8wqk3b"]
 
 [ext_resource type="Script" uid="uid://cp7mdmn6uqv3r" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_ofscd"]
 [ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="3_5raok"]
+[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="3_10gm3"]
 [ext_resource type="Script" uid="uid://cskxtrru8gnf4" path="res://Enemy/script/MoveCharger.gd" id="4_k7a44"]
 [ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="5_qldku"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_wpy22"]
@@ -97,6 +98,7 @@ script = ExtResource("1_f5gde")
 position = Vector2(-4, -1)
 scale = Vector2(4.75, 4.4375)
 texture = ExtResource("13_ds7dx")
+script = ExtResource("3_10gm3")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_ofscd")]
 visible = false

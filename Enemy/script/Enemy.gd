@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
+
 @onready 
 var player : Player = get_tree().get_first_node_in_group("player")
 
@@ -16,7 +17,7 @@ var softCollision = $SoftCollision
 var spawner = get_tree().get_first_node_in_group("GameManager").get_node("Spawner")
 
 @onready 
-var sprite = $Sprite2D
+var sprite : HitFlash = $Sprite2D
 
 @onready 
 var state_manager = $StateControl
@@ -30,9 +31,15 @@ var target_sprite = $Target
 @onready
 var animation_player : AnimationPlayer = $AnimationPlayer
 
+@onready
+var health_bar  = $Healthbar
+
+@export
+var amount_dic : SEADictionary
+
 signal OnDeath(enemy)
 
-#var health_bar : HealthBar
+
 var flipped : bool = false
 var stats_dic = {
 	"health" : 0,
@@ -54,13 +61,13 @@ var curse_timer
 var currency_amount : int
 var delta_count : float = 0
 var dot_dmg_timer : float = 1
-var amount_dic : SEADictionary = SEADictionary.singleton
+
 var status_dictionary : Dictionary[String, bool]= {
 	"stun" : false,
 	"slow" : false,
 	"vulnerable" : false,
 	"leech" : false,
-	"poison": false
+	"toxin": false,
 }
 var buff_dictionary : Dictionary[String, bool]= {
 	"dmg" : false,
@@ -97,15 +104,15 @@ func _ready() -> void:
 		self.stats_dic.speed *= 1.0 + (item.amount * absf(GameManager.instance.currency))
 		self.stats_dic.health *= 1.0 + (item.amount * absf(GameManager.instance.currency))
 		maxHealth = self.stats_dic.health
-	#health_bar.init_health(self.stats_dic.health)
-	#if player.get_node("Item").get_node_or_null("BrainChip") != null:
-		#health_bar.show()
+	health_bar.init_health(self.stats_dic.health)
+	if player.get_node("Item").get_node_or_null("BrainChip") != null:
+		health_bar.show()
 
 	
 func _physics_process(delta: float):
 	state_manager.process_physics(delta)
 	#If needed, then multiple the delta by an amount to make sure the tick is calculated normally when is in time slow
-	if status_dictionary.leech || status_dictionary.poison :
+	if status_dictionary.leech || status_dictionary.toxin :
 		delta_count += delta
 		if delta_count >= dot_dmg_timer:
 			if status_dictionary.leech:
@@ -114,20 +121,21 @@ func _physics_process(delta: float):
 				CreateDamageLabel(dmg, false)
 				delta_count = 0
 				player.stats.SetHealth(dmg)
-			if status_dictionary.poison:
-				var dmg = (amount_dic.debuff_dic["poison"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+			if status_dictionary.toxin:
+				var dmg = (amount_dic.debuff_dic["toxin"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
 				stats_dic.health -= dmg
 				CreateDamageLabel(dmg, false)
 				delta_count = 0
-				player.stats.SetHealth(dmg)
+
 			
 func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
+	sprite.HitFlash()
 	amount *= (1.2 if is_backshot else 1.0  )
 	amount *= (1.1 if self.faction != faction else 1.0)
 	amount /= ( 1 + (stats_dic.armor/2.0)/ 100.0)
 	CreateDamageLabel(amount, crit)
 	stats_dic.health -= amount
-	#health_bar._set_health(stats_dic.health)
+	health_bar._set_health(stats_dic.health)
 	return stats_dic.health
 
 func CreateDamageLabel(amount : float, crit : bool):
@@ -171,6 +179,7 @@ func SetStatusTrue(name_s: String, duration: float):
 		status_dictionary[name_s] = true
 		await get_tree().create_timer(duration).timeout
 		status_dictionary[name_s] = false
+		
 
 func SetBuffTrue(name_s: String, duration: float):
 	if buff_dictionary[name_s] == false:

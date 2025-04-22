@@ -1,16 +1,14 @@
-extends Node
+extends Resource
 class_name SEADictionary
-static var singleton : SEADictionary = null
 var debuff_dic : Dictionary[String, float] = {
 	"slow" : 0.5,
 	"vulnerable" : 0.2,
-	"leech" : 0.3,
-	"poison" : 0.5
+	"leech" : 0.03,
+	"toxin" : 0.05
 }
 
 var buff_dic : Dictionary[String, float] = {
-	
+	"speed": 1.5,
+	"dmg": 1.2,
+	"atk_speed": 0.8
 }
-
-func _ready():
-	singleton = self
