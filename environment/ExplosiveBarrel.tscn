@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8hjbimriphth"]
+[gd_scene load_steps=15 format=3 uid="uid://b8hjbimriphth"]
 
 [ext_resource type="Script" uid="uid://dmlnn1hvl8uxb" path="res://environment/script/ExplosiveBarrel.gd" id="1_b8yk5"]
 [ext_resource type="Texture2D" uid="uid://c3r5jbq83k6kk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png" id="3_dnm3v"]
+[ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/Blinking.gd" id="3_mpw20"]
 [ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="3_uxr2l"]
 [ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="4_mpw20"]
 [ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="5_anp4t"]
@@ -45,7 +46,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_2ml83"]
-resource_name = "explosion"
+resource_name = "activate"
 length = 0.6
 step = 0.1
 tracks/0/type = "value"
@@ -76,21 +77,21 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h16qp"]
 _data = {
 &"RESET": SubResource("Animation_3q8w5"),
-&"explosion": SubResource("Animation_2ml83")
+&"activate": SubResource("Animation_2ml83")
 }
 
-[node name="Barrel" type="Area2D" groups=["environment"]]
+[node name="ExplosiveBarrel" type="Area2D" groups=["environment"]]
 scale = Vector2(1, 0.993882)
 collision_layer = 45
 collision_mask = 2
 script = ExtResource("1_b8yk5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.885726, 0.22621, 0.416005, 1)
 light_mask = 0
 position = Vector2(-0.512521, 0)
 scale = Vector2(2.43906, 3.36575)
 texture = ExtResource("3_dnm3v")
+script = ExtResource("3_mpw20")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
@@ -109,24 +110,25 @@ visible = false
 position = Vector2(-0.5, -1.50923)
 shape = SubResource("RectangleShape2D_w7k4h")
 
-[node name="ExplosionZone" type="Area2D" parent="."]
+[node name="EffectZone" type="Area2D" parent="."]
 visible = false
 collision_layer = 15
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EffectZone"]
 shape = SubResource("CircleShape2D_nwbrp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ExplosionZone"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EffectZone"]
 libraries = {
 &"": SubResource("AnimationLibrary_h16qp")
 }
 speed_scale = 1.75
 
-[node name="Sprite2D" type="Sprite2D" parent="ExplosionZone"]
+[node name="Sprite2D" type="Sprite2D" parent="EffectZone"]
 position = Vector2(2.5, -1.50922)
 scale = Vector2(11.7188, 12.294)
 texture = ExtResource("7_opvjr")
 
-[connection signal="area_entered" from="ExplosionZone" to="." method="_on_explosion_zone_area_entered"]
-[connection signal="animation_finished" from="ExplosionZone/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="EffectZone" to="." method="_on_explosion_zone_area_entered"]
+[connection signal="animation_finished" from="EffectZone/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

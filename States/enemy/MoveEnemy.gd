@@ -46,6 +46,6 @@ func _on_attack_range_area_entered(area):
 
 func _on_turn_timer_timeout():
 	if parent.player != null:
-		if (parent.player.position - parent.position).sign().x != parent.scale.y && parent.player.is_invisible == false:
-			parent.set_scale(Vector2(1,parent.scale.y * -1))
-			parent.set_rotation_degrees( parent.get_rotation_degrees() + 180 * -1)
+		if (parent.player.global_position - parent.sprite.global_position).sign().x != parent.sprite.scale.sign().y && parent.player.is_invisible == false:
+			parent.sprite.set_scale(Vector2(parent.sprite.scale.x,parent.sprite.scale.y * -1))
+			parent.sprite.set_rotation_degrees( parent.sprite.get_rotation_degrees() + 180 * -1)

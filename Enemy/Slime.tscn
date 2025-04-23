@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=29 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" uid="uid://c6o3oge5cuwbh" path="res://Enemy/script/Slime.gd" id="1_ehnmg"]
 [ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_qw700"]
+[ext_resource type="Shader" uid="uid://cf7npyvdymcpr" path="res://etc/HitFlash.gdshader" id="3_l6230"]
 [ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="3_p3jfx"]
 [ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="4_habnw"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="5_eybiy"]
@@ -19,6 +20,11 @@
 [ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="17_3har5"]
 [ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="18_cnl74"]
 [ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="19_06mw7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvypf"]
+shader = ExtResource("3_l6230")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3t8h2"]
 radius = 86.0562
@@ -70,7 +76,6 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(4, 5)
 collision_layer = 10
 collision_mask = 0
 slide_on_ceiling = false
@@ -79,7 +84,7 @@ script = ExtResource("1_ehnmg")
 amount_dic = ExtResource("2_qw700")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -5)
+material = SubResource("ShaderMaterial_uvypf")
 scale = Vector2(3.25, 3)
 texture = ExtResource("3_p3jfx")
 script = ExtResource("4_habnw")
@@ -130,7 +135,7 @@ collision_mask = 4
 script = ExtResource("8_ptdd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
-position = Vector2(2.75, -19)
+position = Vector2(2, -12)
 shape = SubResource("RectangleShape2D_lm1mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
