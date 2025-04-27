@@ -38,4 +38,5 @@ texture = ExtResource("2_c11f6")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="area_entered" from="PlayerDetector" to="." method="_on_player_detector_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

@@ -16,7 +16,8 @@ func _on_body_entered(body):
 		body.call_deferred("SetCollisionShapeDisabled")
 		get_parent().SetStatusTrue("stun", 1)
 	
-
+func SetStatus(s_name : String, duration : float):
+	SetStatusOther(s_name, duration)
 
 func _on_area_entered(area):
 	if area.has_method("TakingDamageForPlayer"):

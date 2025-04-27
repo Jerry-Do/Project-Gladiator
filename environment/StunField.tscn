@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4ijx3m1f3s74"]
+
+[ext_resource type="Script" uid="uid://ci38ejxw360lx" path="res://environment/script/StunField.gd" id="1_0q2pj"]
+[ext_resource type="Texture2D" uid="uid://d3r5ly7mrabfk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_stair.png" id="2_0q2pj"]
+[ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/PropSpriteManager.gd" id="3_erot1"]
+[ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="4_q4d2i"]
+[ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="5_5h67r"]
+[ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="6_y0h0p"]
+[ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="7_7fywp"]
+[ext_resource type="Texture2D" uid="uid://biqeqg1vslpy8" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png" id="8_dnwh0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k4h"]
+size = Vector2(64, 53.3262)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwbrp"]
+radius = 154.03
+
+[sub_resource type="Animation" id="Animation_3q8w5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_q4d2i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2ml83"]
+resource_name = "activate"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_5h67r"), ExtResource("6_y0h0p"), ExtResource("7_7fywp"), ExtResource("8_dnwh0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h16qp"]
+_data = {
+&"RESET": SubResource("Animation_3q8w5"),
+&"activate": SubResource("Animation_2ml83")
+}
+
+[node name="StunField" type="Area2D" groups=["environment"]]
+scale = Vector2(1, 0.993882)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_0q2pj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(4.125, 3.36575)
+texture = ExtResource("2_0q2pj")
+script = ExtResource("3_erot1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.999998, -1.50923)
+shape = SubResource("RectangleShape2D_w7k4h")
+
+[node name="EffectZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EffectZone"]
+shape = SubResource("CircleShape2D_nwbrp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EffectZone"]
+libraries = {
+&"": SubResource("AnimationLibrary_h16qp")
+}
+speed_scale = 1.75
+
+[node name="Sprite2D" type="Sprite2D" parent="EffectZone"]
+self_modulate = Color(1, 1, 0.215686, 1)
+position = Vector2(2.5, -1.50922)
+scale = Vector2(11.7188, 12.294)
+texture = ExtResource("4_q4d2i")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="EffectZone" to="." method="_on_explosion_zone_area_entered"]
+[connection signal="animation_finished" from="EffectZone/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://itd3bnkrfiwu"]
+
+[ext_resource type="Script" uid="uid://0asy42xot6is" path="res://environment/script/OilZone.gd" id="1_ehmeh"]
+[ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="1_xb6nu"]
+[ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="2_ehmeh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwbrp"]
+radius = 154.03
+
+[sub_resource type="Animation" id="Animation_3q8w5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Oil:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_xb6nu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2ml83"]
+resource_name = "activate"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Oil:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ehmeh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h16qp"]
+_data = {
+&"RESET": SubResource("Animation_3q8w5"),
+&"activate": SubResource("Animation_2ml83")
+}
+
+[node name="EffectZone" type="Area2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ehmeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nwbrp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h16qp")
+}
+speed_scale = 1.75
+
+[node name="Oil" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+z_index = -2
+position = Vector2(-1.52588e-05, -12.577)
+scale = Vector2(14.0625, 15.5011)
+texture = ExtResource("1_xb6nu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

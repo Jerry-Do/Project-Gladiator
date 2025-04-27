@@ -17,6 +17,7 @@ class_name Player
 @onready var state_controller = $StateControl
 @export var max_speed: int = 100
 
+@export var amount_dic : SEADictionary
 var just_dash : bool = false
 var perfect_dogde_collided : bool = false
 var perfect_time_stop_state = false
@@ -33,11 +34,14 @@ var status_dictionary = {
 	"stun" : false,
 	"timeStopDisable" : false,
 	"slow" : false,
-	"overheat" : false
+	"overheat" : false,
+	"fire" : false,
+	"bleed" : false
 }
 var buff_dictionary = {
 	"endurance" : false
 }
+var delta_count : float = 0
 var interactable = null
 var can_time_stop : bool = true
 var dash_charges : float = 1
@@ -61,6 +65,18 @@ func _physics_process(delta):
 		currentWeapon.look_at(get_global_mouse_position())
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		just_dash = false
+	if  status_dictionary.bleed || status_dictionary.fire:
+		delta_count += delta
+		if delta_count >= amount_dic.dot_dmg_timer:
+			if status_dictionary.fire:
+				var dmg = (amount_dic.debuff_dic["fire"] * stats.maxHealth)
+				stats.SetHealth(-dmg)
+				delta_count = 0
+			if status_dictionary.bleed:
+				var dmg = (amount_dic.debuff_dic["bleed"] * stats.maxHealth) * \
+				(2 if velocity > Vector2.ZERO else 1)
+				stats.SetHealth(-dmg)
+				delta_count = 0
 		
 func _process(delta):
 	if Input.is_action_pressed("left_click"):

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmlnn1hvl8uxb" path="res://environment/script/ExplosiveBarrel.gd" id="1_b8yk5"]
 [ext_resource type="Texture2D" uid="uid://c3r5jbq83k6kk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png" id="3_dnm3v"]
-[ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/Blinking.gd" id="3_mpw20"]
+[ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/PropSpriteManager.gd" id="3_mpw20"]
 [ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="3_uxr2l"]
 [ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="4_mpw20"]
 [ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="5_anp4t"]

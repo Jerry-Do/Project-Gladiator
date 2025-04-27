@@ -32,6 +32,9 @@ func process_physics(delta: float):
 			parent.stats.SetFuel(-delta * consume_rate)
 			parent.fuelBar._set_fuel(parent.stats.ReturnCurrentFuel())
 			parent.recharge_flag = false
+		elif parent.item_inventory.dominant_type == "biochemical" && parent.stats.ReturnCurrentFuel() <= 0 && parent.stats.ReturnCurrentHealth() > 1:
+			parent.stats.SetHealth(-delta * (consume_rate)/2.0)
+			
 		else:
 			if parent.get_node("Item").get_node_or_null("CoolingSystem") == null:
 				parent.status_dictionary.overheat = true

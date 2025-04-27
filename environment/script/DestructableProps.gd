@@ -7,7 +7,10 @@ class_name DestructableProps
 
 	
 func DestroyProp():
-	null
+	return null
+	
+
+
 	
 func _on_timer_timeout():
 	$EffectZone.show()

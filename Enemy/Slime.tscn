@@ -76,8 +76,8 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 10
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 slide_on_ceiling = false
 safe_margin = 0.001
 script = ExtResource("1_ehnmg")
@@ -103,6 +103,8 @@ shape = SubResource("CircleShape2D_3t8h2")
 
 [node name="AttackRange" type="Area2D" parent="."]
 visible = false
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(6, -8.99999)
@@ -130,8 +132,8 @@ texture = ExtResource("7_vrmrc")
 
 [node name="Front" type="Area2D" parent="."]
 position = Vector2(-1, 14)
-collision_layer = 14
-collision_mask = 4
+collision_layer = 73
+collision_mask = 73
 script = ExtResource("8_ptdd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]

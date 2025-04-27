@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dihbok32413v7"]
+
+[ext_resource type="Script" uid="uid://dp0v6kk06uusg" path="res://environment/script/OilBarrel.gd" id="1_eb0rm"]
+[ext_resource type="Texture2D" uid="uid://c3r5jbq83k6kk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png" id="2_8dq1x"]
+[ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/PropSpriteManager.gd" id="3_6ftfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3mw5"]
+size = Vector2(32, 57.3509)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k4h"]
+size = Vector2(25, 53.3262)
+
+[node name="OilBarrel" type="Area2D" groups=["environment"]]
+scale = Vector2(1, 0.993882)
+collision_layer = 13
+collision_mask = 2
+script = ExtResource("1_eb0rm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.266575, 0.266575, 0.266575, 1)
+light_mask = 0
+position = Vector2(-0.512521, 0)
+scale = Vector2(2.43906, 3.36575)
+texture = ExtResource("2_8dq1x")
+script = ExtResource("3_6ftfn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.999998, -1.50923)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_n3mw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, -1.50923)
+shape = SubResource("RectangleShape2D_w7k4h")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

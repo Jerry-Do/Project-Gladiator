@@ -68,6 +68,8 @@ var status_dictionary : Dictionary[String, bool]= {
 	"vulnerable" : false,
 	"leech" : false,
 	"toxin": false,
+	"fire" : false,
+	"bleed" : false
 }
 var buff_dictionary : Dictionary[String, bool]= {
 	"dmg" : false,
@@ -112,7 +114,8 @@ func _ready() -> void:
 func _physics_process(delta: float):
 	state_manager.process_physics(delta)
 	#If needed, then multiple the delta by an amount to make sure the tick is calculated normally when is in time slow
-	if status_dictionary.leech || status_dictionary.toxin :
+	if status_dictionary.leech || status_dictionary.toxin || status_dictionary.fire \
+	|| status_dictionary.bleed:
 		delta_count += delta
 		if delta_count >= dot_dmg_timer:
 			if status_dictionary.leech:
@@ -124,6 +127,16 @@ func _physics_process(delta: float):
 			if status_dictionary.toxin:
 				var dmg = (amount_dic.debuff_dic["toxin"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
 				stats_dic.health -= dmg
+				CreateDamageLabel(dmg, false)
+				delta_count = 0
+			if status_dictionary.fire:
+				var dmg = (amount_dic.debuff_dic["fire"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+				stats_dic.health -= dmg
+				CreateDamageLabel(dmg, false)
+				delta_count = 0
+			if status_dictionary.bleed:
+				var dmg = (amount_dic.debuff_dic["bleed"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+				stats_dic.health -= dmg * (2 if velocity > Vector2.ZERO else 1)
 				CreateDamageLabel(dmg, false)
 				delta_count = 0
 

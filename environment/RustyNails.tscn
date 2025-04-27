@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctdlmmkw7f7t8"]
+
+[ext_resource type="Script" uid="uid://p5lkocue8i5j" path="res://environment/script/RustyNails.gd" id="1_xi62a"]
+[ext_resource type="Texture2D" uid="uid://bbtv4gyjylvuv" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/spikes_anim_f7.png" id="2_xi62a"]
+[ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/PropSpriteManager.gd" id="3_x8cjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k4h"]
+size = Vector2(63, 53.3262)
+
+[node name="RustyNails" type="Area2D" groups=["environment"]]
+scale = Vector2(1, 0.993882)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_xi62a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(-4.5, 0)
+scale = Vector2(4.1875, 3.36575)
+texture = ExtResource("2_xi62a")
+script = ExtResource("3_x8cjk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, -1.50923)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w7k4h")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

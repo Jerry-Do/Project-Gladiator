@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://j7b5738f8mjj"]
+[gd_scene load_steps=31 format=3 uid="uid://j7b5738f8mjj"]
 
 [ext_resource type="Script" uid="uid://dqxdd7ixbmdm6" path="res://Player/Player.gd" id="1_ascps"]
+[ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_dm7nj"]
 [ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="4_qb1iw"]
 [ext_resource type="Script" uid="uid://ss5ny27luty3" path="res://States/player/Idle.gd" id="4_wngjq"]
 [ext_resource type="Script" uid="uid://11b5s8cimdjk" path="res://States/player/Move.gd" id="6_8bmt5"]
@@ -111,20 +112,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmgx"]
-size = Vector2(35, 43)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ep4sk"]
 radius = 21.5894
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm073"]
 size = Vector2(89, 86)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7tob"]
+size = Vector2(26, 66)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 5
-collision_mask = 5
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ascps")
+amount_dic = ExtResource("2_dm7nj")
 
 [node name="Stats" parent="." groups=["player"] instance=ExtResource("14_bvtpy")]
 
@@ -183,17 +183,12 @@ one_shot = true
 
 [node name="Front" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
-collision_layer = 5
-collision_mask = 5
+collision_layer = 140
+collision_mask = 140
 script = ExtResource("9_6761q")
 
 [node name="CollisionShape2D" parent="Front" instance=ExtResource("11_7n4bc")]
 position = Vector2(-0.500008, -5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -5.5)
-shape = SubResource("RectangleShape2D_1bmgx")
 
 [node name="Target" type="Sprite2D" parent="."]
 visible = false
@@ -213,13 +208,17 @@ shape = SubResource("CircleShape2D_ep4sk")
 
 [node name="PerfectDodgeZone" type="Area2D" parent="."]
 visible = false
-collision_layer = 0
+collision_layer = 64
 collision_mask = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectDodgeZone"]
 position = Vector2(1.5, -4)
 shape = SubResource("RectangleShape2D_dm073")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_p7tob")
 
 [connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]
 [connection signal="timeout" from="Timer/DashCooldown" to="StateControl/Dash" method="_on_dash_cooldown_timeout"]

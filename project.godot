@@ -111,6 +111,7 @@ dash={
 2d_physics/layer_4="enemyHBox"
 2d_physics/layer_5="softCollision"
 2d_physics/layer_6="interaction"
+2d_physics/layer_7="Layer 7"
 
 [physics]
 
