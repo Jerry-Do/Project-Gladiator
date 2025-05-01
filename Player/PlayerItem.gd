@@ -1,5 +1,6 @@
 extends Node2D
 class_name PlayerItem
+var num_items : int = 0
 var item_sets = {
 	"berserk" : false,
 	"bioenhancement" : false,
@@ -9,7 +10,7 @@ var item_types : Dictionary = {
 	"tech" : 0,
 	"r.i.s.k" : 0
 }
-var dominant_type : String = "biochemical"
+var dominant_type : String = "tech"
 var item_critable : bool = false
 var is_dominant_type_set : bool = false
 #The thresh hold can be changed by changing the var below
@@ -18,6 +19,7 @@ signal add_type()
 
 
 func IncreaseType(type:String):
+	num_items += 1
 	item_types[type.to_lower()] += 1
 	add_type.emit()
 	if item_types[type.to_lower()] == dominant_thresh_hold:

@@ -24,9 +24,9 @@ func process_physics(_delta: float) -> State:
 	if parent.player != null:
 		if  parent.player.is_invisible == false && parent.status_dictionary.stun == false:
 			direction = (parent.player.position - parent.position).normalized()
-			parent.velocity = direction * (parent.stats_dic.speed * parent.amount_dic.amount_dic["slow"] if parent.status_dictionary.slow else parent.stats_dic.speed)
+			parent.velocity = direction * (parent.stats_dic.speed * parent.amount_dic.debuff_dic["slow"] if parent.status_dictionary.slow else parent.stats_dic.speed)
 			if parent.softCollision.IsColliding():
-				parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
+				parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500
 			parent.velocity = parent.velocity if parent.status_dictionary.slow == false else parent.velocity / 2
 			parent.move_and_slide()
 		else:

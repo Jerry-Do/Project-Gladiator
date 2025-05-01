@@ -30,7 +30,7 @@ func enter() -> void:
 	parent.get_node("PerfectDodgeZone").monitoring = (true if parent.stats.stats["Level"] == 6 else false)
 	if parent.item_inventory.dominant_type == "biochemical":
 		$SmogTimer.start(0.03)
-	if parent.can_time_stop && parent.status_dictionary["timeStopDisable"] == false:
+	if parent.can_time_stop && parent.status_dictionary["skill_disable"] == false:
 		orginal_speed_scale = 	parent.animated_sprite.speed_scale
 		if parent.perfect_dogde_collided:
 			parent.perfect_time_stop_state = true
@@ -52,7 +52,7 @@ func enter() -> void:
 	
 func process_physics(delta: float):
 	if in_state:
-		if  usingFlag == true && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] == false:
+		if  usingFlag == true && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["skill_disable"] == false:
 			parent.stats.SetFuel(-delta * consume_rate)
 			parent.fuelBar._set_fuel(parent.stats.ReturnCurrentFuel())
 			parent.recharge_flag = false

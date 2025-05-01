@@ -87,6 +87,7 @@ collision_mask = 2
 script = ExtResource("1_b8yk5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.593306, 0.148616, 0.170898, 1)
 light_mask = 0
 position = Vector2(-0.512521, 0)
 scale = Vector2(2.43906, 3.36575)

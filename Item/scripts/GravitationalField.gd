@@ -37,7 +37,6 @@ func _on_area_2d_area_entered(area):
 			print("Evolved")
 
 func _on_timer_timeout():
-	await get_tree().create_timer(0.25).timeout
 	$AnimationPlayer.play("emit")
 	
 

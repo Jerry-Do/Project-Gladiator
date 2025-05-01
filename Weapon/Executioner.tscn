@@ -39,7 +39,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="SkillCooldown" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 3.0
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

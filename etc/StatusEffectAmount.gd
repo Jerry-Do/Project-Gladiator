@@ -6,7 +6,7 @@ var debuff_dic : Dictionary[String, float] = {
 	"leech" : 0.03,
 	"toxin" : 0.05,
 	"fire" : 0.02,
-	"bleed" : 0.01
+	"bleed" : 0.05
 }
 var dot_dmg_timer : float = 1.0
 var buff_dic : Dictionary[String, float] = {

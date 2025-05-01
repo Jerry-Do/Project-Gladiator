@@ -28,21 +28,22 @@ var recharge_flag : bool = false
 var taking_damage : bool = false
 var is_invisible = false
 var damage_amount = 0
-var can_crit = false
+var can_crit = true
 var left_click_pressed : bool = false
 var status_dictionary = {
-	"stun" : false,
-	"timeStopDisable" : false,
-	"slow" : false,
-	"overheat" : false,
 	"fire" : false,
-	"bleed" : false
+	"bleed" : false,
+	"stun" : false,
+	"skill_disable" : false,
+	"overheat" : false,
+	"slow" : false,
 }
+
 var buff_dictionary = {
 	"endurance" : false
 }
 var delta_count : float = 0
-var interactable = null
+
 var can_time_stop : bool = true
 var dash_charges : float = 1
 signal CreateDescription(weapon : Weapon)
@@ -92,10 +93,6 @@ func _input(event):
 			currentWeapon.UseGunAbility()
 		if event.is_action_pressed("reload"):
 			currentWeapon.StartReloadTimer()
-	if interactable:
-		
-		if event.is_action_pressed("interact"):
-			interactable.Interaction()
 	if event.is_action_pressed("move_left"):
 		animated_sprite.flip_h = true
 	elif event.is_action_pressed("move_right"):
@@ -143,17 +140,6 @@ func SetStatusTrue(name_s: String, duration: float):
 		await get_tree().create_timer(((duration / 2) if item_inventory.item_sets["bioenhancement"] else duration)).timeout
 		status_dictionary[name_s] = false
 
-
-func _on_interaction_range_area_entered(area):
-	if area.has_method("Interaction"):
-		area.get_parent().label.show()
-		interactable = area
-
-
-func _on_interaction_range_area_exited(area):
-	if area.has_method("Interaction"):
-		area.get_parent().label.hide()
-		interactable = null
 
 	
 

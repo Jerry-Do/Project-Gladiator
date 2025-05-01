@@ -20,7 +20,7 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 
-func AttackPlayer():
+func Attack():
 	var randomNo = randi_range(0,enemies.size() - (1 if evo_flag else 2)) 
 	var enemy = load(enemies[randomNo])
 	var real = enemy.instantiate()

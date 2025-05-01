@@ -31,10 +31,11 @@ func enter() -> void:
 		$RootZone.monitoring = true
 		$RootZone.visible = true
 		regen_amount = 0
-	
+	elif parent.item_inventory.dominant_type == "tech":
+		$Explosion.global_position = parent.global_position
+		
 func process_physics(delta: float):
 	if in_state:
-
 		if parent.stats.ReturnCurrentFuel() > 0 :
 			tick += delta
 			parent.stats.SetFuel(-delta * 50)
@@ -65,6 +66,8 @@ func exit() -> void:
 		if parent.item_inventory.dominant_type == "biochemical":
 			$RootZone.monitoring = false
 			$RootZone.visible = false
+		elif parent.item_inventory.dominant_type == "tech":
+			$Explosion.PlayAnimation()
 		parent.status_dictionary.stun = false
 		parent.stats.stats.Armor = old_armor
 		if parent.status_dictionary.overheat:
@@ -82,3 +85,8 @@ func _on_overheat_timer_timeout():
 func _on_root_zone_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		enemies_in_range.append(area)
+
+
+func _on_explosion_area_entered(area):
+	if area.has_method("SetStatus") && area.get_parent().name != "Player" :
+		area.SetStatus("stun", 3)

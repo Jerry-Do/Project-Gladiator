@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvq3tmc5pgvqm"]
+[gd_scene load_steps=38 format=3 uid="uid://bvq3tmc5pgvqm"]
 
 [ext_resource type="Script" uid="uid://pn5rqxjx14q4" path="res://Enemy/script/Disabler.gd" id="1_fdie8"]
+[ext_resource type="Shader" uid="uid://cf7npyvdymcpr" path="res://etc/HitFlash.gdshader" id="2_acbii"]
 [ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="2_bwhis"]
+[ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_ok3ww"]
 [ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="3_acbii"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="4_5k6tj"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="5_3qcj8"]
@@ -25,6 +27,12 @@
 [ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="23_asixn"]
 [ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="24_a64nt"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5k6tj"]
+resource_local_to_scene = true
+shader = ExtResource("2_acbii")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnhwa"]
 radius = 30.4108
 
@@ -33,9 +41,6 @@ radius = 38.4288
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(33, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
-size = Vector2(65, 35)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pahq"]
 radius = 64.6225
@@ -164,12 +169,13 @@ _data = {
 }
 
 [node name="Disabler" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(600, 320)
 collision_layer = 0
 collision_mask = 21
 script = ExtResource("1_fdie8")
+amount_dic = ExtResource("2_ok3ww")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5k6tj")
 position = Vector2(1, -17)
 scale = Vector2(3.3125, 2.8125)
 texture = ExtResource("2_bwhis")
@@ -221,18 +227,13 @@ texture = ExtResource("5_3qcj8")
 
 [node name="Front" type="Area2D" parent="."]
 visible = false
-collision_layer = 10
-collision_mask = 4
+collision_layer = 138
+collision_mask = 132
 script = ExtResource("6_4dkuo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(17, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, -21)
-shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
 

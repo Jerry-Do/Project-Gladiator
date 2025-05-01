@@ -12,13 +12,11 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	super(area)
 	var random = 0
-	var crit_chance = 100 - player.stats.ReturnCritChance()
 	if player.can_crit:
-		random = RandomNumberGenerator.new().randi_range(1, crit_chance)
+		random = RandomNumberGenerator.new().randi_range(player.stats.ReturnCritChance(), 200 - player.stats.ReturnCritChance())
 	if area.has_method("TakingDamageForOther"):
-		player.SetHealth(1)
-		damage *= (1 + (player.stats.ReturnDamageMod() / 100))
-		damage = (damage if random != crit_chance else damage * (1 + (player.stats.ReturnCritDamage()/100)))
-		if area.TakingDamageForOther(damage, true if area.get_name() == "Back" else false, faction, random == crit_chance)  && adrenaline_rush:
+		damage *= (1 + (player.stats.ReturnDamageMod() / 100.0))
+		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
+		if area.TakingDamageForOther(damage, false, faction, random == 100)  && adrenaline_rush:
 			OnEnemyKilled.emit()
 		queue_free()

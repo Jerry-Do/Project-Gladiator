@@ -16,7 +16,7 @@ func _ready():
 	item_description = "Gives the player a shield of " + str(EffectAmount()) + " damage." + \
 	"When evolved, the shield will explode and stun surrouding enemies for 1 second"
 	faction = "tech"
-	evolve_condition_text = "After blocking a certain amount of damage"
+	evolve_condition_text = ""
 	if get_parent() == player.get_node("Item"):
 		DoJob()
 		$Sprite2D.hide()
@@ -32,10 +32,6 @@ func _process(delta):
 
 func TakingDamage(amount : float):
 	current_damage_blocked += amount
-	if current_damage_blocked >= evo_amount:
-		evolve_flag = true
-	if player.shield_amount <= 0 && evolve_flag:
-		$AnimationPlayer.play("explode")
 	$Timer.start()
 
 func _on_timer_timeout():
@@ -50,7 +46,3 @@ func DoJob():
 func _on_area_2d_area_entered(area):
 	if area.has_method("SetStatusOther"):
 		area.SetStatusOther("stun", 1)
-
-func UpdateDescription():
-	item_description = "Gives the player a shield of " + str(EffectAmount()) + " damage." + \
-	"When evolved, the shield will explode and stun surrouding enemies for 1 second"

@@ -14,9 +14,11 @@ func _on_area_entered(area):
 	if area.has_method("TakingDamageForPlayer")  :
 		area.TakingDamageForPlayer(-damage if random != 1 else -damage * 2, true if area.get_name() == "Back" else false,shooter if get_parent() != null else null)
 		game_manager.AdjustFame(-(game_manager.currentFame * 0.10))
-		queue_free()
+		queue_free()	
 	if area.has_method("DestroyProp"):
 		area.DestroyProp()
+		queue_free()	
+	
 
 func _on_ghost_timer_timeout():
 	if game_manager.timeSlowFlag:

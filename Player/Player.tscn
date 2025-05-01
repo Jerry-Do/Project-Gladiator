@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://j7b5738f8mjj"]
+[gd_scene load_steps=32 format=3 uid="uid://j7b5738f8mjj"]
 
 [ext_resource type="Script" uid="uid://dqxdd7ixbmdm6" path="res://Player/Player.gd" id="1_ascps"]
 [ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_dm7nj"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://ybqnjsxfbcjt" path="res://States/player/Dash.gd" id="11_fshry"]
 [ext_resource type="Texture2D" uid="uid://d0xl5jhdikyw1" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_3.png" id="13_emvkc"]
 [ext_resource type="PackedScene" uid="uid://c22vb6fmvbg7k" path="res://Player/PlayerStats.tscn" id="14_bvtpy"]
+[ext_resource type="Script" uid="uid://cvphi4jlal4m1" path="res://Player/InteractionZone.gd" id="15_3mea3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_polg6"]
 atlas = ExtResource("8_jpsj1")
@@ -122,6 +123,8 @@ size = Vector2(89, 86)
 size = Vector2(26, 66)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 129
+collision_mask = 129
 up_direction = Vector2(0, 1)
 script = ExtResource("1_ascps")
 amount_dic = ExtResource("2_dm7nj")
@@ -200,6 +203,7 @@ texture = ExtResource("13_emvkc")
 visible = false
 collision_layer = 32
 collision_mask = 32
+script = ExtResource("15_3mea3")
 
 [node name="InteractionRange" type="CollisionShape2D" parent="InteractionRange"]
 position = Vector2(2, -2)
@@ -222,6 +226,7 @@ shape = SubResource("RectangleShape2D_p7tob")
 
 [connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]
 [connection signal="timeout" from="Timer/DashCooldown" to="StateControl/Dash" method="_on_dash_cooldown_timeout"]
-[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
-[connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
+[connection signal="area_entered" from="Front" to="Front" method="_on_area_entered"]
+[connection signal="area_entered" from="InteractionRange" to="InteractionRange" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionRange" to="InteractionRange" method="_on_area_exited"]
 [connection signal="area_entered" from="PerfectDodgeZone" to="." method="_on_perfect_dodge_zone_area_entered"]

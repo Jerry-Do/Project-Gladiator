@@ -19,7 +19,7 @@ func _on_explosion_zone_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		area.TakingDamageForOther(10, false, area.get_parent().faction, false)
 	if  area.has_method("TakingDamageForPlayer"):
-		area.TakingDamageForPlayer(10, false, null)
+		area.TakingDamageForPlayer(-10, false, null)
 
 
 

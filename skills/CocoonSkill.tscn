@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b05ic4q6mjdwu"]
+[gd_scene load_steps=5 format=3 uid="uid://b05ic4q6mjdwu"]
 
 [ext_resource type="Script" uid="uid://dyalso4gr6v37" path="res://skills/script/CocoonSkill.gd" id="1_akrqf"]
 [ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="2_75pim"]
+[ext_resource type="PackedScene" uid="uid://bwh13xmvid6bl" path="res://etc/Explosion.tscn" id="3_4r4me"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4r4me"]
 radius = 162.077
@@ -31,6 +32,12 @@ position = Vector2(-4, -3)
 scale = Vector2(12.0062, 12.555)
 texture = ExtResource("2_75pim")
 
+[node name="Explosion" parent="." instance=ExtResource("3_4r4me")]
+scale = Vector2(2.12, 2.03125)
+collision_layer = 10
+collision_mask = 10
+
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]
 [connection signal="timeout" from="OverheatTimer" to="." method="_on_overheat_timer_timeout"]
 [connection signal="area_entered" from="RootZone" to="." method="_on_root_zone_area_entered"]
+[connection signal="area_entered" from="Explosion" to="." method="_on_explosion_area_entered"]

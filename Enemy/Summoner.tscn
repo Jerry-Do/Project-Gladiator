@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cgjvdg6e3swkd"]
+[gd_scene load_steps=29 format=3 uid="uid://cgjvdg6e3swkd"]
 
 [ext_resource type="Script" uid="uid://gql2s1xqhljr" path="res://Enemy/script/Summoner.gd" id="1_lcrm0"]
 [ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="2_7f4rt"]
 [ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_wcjxl"]
 [ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="3_5ftq2"]
+[ext_resource type="Shader" uid="uid://cf7npyvdymcpr" path="res://etc/HitFlash.gdshader" id="3_82gs8"]
 [ext_resource type="Script" uid="uid://crwsopcespl6v" path="res://Enemy/script/movement_controller.gd" id="4_g8uls"]
 [ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="4_ya4t1"]
 [ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="5_6ts0y"]
@@ -20,6 +21,12 @@
 [ext_resource type="Script" uid="uid://418i8edctqqc" path="res://States/Enemy/Stun.gd" id="16_qjmev"]
 [ext_resource type="Script" uid="uid://c20kh0hg77la4" path="res://States/Enemy/Attack.gd" id="17_ktvvj"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8u0s"]
+resource_local_to_scene = true
+shader = ExtResource("3_82gs8")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3t8h2"]
 radius = 86.0562
 
@@ -31,9 +38,6 @@ size = Vector2(29, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(61.5, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
-size = Vector2(65, 47)
 
 [sub_resource type="Animation" id="Animation_m8q45"]
 length = 0.001
@@ -73,7 +77,6 @@ _data = {
 }
 
 [node name="Summoner" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(599, 322)
 collision_layer = 2
 collision_mask = 17
 slide_on_ceiling = false
@@ -83,6 +86,7 @@ enemies = ["res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy
 amount_dic = ExtResource("2_wcjxl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_d8u0s")
 position = Vector2(1, -5)
 scale = Vector2(3.25, 3)
 texture = ExtResource("2_7f4rt")
@@ -134,8 +138,8 @@ texture = ExtResource("5_6ts0y")
 visible = false
 position = Vector2(1, 15)
 disable_mode = 1
-collision_layer = 11
-collision_mask = 11
+collision_layer = 139
+collision_mask = 139
 script = ExtResource("6_grj61")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
@@ -155,11 +159,6 @@ script = ExtResource("6_grj61")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(2.75, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, -23.5)
-shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
 wait_time = 0.25

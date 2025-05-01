@@ -71,6 +71,7 @@ var status_dictionary : Dictionary[String, bool]= {
 	"fire" : false,
 	"bleed" : false
 }
+
 var buff_dictionary : Dictionary[String, bool]= {
 	"dmg" : false,
 	"speed" : false,
@@ -97,15 +98,9 @@ func _init(health: int, speed: float, damage: float, armor : float ,fame : int, 
 	self.faction = faction
 	
 func _ready() -> void:
-	#health_bar = $Healthbar
-	LevelUp()
-	state_manager.init(self, movement_controller)	
-	if player.get_node("Item").get_node_or_null("RiskyBusiness") != null && GameManager.instance.currency < 0:
-		var item  = player.get_node("Item").get_node_or_null("RiskyBusiness")
-		self.stats_dic.damage *= 1.0 + (item.amount * absf(GameManager.instance.currency))
-		self.stats_dic.speed *= 1.0 + (item.amount * absf(GameManager.instance.currency))
-		self.stats_dic.health *= 1.0 + (item.amount * absf(GameManager.instance.currency))
-		maxHealth = self.stats_dic.health
+	health_bar = $Healthbar
+	StatsScale()
+	state_manager.init(self, movement_controller)
 	health_bar.init_health(self.stats_dic.health)
 	if player.get_node("Item").get_node_or_null("BrainChip") != null:
 		health_bar.show()
@@ -114,31 +109,8 @@ func _ready() -> void:
 func _physics_process(delta: float):
 	state_manager.process_physics(delta)
 	#If needed, then multiple the delta by an amount to make sure the tick is calculated normally when is in time slow
-	if status_dictionary.leech || status_dictionary.toxin || status_dictionary.fire \
-	|| status_dictionary.bleed:
-		delta_count += delta
-		if delta_count >= dot_dmg_timer:
-			if status_dictionary.leech:
-				var dmg = (amount_dic.debuff_dic["leech"] * maxHealth)  * (2  if player.get_node("Item").item_critable else 1)
-				stats_dic.health -= dmg
-				CreateDamageLabel(dmg, false)
-				delta_count = 0
-				player.stats.SetHealth(dmg)
-			if status_dictionary.toxin:
-				var dmg = (amount_dic.debuff_dic["toxin"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
-				stats_dic.health -= dmg
-				CreateDamageLabel(dmg, false)
-				delta_count = 0
-			if status_dictionary.fire:
-				var dmg = (amount_dic.debuff_dic["fire"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
-				stats_dic.health -= dmg
-				CreateDamageLabel(dmg, false)
-				delta_count = 0
-			if status_dictionary.bleed:
-				var dmg = (amount_dic.debuff_dic["bleed"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
-				stats_dic.health -= dmg * (2 if velocity > Vector2.ZERO else 1)
-				CreateDamageLabel(dmg, false)
-				delta_count = 0
+	DoTCheck(delta)
+	
 
 			
 func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
@@ -200,12 +172,18 @@ func SetBuffTrue(name_s: String, duration: float):
 		await get_tree().create_timer(duration).timeout
 		buff_dictionary[name_s] = false
 	
-func LevelUp():
+func StatsScale():
 	level = game_manager.currentWave
-	stats_dic.health += level
-	stats_dic.damage += level * (2 if event_manager.event_dict.frenzy_hormone else 1)
+	stats_dic.health += level + ((player.get_node("Item").num_items / 2 ))
+	stats_dic.damage += level + ((player.get_node("Item").num_items / 2 )) * (2 if event_manager.event_dict.frenzy_hormone else 1)
 	fameAmount += level
-	stats_dic.armor += level * 0.25
+	stats_dic.armor += level * 0.25 + (player.get_node("Item").num_items / 2 )
+	if player.get_node("Item").get_node_or_null("RiskyBusiness") != null && GameManager.instance.currency < 0:
+		var item  = player.get_node("Item").get_node_or_null("RiskyBusiness")
+		self.stats_dic.damage *= 1.0 + (item.amount * absf(GameManager.instance.currency))
+		self.stats_dic.speed *= 1.0 + (item.amount * absf(GameManager.instance.currency))
+		self.stats_dic.health *= 1.0 + (item.amount * absf(GameManager.instance.currency))
+		maxHealth = self.stats_dic.health
 	if level == 7:	
 		evo_flag = true
 
@@ -216,4 +194,28 @@ func OnDead():
 	game_manager.AdjustCurrency(currency_amount + extra_material_amount)
 	player.get_node("StateControl").get_node_or_null("Dash").ResetDash()
 
-	
+func DoTCheck(delta : float):
+	delta_count += delta
+	if delta_count >= dot_dmg_timer:
+		if status_dictionary.leech:
+			var dmg = (amount_dic.debuff_dic["leech"] * maxHealth)  * (2  if player.get_node("Item").item_critable else 1)
+			stats_dic.health -= dmg
+			CreateDamageLabel(dmg, false)
+			delta_count = 0
+			player.stats.SetHealth(dmg)
+		if status_dictionary.toxin:
+			var dmg = (amount_dic.debuff_dic["toxin"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+			stats_dic.health -= dmg
+			CreateDamageLabel(dmg, false)
+			delta_count = 0
+		if status_dictionary.fire:
+			var dmg = (amount_dic.debuff_dic["fire"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+			stats_dic.health -= dmg
+			CreateDamageLabel(dmg, false)
+			delta_count = 0
+		if status_dictionary.bleed:
+			var dmg = (amount_dic.debuff_dic["bleed"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
+			stats_dic.health -= dmg * (2 if velocity > Vector2.ZERO else 1)
+			CreateDamageLabel(dmg, false)
+			delta_count = 0
+		

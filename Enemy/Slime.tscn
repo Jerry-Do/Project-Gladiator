@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dxvm2d58ye2sq"]
+[gd_scene load_steps=28 format=3 uid="uid://dxvm2d58ye2sq"]
 
 [ext_resource type="Script" uid="uid://c6o3oge5cuwbh" path="res://Enemy/script/Slime.gd" id="1_ehnmg"]
 [ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_qw700"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="19_06mw7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uvypf"]
+resource_local_to_scene = true
 shader = ExtResource("3_l6230")
 shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
 shader_parameter/hit_flash_on = false
@@ -34,9 +35,6 @@ size = Vector2(60.3077, 14.1189)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(61.5, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
-size = Vector2(65, 47)
 
 [sub_resource type="Animation" id="Animation_m8q45"]
 length = 0.001
@@ -132,18 +130,13 @@ texture = ExtResource("7_vrmrc")
 
 [node name="Front" type="Area2D" parent="."]
 position = Vector2(-1, 14)
-collision_layer = 73
-collision_mask = 73
+collision_layer = 201
+collision_mask = 201
 script = ExtResource("8_ptdd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(2, -12)
 shape = SubResource("RectangleShape2D_lm1mg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, -23.5)
-shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -192,6 +185,7 @@ move_state = NodePath("../Move")
 dead_state = NodePath("../Dead")
 
 [node name="Healthbar" parent="." instance=ExtResource("19_06mw7")]
+visible = false
 offset_left = -38.0
 offset_top = -36.0
 offset_right = 42.0

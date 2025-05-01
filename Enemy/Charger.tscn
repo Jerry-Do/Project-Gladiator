@@ -1,23 +1,31 @@
-[gd_scene load_steps=25 format=3 uid="uid://1m8txa8wqk3b"]
+[gd_scene load_steps=27 format=3 uid="uid://1m8txa8wqk3b"]
 
-[ext_resource type="Script" uid="uid://cp7mdmn6uqv3r" path="res://Enemy/script/Charger.gd" id="1_f5gde"]
-[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="2_ofscd"]
-[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="3_5raok"]
-[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="3_10gm3"]
-[ext_resource type="Script" uid="uid://cskxtrru8gnf4" path="res://Enemy/script/MoveCharger.gd" id="4_k7a44"]
-[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="5_qldku"]
-[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="8_wpy22"]
-[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="9_qjxfl"]
-[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="13_ds7dx"]
-[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="14_d04a0"]
-[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="14_yvax3"]
-[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="15_pomqu"]
-[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="16_hrpgh"]
-[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="17_a2kqp"]
-[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="18_kixt1"]
+[ext_resource type="Script" uid="uid://cp7mdmn6uqv3r" path="res://Enemy/script/Charger.gd" id="1_kmquf"]
+[ext_resource type="Shader" uid="uid://cf7npyvdymcpr" path="res://etc/HitFlash.gdshader" id="2_vuk24"]
+[ext_resource type="Resource" uid="uid://ghbcblcvlkoq" path="res://etc/StatsEffectAmountResource.tres" id="2_wnno6"]
+[ext_resource type="Texture2D" uid="uid://cgthr5v7xegjq" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f0.png" id="3_o6uud"]
+[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="4_7i4ed"]
+[ext_resource type="PackedScene" uid="uid://lbsy10cwro8n" path="res://hitboxes/soft_collision.tscn" id="5_5in0c"]
+[ext_resource type="Script" uid="uid://c5kv4lxt7e20v" path="res://States/StateController.gd" id="6_0if4c"]
+[ext_resource type="Script" uid="uid://cskxtrru8gnf4" path="res://Enemy/script/MoveCharger.gd" id="7_whk8j"]
+[ext_resource type="Script" uid="uid://dvaqyd5s3jc47" path="res://States/Enemy/dead.gd" id="8_ak0by"]
+[ext_resource type="Texture2D" uid="uid://bvrcapja8vnev" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/crosshair_1.png" id="9_8deb3"]
+[ext_resource type="Script" uid="uid://cpy4nmxnjnxv3" path="res://Enemy/script/TakingDamageEnemy.gd" id="10_t0pnl"]
+[ext_resource type="Texture2D" uid="uid://babyitvpx83c5" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f1.png" id="11_wnydv"]
+[ext_resource type="Texture2D" uid="uid://bhsgufiyldnfa" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f2.png" id="12_gbw1h"]
+[ext_resource type="Texture2D" uid="uid://jxv8s5motmcj" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f3.png" id="13_2aojr"]
+[ext_resource type="Texture2D" uid="uid://cyawrtitrt16p" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f4.png" id="14_v7nv3"]
+[ext_resource type="Texture2D" uid="uid://g51h1cp1ccny" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_run_anim_f5.png" id="15_hd1kt"]
+[ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="16_ibvk1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjqs5"]
+resource_local_to_scene = true
+shader = ExtResource("2_vuk24")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmoxm"]
-radius = 57.1308
+radius = 24.7608
 
 [sub_resource type="GDScript" id="GDScript_l34si"]
 script/source = "extends Node
@@ -41,9 +49,6 @@ func MakePath():
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
 size = Vector2(54.5, 41)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mvs"]
-size = Vector2(65, 47)
-
 [sub_resource type="Animation" id="Animation_kr35j"]
 length = 0.001
 tracks/0/type = "value"
@@ -56,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_ds7dx")]
+"values": [ExtResource("3_o6uud")]
 }
 
 [sub_resource type="Animation" id="Animation_ldv1r"]
@@ -76,7 +81,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("13_ds7dx"), ExtResource("14_yvax3"), ExtResource("15_pomqu"), ExtResource("16_hrpgh"), ExtResource("17_a2kqp"), ExtResource("18_kixt1")]
+"values": [ExtResource("3_o6uud"), ExtResource("11_wnydv"), ExtResource("12_gbw1h"), ExtResource("13_2aojr"), ExtResource("14_v7nv3"), ExtResource("15_hd1kt")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5yv68"]
@@ -90,18 +95,19 @@ _data = {
 size = Vector2(71.843, 67.2344)
 
 [node name="Charger" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 10
-collision_mask = 13
-script = ExtResource("1_f5gde")
+collision_layer = 16
+collision_mask = 21
+script = ExtResource("1_kmquf")
+amount_dic = ExtResource("2_wnno6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tjqs5")
 position = Vector2(-4, -1)
 scale = Vector2(4.75, 4.4375)
-texture = ExtResource("13_ds7dx")
-script = ExtResource("3_10gm3")
+texture = ExtResource("3_o6uud")
+script = ExtResource("4_7i4ed")
 
-[node name="SoftCollision" parent="." instance=ExtResource("2_ofscd")]
-visible = false
+[node name="SoftCollision" parent="." instance=ExtResource("5_5in0c")]
 position = Vector2(-0.999996, 58)
 scale = Vector2(0.755759, 0.0916106)
 collision_layer = 16
@@ -119,16 +125,16 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("3_5raok")
+script = ExtResource("6_0if4c")
 starting_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateControl" node_paths=PackedStringArray("dead_state", "move_state")]
-script = ExtResource("4_k7a44")
+script = ExtResource("7_whk8j")
 dead_state = NodePath("../Dead")
 move_state = NodePath(".")
 
 [node name="Dead" type="Node" parent="StateControl"]
-script = ExtResource("5_qldku")
+script = ExtResource("8_ak0by")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -144,23 +150,18 @@ visible = false
 position = Vector2(1, -24)
 rotation = -3.14159
 scale = Vector2(2.28506, -1.71179)
-texture = ExtResource("8_wpy22")
+texture = ExtResource("9_8deb3")
 
 [node name="Front" type="Area2D" parent="."]
 visible = false
 position = Vector2(-8, 19)
-collision_layer = 10
-collision_mask = 11
-script = ExtResource("9_qjxfl")
+collision_layer = 138
+collision_mask = 138
+script = ExtResource("10_t0pnl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
 position = Vector2(6.25, -19)
 shape = SubResource("RectangleShape2D_lm1mg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, -23.5)
-shape = SubResource("RectangleShape2D_h4mvs")
 
 [node name="CollisionTimer" type="Timer" parent="."]
 
@@ -199,7 +200,7 @@ shape = SubResource("RectangleShape2D_0ylwy")
 wait_time = 8.0
 one_shot = true
 
-[node name="Healthbar" parent="." instance=ExtResource("14_d04a0")]
+[node name="Healthbar" parent="." instance=ExtResource("16_ibvk1")]
 visible = false
 z_index = 3
 offset_left = -42.0

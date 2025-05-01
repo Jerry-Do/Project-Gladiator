@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr4o2n2gq4tem"]
+[gd_scene load_steps=7 format=3 uid="uid://cr4o2n2gq4tem"]
 
 [ext_resource type="Script" uid="uid://ch35dihwb3nko" path="res://Item/scripts/shield.gd" id="1_3uiw5"]
 [ext_resource type="Texture2D" uid="uid://cckfm63ufqh55" path="res://Sprite/spriteimage/item/energyshield.png" id="2_5h38f"]
@@ -18,18 +18,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_4d4wa"]
 resource_name = "explode"
@@ -46,27 +34,12 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qndm"]
 _data = {
 &"RESET": SubResource("Animation_tjju0"),
 &"explode": SubResource("Animation_4d4wa")
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rrnbq"]
-radius = 110.005
 
 [node name="EnergyShield" type="Node2D"]
 script = ExtResource("1_3uiw5")
@@ -99,7 +72,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "edc460f69e67430648d2b765e97acec0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0qndm")
+&"": SubResource("AnimationLibrary_0qndm")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -107,14 +80,4 @@ position = Vector2(11, -5)
 scale = Vector2(17.75, 16.125)
 texture = ExtResource("3_glan1")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 10
-collision_mask = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(3, -8)
-shape = SubResource("CircleShape2D_rrnbq")
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

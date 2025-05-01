@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://bwh13xmvid6bl"]
+
+[ext_resource type="Texture2D" uid="uid://cy6c10eohcygp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f0.png" id="1_ai44l"]
+[ext_resource type="Script" uid="uid://baelvdxptavvu" path="res://etc/Explosion.gd" id="1_uwwk0"]
+[ext_resource type="Texture2D" uid="uid://dakbe0e6umag3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png" id="2_pdb5b"]
+[ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="3_un8ld"]
+[ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="4_1dd7t"]
+[ext_resource type="Texture2D" uid="uid://biqeqg1vslpy8" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png" id="5_2ml2m"]
+[ext_resource type="Texture2D" uid="uid://cavwah4uvv0dh" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f6.png" id="6_3m0pf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hddk7"]
+radius = 74.108
+
+[sub_resource type="Animation" id="Animation_xi2vc"]
+resource_name = "explosion"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_ai44l"), ExtResource("2_pdb5b"), ExtResource("3_un8ld"), ExtResource("4_1dd7t"), ExtResource("5_2ml2m"), ExtResource("6_3m0pf")]
+}
+
+[sub_resource type="Animation" id="Animation_m548g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ai44l")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eylxt"]
+_data = {
+&"RESET": SubResource("Animation_m548g"),
+&"explosion": SubResource("Animation_xi2vc")
+}
+
+[node name="Explosion" type="Area2D"]
+monitoring = false
+script = ExtResource("1_uwwk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hddk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.305882, 1, 1, 1)
+position = Vector2(2, 0)
+scale = Vector2(7.25, 7.21875)
+texture = ExtResource("1_ai44l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eylxt")
+}
+speed_scale = 1.5
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

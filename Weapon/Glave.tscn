@@ -29,6 +29,8 @@ position = Vector2(60, -4)
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 position = Vector2(-26.6667, 1.33333)
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(26.6667, -1.33333)

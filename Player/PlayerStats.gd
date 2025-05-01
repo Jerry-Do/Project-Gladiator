@@ -1,7 +1,7 @@
 extends Node
 class_name Stats
 var rechargeTime: float = 3.0
-var baseArmor: float = 999.0
+var baseArmor: float = 10.0
 var maxHealth: float = 100.0
 var baseSpeed: float = 600.0
 var baseCritChance: float = 0.0
@@ -19,7 +19,7 @@ var stats : Dictionary[String, float]= {
 	"Damage_Mod": baseDamageMod,
 	"Base_Armor": baseArmor,
 	"Armor": baseArmor,
-	"Crit_Chance": baseCritChance,
+	"Crit_Chance": 100.0,
 	"Crit_Damage" : baseCritDamage,
 	"Speed" : baseSpeed,
 	"Fuel" : maxFuel,

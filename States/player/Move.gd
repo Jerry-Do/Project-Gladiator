@@ -17,7 +17,7 @@ func exit() -> void:
 	
 func process_input(_event : InputEvent) -> State:
 	
-	if _event.is_action_pressed("use_skill") && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["timeStopDisable"] \
+	if _event.is_action_pressed("use_skill") && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["skill_disable"] \
 	== false && parent.status_dictionary["overheat"] == false:
 		return skill_state
 	if _event.is_action_pressed("dash") && parent.dash_charges > 0:

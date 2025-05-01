@@ -15,3 +15,7 @@ func _on_area_entered(area):
 			area.SetStatusOther("fire",3)
 		if area.has_method("SetStatusPlayer"):
 			area.SetStatusPlayer("fire",3)
+
+
+func _on_timer_timeout():
+	queue_free()
