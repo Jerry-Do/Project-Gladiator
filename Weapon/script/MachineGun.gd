@@ -3,7 +3,7 @@ extends Weapon
 class_name MachineGun
 var _cMaxAmmo = 30
 var _cRateOfFire = 0.15
-var _cReloadTime = 3
+var _cReloadTime = 2
 var _cFaction = "tech"
 func _init():
 	var description = "Just a machinegun"

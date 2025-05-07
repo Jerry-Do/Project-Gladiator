@@ -4,7 +4,7 @@ extends Weapon
 
 var _cMaxAmmo = 10
 var _cRateOfFire = 0.1
-var _cReloadTime = 1.5
+var _cReloadTime = 1
 var _cFaction = "biochemical"
 var restore_health_mode = false
 

@@ -28,7 +28,7 @@ var recharge_flag : bool = false
 var taking_damage : bool = false
 var is_invisible = false
 var damage_amount = 0
-var can_crit = true
+var can_crit = false
 var left_click_pressed : bool = false
 var status_dictionary = {
 	"fire" : false,

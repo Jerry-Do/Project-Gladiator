@@ -13,7 +13,7 @@ func _ready():
 	item_name = "ArmEnhancement"
 	name = item_name
 	display_name = "Arm Enhancement"
-	item_description = "Increase base damage mod by " + str(EffectAmount()) + " %"
+	item_description = "Increase fire rate"
 	evolve_condition_text = "Collect all three enchantments to have Endurance. Endurance: reduce damage by flat amount and decrease the time of status effects"
 	if get_parent() == player.get_node("Item"):
 		DoJob()
@@ -22,8 +22,7 @@ func _ready():
 func DoJob(): 
 	player.stats.SetBaseDamageMod((player.stats.ReturnBaseDamageMod() * ((EffectAmount())/100)))
 
-func UpdateDescription():
-	item_description = "Increase the output damage by " + str(EffectAmount()) + " %"
+
 
 func EvolveCheck():
 	if player.get_node("Item").find_child("LegEnhancement", false, false) != null && player.get_node("Item").find_child("ChestEnhancement", false, false) != null:

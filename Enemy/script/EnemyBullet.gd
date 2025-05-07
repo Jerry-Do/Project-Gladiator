@@ -1,7 +1,7 @@
 extends BaseBullet
 
 var c_damage = 3
-var c_speed = 1000
+var c_speed = 750
 var shooter
 func _init():
 	super._init(c_damage, c_speed)

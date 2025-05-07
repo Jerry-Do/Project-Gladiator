@@ -20,7 +20,6 @@ func _ready():
 	if get_parent() == player.get_node("Item"):
 		DoJob()
 		$Sprite2D.hide()
-		$Area2D/CollisionShape2D.disabled = true
 		player.healthBar.shield_bar.show()
 		
 	return null

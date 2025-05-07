@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage = 0
+@export var damage = 10
 @export var orbital_strike_wait_time = 0
 
 
@@ -16,7 +16,7 @@ func _on_area_entered(area):
 		area.TakingDamageForOther(damage, false, "", false)
 		area.SetStatusOther("stun", 2)
 	if area.has_method("TakingDamageForPlayer"):
-		area.TakingDamageForPlayer(damage, false, null)
+		area.TakingDamageForPlayer(-damage, false, null)
 		area.SetStatusPlayer("stun", 2)
 
 

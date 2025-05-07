@@ -4,7 +4,7 @@ extends Enemy
 var sHealth:int = 3
 var sSpeed: float = 200
 var sDamage: float = 1
-var sArmor : float = 2
+var sArmor : float = 4
 var sFameAmount : float = 1
 var wind_up_time : bool =  2
 var end_division_flag : bool = false

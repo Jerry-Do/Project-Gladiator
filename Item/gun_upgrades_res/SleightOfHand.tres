@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SleightOfHand" load_steps=2 format=3 uid="uid://d15ko13by7q81"]
+
+[ext_resource type="Script" uid="uid://d4da11wvylyfm" path="res://Item/gun_upgrades_res/SleightOfHand.gd" id="1_7msqr"]
+
+[resource]
+script = ExtResource("1_7msqr")
+amount = 0.2

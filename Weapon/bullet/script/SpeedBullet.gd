@@ -2,7 +2,6 @@ extends BaseBullet
 
 var c_damage: int  = 5
 var c_speed : int = 1000
-var num_pellet : int = 10
 var extra_damage : int = 2
 var fully_charged = false
 func _init():
@@ -21,11 +20,22 @@ func _on_area_entered(area):
 		damage *= (1 + (player.stats.ReturnDamageMod() / 100.0))
 		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
 		if fully_charged:
-			damage += extra_damage			
+			damage += extra_damage
+			position = position
+			speed = 0
+			$Explosion.PlayAnimation()
+			$Bullet.hide()
 		var amount = area.TakingDamageForOther(damage, false, faction, random == 100)
 		if amount <= 0:
 			if adrenaline_rush:
 				OnEnemyKilled.emit()
 			if fully_charged:
 				get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
-		queue_free()
+		#if fully_charged == false:
+			#queue_free()
+
+
+func _on_explosion_area_entered(area):
+	if area.has_method("TakingDamageForOther"):
+		area.TakingDamageForOther(3,false,faction,false)
+		area.SetStatus("stun",1)

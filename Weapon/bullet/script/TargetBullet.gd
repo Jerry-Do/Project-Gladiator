@@ -11,7 +11,7 @@ func _physics_process(delta):
 	super._physics_process(delta)
 
 
-func _on_body_entered(body):
-	if body.has_method("SetTarget"):
-		body.SetTarget()
-	queue_free()
+func _on_area_entered(area):
+	if area.get_parent().has_method("SetTarget"):
+		area.get_parent().SetTarget()
+		queue_free()

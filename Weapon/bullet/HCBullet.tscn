@@ -48,7 +48,7 @@ shape = SubResource("CircleShape2D_5h7dk")
 debug_enabled = true
 
 [node name="LockOnTargerDetection" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 10
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockOnTargerDetection"]

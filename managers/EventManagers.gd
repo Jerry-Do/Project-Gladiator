@@ -27,7 +27,7 @@ func CreateEvent():
 					GameManager.instance.ui.ShowEvent(0)
 				1:
 					event_dict.orbital_strike = true
-					$EventTimer.start(orbital_strike_wait_time)
+					$Timer.start(orbital_strike_wait_time)
 					GameManager.instance.ui.ShowEvent(1)
 
 		

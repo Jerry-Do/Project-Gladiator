@@ -4,6 +4,7 @@ var c_damage = 8
 var c_speed = 30
 var current_velocity
 var lock_on_target
+var is_lock_on : bool
 
 func _init():
 	super._init(c_damage, c_speed)
@@ -31,6 +32,7 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	super(area)
 	var random = 0
+	
 	if player.can_crit:
 		random = RandomNumberGenerator.new().randi_range(player.stats.ReturnCritChance(), 200 - player.stats.ReturnCritChance())
 	if area.has_method("TakingDamageForOther"):

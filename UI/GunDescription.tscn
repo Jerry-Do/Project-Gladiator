@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceo06s2imdy6o"]
+[gd_scene load_steps=4 format=3 uid="uid://ceo06s2imdy6o"]
 
 [ext_resource type="Script" uid="uid://d0apc6cdxtou5" path="res://UI/script/GunDescription.gd" id="1_kessv"]
 [ext_resource type="Texture2D" uid="uid://bxf1mblemfbws" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Card X3/Card X6.png" id="1_rx64r"]
+[ext_resource type="Texture2D" uid="uid://d4ins4nutcfcm" path="res://resource/1. Free Hologram Interface Wenrexa/1. Free Hologram Interface Wenrexa/Button 1/Button Active.png" id="3_65epb"]
 
 [node name="GunDescription" type="Control"]
+process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_kessv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,12 +21,12 @@ scale = Vector2(0.677419, 0.4)
 texture = ExtResource("1_rx64r")
 
 [node name="Name" type="MarginContainer" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = 481.0
 offset_top = 478.0
 offset_right = 528.0
 offset_bottom = 518.0
-scale = Vector2(1.64, 1)
+scale = Vector2(1.67999, 1)
 
 [node name="Name" type="RichTextLabel" parent="Name"]
 unique_name_in_owner = true
@@ -52,3 +55,15 @@ text = "Description
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="TextureButton" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(10.0769, 17.1073)
+texture_normal = ExtResource("3_65epb")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -4,7 +4,7 @@ extends Weapon
 
 var _cMaxAmmo = 8
 var _cRateOfFire = 0.25
-var _cReloadTime = 2
+var _cReloadTime = 1.5
 var _cFaction = "biochemical"
 func _init():
 	var description = "If the bullet kills an enemy, it will create pellets shooting out in random direction"

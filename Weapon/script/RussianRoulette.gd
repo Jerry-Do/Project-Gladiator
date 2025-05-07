@@ -4,7 +4,7 @@ extends Weapon
 
 var _cMaxAmmo = 6
 var _cRateOfFire = 0.2
-var _cReloadTime = 1.5
+var _cReloadTime = 1.15
 var current_shot_count = 0
 var self_damage = 5
 var _cFaction = "R.I.S.K"

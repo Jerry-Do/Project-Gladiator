@@ -4,7 +4,7 @@ extends Weapon
 
 var _cMaxAmmo = 4
 var _cRateOfFire = 1.25
-var _cReloadTime = 2
+var _cReloadTime = 1.5
 var can_use_ability : bool = true
 var _cFaction = "R.I.S.K"
 @onready var cooldown_timer : Timer = $SkillCooldown

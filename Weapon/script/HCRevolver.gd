@@ -3,7 +3,7 @@ extends Weapon
 @onready var target_timer = $TargetTimer
 var target_bullet_flag = true
 var _cMaxAmmo = 6
-var _cRateOfFire = 0.1
+var _cRateOfFire = 0.09
 var _cReloadTime = 1.25
 var _cFaction = "tech"
 

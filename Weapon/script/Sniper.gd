@@ -4,7 +4,7 @@ extends Weapon
 
 var _cMaxAmmo = 5
 var _cRateOfFire = 1.25
-var _cReloadTime = 5
+var _cReloadTime = 1.5
 var  mousePosition : Vector2
 var _cFaction = "biochemical"
 func _init():

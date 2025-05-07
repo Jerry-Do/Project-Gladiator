@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
-	#get_parent().connect("RoundStart", SpawnMegaStruct())
+	get_parent().connect("RoundStart", SpawnEnvironemnt)
 	#SpawnMegaStruct()
 	pass
 

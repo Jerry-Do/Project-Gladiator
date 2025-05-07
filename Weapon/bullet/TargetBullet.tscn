@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cgbhhd4hsbs3m" path="res://Sprite/Player/Enemy.png" id="2_bxqri"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]
-radius = 3.0
+radius = 15.5724
 
 [node name="TargetBullet" type="Area2D"]
 top_level = true
-position = Vector2(291, 275)
 scale = Vector2(2, 2)
 collision_layer = 10
 collision_mask = 10
@@ -24,5 +23,6 @@ texture = ExtResource("2_bxqri")
 wait_time = 0.03
 autostart = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

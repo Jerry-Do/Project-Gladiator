@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8hjbimriphth"]
+[gd_scene load_steps=16 format=3 uid="uid://b8hjbimriphth"]
 
 [ext_resource type="Script" uid="uid://dmlnn1hvl8uxb" path="res://environment/script/ExplosiveBarrel.gd" id="1_b8yk5"]
 [ext_resource type="Texture2D" uid="uid://c3r5jbq83k6kk" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/props_itens/barrel.png" id="3_dnm3v"]
 [ext_resource type="Script" uid="uid://cy2u131hchca" path="res://environment/script/PropSpriteManager.gd" id="3_mpw20"]
 [ext_resource type="Texture2D" uid="uid://tmh1m2dn2k" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f2.png" id="3_uxr2l"]
+[ext_resource type="Script" uid="uid://18ppi7jv3mjv" path="res://environment/script/ExplosiveArea.gd" id="4_anp4t"]
 [ext_resource type="Texture2D" uid="uid://bi03bwb6q8r11" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f3.png" id="4_mpw20"]
 [ext_resource type="Texture2D" uid="uid://b57dfnrg38ci2" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f4.png" id="5_anp4t"]
 [ext_resource type="Texture2D" uid="uid://biqeqg1vslpy8" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f5.png" id="6_fa6bq"]
@@ -44,6 +45,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2ml83"]
 resource_name = "activate"
@@ -73,6 +86,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h16qp"]
 _data = {
@@ -82,7 +107,7 @@ _data = {
 
 [node name="ExplosiveBarrel" type="Area2D" groups=["environment"]]
 scale = Vector2(1, 0.993882)
-collision_layer = 45
+collision_layer = 13
 collision_mask = 2
 script = ExtResource("1_b8yk5")
 
@@ -115,6 +140,7 @@ shape = SubResource("RectangleShape2D_w7k4h")
 visible = false
 collision_layer = 15
 collision_mask = 15
+script = ExtResource("4_anp4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EffectZone"]
 shape = SubResource("CircleShape2D_nwbrp")
@@ -131,5 +157,5 @@ scale = Vector2(11.7188, 12.294)
 texture = ExtResource("7_opvjr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="EffectZone" to="." method="_on_explosion_zone_area_entered"]
+[connection signal="area_entered" from="EffectZone" to="EffectZone" method="_on_area_entered"]
 [connection signal="animation_finished" from="EffectZone/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

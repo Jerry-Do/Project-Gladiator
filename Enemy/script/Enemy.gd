@@ -117,7 +117,7 @@ func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool
 	sprite.HitFlash()
 	amount *= (1.2 if is_backshot else 1.0  )
 	amount *= (1.1 if self.faction != faction else 1.0)
-	amount /= ( 1 + (stats_dic.armor/2.0)/ 100.0)
+	amount /= ( 1.0 + (stats_dic.armor/2.0)/ 100.0)
 	CreateDamageLabel(amount, crit)
 	stats_dic.health -= amount
 	health_bar._set_health(stats_dic.health)
