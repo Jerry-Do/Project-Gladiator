@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bigefbtttayia"]
+
+[ext_resource type="Shader" uid="uid://cf7npyvdymcpr" path="res://etc/HitFlash.gdshader" id="3_rgxkn"]
+[ext_resource type="Texture2D" uid="uid://c6ngdomuww2j3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/enemies/slime/slime_run_anim_f0.png" id="4_t0c44"]
+[ext_resource type="Script" uid="uid://cmfxxtjwquiq" path="res://etc/HitFlash.gd" id="5_0fghw"]
+[ext_resource type="Script" uid="uid://btjfcs3ukuyyl" path="res://Enemy/TakeDamageForDummy.gd" id="7_8fjy0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvypf"]
+resource_local_to_scene = true
+shader = ExtResource("3_rgxkn")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm1mg"]
+size = Vector2(42, 32.5)
+
+[node name="Dummy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+slide_on_ceiling = false
+safe_margin = 0.001
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_uvypf")
+scale = Vector2(3.25, 3)
+texture = ExtResource("4_t0c44")
+script = ExtResource("5_0fghw")
+
+[node name="Front" type="Area2D" parent="."]
+position = Vector2(-1, 14)
+collision_layer = 200
+collision_mask = 200
+script = ExtResource("7_8fjy0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
+position = Vector2(2, -7.75)
+shape = SubResource("RectangleShape2D_lm1mg")
+
+[connection signal="area_entered" from="Front" to="Front" method="_on_area_entered"]
+[connection signal="body_entered" from="Front" to="Front" method="_on_body_entered"]

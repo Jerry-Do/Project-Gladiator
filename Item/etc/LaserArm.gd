@@ -27,6 +27,7 @@ func _physics_process(delta):
 		recharge_flag = true
 	if fuel >= max_fuel:
 		recharge_flag = false
+		
 func _on_area_entered(area):
 	if area.has_method("TakingDamageForOther") && fuel > 0 && recharge_flag == false:
 		lock_on_targets.append(area)

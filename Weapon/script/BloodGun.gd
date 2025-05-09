@@ -17,18 +17,19 @@ func _process(delta):
 	super._process(delta)	
 
 func shoot():
-	var BULLET = null
-	if restore_health_mode == false:
-		BULLET = preload("res://Weapon/bullet/BloodBullet.tscn")
-		player.stats.SetHealth(-1)
-	else:
-		BULLET = preload("res://Weapon/bullet/RestoreBloodBullet.tscn")
-	var new_bullet = BULLET.instantiate()
-	new_bullet.global_position = %Shootingpoint.global_position
-	new_bullet.global_rotation = %Shootingpoint.global_rotation
-	new_bullet.faction = _cFaction
-	player.get_parent().add_child(new_bullet)	
-	shootFlag = false
+	for i in player.itemNode.num_shot:
+		var BULLET = null
+		if restore_health_mode == false:
+			BULLET = preload("res://Weapon/bullet/BloodBullet.tscn")
+			player.stats.SetHealth(-1)
+		else:
+			BULLET = preload("res://Weapon/bullet/RestoreBloodBullet.tscn")
+		var new_bullet = BULLET.instantiate()
+		new_bullet.global_position = %Shootingpoint.global_position
+		new_bullet.global_rotation = %Shootingpoint.global_rotation
+		new_bullet.faction = _cFaction
+		player.get_parent().add_child(new_bullet)	
+		shootFlag = false
 	StartCooldownTimer()
 		
 func UseGunAbility():

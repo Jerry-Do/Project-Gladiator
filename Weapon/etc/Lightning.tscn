@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://fxkggalwj8qa"]
+
+[ext_resource type="Texture2D" uid="uid://dljji3ktxm2pb" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/5 Bullets/2.png" id="1_mnbxv"]
+[ext_resource type="Script" uid="uid://dosiemg17j8d4" path="res://Weapon/etc/Lightning.gd" id="2_u1pu3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1pu3"]
+radius = 230.054
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iri4l"]
+b = Vector2(0, 0)
+
+[node name="Lightning" type="Line2D"]
+texture = ExtResource("1_mnbxv")
+script = ExtResource("2_u1pu3")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+position = Vector2(6, -2)
+collision_layer = 10
+collision_mask = 10
+
+[node name="DetectionShape" type="CollisionShape2D" parent="DetectionRange"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_u1pu3")
+
+[node name="HitLine" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
+
+[node name="HitShape" type="CollisionShape2D" parent="HitLine"]
+unique_name_in_owner = true
+position = Vector2(1, 0)
+shape = SubResource("SegmentShape2D_iri4l")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="area_entered" from="DetectionRange" to="." method="_on_detection_range_area_entered"]
+[connection signal="area_entered" from="HitLine" to="." method="_on_hit_line_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

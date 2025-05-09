@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=15 format=4 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
 [ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="10_ydk4g"]
+[ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="11_ayole"]
+[ext_resource type="PackedScene" uid="uid://bigefbtttayia" path="res://Enemy/dummy.tscn" id="12_u3w2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -87,7 +89,7 @@ position = Vector2(1231, 595)
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 45.0
+wait_time = 999.0
 autostart = true
 
 [node name="Spawner" parent="GameManager" instance=ExtResource("4_gl8g4")]
@@ -95,7 +97,7 @@ unique_name_in_owner = true
 position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Summoner.tscn"]
 interval = 1.25
-maxAllow = 5
+maxAllow = 0
 
 [node name="SpawnTimer" parent="GameManager/Spawner" index="0"]
 process_mode = 1
@@ -150,6 +152,9 @@ metadata/_custom_type_script = "uid://qwno6dwhfodv"
 
 [node name="Timer" type="Timer" parent="GameManager/EventManager"]
 
+[node name="Dummy" parent="GameManager" instance=ExtResource("12_u3w2c")]
+position = Vector2(830, 466)
+
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
 
@@ -165,6 +170,18 @@ position = Vector2(690, 384)
 
 [node name="SpeedGun" parent="." instance=ExtResource("10_ydk4g")]
 position = Vector2(805, 229)
+
+[node name="EDropDown" parent="." instance=ExtResource("11_ayole")]
+offset_left = 1135.0
+offset_top = -77.0
+offset_right = 1135.0
+offset_bottom = -77.0
+
+[node name="Dummy" parent="." instance=ExtResource("12_u3w2c")]
+position = Vector2(732, 546)
+
+[node name="Dummy2" parent="." instance=ExtResource("12_u3w2c")]
+position = Vector2(643, 459)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

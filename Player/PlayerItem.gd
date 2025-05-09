@@ -11,7 +11,7 @@ var item_types : Dictionary = {
 	"r.i.s.k" : 0
 }
 var player : Player = get_parent()
-var gun_upgrades : Array
+var num_shot : int = 1
 var dominant_type : String = ""
 var item_critable : bool = false
 var is_dominant_type_set : bool = false
@@ -28,8 +28,5 @@ func IncreaseType(type:String):
 		dominant_type = type.to_lower()
 
 
-#func CheckGunUpgrade():
-	#if player.currentWeapon != null:
-		#for i in gun_upgrades:
 	
 	

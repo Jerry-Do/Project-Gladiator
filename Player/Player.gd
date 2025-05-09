@@ -82,8 +82,7 @@ func _physics_process(delta):
 func _process(delta):
 	if Input.is_action_pressed("left_click"):
 		if currentWeapon && status_dictionary.stun == false && currentWeapon.reloadFlag == false:
-			currentWeapon.shoot()	
-			game_manager.UpdateAmmo(currentWeapon.currentAmmo)
+			Shooting()
 	state_machine.process_frame(delta)
 	
 func _input(event):
@@ -158,3 +157,7 @@ func _on_perfect_dodge_timer_timeout():
 
 func LevelUp():
 	stats.LevelUp()
+
+func Shooting():
+	currentWeapon.shoot()	
+	game_manager.UpdateAmmo(currentWeapon.currentAmmo)

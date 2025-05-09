@@ -16,14 +16,15 @@ func _process(delta):
 
 func shoot():
 	if(currentAmmo > 0 && shootFlag):		
-		for n in [-0.2,-0.1,0,0.2,0.1]:
-			var BULLET = load(self.bulletName)
-			var new_bullet = BULLET.instantiate()
-			new_bullet.position = %Shootingpoint.global_position 
-			new_bullet.rotation = %Shootingpoint.global_rotation + n
-			new_bullet.faction = _cFaction
-			new_bullet.damage = 2
-			player.get_parent().add_child(new_bullet)			
-			shootFlag = false		
-		currentAmmo -=1
+		for i in player.itemNode.num_shot:
+			for n in [-0.2,-0.1,0,0.2,0.1]:
+				var BULLET = load(self.bulletName)
+				var new_bullet = BULLET.instantiate()
+				new_bullet.position = %Shootingpoint.global_position 
+				new_bullet.rotation = %Shootingpoint.global_rotation + n
+				new_bullet.faction = _cFaction
+				new_bullet.damage = 2
+				player.get_parent().add_child(new_bullet)			
+				shootFlag = false		
+			currentAmmo -=1
 		StartCooldownTimer()

@@ -16,7 +16,7 @@ var faction : String
 @onready var game_manager = get_tree().get_first_node_in_group("GameManager")
 var player : Player
 var currentAmmo = 0
-
+signal OutOfAmmo
 
 func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime, cDescription, cName, cFaction):
 	self.bulletName = bullet
@@ -80,4 +80,5 @@ func StartReloadTimer():
 	if soh != null:
 		reload_time = reloadTime - reloadTime * (soh.EffectAmount() / 100.0)
 	reloadFlag = true
+
 	$ReloadTimer.start(reload_time if game_manager.timeSlowFlag == false else reload_time * 0.25)
