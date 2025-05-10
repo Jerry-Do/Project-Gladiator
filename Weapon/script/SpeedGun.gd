@@ -29,7 +29,7 @@ func _process(delta):
 			
 func shoot():
 	if(currentAmmo > 0 && shootFlag):
-		for n in 3 * player.itemNode.num_shot:
+		for n in 1:#3 * player.itemNode.num_shot
 			var BULLET = load(self.bulletName)
 			var new_bullet = BULLET.instantiate()
 			new_bullet.global_position = %Shootingpoint.global_position
