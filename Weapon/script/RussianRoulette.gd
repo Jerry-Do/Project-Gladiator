@@ -26,15 +26,19 @@ func shoot():
 			currentAmmo = 0
 			StartCooldownTimer()
 		else:
-			var BULLET = load(self.bulletName)
-			var new_bullet = BULLET.instantiate()
-			new_bullet.global_position = %Shootingpoint.global_position
-			new_bullet.global_rotation = %Shootingpoint.global_rotation
-			new_bullet.faction = _cFaction
-			new_bullet.damage += current_shot_count * 2
-			player.get_parent().add_child(new_bullet)
-			currentAmmo -=1
-			shootFlag = false
+			super()
+			for i in 1 + double_shot:
+				var BULLET = load(self.bulletName)
+				var new_bullet = BULLET.instantiate()
+				new_bullet.global_position = %Shootingpoint.global_position
+				new_bullet.global_rotation = %Shootingpoint.global_rotation
+				new_bullet.faction = _cFaction
+				new_bullet.damage += current_shot_count * 2
+				player.get_parent().add_child(new_bullet)
+				currentAmmo -=1
+				shootFlag = false
+				await get_tree().create_timer(0.05).timeout	
+			double_shot = 0
 			StartCooldownTimer()
 			
 

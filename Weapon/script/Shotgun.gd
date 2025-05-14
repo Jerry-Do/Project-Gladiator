@@ -16,7 +16,7 @@ func _process(delta):
 
 func shoot():
 	if(currentAmmo > 0 && shootFlag):		
-		for i in player.itemNode.num_shot:
+		for i in 1 + double_shot:
 			for n in [-0.2,-0.1,0,0.2,0.1]:
 				var BULLET = load(self.bulletName)
 				var new_bullet = BULLET.instantiate()
@@ -25,6 +25,8 @@ func shoot():
 				new_bullet.faction = _cFaction
 				new_bullet.damage = 2
 				player.get_parent().add_child(new_bullet)			
-				shootFlag = false		
+				shootFlag = false
+				await get_tree().create_timer(0.05).timeout		
 			currentAmmo -=1
+		double_shot = 0
 		StartCooldownTimer()

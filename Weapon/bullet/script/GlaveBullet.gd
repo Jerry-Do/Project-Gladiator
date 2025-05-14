@@ -47,6 +47,9 @@ func _on_ghost_timer_timeout():
 
 func _on_area_entered(area):
 	var random
+	if area.has_method("DestroyProp"):
+		queue_free()
+		area.DestroyProp()
 	if leech_seed:
 		area.SetStatusOther("leeched" , 5)
 		var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
@@ -58,6 +61,6 @@ func _on_area_entered(area):
 		damage *= (1 + (player.stats.ReturnDamageMod() / 100.0))
 		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
 		var amount = area.TakingDamageForOther(damage, false, faction, random == 100)
-		if amount <= 0 && returnFlag:
+		if amount != null && amount <= 0 && returnFlag:
 			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 		returnFlag = true

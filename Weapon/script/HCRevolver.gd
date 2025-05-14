@@ -1,5 +1,5 @@
 extends Weapon
-
+#TODO: Rework
 @onready var target_timer = $TargetTimer
 var target_bullet_flag = true
 var _cMaxAmmo = 6

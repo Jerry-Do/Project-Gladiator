@@ -10,6 +10,7 @@ var pickedUpFlag : bool
 var description : String
 var w_name : String
 var faction : String
+var double_shot : int = 0
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 @onready var sprite = $Gun
@@ -60,7 +61,10 @@ func ReturnDescription() -> String:
 func ReturnName() -> String:
 	return w_name
 
-
+func shoot():
+	if player.get_node("Item").get_node_or_null("ExtraShot") != null:
+		var random_no = RandomNumberGenerator.new().randi_range(0,1)
+		double_shot = random_no
 
 func Reload():
 	currentAmmo = maxAmmo

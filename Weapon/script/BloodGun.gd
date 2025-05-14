@@ -17,7 +17,8 @@ func _process(delta):
 	super._process(delta)	
 
 func shoot():
-	for i in player.itemNode.num_shot:
+	super()
+	for i in 1 + double_shot:
 		var BULLET = null
 		if restore_health_mode == false:
 			BULLET = preload("res://Weapon/bullet/BloodBullet.tscn")
@@ -30,6 +31,8 @@ func shoot():
 		new_bullet.faction = _cFaction
 		player.get_parent().add_child(new_bullet)	
 		shootFlag = false
+		await get_tree().create_timer(0.05).timeout	
+	double_shot = 0
 	StartCooldownTimer()
 		
 func UseGunAbility():

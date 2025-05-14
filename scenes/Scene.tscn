@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
 [ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="10_ydk4g"]
 [ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="11_ayole"]
-[ext_resource type="PackedScene" uid="uid://bigefbtttayia" path="res://Enemy/dummy.tscn" id="12_u3w2c"]
+[ext_resource type="PackedScene" uid="uid://8vbxre6wijx1" path="res://Weapon/Shotgun.tscn" id="12_u3w2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -55,7 +55,7 @@ unique_name_in_owner = true
 process_mode = 3
 position = Vector2(1, 0)
 script = ExtResource("2_3k0w7")
-weapons = ["res://Weapon/Glave.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/HCRevolver.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
+weapons = ["res://Weapon/Glave.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
 maxKillCount = 15
 fameMultiTimeFrame = 5.0
 maxFame = 8
@@ -97,7 +97,7 @@ unique_name_in_owner = true
 position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Summoner.tscn"]
 interval = 1.25
-maxAllow = 0
+maxAllow = 5
 
 [node name="SpawnTimer" parent="GameManager/Spawner" index="0"]
 process_mode = 1
@@ -174,23 +174,8 @@ offset_top = -77.0
 offset_right = 1135.0
 offset_bottom = -77.0
 
-[node name="Dummy2" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(643, 459)
-
-[node name="Dummy4" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(743, 551)
-
-[node name="Dummy" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(842, 492)
-
-[node name="Dummy6" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(488, 533)
-
-[node name="Dummy5" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(625, 537)
-
-[node name="Dummy3" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(480, 449)
+[node name="Shotgun" parent="." instance=ExtResource("12_u3w2c")]
+position = Vector2(576, 444)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

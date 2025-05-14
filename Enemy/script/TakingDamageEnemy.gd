@@ -1,6 +1,6 @@
 class_name HitboxOther
 extends Area2D
-
+var hit_by_lightning : bool = false
 
 func TakingDamageForOther(amount, is_backshot, faction, crit):
 	return get_parent().MinusHealth(amount,is_backshot, faction, crit)
@@ -22,3 +22,8 @@ func SetStatus(s_name : String, duration : float):
 func _on_area_entered(area):
 	if area.has_method("TakingDamageForPlayer"):
 		area.TakingDamageForPlayer(-get_parent().stats_dic["damage"],false,self)
+
+func HitByLightning():
+	hit_by_lightning = true
+	await  get_tree().create_timer(0.25).timeout
+	hit_by_lightning = false

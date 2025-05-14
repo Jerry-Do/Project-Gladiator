@@ -130,8 +130,8 @@ texture = ExtResource("7_vrmrc")
 
 [node name="Front" type="Area2D" parent="."]
 position = Vector2(-1, 14)
-collision_layer = 201
-collision_mask = 201
+collision_layer = 203
+collision_mask = 203
 script = ExtResource("8_ptdd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]

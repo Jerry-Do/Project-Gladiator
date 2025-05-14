@@ -44,7 +44,7 @@ offset_top = -21.3333
 offset_right = 18.0
 offset_bottom = -11.3333
 scale = Vector2(4.18667, 0.4)
-max_value = 5.0
+max_value = 2.0
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

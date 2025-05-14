@@ -25,7 +25,7 @@ func _on_area_entered(area):
 			position = position
 			speed = 0
 			if lightning_targets.find(null,0) == -1:
-				CreateLightning(area.get_instance_id())
+				CreateLightning(area.get_instance_id(),  random == 100)
 			$Bullet.hide()
 		var amount = area.TakingDamageForOther(damage, false, faction, random == 100)
 		if amount != null&& amount <= 0:
@@ -42,10 +42,10 @@ func _on_explosion_area_entered(area):
 		area.TakingDamageForOther(3,false,faction,false)
 		area.SetStatus("stun",1)
 
-func CreateLightning(id : int):
+func CreateLightning(id : int, crit: bool):
 	var lightning = preload("res://Weapon/etc/Lightning.tscn")
 	var real = lightning.instantiate()
 	get_tree().get_first_node_in_group("GameManager").get_parent().call_deferred("add_child", real)
-	real.Init(real.to_local(position), id)
+	real.Init(real.to_local(position), id, crit)
 	
 	
