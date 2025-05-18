@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://wbpjvn2fapaa"]
+
+[ext_resource type="Script" uid="uid://cpllpdq706ggj" path="res://Weapon/etc/BlackHole.gd" id="1_g2vuv"]
+[ext_resource type="Texture2D" uid="uid://dakbe0e6umag3" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_f1.png" id="1_p4lqt"]
+[ext_resource type="PackedScene" uid="uid://bwh13xmvid6bl" path="res://etc/Explosion.tscn" id="3_ocavh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3rmd"]
+radius = 111.0
+
+[node name="BlackHole" type="Area2D"]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_g2vuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_v3rmd")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_p4lqt")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Explosion" parent="." instance=ExtResource("3_ocavh")]
+visible = false
+
+[node name="Sprite2D" parent="Explosion" index="1"]
+self_modulate = Color(0.580787, 0.173964, 0.797096, 1)
+z_as_relative = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Explosion" to="." method="_on_explosion_area_entered"]
+
+[editable path="Explosion"]

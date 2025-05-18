@@ -31,9 +31,10 @@ func process_physics(_delta: float) -> State:
 			var direction = (parent.player.position - parent.position).normalized()
 			if parent.thingHitBox != null:
 				return attack_state
+			
+			parent.velocity = direction * (parent.stats_dic.speed * parent.amount_dic.debuff_dic["slow"] if parent.status_dictionary.slow else parent.stats_dic.speed)
 			if parent.softCollision.IsColliding():
 				parent.velocity += parent.softCollision.GetPushVector() * _delta * 6500	
-			parent.velocity = direction * (parent.stats_dic.speed * parent.amount_dic.debuff_dic["slow"] if parent.status_dictionary.slow else parent.stats_dic.speed)
 			parent.move_and_slide()
 		else:
 			parent.stats_dic.speed = 0

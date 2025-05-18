@@ -1,5 +1,5 @@
 extends BaseBullet
-var c_damage = 8
+var c_damage = 5
 var c_speed = 1000
 
 func _init():
@@ -19,3 +19,8 @@ func _on_area_entered(area):
 		if area.TakingDamageForOther(damage, false, faction, random == 100) <= 0 && adrenaline_rush:
 			OnEnemyKilled.emit()
 		queue_free()
+
+
+
+
+	

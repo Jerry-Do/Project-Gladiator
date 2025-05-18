@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdd4l2j2u0uqe"]
+
+[ext_resource type="Script" uid="uid://oegfmmhwet5j" path="res://Weapon/script/SabCannon.gd" id="1_rbnts"]
+[ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="2_6bs17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
+
+[node name="SABCannon" type="Node2D" groups=["Gun"]]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_rbnts")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.001
+one_shot = true
+
+[node name="WeaponRotate" type="Marker2D" parent="."]
+
+[node name="Shootingpoint" type="Marker2D" parent="WeaponRotate"]
+unique_name_in_owner = true
+position = Vector2(42, -8)
+scale = Vector2(2, 2)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.35
+autostart = true
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(26, -2)
+shape = SubResource("RectangleShape2D_a3s0y")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(28, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6bs17")
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="area_entered" from="PlayerDetector" to="." method="_on_player_detector_area_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=13 format=4 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
@@ -7,11 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/Bars/ui.tscn" id="5_m2sr4"]
 [ext_resource type="PackedScene" uid="uid://fi7wr8xetsfl" path="res://Weapon/Glave.tscn" id="6_dod7h"]
 [ext_resource type="Script" uid="uid://qwno6dwhfodv" path="res://managers/EventManagers.gd" id="6_irc80"]
-[ext_resource type="PackedScene" uid="uid://dr2pu7glrsgda" path="res://Weapon/HandGun.tscn" id="7_ku020"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
-[ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="10_ydk4g"]
 [ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="11_ayole"]
-[ext_resource type="PackedScene" uid="uid://8vbxre6wijx1" path="res://Weapon/Shotgun.tscn" id="12_u3w2c"]
+[ext_resource type="PackedScene" uid="uid://cdd4l2j2u0uqe" path="res://Weapon/SABCannon.tscn" id="13_gftor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
 texture = ExtResource("2_278gd")
@@ -155,9 +153,6 @@ metadata/_custom_type_script = "uid://qwno6dwhfodv"
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
 
-[node name="HandGun" parent="." instance=ExtResource("7_ku020")]
-position = Vector2(528, 256)
-
 [node name="PlayerSpawner" type="Node2D" parent="."]
 position = Vector2(584, 223)
 script = ExtResource("3_4a00c")
@@ -165,17 +160,14 @@ script = ExtResource("3_4a00c")
 [node name="Bomerang" parent="." instance=ExtResource("6_dod7h")]
 position = Vector2(690, 384)
 
-[node name="SpeedGun" parent="." instance=ExtResource("10_ydk4g")]
-position = Vector2(805, 229)
-
 [node name="EDropDown" parent="." instance=ExtResource("11_ayole")]
 offset_left = 1135.0
 offset_top = -77.0
 offset_right = 1135.0
 offset_bottom = -77.0
 
-[node name="Shotgun" parent="." instance=ExtResource("12_u3w2c")]
-position = Vector2(576, 444)
+[node name="SABCannon" parent="." instance=ExtResource("13_gftor")]
+position = Vector2(919, 390)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

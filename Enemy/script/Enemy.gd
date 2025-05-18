@@ -61,6 +61,7 @@ var curse_timer
 var currency_amount : int
 var delta_count : float = 0
 var dot_dmg_timer : float = 1
+var is_getting_sucked : bool = false
 
 var status_dictionary : Dictionary[String, bool]= {
 	"stun" : false,
@@ -111,6 +112,7 @@ func _physics_process(delta: float):
 	#If needed, then multiple the delta by an amount to make sure the tick is calculated normally when is in time slow
 	DoTCheck(delta)
 	
+		
 
 			
 func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
@@ -218,4 +220,6 @@ func DoTCheck(delta : float):
 			stats_dic.health -= dmg * (2 if velocity > Vector2.ZERO else 1)
 			CreateDamageLabel(dmg, false)
 			delta_count = 0
-		
+
+#func GettingSucked(destination : Vector2, duration: float):
+	#velocity.

@@ -1,6 +1,10 @@
 Timer
+Node2D
+Sprite2D
 CollisionShape2D
 Area2D
+CharacterBody2D
+RigidBody2D
 Line2D
 TextureButton
 Button
@@ -8,7 +12,3 @@ CanvasLayer
 CanvasGroup
 Control
 Container
-Panel
-OptionButton
-Node2D
-Node
