@@ -22,6 +22,7 @@ func _init(_damage, _speed):
 
 
 func _ready():
+	UpgradeBullet()
 	damage  *= (1 if player.just_dash == false else 2)
 	var thing = player.get_node("Item").get_node_or_null("AdrenalineRush")
 	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
@@ -32,8 +33,8 @@ func _ready():
 	if ls != null:
 		if ls.active:
 			leech_seed = ls.active
-	if event_manager.event_dict.frenzy_hormone:
-		damage *= 2
+	#if event_manager.event_dict.frenzy_hormone:
+		#damage *= 2
 		
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
@@ -70,3 +71,7 @@ func _on_area_entered(area):
 
 func BulletIden():
 	pass
+
+func UpgradeBullet():
+	for i in player.itemNode.bullet_upgrades:
+		i.UpgradeBullet(self)

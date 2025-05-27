@@ -1,4 +1,9 @@
 #Game Manager: handles UI and game logics
+#Message to whoever might read this:
+#This is a very messy implementation of a game manager
+#instead treating this as a big chunk that controls everything
+#turn this into a pseudo api instead, where instead of excecuting them directly
+#call the functions in the child component instead
 extends Node2D
 class_name GameManager
 @onready var ui : UI = %UI
@@ -7,14 +12,15 @@ class_name GameManager
 @onready var round_timer = %RoundTimer
 @onready var environment_spawner = %EnvironmentSpawner
 @onready var event_manager = $EventManager
-
+@onready var blessing_manager : BlessingManager = $BlessingManager
 @export var duplication_array : Array
 @export var weapons : Array
 @export var maxKillCount : int
 @export var fameMultiTimeFrame : float
 @export var maxFame : int = -1
-
+@export var judge_fame_amount : int = 0
 static var instance : GameManager = null
+
 var can_spawn_weapon : bool = true
 var pick_up_weapon = false
 var timeSlowFlag : bool = false
@@ -31,12 +37,14 @@ var currentFame : int = 0
 var currency : int = 0
 var player : Player
 var pop_up : bool = false
-
+var is_on_spotlight : bool = false
 signal RoundEnd
 signal RoundStart
 
 func _ready():
 	instance = self
+	blessing_manager.GiveBlessing()
+	
 	
 func _input(event):	
 	if event.is_action_pressed("stats_screen") && pop_up == false:
@@ -90,6 +98,7 @@ func AdjustKill(value):
 	
 func AdjustFame(value):
 	currentFame += value * fameMultiplier
+	currentFame += ((currentFame * 0.25) if is_on_spotlight else 0)
 	currentFame = clamp(currentFame, 0, currentFame)
 	ui.update_fame_text(currentFame)
 	
@@ -123,12 +132,12 @@ func UpgradeChose(scene_path: String, item_name : String, price : int):
 	if currency >= price || player.get_node("Item").get_node_or_null("RiskyBusiness") != null:
 		var item = load(scene_path)
 		var new_item : Item = item.instantiate()
-		if duplication_array.find(item_name) != -1:
+		if player.get_node("Item").get_node_or_null(item_name) != null:
 			player.get_node("Item").get_node(item_name).Duplicate()
 			DestroyUpgradeSceneAndStartNewWave()
 			return null
 		player.get_node("Item").add_child(new_item)
-		duplication_array.append(new_item.ReturnName())
+		#duplication_array.append(new_item.ReturnName())
 		player.get_node("Item").IncreaseType(new_item.ReturnFaction())
 		new_item.item_sprite.hide()
 		AdjustCurrency(-price)
@@ -160,13 +169,27 @@ func GameOver():
 	await get_tree().create_timer(0.1).timeout
 	SceneManager.LoadScene("res://scenes/GameOver.tscn", self)
 
-
+func Decide():
+	if currentFame >= judge_fame_amount:
+		ui.get_node("Control").hide()
+		ui.get_node("Judge").show()
+		get_tree().paused = true
+		await get_tree().create_timer(3).timeout
+		var m = rng.randi_range(1,2)
+		if m == 2:
+			ui.get_node("Control").show()
+			ui.get_node("Judge").hide()
+			player.stats.SetHealth(player.stats.maxHealth / 2.0)
+			player.invincibleState = true
+			get_tree().paused = false
+			await get_tree().create_timer(1.5).timeout
+			player.invincibleState = false		
+			return 
+	GameOver()
+	
 func _on_round_timer_timeout():
-	if currentFame < maxFame:
-		GameOver()
-	else:
-		WaveComplete()
-		%WeaponTimer.timeout
+	WaveComplete()
+	%WeaponTimer.timeout
 		
 
 func AdjustCurrency(value):

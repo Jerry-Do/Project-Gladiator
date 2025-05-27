@@ -4,6 +4,7 @@ var targets : Array
 var hit_id : int = 0
 var crit_flag : bool = false
 func Init(initial_pos: Vector2, id : int, crit: bool):
+	hide()
 	crit_flag = crit
 	add_point(initial_pos,0)
 	targets.append(hit_id)
@@ -15,8 +16,9 @@ func Init(initial_pos: Vector2, id : int, crit: bool):
 	
 
 
-func _on_detection_range_area_entered(area):
+func _on_detection_range_area_entered(area):	
 	if area.has_method("TakingDamageForOther"):
+		show()
 		if area.get_instance_id() != hit_id && area.hit_by_lightning == false:
 			hit_id = area.get_instance_id()
 			targets.append(area)

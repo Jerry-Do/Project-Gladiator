@@ -54,7 +54,7 @@ func ShowEvent(event_no : int):
 	%CurrentEvent.show()
 	match event_no:
 		0:
-			%Event.text = "Frezy hormone fills up the arena"
+			%Event.text = "Stands in the spotlight to gain more damage and more fame"
 		1:
 			%Event.text = "Orbital strikes commencing"
 			

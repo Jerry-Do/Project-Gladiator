@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://sc3nl483n83s"]
+
+[ext_resource type="Texture2D" uid="uid://pi0jkkprnmbd" path="res://resource/2d_lights_and_shadows_neutral_point_light.webp" id="1_ykqpc"]
+[ext_resource type="Script" uid="uid://b6d7aso76njga" path="res://events/Spotlight.gd" id="2_wvba7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykqpc"]
+radius = 105.342
+
+[node name="Spotlight" type="PointLight2D"]
+scale = Vector2(0.588623, 0.570801)
+texture = ExtResource("1_ykqpc")
+script = ExtResource("2_wvba7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ykqpc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

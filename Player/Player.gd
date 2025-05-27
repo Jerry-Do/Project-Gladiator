@@ -4,7 +4,7 @@ class_name Player
 
 @onready var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager")
 @onready var weaponNode: Node2D = get_node("Weapon")
-@onready var itemNode: Node2D = get_node("Item")
+@onready var itemNode: PlayerItem = get_node("Item")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var healthBar = get_node("../UI/Control/Healthbar")
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
@@ -49,7 +49,7 @@ var dash_charges : float = 1
 signal CreateDescription(weapon : Weapon)
 	
 func _ready():
-	self.stats.connect("no_health", game_manager.GameOver)
+	self.stats.connect("no_health", game_manager.Decide)
 	connect("CreateDescription", game_manager.CreateWeaponDescription)
 	healthBar.init_health(stats.ReturnHealth())
 	fuelBar.init_fuel(stats.maxFuel)

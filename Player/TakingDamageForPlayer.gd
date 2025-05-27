@@ -23,3 +23,8 @@ func SetStatus(s_name : String, duration : float):
 		#for i in player.status_dictionary:
 			#if player.status_dictionary[i]:
 				#area.SetStatus(i, 1.5)
+
+func Spotlight(flag : bool):
+	var amount = player.stats.ReturnDamageMod()
+	player.stats.SetDamageMod(amount if flag else -amount)
+	player.game_manager.is_on_spotlight = flag

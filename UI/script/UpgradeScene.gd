@@ -32,6 +32,7 @@ func _ready():
 			random_no =  rng_gen .randi_range(0,array_to_use.size() - 1)
 			var item = load(array_to_use[random_no])
 			var real = item.instantiate()
+			real.price = real.price if !game_manager.blessing_manager.blessings["Sales"] else real.price * 0.9
 			add_child(real)
 			if real.duplicate_flag == false:
 				if player_items.find_child(real.item_name, false, false) != null:

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5iay1y4peb2"]
+
+[ext_resource type="Script" uid="uid://dd2s4hn2n2t6u" path="res://Item/BigBullet.gd" id="1_bxy1y"]
+[ext_resource type="Texture2D" uid="uid://l5tuv4hws30k" path="res://Sprite/spriteimage/item/adrenalinerush.png" id="2_bgu8s"]
+
+[node name="BigBullet" type="Node2D"]
+script = ExtResource("1_bxy1y")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(0.390625, 0.359375)
+texture = ExtResource("2_bgu8s")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprite/spriteimage/item",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Sprite/item/adrenalinerush.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3c50e6a72f041b89b8e52633648c41a5"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

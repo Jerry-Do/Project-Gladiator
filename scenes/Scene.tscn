@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=4 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=15 format=4 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
 [ext_resource type="Script" uid="uid://cvukqfnjnvkdu" path="res://managers/spawner/PlayerSpawner.gd" id="3_4a00c"]
 [ext_resource type="PackedScene" uid="uid://cio4svb8b44cm" path="res://managers/spawner/spawner.tscn" id="4_gl8g4"]
 [ext_resource type="PackedScene" uid="uid://bjkqe7gy0n4gr" path="res://UI/Bars/ui.tscn" id="5_m2sr4"]
+[ext_resource type="Script" uid="uid://c1kl5sy8b8xpv" path="res://managers/BlessingManager.gd" id="6_ayole"]
 [ext_resource type="PackedScene" uid="uid://fi7wr8xetsfl" path="res://Weapon/Glave.tscn" id="6_dod7h"]
 [ext_resource type="Script" uid="uid://qwno6dwhfodv" path="res://managers/EventManagers.gd" id="6_irc80"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
-[ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="11_ayole"]
+[ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="11_u3w2c"]
 [ext_resource type="PackedScene" uid="uid://cdd4l2j2u0uqe" path="res://Weapon/SABCannon.tscn" id="13_gftor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
@@ -38,6 +39,9 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_mfeuo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_ydk4g"]
+font_size = 24
+
 [node name="Level" type="Node2D"]
 
 [node name="LayerHolder" type="Node2D" parent="."]
@@ -53,10 +57,13 @@ unique_name_in_owner = true
 process_mode = 3
 position = Vector2(1, 0)
 script = ExtResource("2_3k0w7")
-weapons = ["res://Weapon/Glave.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SpeedGun.tscn", "res://Weapon/Executioner.tscn", "res://Weapon/RussianRoulette.tscn"]
+weapons = ["res://Weapon/Glave.tscn", "res://Weapon/MachineGun.tscn", "res://Weapon/Shotgun.tscn", "res://Weapon/Sniper.tscn", "res://Weapon/HandGun.tscn", "res://Weapon/ScatterGun.tscn", "res://Weapon/SABCannon.tscn"]
 maxKillCount = 15
 fameMultiTimeFrame = 5.0
 maxFame = 8
+
+[node name="BlessingManager" type="Node" parent="GameManager"]
+script = ExtResource("6_ayole")
 
 [node name="WeaponTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
@@ -87,7 +94,7 @@ position = Vector2(1231, 595)
 [node name="RoundTimer" type="Timer" parent="GameManager"]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 999.0
+wait_time = 10.0
 autostart = true
 
 [node name="Spawner" parent="GameManager" instance=ExtResource("4_gl8g4")]
@@ -153,6 +160,53 @@ metadata/_custom_type_script = "uid://qwno6dwhfodv"
 [node name="UI" parent="." instance=ExtResource("5_m2sr4")]
 unique_name_in_owner = true
 
+[node name="Control" parent="UI" index="0"]
+visible = false
+
+[node name="Judge" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 188.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="UI/Judge"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 33.0
+offset_right = 738.0
+offset_bottom = 118.0
+text = "The crowd is judging...
+"
+label_settings = SubResource("LabelSettings_ydk4g")
+
+[node name="Blessing" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 188.0
+offset_bottom = 74.0
+
+[node name="Name" type="Label" parent="UI/Blessing"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 33.0
+offset_right = 738.0
+offset_bottom = 118.0
+text = "Blessing: Festive"
+label_settings = SubResource("LabelSettings_ydk4g")
+
+[node name="Description" type="Label" parent="UI/Blessing"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 455.0
+offset_right = 957.0
+offset_bottom = 540.0
+text = "Blessing: Festive"
+label_settings = SubResource("LabelSettings_ydk4g")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="PlayerSpawner" type="Node2D" parent="."]
 position = Vector2(584, 223)
 script = ExtResource("3_4a00c")
@@ -160,14 +214,15 @@ script = ExtResource("3_4a00c")
 [node name="Bomerang" parent="." instance=ExtResource("6_dod7h")]
 position = Vector2(690, 384)
 
-[node name="EDropDown" parent="." instance=ExtResource("11_ayole")]
-offset_left = 1135.0
-offset_top = -77.0
-offset_right = 1135.0
-offset_bottom = -77.0
-
 [node name="SABCannon" parent="." instance=ExtResource("13_gftor")]
 position = Vector2(919, 390)
+
+[node name="SpeedGun" parent="." instance=ExtResource("11_u3w2c")]
+position = Vector2(421, 354)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+unique_name_in_owner = true
+color = Color(0.336607, 0.336608, 0.336608, 1)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]
@@ -176,3 +231,4 @@ position = Vector2(919, 390)
 [connection signal="timeout" from="GameManager/EventManager/Timer" to="GameManager/EventManager" method="_on_timer_timeout"]
 
 [editable path="GameManager/Spawner"]
+[editable path="UI"]

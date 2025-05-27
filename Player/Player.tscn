@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ss5ny27luty3" path="res://States/player/Idle.gd" id="4_wngjq"]
 [ext_resource type="Script" uid="uid://11b5s8cimdjk" path="res://States/player/Move.gd" id="6_8bmt5"]
 [ext_resource type="Script" uid="uid://cu4nchxlb8kpw" path="res://Player/PlayerItem.gd" id="6_f4342"]
-[ext_resource type="PackedScene" uid="uid://caqbjqyf6l02r" path="res://Item/ExtraShot.tscn" id="8_7v5gs"]
+[ext_resource type="PackedScene" uid="uid://df5iay1y4peb2" path="res://Item/BigBullet.tscn" id="8_7v5gs"]
 [ext_resource type="Texture2D" uid="uid://ctbg333f2a7tp" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="8_a4w7n"]
 [ext_resource type="Texture2D" uid="uid://dweqnpr0abso6" path="res://resource/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="8_jpsj1"]
 [ext_resource type="Script" uid="uid://dbnbbi1ykbl5v" path="res://States/player/Movement_getter.gd" id="8_w4ebw"]
@@ -120,8 +120,8 @@ radius = 21.5894
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm073"]
 size = Vector2(89, 86)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7tob"]
-size = Vector2(26, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v5gs"]
+size = Vector2(30, 67)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 129
@@ -153,7 +153,7 @@ position = Vector2(-3, -1)
 position = Vector2(-2, -5)
 script = ExtResource("6_f4342")
 
-[node name="ExtraShot" parent="Item" instance=ExtResource("8_7v5gs")]
+[node name="BigBullet" parent="Item" instance=ExtResource("8_7v5gs")]
 
 [node name="StateControl" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_qb1iw")
@@ -224,8 +224,8 @@ position = Vector2(1.5, -4)
 shape = SubResource("RectangleShape2D_dm073")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -4)
-shape = SubResource("RectangleShape2D_p7tob")
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_7v5gs")
 
 [connection signal="timeout" from="Timer/PerfectTimeSlowTimer" to="." method="_on_perfect_dodge_timer_timeout"]
 [connection signal="timeout" from="Timer/DashCooldown" to="StateControl/Dash" method="_on_dash_cooldown_timeout"]

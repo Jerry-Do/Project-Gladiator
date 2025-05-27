@@ -7,14 +7,11 @@ var player : Player = get_tree().get_first_node_in_group("player")
 @onready 
 var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager")
 
-@onready 
-var event_manager : EventManager = get_tree().get_first_node_in_group("GameManager").get_node("EventManager")
 
 @onready
 var softCollision = $SoftCollision
 
-@onready 
-var spawner = get_tree().get_first_node_in_group("GameManager").get_node("Spawner")
+
 
 @onready 
 var sprite : HitFlash = $Sprite2D
@@ -83,11 +80,11 @@ var status_timers : Array
 var timer_counters = 0
 ##TODO: create stats calculator for enemies, for when frenzy hormone event and risky business
 func _init(health: int, speed: float, damage: float, armor : float ,fame : int, currency : int, faction : String, windup_time : float):
-	if GameManager.instance.event_manager.event_dict.frenzy_hormone:
-		speed *= 1.25 
-		fame *= 2 
-		damage *= 1.25
-		windup_time /= 2
+	#if GameManager.instance.event_manager.event_dict.frenzy_hormone:
+		#speed *= 1.25 
+		#fame *= 2 
+		#damage *= 1.25
+		#windup_time /= 2
 	self.stats_dic.health = health
 	maxHealth = self.stats_dic.health
 	self.stats_dic.speed = speed
@@ -177,7 +174,7 @@ func SetBuffTrue(name_s: String, duration: float):
 func StatsScale():
 	level = game_manager.currentWave
 	stats_dic.health += level + ((player.get_node("Item").num_items / 2 ))
-	stats_dic.damage += level + ((player.get_node("Item").num_items / 2 )) * (2 if event_manager.event_dict.frenzy_hormone else 1)
+	stats_dic.damage += level + ((player.get_node("Item").num_items / 2 )) * (2 if game_manager.blessing_manager.blessings["Festive"]  else 1)
 	fameAmount += level
 	stats_dic.armor += level * 0.25 + (player.get_node("Item").num_items / 2 )
 	if player.get_node("Item").get_node_or_null("RiskyBusiness") != null && GameManager.instance.currency < 0:
@@ -196,6 +193,7 @@ func OnDead():
 	game_manager.AdjustCurrency(currency_amount + extra_material_amount)
 	player.get_node("StateControl").get_node_or_null("Dash").ResetDash()
 
+#lol: from the person who wrote this
 func DoTCheck(delta : float):
 	delta_count += delta
 	if delta_count >= dot_dmg_timer:

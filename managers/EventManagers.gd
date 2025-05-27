@@ -4,8 +4,9 @@ class_name EventManager
 @export var orbital_strike_wait_time : float = 0
 var game_manager : GameManager = null
 var event_dict : Dictionary[String,bool] = {
-	"frenzy_hormone" : false,
-	"orbital_strike" : false,
+	"spotlight" : true,
+	"orbital_strike" : false
+	
 	
 }
 
@@ -13,17 +14,19 @@ var event_dict : Dictionary[String,bool] = {
 func _ready():
 	game_manager = get_parent()
 	game_manager.connect("RoundStart", self.CreateEvent)
+	game_manager.connect("RoundEnd", self.ClearEvent)
 	
 func CreateEvent():
 	if game_manager.currentWave >= no_round_to_activate:
 		for i in event_dict:
 			event_dict[i] = false
-		var randon_no = randi_range(1,2)
+		var randon_no = randi_range(1,4)
 		if randon_no == 2:
-			var event = randi_range(1,1)
+			var event = randi_range(0,1)
 			match event:
 				0:
-					event_dict.frenzy_hormone = true
+					event_dict.spotlight = true
+					StartSpotlight()
 					GameManager.instance.ui.ShowEvent(0)
 				1:
 					event_dict.orbital_strike = true
@@ -43,3 +46,16 @@ func _on_timer_timeout():
 		var pos_y = clamp(player.position.y + random_no, -93, 657)
 		real.position = Vector2( pos_x,  pos_y)
 		get_parent().get_parent().add_child(real)
+
+func StartSpotlight():
+	%CanvasModulate.show()
+	var spotlight = preload("res://events/Spotlight.tscn")
+	var real = spotlight.instantiate()
+	real.global_position = get_parent().player.global_position
+	get_parent().add_child(real)
+
+func ClearEvent():
+	for i in event_dict:
+		if event_dict[i]:
+			event_dict[i] = false
+			break

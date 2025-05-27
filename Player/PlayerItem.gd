@@ -10,6 +10,7 @@ var item_types : Dictionary = {
 	"tech" : 0,
 	"r.i.s.k" : 0
 }
+var bullet_upgrades : Array
 var player : Player = get_parent()
 var num_shot : int = 1
 var dominant_type : String = ""
@@ -28,5 +29,6 @@ func IncreaseType(type:String):
 		dominant_type = type.to_lower()
 
 
-	
+func AddBulletUpgrade(upgrade :BaseBulletUpgrade):
+	bullet_upgrades.append(upgrade)
 	
