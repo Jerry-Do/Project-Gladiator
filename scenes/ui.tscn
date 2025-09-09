@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjkqe7gy0n4gr"]
+[gd_scene load_steps=5 format=3 uid="uid://bjkqe7gy0n4gr"]
 
 [ext_resource type="Script" uid="uid://bsgeufm4hnf0p" path="res://UI/script/UI.gd" id="1_clehj"]
 [ext_resource type="PackedScene" uid="uid://qlvig256hsqp" path="res://UI/Bars/Healthbar.tscn" id="2_g042w"]
-[ext_resource type="PackedScene" uid="uid://bpninsm3bsivs" path="res://debugtools/ItemDropDown.tscn" id="2_tjfbs"]
 [ext_resource type="PackedScene" uid="uid://d33f6q17cdc2p" path="res://UI/Fuelbar.tscn" id="3_gy42b"]
-[ext_resource type="PackedScene" uid="uid://cp7a5fah4dd46" path="res://debugtools/EnemyDropDown.tscn" id="5_unkvc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pakyj"]
 font_size = 24
@@ -20,27 +18,6 @@ offset_left = 2.0
 offset_top = 1.0
 offset_right = 243.0
 offset_bottom = 99.0
-
-[node name="NewWeaponAlert" type="MarginContainer" parent="Control"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.19087
-anchor_top = 0.816327
-anchor_right = 2.37344
-anchor_bottom = 1.70408
-scale = Vector2(1.76, 1.6)
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-metadata/_edit_use_anchors_ = true
-
-[node name="NewWeaponAlertText" type="Label" parent="Control/NewWeaponAlert"]
-layout_mode = 2
-text = "New Weapon Just Dropped!!!
-"
 
 [node name="WeaponTimer" type="MarginContainer" parent="Control"]
 unique_name_in_owner = true
@@ -239,16 +216,3 @@ offset_top = 67.0
 offset_right = 271.0
 offset_bottom = 71.0
 scale = Vector2(1.50155, 3.74483)
-
-[node name="DropDown" parent="." instance=ExtResource("2_tjfbs")]
-offset_left = -3.0
-offset_top = 423.0
-offset_right = -3.0
-offset_bottom = 423.0
-
-[node name="DropDown2" parent="." instance=ExtResource("5_unkvc")]
-visible = false
-offset_left = 925.0
-offset_top = 424.0
-offset_right = 925.0
-offset_bottom = 424.0

@@ -3,7 +3,7 @@ extends Weapon
 
 
 var _cMaxAmmo = 8
-var _cRateOfFire = 1
+var _cRateOfFire = 0.5
 var _cReloadTime = 1.25
 var _cFaction = "tech"
 func _init():

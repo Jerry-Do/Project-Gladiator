@@ -65,7 +65,7 @@ func process_physics(delta: float):
 	return super(delta)
 
 func process_input(_event : InputEvent) -> State:
-	if _event.is_action_pressed("dash") && parent.dash_charge > 0:
+	if _event.is_action_pressed("dash") && parent.dash_charges > 0:
 		get_parent().previous_state = self
 		return dash_state
 	if _event.is_action_pressed("use_skill"):

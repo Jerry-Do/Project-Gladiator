@@ -13,10 +13,11 @@ func enter() -> void:
 	parent.animated_sprite.play("run")
 	
 func exit() -> void:
+	if parent.status_dictionary.overheat:
+		parent.get_node("Overheat").show()
 	parent.animated_sprite.stop()
 	
 func process_input(_event : InputEvent) -> State:
-	
 	if _event.is_action_pressed("use_skill") && parent.stats.ReturnCurrentFuel() > 0 && parent.status_dictionary["stun"] == false && parent.status_dictionary["skill_disable"] \
 	== false && parent.status_dictionary["overheat"] == false:
 		return skill_state
@@ -38,3 +39,6 @@ func process_physics(delta: float):
 		parent.velocity = Vector2.ZERO
 	parent.move_and_slide()
 	return null
+
+
+	

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8hrnrsmn60tq"]
+
+[ext_resource type="Script" uid="uid://d3kjcle51gage" path="res://UI/script/WeaponUpgradeScene.gd" id="1_vsa5h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_58k5s"]
+font_size = 24
+
+[node name="WeaponUpgradeScreen" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vsa5h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -89.0
+offset_right = 1643.0
+offset_bottom = 865.0
+color = Color(0.298039, 0.298039, 0.298039, 0.411765)
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1400, 650)
+layout_mode = 0
+offset_left = -499.0
+offset_top = 237.0
+offset_right = 1001.0
+offset_bottom = 887.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 500
+alignment = 1
+
+[node name="Pos1" type="Control" parent="ButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Pos2" type="Control" parent="ButtonsContainer"]
+layout_mode = 2
+
+[node name="Currency" type="Label" parent="."]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 78.0
+offset_right = 578.0
+offset_bottom = 129.0
+text = "Choose Weapon Upgrade"
+label_settings = SubResource("LabelSettings_58k5s")

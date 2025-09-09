@@ -11,6 +11,7 @@ var movement_component
 
 func enter() -> void:
 	parent = get_parent().get_parent()
+	
 func exit() -> void:
 	pass
 

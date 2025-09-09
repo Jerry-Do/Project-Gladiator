@@ -6,7 +6,7 @@ extends Tech
 func _ready():
 	super()
 	duplicate_flag = false
-	price = 14
+	price = 45
 	effect_base_amount = amount
 	item_name = "GoldenGloves"
 	display_name = "Golden Gloves"

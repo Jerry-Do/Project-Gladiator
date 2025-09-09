@@ -18,11 +18,10 @@ func SetStatusPlayer(s_name : String, duration : float):
 func SetStatus(s_name : String, duration : float):
 	SetStatusPlayer(s_name, duration)
 
-#func _on_area_entered(area):
-	#if area.has_method("SetStatus"):
-		#for i in player.status_dictionary:
-			#if player.status_dictionary[i]:
-				#area.SetStatus(i, 1.5)
+func _on_area_entered(area):
+	if area.has_method("SetStatus"):
+		if player.game_manager.timeSlowFlag && player.itemNode.dominant_type == "tech":
+			area.SetStatus("stun",3)
 
 func Spotlight(flag : bool):
 	var amount = player.stats.ReturnDamageMod()

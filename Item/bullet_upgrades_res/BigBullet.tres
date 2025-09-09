@@ -1,6 +1,7 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://c2lpxo6qvn1bj"]
 
-[ext_resource type="Script" uid="uid://bbwmn8oepqtu4" path="res://Item/bullet_upgrades_res/BigBulletRes.gd" id="1_2acr7"]
+[ext_resource type="Script" uid="uid://bbwmn8oepqtu4" path="res://Item/bullet_upgrades_res/scripts/BigBulletRes.gd" id="1_2acr7"]
 
 [resource]
 script = ExtResource("1_2acr7")
+amount = 20.0

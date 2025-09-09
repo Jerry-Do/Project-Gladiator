@@ -25,6 +25,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_4r4me")
 
 [node name="Sprite2D" type="Sprite2D" parent="RootZone"]
+modulate = Color(0.196078, 1, 0.376471, 1)
 z_index = -1
 z_as_relative = false
 y_sort_enabled = true

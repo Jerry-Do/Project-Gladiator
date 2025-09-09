@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://611x8m2qa2iy"]
+[gd_scene load_steps=7 format=3 uid="uid://611x8m2qa2iy"]
 
 [ext_resource type="Texture2D" uid="uid://cjcdcxr41b6aj" path="res://resource/craftpix-net-626011-free-guns-pack-2-for-main-characters-pixel-art/2 Guns/2_1.png" id="1_he01a"]
 [ext_resource type="Script" uid="uid://cwcu2snn62f3r" path="res://Weapon/script/SpeedGun.gd" id="2_rj4q5"]
+[ext_resource type="Resource" uid="uid://3luvcagnljyn" path="res://Weapon/upgrades/SG_StunLightning.tres" id="2_ushbf"]
 [ext_resource type="PackedScene" uid="uid://cpqcj7k2wn2h5" path="res://UI/Bars/SpeedBar.tscn" id="3_6sohs"]
+[ext_resource type="Resource" uid="uid://cfellvl8syp2w" path="res://Weapon/upgrades/SG_MoreLightningBounce.tres" id="3_wft4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
 
@@ -11,6 +13,7 @@ visibility_layer = 7
 position = Vector2(-10, 8)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_rj4q5")
+upgrades = [ExtResource("2_ushbf"), ExtResource("3_wft4m")]
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true

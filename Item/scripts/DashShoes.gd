@@ -3,7 +3,7 @@ extends Tech
 func _ready():
 	super()
 	duplicate_flag = false
-	price = 5
+	price = 75
 	effect_base_amount = amount
 	item_name = "DashShoes"
 	name = item_name

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cmrl3sosotcak"]
+
+[ext_resource type="Script" uid="uid://btwi20ubvr5yf" path="res://Item/bullet_upgrades_res/scripts/DoubleDamage.gd" id="1_ls7qm"]
+
+[resource]
+script = ExtResource("1_ls7qm")
+amount = 200.0

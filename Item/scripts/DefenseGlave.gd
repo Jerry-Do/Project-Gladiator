@@ -8,7 +8,7 @@ extends Tech
 func _ready():
 	super()
 	duplicate_flag = false
-	price = 50
+	price = 80
 	item_name = "DefenseGlave"
 	display_name = "Defense Glave"
 	name = item_name

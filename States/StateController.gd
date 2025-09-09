@@ -1,11 +1,11 @@
 extends Node
-
+class_name StateController
 @export 
-var starting_state: State
+var starting_state: State = null
 
-var current_state: State
+var current_state: State = starting_state
 
-var previous_state : State
+var previous_state : State = starting_state
 func init(_parent : Node2D, movement_component):
 	if get_parent().name == "Player":
 		for child in get_children(): 

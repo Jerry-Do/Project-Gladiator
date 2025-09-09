@@ -8,13 +8,12 @@ var current_damage_blocked = 0
 func _ready():
 	super()
 	duplicate_flag = true
-	price = 30
+	price = 50
 	item_name = "EnergyShield"
 	effect_base_amount = amount
 	name = item_name
 	display_name = "Energy Shield"
-	item_description = "Gives the player a shield of " + str(EffectAmount()) + " damage." + \
-	"When evolved, the shield will explode and stun surrouding enemies for 1 second"
+	item_description = "Gives the player a shield"
 	faction = "tech"
 	evolve_condition_text = ""
 	if get_parent() == player.get_node("Item"):
@@ -40,8 +39,3 @@ func _on_timer_timeout():
 func DoJob():
 	player.shield_amount = amount * quantity
 	player.healthBar.init_shield(amount)
-
-
-func _on_area_2d_area_entered(area):
-	if area.has_method("SetStatusOther"):
-		area.SetStatusOther("stun", 1)

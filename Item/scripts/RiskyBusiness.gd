@@ -2,7 +2,7 @@ extends Risk
 
 
 @export var amount = 0
-@export var m_price = 0
+@export var m_price = 50
 func _ready():
 	super()
 	duplicate_flag = false

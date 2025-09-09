@@ -5,8 +5,7 @@ func _on_area_entered(area):
 	if is_on_fire == false:
 		if area.has_method("SetStatus"):
 			area.SetStatus("slow",3)
-		if (area.has_method("SetStatus") && area.get_parent().status_dictionary["fire"] == true) \
-		|| area.has_method("SetOilOnFire"):
+		if (area.has_method("SetStatus") && area.get_parent().status_dictionary["fire"] == true):
 			SetOilOnFire()
 	if is_on_fire == true:
 		if area.has_method("SetStatus"):

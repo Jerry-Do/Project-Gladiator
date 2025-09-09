@@ -12,9 +12,9 @@ func _ready():
 	duplicate_flag = false
 	price = 46
 	effect_base_amount = amount
-	item_name = "BerserkerArmguard"
+	item_name = "Adrenaline"
 	name = item_name
-	display_name = "Berserker Armguard"
+	display_name = "Adrenaline"
 	item_description = "Increase the player's damage based on missing health"
 	evolve_condition_text = "Collect three pieces of the berserker set to get set bonus. Set bonus Rage: reduce the player's max health by half, and increase the effectiveness of the items"
 	if get_parent() == player.get_node("Item"):
@@ -32,12 +32,13 @@ func HealthChange():
 	player.stats.SetDamageMod(real)
 	
 func EvolveCheck():
-	if player.get_node("Item").find_child("BerserkerChestplate", false, false) != null:
-		fullset = true
-		player.get_node("Item").get_node("BerserkerChestplate").fullset = true
-		player.stats.maxHealthAllowed /= 2
-		if player.stats.ReturnHealth() > player.stats.maxHealthAllowed:
-			player.stats.SetHealth(-(player.stats.ReturnHealth() / 2))
-
-func UpdateDescription():
-	item_description = "Increase the player's damage based on missing health ("+ str(missing_health)+"% Missing health = "+ str(EffectAmount()) +"% Damage Mod)"
+	var en = player.get_node("Item").find_child("Endorphine", false, false)
+	var do = player.get_node("Item").find_child("Dopamine", false, false)
+	if en == null || do == null:
+		return 
+	fullset = true
+	en.fullset = true
+	do.fullset = true
+	player.stats.maxHealthAllowed /= 2
+	if player.stats.ReturnHealth() > player.stats.maxHealthAllowed:
+		player.stats.SetHealth(-(player.stats.ReturnHealth() / 2))

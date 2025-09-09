@@ -10,11 +10,14 @@ var enemies_in_range : Array
 
 var tick : float = 0
 
+var charge_time : float = 0
+
 var tick_threshhold : float = 0.5
 @export var regen_amount : float = 0
 @export var consume_rate : float = 0
 @export var damage_amount : float = 0
-#TODO: on evl 1,
+
+
 func _ready():
 	dash_state = get_parent().get_node("Dash")
 	move_state = get_parent().get_node("Move")
@@ -36,6 +39,7 @@ func enter() -> void:
 		
 func process_physics(delta: float):
 	if in_state:
+		charge_time = clamp(charge_time + delta, charge_time  + delta, 1.0 )
 		if parent.stats.ReturnCurrentFuel() > 0 :
 			tick += delta
 			parent.stats.SetFuel(-delta * 50)
@@ -88,5 +92,6 @@ func _on_root_zone_area_entered(area):
 
 
 func _on_explosion_area_entered(area):
-	if area.has_method("SetStatus") && area.get_parent().name != "Player" :
-		area.SetStatus("stun", 3)
+	if area.has_method("SetStatus") && area.get_parent().name != "Player":
+		area.d
+		area.SetStatus("stun", 1.5 * (charge_time + 1))

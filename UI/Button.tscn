@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://buvg61hesrl0q"]
+[gd_scene load_steps=5 format=3 uid="uid://bfo167wjxkfhc"]
 
-[ext_resource type="Script" uid="uid://d4ij1cppibnox" path="res://UI/script/Button.gd" id="1_058vi"]
+[ext_resource type="Script" uid="uid://d4ij1cppibnox" path="res://UI/script/ItemUpgradeButton.gd" id="1_058vi"]
 [ext_resource type="Texture2D" uid="uid://7mx211ui65fp" path="res://Sprite/UI/techbutton1.png" id="2_mt5vq"]
 [ext_resource type="Texture2D" uid="uid://868fxwlw54j5" path="res://Sprite/UI/techbutton2.png" id="3_jb7qd"]
 

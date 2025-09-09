@@ -7,7 +7,7 @@ resource_name = "fade_out"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("Control/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,20 +29,21 @@ _data = {
 [node name="SkillPicker" type="Node2D"]
 script = ExtResource("1_tavir")
 
-[node name="TimeSlow" type="Button" parent="."]
-offset_left = 558.0
-offset_top = 284.0
-offset_right = 599.0
-offset_bottom = 315.0
-text = "Time Slow
-"
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Transition" type="AnimationPlayer" parent="."]
+[node name="Transition" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_0rirm")
+&"": SubResource("AnimationLibrary_0rirm")
 }
 
-[node name="ColorRect" type="ColorRect" parent="Transition"]
+[node name="ColorRect" type="ColorRect" parent="Control/Transition"]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 40.0
@@ -50,28 +51,57 @@ offset_bottom = 40.0
 scale = Vector2(28.76, 16.16)
 color = Color(0, 0, 0, 1)
 
-[node name="Cocoon" type="Button" parent="."]
-offset_left = 334.0
-offset_top = 282.0
-offset_right = 375.0
-offset_bottom = 313.0
-text = "Cocoon
-"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 404.0
-offset_top = 173.0
-offset_right = 594.0
-offset_bottom = 213.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 85.0
+offset_right = 652.0
+offset_bottom = 125.0
 text = "Pick a Skill"
 
-[node name="Gunslinger" type="Button" parent="."]
-offset_left = 767.0
-offset_top = 286.0
-offset_right = 833.0
-offset_bottom = 317.0
-text = "Gunslinger"
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 165.0
+offset_right = 908.0
+offset_bottom = 473.0
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="TimeSlow" to="." method="_on_time_slow_pressed"]
-[connection signal="pressed" from="Cocoon" to="." method="_on_cocoon_pressed"]
-[connection signal="pressed" from="Gunslinger" to="." method="_on_gunslinger_pressed"]
+[node name="Gunslinger" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Gunslinger: increase fire rate and decrease reload time
+Type dominance:
+	- Tech: Bullets will have a random enchantment
+    - Biochem: Uses health when fuel is depleted, bonuses increased based on missing health"
+
+[node name="Cocoon" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Cocoon: becomes invicible enters statis mode and starts to heal
+Type dominance:
+	-Tech: At the end, explodes, stuns and damages surrounding enemies
+ 	- Biochem: Removes passive heal, creates a zone that leeches enemies"
+
+[node name="TimeSlow" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Time Slow:  enters time slow mode where everything moves slower
+Type dominance
+	- Tech: Stuns the enemies on touching
+	- Biochem: Releases posion gas while moving
+"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 582.0
+offset_right = 915.0
+offset_bottom = 605.0
+text = "Type dominance: the first item type to reach 7 items will be considered as type dominance"
+
+[connection signal="pressed" from="Control/VBoxContainer/Gunslinger" to="." method="_on_gunslinger_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Cocoon" to="." method="_on_cocoon_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/TimeSlow" to="." method="_on_time_slow_pressed"]

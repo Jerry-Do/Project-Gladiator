@@ -10,11 +10,10 @@ class_name Player
 @onready var fuelBar = get_node("../UI/Control/Fuelbar")
 @onready var item_inventory = $Item
 @onready var target_sprite = $Target
-@onready var state_machine = $StateControl
+@onready var state_machine : StateController = $StateControl
 @onready var movement_component = $MovementComponent
 @onready var stats : Stats = $Stats
 @onready var perfect_dodge_timer = %PerfectTimeSlowTimer
-@onready var state_controller = $StateControl
 @export var max_speed: int = 100
 
 @export var amount_dic : SEADictionary
@@ -50,10 +49,10 @@ signal CreateDescription(weapon : Weapon)
 	
 func _ready():
 	self.stats.connect("no_health", game_manager.Decide)
-	connect("CreateDescription", game_manager.CreateWeaponDescription)
+	#connect("CreateDescription", game_manager.CreateWeaponDescription)
 	healthBar.init_health(stats.ReturnHealth())
 	fuelBar.init_fuel(stats.maxFuel)
-	var skill = load("res://skills/" + SkillPicker.chosen_skill +".tscn")
+	var skill = load("res://skills/" + ThingsPicker.chosen_skill +".tscn")
 	var real = skill.instantiate()
 	state_machine.add_child(real)
 	state_machine.init(self, movement_component)
@@ -66,6 +65,8 @@ func _physics_process(delta):
 		currentWeapon.look_at(get_global_mouse_position())
 		game_manager.UpdateAmmo(currentWeapon.currentAmmo)
 		just_dash = false
+		var angle_to_mouse = abs(rad_to_deg(weaponNode.get_angle_to(get_global_mouse_position())))
+		currentWeapon.sprite.flip_v = (angle_to_mouse > 90 && angle_to_mouse <=270)
 	if  status_dictionary.bleed || status_dictionary.fire:
 		delta_count += delta
 		if delta_count >= amount_dic.dot_dmg_timer:

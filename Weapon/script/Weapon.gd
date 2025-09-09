@@ -11,6 +11,8 @@ var description : String
 var w_name : String
 var faction : String
 var double_shot : int = 0
+var upgrade_chosen : String = ""
+@export var upgrades : Array = []
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 @onready var sprite = $Gun

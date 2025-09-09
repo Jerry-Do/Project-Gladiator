@@ -2,11 +2,12 @@ extends Move
 
 
 @export var consume_rate : float 
+@export var bullet_upgrades : Array
 var move_state : State
 
 var old_rate_of_fire: float
 var old_reload_time : float 
-
+var bullet_upgrade_flag : bool = false
 var in_state : bool = false
 ##TODO On evolve 1, after dashing in this state the next bullet does increase dmg, 
 ##on evolve 2 killing an enemy in this state refresh dodge cooldown
@@ -19,11 +20,11 @@ func enter() -> void:
 	if parent.currentWeapon != null:
 		old_rate_of_fire = parent.currentWeapon.rateOfFire
 		old_reload_time = parent.currentWeapon.reloadTime
-		parent.currentWeapon.reloadTime = 0.25
-		parent.currentWeapon.rateOfFire = 0.25
+		parent.currentWeapon.reloadTime = 0.2
+		parent.currentWeapon.rateOfFire = 0.2
 		in_state = true
-		print(parent.velocity)
-
+	if parent.item_inventory.dominant_type == "tech":
+		bullet_upgrade_flag = true
 	
 func process_physics(delta: float):
 	super(delta)
@@ -34,7 +35,9 @@ func process_physics(delta: float):
 			parent.recharge_flag = false
 		elif parent.item_inventory.dominant_type == "biochemical" && parent.stats.ReturnCurrentFuel() <= 0 && parent.stats.ReturnCurrentHealth() > 1:
 			parent.stats.SetHealth(-delta * (consume_rate)/2.0)
-			
+			parent.currentWeapon.reloadTime = 0.15
+			parent.currentWeapon.rateOfFire = 0.15
+		
 		else:
 			if parent.get_node("Item").get_node_or_null("CoolingSystem") == null:
 				parent.status_dictionary.overheat = true
@@ -48,11 +51,6 @@ func process_input(_event : InputEvent) -> State:
 		return dash_state
 	if _event.is_action_pressed("use_skill"):
 		return idle_state
-	if _event.is_action_released("left_click"):
-		parent.currentWeapon.shootFlag = true
-		if parent.currentWeapon && parent.status_dictionary.stun == false && parent.currentWeapon.reloadFlag == false:
-			parent.currentWeapon.shoot()	
-			parent.game_manager.UpdateAmmo(parent.currentWeapon.currentAmmo)
 	return null
 	
 func exit() -> void:
@@ -60,7 +58,7 @@ func exit() -> void:
 		$RechargeTimer.start($RechargeTimer.wait_time if parent.status_dictionary["overheat"] else $RechargeTimer.wait_time * 1.5)
 		in_state = false
 		if parent.status_dictionary.overheat:
-			$%OverheatTimer.start(parent.stats.ReturnMaxFuel() / parent.stats.ReturnRechargeRate())
+			$OverheatTimer.start(parent.stats.ReturnMaxFuel() / parent.stats.ReturnRechargeRate())
 		parent.currentWeapon.rateOfFire = old_rate_of_fire 
 		parent.currentWeapon.reloadTime = old_reload_time
 

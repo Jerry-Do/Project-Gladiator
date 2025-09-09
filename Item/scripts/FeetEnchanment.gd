@@ -12,7 +12,7 @@ var fullset = false
 func _ready():
 	super()
 	duplicate_flag = true
-	price = 8
+	price = 25
 	effect_base_amount = amount
 	item_name = "Leg Enhancement"
 	display_name = "Leg Enhancement"

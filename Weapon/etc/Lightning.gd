@@ -3,12 +3,14 @@ extends Line2D
 var targets : Array
 var hit_id : int = 0
 var crit_flag : bool = false
-func Init(initial_pos: Vector2, id : int, crit: bool):
+var weapon_parent : Weapon = null
+func Init(initial_pos: Vector2, id : int, crit: bool, parent : Weapon):
 	hide()
 	crit_flag = crit
 	add_point(initial_pos,0)
 	targets.append(hit_id)
 	%HitShape.shape.a = get_point_position(0)
+	weapon_parent = parent
 	hit_id = id
 	add_point(initial_pos + Vector2(10,0),1)
 	%HitShape.shape.b = get_point_position(1)
@@ -31,12 +33,11 @@ func _on_detection_range_area_entered(area):
 func _on_timer_timeout():
 	queue_free()
 
-#TODO damage the enemies and stun them
-#Create a new lightning that bounces to the next enemy and does not bouce back
-#to the original hit enemy
+
 func _on_hit_line_area_entered(area):
 	if area.has_method("TakingDamageForOther") && area.hit_by_lightning == false:
-		area.SetStatus("stun",0.25)
+		if weapon_parent.upgrade_chosen == "Stun Lightning":
+			area.SetStatus("stun",0.25)
 		area.TakingDamageForOther(2, false, "tech", crit_flag)
 		area.HitByLightning()
 		var lightning = preload("res://Weapon/etc/Lightning.tscn")

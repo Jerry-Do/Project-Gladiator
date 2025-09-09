@@ -44,7 +44,12 @@ signal RoundStart
 func _ready():
 	instance = self
 	blessing_manager.GiveBlessing()
-	
+	if ThingsPicker.chosen_weapon != "":
+		var weapon = load("res://Weapon/" + ThingsPicker.chosen_weapon +".tscn")
+		var real = weapon.instantiate()
+		real.global_position = get_node("../PlayerSpawner").global_position
+		get_parent().add_child.call_deferred(real)
+		
 	
 func _input(event):	
 	if event.is_action_pressed("stats_screen") && pop_up == false:
@@ -72,19 +77,19 @@ func UpdateAmmo(value):
 func UpdateItemSprite(spritePath):
 	ui.update_item_sprite(spritePath)
 	
-func SpawnWeapon():
-	var children = weaponSpawnPoints.get_children()
-	var random_pos = rng.randi_range(0, children.size() - 1)
-	var random_weapon = rng.randi_range(0, weapons.size() - 1)
-	var weapon = load(weapons[random_weapon])
-	var spawn_pos = children[random_pos]
-	newWeapon = weapon.instantiate()
-	newWeapon.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)
-	newWeapon.rotation = spawn_pos.rotation
-	newWeapon.scale = spawn_pos.scale
-	currentKill = 0
-	get_parent().add_child(newWeapon)
-	%WeaponTimer.start()
+#func SpawnWeapon():
+	#var children = weaponSpawnPoints.get_children()
+	#var random_pos = rng.randi_range(0, children.size() - 1)
+	#var random_weapon = rng.randi_range(0, weapons.size() - 1)
+	#var weapon = load(weapons[random_weapon])
+	#var spawn_pos = children[random_pos]
+	#newWeapon = weapon.instantiate()
+	#newWeapon.position = Vector2(spawn_pos.global_position.x, spawn_pos.global_position.y)
+	#newWeapon.rotation = spawn_pos.rotation
+	#newWeapon.scale = spawn_pos.scale
+	#currentKill = 0
+	#get_parent().add_child(newWeapon)
+	#%WeaponTimer.start()
 
 func AdjustKill(value):
 	%FameMultiplierTimer.start(fameMultiTimeFrame)
@@ -92,8 +97,8 @@ func AdjustKill(value):
 	if currentKill == maxKill:
 		currentKill = 0
 		AdjustFameMultiplier(0.2)
-		if can_spawn_weapon:
-			SpawnWeapon()
+		#if can_spawn_weapon:
+			#SpawnWeapon()
 	ui.update_kill_text(currentKill, maxKill)
 	
 func AdjustFame(value):
@@ -156,11 +161,11 @@ func DestroyUpgradeSceneAndStartNewWave():
 	pop_up = false
 	StartWave()
 	
-func CreateWeaponDescription(weapon : Weapon):
-	var description = preload("res://UI/GunDescription.tscn")
-	var real_description = description.instantiate()
-	real_description.SetUp(weapon.ReturnName(), weapon.ReturnDescription())
-	ui.get_node("Control").add_child(real_description)
+#func CreateWeaponDescription(weapon : Weapon):
+	#var description = preload("res://UI/GunDescription.tscn")
+	#var real_description = description.instantiate()
+	#real_description.SetUp(weapon.ReturnName(), weapon.ReturnDescription())
+	#ui.get_node("Control").add_child(real_description)
 
 func GameOver():
 	#get_tree().get_first_node_in_group("player").queue_free()

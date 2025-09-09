@@ -9,7 +9,7 @@ var health_regened = 0
 func _ready():
 	super()
 	duplicate_flag = true
-	price = 20
+	price = 150
 	effect_base_amount = amount
 	item_name = "RegenarativeTissue"
 	display_name = "Regenarative Tissue"

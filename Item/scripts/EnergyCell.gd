@@ -7,7 +7,7 @@ extends Tech
 func _ready():
 	super()
 	duplicate_flag = true
-	price = 5
+	price = 20
 	item_name = "EnergyCell"
 	display_name = "Energy Cell"
 	effect_base_amount = amount

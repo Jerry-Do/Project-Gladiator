@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://df5iay1y4peb2"]
 
-[ext_resource type="Script" uid="uid://dd2s4hn2n2t6u" path="res://Item/BigBullet.gd" id="1_bxy1y"]
+[ext_resource type="Script" uid="uid://dd2s4hn2n2t6u" path="res://Item/scripts/BigBullet.gd" id="1_bxy1y"]
 [ext_resource type="Texture2D" uid="uid://l5tuv4hws30k" path="res://Sprite/spriteimage/item/adrenalinerush.png" id="2_bgu8s"]
 
 [node name="BigBullet" type="Node2D"]

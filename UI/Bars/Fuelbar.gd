@@ -13,3 +13,9 @@ func init_fuel(_fuel):
 	fuel = _fuel
 	max_value = _fuel
 	value = fuel
+
+func _process(delta):
+	if value <= (max_value * 0.20):
+		get("theme_override_styles/fill").bg_color = Color.RED
+		return
+	get("theme_override_styles/fill").bg_color = Color.YELLOW

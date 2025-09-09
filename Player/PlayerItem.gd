@@ -13,7 +13,7 @@ var item_types : Dictionary = {
 var bullet_upgrades : Array
 var player : Player = get_parent()
 var num_shot : int = 1
-var dominant_type : String = ""
+var dominant_type : String = "tech"
 var item_critable : bool = false
 var is_dominant_type_set : bool = false
 #The thresh hold can be changed by changing the var below

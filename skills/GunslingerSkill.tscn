@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgtfauqo652ah"]
+[gd_scene load_steps=5 format=3 uid="uid://bgtfauqo652ah"]
 
 [ext_resource type="Script" uid="uid://dk4e4k31vwg00" path="res://skills/script/GunslingerSkill.gd" id="1_vbfet"]
+[ext_resource type="Resource" uid="uid://c2lpxo6qvn1bj" path="res://Item/bullet_upgrades_res/BigBullet.tres" id="2_hur0t"]
+[ext_resource type="Resource" uid="uid://cmrl3sosotcak" path="res://Item/bullet_upgrades_res/DoubleDamage.tres" id="3_0rqd3"]
+[ext_resource type="Resource" uid="uid://v3ecunyq8gky" path="res://Item/bullet_upgrades_res/RandomStatus.tres" id="4_bqxuu"]
 
 [node name="GunslingerSkill" type="Node"]
 script = ExtResource("1_vbfet")
 consume_rate = 10.0
+bullet_upgrades = [ExtResource("2_hur0t"), ExtResource("3_0rqd3"), ExtResource("4_bqxuu")]
 
 [node name="RechargeTimer" type="Timer" parent="."]
 

@@ -25,13 +25,15 @@ func _physics_process(delta):
 		aim.set_rotation(get_angle_to(player.position) * scale.y)
 
 func Attack():
+	if status_dictionary["stun"] == true:
+		return
 	player.target_sprite.show()
 	var BULLET = preload("res://Enemy/etc/EnemyBullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position = aim.global_position
 	new_bullet.global_rotation = aim.global_rotation
 	new_bullet.shooter = self
-	new_bullet.damage = stats_dic.damage
+	new_bullet.c_damage = stats_dic.damage
 	player.get_parent().add_child(new_bullet)
 	
 

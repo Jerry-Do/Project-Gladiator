@@ -64,7 +64,6 @@ var status_dictionary : Dictionary[String, bool]= {
 	"stun" : false,
 	"slow" : false,
 	"vulnerable" : false,
-	"leech" : false,
 	"toxin": false,
 	"fire" : false,
 	"bleed" : false
@@ -115,7 +114,7 @@ func _physics_process(delta: float):
 func MinusHealth(amount : float, is_backshot: bool, faction: String, crit : bool):
 	sprite.HitFlash()
 	amount *= (1.2 if is_backshot else 1.0  )
-	amount *= (1.1 if self.faction != faction else 1.0)
+	#amount *= (1.1 if self.faction != faction else 1.0)
 	amount /= ( 1.0 + (stats_dic.armor/2.0)/ 100.0)
 	CreateDamageLabel(amount, crit)
 	stats_dic.health -= amount
@@ -197,12 +196,6 @@ func OnDead():
 func DoTCheck(delta : float):
 	delta_count += delta
 	if delta_count >= dot_dmg_timer:
-		if status_dictionary.leech:
-			var dmg = (amount_dic.debuff_dic["leech"] * maxHealth)  * (2  if player.get_node("Item").item_critable else 1)
-			stats_dic.health -= dmg
-			CreateDamageLabel(dmg, false)
-			delta_count = 0
-			player.stats.SetHealth(dmg)
 		if status_dictionary.toxin:
 			var dmg = (amount_dic.debuff_dic["toxin"] * maxHealth) * (2  if player.get_node("Item").item_critable else 1)
 			stats_dic.health -= dmg
@@ -218,6 +211,3 @@ func DoTCheck(delta : float):
 			stats_dic.health -= dmg * (2 if velocity > Vector2.ZERO else 1)
 			CreateDamageLabel(dmg, false)
 			delta_count = 0
-
-#func GettingSucked(destination : Vector2, duration: float):
-	#velocity.

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dgl8leh7rqljq"]
+
+[ext_resource type="Script" uid="uid://c6ygque1d8f4f" path="res://Weapon/upgrades/WeaponUpgradeBase.gd" id="1_qnkpx"]
+
+[resource]
+script = ExtResource("1_qnkpx")

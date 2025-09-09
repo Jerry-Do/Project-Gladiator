@@ -7,7 +7,7 @@ var changed_flag : bool = false
 func _ready():
 	super()
 	duplicate_flag = true
-	price = 14
+	price = 80
 	effect_base_amount = amount
 	item_name = "Unfliching"
 	display_name = "Unfliching"

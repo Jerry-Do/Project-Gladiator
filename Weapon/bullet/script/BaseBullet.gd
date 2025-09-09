@@ -4,6 +4,7 @@ class_name BaseBullet
 @onready var sprite = $Bullet
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var pa : Item = player.itemNode.get_node_or_null("ProjectileAcceleration")
+var weapon_parent : Weapon
 var travelled_dist = 0
 var damage : int
 var speed : int
@@ -13,6 +14,11 @@ var adrenaline_rush : bool
 const RANGE = 1500
 var faction : String
 var counter : float = 0
+var status_dictionary : Dictionary[String, bool] ={
+	"stun" : false,
+	"fire" : false,
+	"toxin" : false
+}
 
 signal OnEnemyKilled
 
@@ -23,6 +29,7 @@ func _init(_damage, _speed):
 
 func _ready():
 	UpgradeBullet()
+	weapon_parent = player.currentWeapon
 	damage  *= (1 if player.just_dash == false else 2)
 	var thing = player.get_node("Item").get_node_or_null("AdrenalineRush")
 	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
@@ -68,6 +75,10 @@ func _on_area_entered(area):
 		var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
 		if ls != null:
 			ls.StartCooldown()
+	for i in status_dictionary:
+		if area.has_method("SetStatusOther"):
+			if status_dictionary[i]:
+				area.SetStatusOther(i , 1)
 
 func BulletIden():
 	pass
@@ -75,3 +86,9 @@ func BulletIden():
 func UpgradeBullet():
 	for i in player.itemNode.bullet_upgrades:
 		i.UpgradeBullet(self)
+	if player.state_machine.current_state.name == "GunslingerSkill" \
+	&& player.state_machine.current_state.bullet_upgrade_flag:
+		var random_no = RandomNumberGenerator.new().randi_range(0, player.state_machine.current_state.bullet_upgrades.size() - 1)
+		player.state_machine.current_state.bullet_upgrades[random_no].UpgradeBullet(self)
+	
+		

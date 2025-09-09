@@ -9,6 +9,7 @@ var spawned_items : Array
 var rng_gen = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Currency.text = "Currency: " + str(game_manager.currency)
 	%UpgradeBtn.tooltip_text = "Takes " + str(player.stats.stats.Level * 10) + " currency to increase health, base damage mod, and more by 1"
 	var player_items = player.get_node("Item")
 	for child in $ButtonsContainer.get_children():

@@ -9,25 +9,23 @@ var in_state : bool = false
 var og_speed : float = 0
 var cal_dmg_mod : float = 0
 var dmg_buffed : bool = false
+var fullset : bool = false
 func _ready():
 	super()
 	duplicate_flag = false
-	price = 60
+	price = 55
 	effect_base_amount = amount
-	item_name = "AdrenalineRush"
+	item_name = "Dopamine"
 	name = item_name
-	display_name = "Adrenaline Rush"
-	item_description = "Increase movement speed by " + str(amount) + " % on enemy killed for" + str(duration) + ". Also grants " \
-	+ str(dmg_amount) + " damage bonus"
+	display_name = "Dopamine"
+	item_description = "Increase movement speed on kill and bonus damage when evolved"
+	if get_parent() == player.get_node("Item"):
+		EvolveCheck()
 	return null
 
 func DoJob(): 	
 	if in_state == false:
 		in_state = true
-		if evolve_flag == false:		
-			enemy_killed += 1
-			if enemy_killed >= evo_amount:
-				evolve_flag = true
 		if evolve_flag && dmg_buffed == false:
 			player.stats.SetDamageMod(cal_dmg_mod)
 			cal_dmg_mod = player.stats.ReturnBaseDamageMod() * ((dmg_amount)/100)
@@ -44,3 +42,15 @@ func _on_timer_timeout():
 		dmg_buffed = false
 	player.stats.SetSpeed(og_speed)
 	enemy_killed = 0
+
+func EvolveCheck():
+	var en = player.get_node("Item").find_child("Endorphine", false, false)
+	var ad = player.get_node("Item").find_child("Adrenaline", false, false)
+	if en == null || ad == null:
+		return 
+	evolve_flag = true
+	en.fullset = true
+	ad.fullset = true
+	player.stats.maxHealthAllowed /= 2
+	if player.stats.ReturnHealth() > player.stats.maxHealthAllowed:
+		player.stats.SetHealth(-(player.stats.ReturnHealth() / 2))

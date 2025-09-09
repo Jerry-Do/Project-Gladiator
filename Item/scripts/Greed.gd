@@ -4,7 +4,7 @@ extends Risk
 func _ready():
 	super()
 	duplicate_flag = false
-	price = 40
+	price = 60
 	item_name = "Greed"
 	display_name = "Greed"
 	name = item_name

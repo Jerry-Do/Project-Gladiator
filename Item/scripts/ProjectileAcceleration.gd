@@ -5,7 +5,7 @@ extends Tech
 func _ready():
 	super()
 	duplicate_flag = true
-	price = 14
+	price = 40
 	effect_base_amount = amount
 	item_name = "ProjectileAcceleration"
 	display_name = "Projectile Acceleration"
