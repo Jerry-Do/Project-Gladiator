@@ -141,6 +141,8 @@ func UpgradeChose(scene_path: String, item_name : String, price : int):
 			player.get_node("Item").get_node(item_name).Duplicate()
 			DestroyUpgradeSceneAndStartNewWave()
 			return null
+		if new_item.has_method("OnEnemyKilled"):
+			player.get_node("Item").on_killed_items.append(new_item)
 		player.get_node("Item").add_child(new_item)
 		#duplication_array.append(new_item.ReturnName())
 		player.get_node("Item").IncreaseType(new_item.ReturnFaction())

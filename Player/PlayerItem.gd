@@ -1,6 +1,7 @@
 extends Node2D
 class_name PlayerItem
 var num_items : int = 0
+var on_killed_items : Array
 var item_sets = {
 	"berserk" : false,
 	"bioenhancement" : false,
@@ -32,3 +33,6 @@ func IncreaseType(type:String):
 func AddBulletUpgrade(upgrade :BaseBulletUpgrade):
 	bullet_upgrades.append(upgrade)
 	
+func OnEnemyKilled():
+	for i in on_killed_items:
+		i.OnEnemyKilled()

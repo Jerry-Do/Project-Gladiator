@@ -19,7 +19,7 @@ func _on_area_entered(area):
 		damage *= (1 + (player.stats.ReturnDamageMod() / 100.0))
 		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
 		var enemy_health = area.TakingDamageForOther(damage, false, faction, random == 100)
-		if enemy_health <= 0  && adrenaline_rush:
+		if enemy_health <= 0:
 			OnEnemyKilled.emit()
 		for n in num_pellet:
 			var random_no =  RandomNumberGenerator.new().randi_range(0, num_pellet)

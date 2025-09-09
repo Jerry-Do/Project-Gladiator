@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsvkvbgnjec8e"]
 
-[ext_resource type="Script" uid="uid://c200wa11jwvcf" path="res://Weapon/bullet/SabCannonBullet.gd" id="1_6n0pk"]
+[ext_resource type="Script" uid="uid://c200wa11jwvcf" path="res://Weapon/bullet/script/SabCannonBullet.gd" id="1_6n0pk"]
 [ext_resource type="Texture2D" uid="uid://dn3mlfydct62y" path="res://Sprite/Player/Bullet.png" id="2_myosc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0r5e"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d370fajn62la7"]
+[gd_scene load_steps=14 format=4 uid="uid://d370fajn62la7"]
 
 [ext_resource type="Script" uid="uid://c884hwveno1uj" path="res://managers/GameManager.gd" id="2_3k0w7"]
 [ext_resource type="Texture2D" uid="uid://cvtl1f5y538uy" path="res://Sprite/environment/wall64.png" id="2_278gd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c1kl5sy8b8xpv" path="res://managers/BlessingManager.gd" id="6_ayole"]
 [ext_resource type="Script" uid="uid://qwno6dwhfodv" path="res://managers/EventManagers.gd" id="6_irc80"]
 [ext_resource type="Script" uid="uid://cmaky2gfhv6eg" path="res://managers/spawner/EnvironmentSpawner.gd" id="7_lagx3"]
+[ext_resource type="PackedScene" uid="uid://611x8m2qa2iy" path="res://Weapon/SpeedGun.tscn" id="10_ydk4g"]
 [ext_resource type="PackedScene" uid="uid://bigefbtttayia" path="res://Enemy/dummy.tscn" id="11_u3w2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfeuo"]
@@ -101,7 +102,6 @@ unique_name_in_owner = true
 position = Vector2(576, 267)
 enemies = ["res://Enemy/Slime.tscn", "res://Enemy/Shooter.tscn", "res://Enemy/Charger.tscn", "res://Enemy/Disabler.tscn", "res://Enemy/Summoner.tscn"]
 interval = 1.25
-maxAllow = 0
 
 [node name="SpawnTimer" parent="GameManager/Spawner" index="0"]
 process_mode = 1
@@ -219,6 +219,9 @@ position = Vector2(780, 323)
 
 [node name="Dummy2" parent="." instance=ExtResource("11_u3w2c")]
 position = Vector2(960, 246)
+
+[node name="SpeedGun" parent="." instance=ExtResource("10_ydk4g")]
+position = Vector2(423, 332)
 
 [connection signal="timeout" from="GameManager/WeaponTimer" to="GameManager" method="_on_weapon_timer_timeout"]
 [connection signal="timeout" from="GameManager/FameMultiplierTimer" to="." method="_on_fame_multiplier_timer_timeout"]

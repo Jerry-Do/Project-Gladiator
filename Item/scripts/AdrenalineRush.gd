@@ -23,7 +23,7 @@ func _ready():
 		EvolveCheck()
 	return null
 
-func DoJob(): 	
+func OnEnemyKilled(): 	
 	if in_state == false:
 		in_state = true
 		if evolve_flag && dmg_buffed == false:

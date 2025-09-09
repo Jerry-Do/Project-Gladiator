@@ -28,9 +28,8 @@ func _on_area_entered(area):
 				CreateLightning(area.get_instance_id(),  random == 100)
 			$Bullet.hide()
 		var amount = area.TakingDamageForOther(damage, false, faction, random == 100)
-		if amount != null&& amount <= 0:
-			if adrenaline_rush:
-				OnEnemyKilled.emit()
+		if amount <= 0:
+			OnEnemyKilled.emit()
 			if fully_charged:
 				get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 		queue_free()
@@ -46,6 +45,9 @@ func CreateLightning(id : int, crit: bool):
 	var lightning = preload("res://Weapon/etc/Lightning.tscn")
 	var real = lightning.instantiate()
 	get_tree().get_first_node_in_group("GameManager").get_parent().call_deferred("add_child", real)
-	real.Init(real.to_local(position), id, crit, weapon_parent)
+	real.Init(real.to_local(position), id, crit, self)
 	
 	
+func OnLightningKills():
+	OnEnemyKilled.emit()
+	weapon_parent.IncreaseLightningKills()

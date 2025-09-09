@@ -3,14 +3,18 @@ extends Line2D
 var targets : Array
 var hit_id : int = 0
 var crit_flag : bool = false
-var weapon_parent : Weapon = null
-func Init(initial_pos: Vector2, id : int, crit: bool, parent : Weapon):
+var bullet_parent : BaseBullet = null
+signal OnKill
+func Init(initial_pos: Vector2, id : int, crit: bool, parent : BaseBullet):
 	hide()
+	connect("OnKill", bullet_parent.OnLightningKills)
+	var amount : float = parent.player.stats.ReturnSpeed() + (parent.player.stats.ReturnSpeed() * 0.01) 
+	parent.player.stats.SetSpeed(amount)
 	crit_flag = crit
 	add_point(initial_pos,0)
 	targets.append(hit_id)
 	%HitShape.shape.a = get_point_position(0)
-	weapon_parent = parent
+	bullet_parent = parent
 	hit_id = id
 	add_point(initial_pos + Vector2(10,0),1)
 	%HitShape.shape.b = get_point_position(1)
@@ -36,11 +40,12 @@ func _on_timer_timeout():
 
 func _on_hit_line_area_entered(area):
 	if area.has_method("TakingDamageForOther") && area.hit_by_lightning == false:
-		if weapon_parent.upgrade_chosen == "Stun Lightning":
+		if bullet_parent.weapon_parent.upgrade_chosen == "Stun Lightning":
 			area.SetStatus("stun",0.25)
-		area.TakingDamageForOther(2, false, "tech", crit_flag)
+		if area.TakingDamageForOther(2, false, "tech", crit_flag) <= 0:
+			OnKill.emit()
 		area.HitByLightning()
 		var lightning = preload("res://Weapon/etc/Lightning.tscn")
 		var real = lightning.instantiate()
 		get_tree().get_first_node_in_group("GameManager").get_parent().call_deferred("add_child", real)
-		real.Init(real.to_local(area.global_position), area.get_instance_id(),crit_flag)
+		real.Init(real.to_local(area.global_position), area.get_instance_id(),crit_flag, bullet_parent)

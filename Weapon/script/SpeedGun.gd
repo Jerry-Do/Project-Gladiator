@@ -2,13 +2,15 @@
 extends Weapon
 
 
+var lightning_kills : int = 0
 var _cMaxAmmo = 15
 var _cRateOfFire = 0.75
 var _cReloadTime = 1
 var charge : float = 0
 var max_charge : float = 2
-var _cFaction = "biochemical"
+var _cFaction = "tech"
 @onready var speed_bar = $SpeedBar
+@export var lightning_kills_threshold : int = 0
 func _init():
 	var description = "Moving charges up the gun. When fully charged, consume all the charges to deal extra damage and create a chain lightning"
 	var w_name = "Speed gun"
@@ -49,3 +51,7 @@ func shoot():
 		double_shot = 0
 		StartCooldownTimer()
 		
+func IncreaseLightningKills():
+	lightning_kills += 1
+	if lightning_kills == lightning_kills_threshold:
+		CallGunUpgrade()

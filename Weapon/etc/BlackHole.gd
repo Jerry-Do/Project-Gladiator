@@ -37,7 +37,7 @@ func _on_explosion_area_entered(area):
 	if area.has_method("TakingDamageForOther"):
 		damage *= (1 + (player.stats.ReturnDamageMod() / 100.0))
 		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
-		if area.TakingDamageForOther(damage, false, faction, random == 100) <= 0 && adrenaline_rush:
+		if area.TakingDamageForOther(damage, false, faction, random == 100) <= 0:
 			OnEnemyKilled.emit()
 
 

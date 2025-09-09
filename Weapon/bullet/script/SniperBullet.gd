@@ -22,8 +22,7 @@ func _on_area_entered(area):
 		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
 		var amount = area.TakingDamageForOther(damage, false, faction, random == crit_chance)
 		if amount <= 0 :
-			if adrenaline_rush:
-				OnEnemyKilled.emit()
+			OnEnemyKilled.emit()
 			get_tree().get_first_node_in_group("GameManager").AdjustFame(1)
 	if health <= 0:
 		queue_free()

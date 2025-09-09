@@ -31,15 +31,12 @@ func _ready():
 	UpgradeBullet()
 	weapon_parent = player.currentWeapon
 	damage  *= (1 if player.just_dash == false else 2)
-	var thing = player.get_node("Item").get_node_or_null("AdrenalineRush")
-	var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
+	#var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
 	var event_manager : EventManager = game_manager.get_node("EventManager")
-	if thing != null:
-		adrenaline_rush = true
-		connect("OnEnemyKilled", thing.DoJob)
-	if ls != null:
-		if ls.active:
-			leech_seed = ls.active
+	connect("OnEnemyKilled", player.get_node("Item").OnEnemyKilled)
+	#if ls != null:
+		#if ls.active:
+			#leech_seed = ls.active
 	#if event_manager.event_dict.frenzy_hormone:
 		#damage *= 2
 		
@@ -70,11 +67,11 @@ func _on_area_entered(area):
 	if area.has_method("DestroyProp"):
 		queue_free()
 		area.DestroyProp()
-	if leech_seed:
-		area.SetStatusOther("leeched" , 5)
-		var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
-		if ls != null:
-			ls.StartCooldown()
+	#if leech_seed:
+		#area.SetStatusOther("leeched" , 5)
+		#var ls = player.get_node("Item").get_node_or_null("LeechSpeed")
+		#if ls != null:
+			#ls.StartCooldown()
 	for i in status_dictionary:
 		if area.has_method("SetStatusOther"):
 			if status_dictionary[i]:

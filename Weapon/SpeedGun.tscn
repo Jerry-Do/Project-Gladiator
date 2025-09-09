@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cwcu2snn62f3r" path="res://Weapon/script/SpeedGun.gd" id="2_rj4q5"]
 [ext_resource type="Resource" uid="uid://3luvcagnljyn" path="res://Weapon/upgrades/SG_StunLightning.tres" id="2_ushbf"]
 [ext_resource type="PackedScene" uid="uid://cpqcj7k2wn2h5" path="res://UI/Bars/SpeedBar.tscn" id="3_6sohs"]
-[ext_resource type="Resource" uid="uid://cfellvl8syp2w" path="res://Weapon/upgrades/SG_MoreLightningBounce.tres" id="3_wft4m"]
+[ext_resource type="Resource" uid="uid://cfellvl8syp2w" path="res://Weapon/upgrades/SG_SpeedUp.tres" id="3_wft4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3s0y"]
 
