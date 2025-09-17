@@ -27,11 +27,11 @@ func OnEnemyKilled():
 	if in_state == false:
 		in_state = true
 		if evolve_flag && dmg_buffed == false:
-			player.stats.SetDamageMod(cal_dmg_mod)
 			cal_dmg_mod = player.stats.ReturnBaseDamageMod() * ((dmg_amount)/100)
+			player.stats.SetDamageMod(cal_dmg_mod)
 			dmg_buffed = true
-		og_speed = player.stats.ReturnSpeed()	
-		player.stats.SetSpeed(player.stats.ReturnSpeed() + player.stats.ReturnSpeed() * (amount/100.00))
+		og_speed = player.stats.ReturnBaseSpeed()	
+		player.stats.SetSpeed(player.stats.ReturnBaseSpeed() * (amount/100.00))
 		$Timer.start(duration)
 	else:
 		$Timer.start(duration)

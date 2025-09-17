@@ -16,12 +16,11 @@ var upgrade_chosen : String = ""
 @export var onFloor: bool = false
 @onready var playerDetector: Area2D = get_node("PlayerDetector")
 @onready var sprite = $Gun
-@onready var game_manager = get_tree().get_first_node_in_group("GameManager")
-signal OutOfAmmo
-signal GunUpgradeSignal
-signal OnEnemyKilled
+@onready var game_manager : GameManager = get_tree().get_first_node_in_group("GameManager")
 var player : Player
 var currentAmmo = 0
+signal OutOfAmmo
+signal OnEnemyKilled
 
 
 func _init(bullet, cRateOfFire, cMaxAmmo, cReloadTime, cDescription, cName, cFaction):
@@ -89,8 +88,7 @@ func StartReloadTimer():
 	if soh != null:
 		reload_time = reloadTime - reloadTime * (soh.EffectAmount() / 100.0)
 	reloadFlag = true
-
 	$ReloadTimer.start(reload_time if game_manager.timeSlowFlag == false else reload_time * 0.25)
 
 func CallGunUpgrade():
-	GunUpgradeSignal.emit()
+	game_manager.CreateWeaponUpgradeScreen(self)

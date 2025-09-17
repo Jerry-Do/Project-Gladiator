@@ -139,7 +139,7 @@ func UpgradeChose(scene_path: String, item_name : String, price : int):
 		var new_item : Item = item.instantiate()
 		if player.get_node("Item").get_node_or_null(item_name) != null:
 			player.get_node("Item").get_node(item_name).Duplicate()
-			DestroyUpgradeSceneAndStartNewWave()
+			DestroyUpgradeSceneAndStartNewWave("UpgradeScreen", true)
 			return null
 		if new_item.has_method("OnEnemyKilled"):
 			player.get_node("Item").on_killed_items.append(new_item)
@@ -148,7 +148,7 @@ func UpgradeChose(scene_path: String, item_name : String, price : int):
 		player.get_node("Item").IncreaseType(new_item.ReturnFaction())
 		new_item.item_sprite.hide()
 		AdjustCurrency(-price)
-		DestroyUpgradeSceneAndStartNewWave()
+		DestroyUpgradeSceneAndStartNewWave("UpgradeScreen", true)
 
 
 func StartWave():
@@ -158,10 +158,12 @@ func StartWave():
 	#ui.set_wave_finisher_alert_visibility(false, currentWave)
 	RoundStart.emit()
 
-func DestroyUpgradeSceneAndStartNewWave():
-	ui.remove_child(ui.get_node("UpgradeScreen"))
+func DestroyUpgradeSceneAndStartNewWave(screen_name : String, start_wave : bool):
+	ui.remove_child(ui.get_node(screen_name))
 	pop_up = false
-	StartWave()
+	get_tree().paused = false
+	if start_wave:
+		StartWave()
 	
 #func CreateWeaponDescription(weapon : Weapon):
 	#var description = preload("res://UI/GunDescription.tscn")
@@ -208,10 +210,17 @@ func LevelUpPlayer():
 	if currency >= (player.stats.stats.Level * 10):
 		AdjustCurrency(-player.stats.stats.Level * 10)
 		player.LevelUp()
-		DestroyUpgradeSceneAndStartNewWave()
+		DestroyUpgradeSceneAndStartNewWave("UpgradeScreen", true)
 
 func CreateStatsScreen():
 	var stats_scene = preload("res://UI/InfoScreen.tscn")
 	var stats_scene_instantiate = stats_scene.instantiate()
 	ui.add_child(stats_scene_instantiate)
+	get_tree().paused = true
+
+func CreateWeaponUpgradeScreen(weapon : Weapon):
+	var weapon_upgrade_screen = preload("res://UI/WeaponUpgradeScene.tscn")
+	var weapon_upgrade_screen_instance = weapon_upgrade_screen.instantiate()
+	weapon_upgrade_screen_instance.weapon = weapon
+	ui.add_child(weapon_upgrade_screen_instance)
 	get_tree().paused = true

@@ -45,9 +45,6 @@ func CreateLightning(id : int, crit: bool):
 	var lightning = preload("res://Weapon/etc/Lightning.tscn")
 	var real = lightning.instantiate()
 	get_tree().get_first_node_in_group("GameManager").get_parent().call_deferred("add_child", real)
-	real.Init(real.to_local(position), id, crit, self)
+	real.Init(real.to_local(global_position), id, crit,self.weapon_parent, damage)
 	
 	
-func OnLightningKills():
-	OnEnemyKilled.emit()
-	weapon_parent.IncreaseLightningKills()

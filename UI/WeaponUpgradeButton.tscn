@@ -20,7 +20,6 @@ offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_7s6f0")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -28,11 +27,11 @@ offset_left = -101.333
 offset_top = -188.0
 offset_right = 548.667
 offset_bottom = 445.0
-disabled = true
 texture_normal = ExtResource("2_8fdqd")
 texture_pressed = ExtResource("3_8gjxf")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("1_7s6f0")
 
 [node name="Description" type="BoxContainer" parent="TextureButton"]
 layout_mode = 0
@@ -77,9 +76,5 @@ text = "NAME
 label_settings = SubResource("LabelSettings_5bcxl")
 autowrap_mode = 2
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
-position = Vector2(216, -97.3333)
-scale = Vector2(2, 2)
-
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
 [connection signal="timeout" from="TextureButton/Timer" to="." method="_on_timer_timeout"]

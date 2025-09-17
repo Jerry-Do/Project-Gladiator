@@ -13,6 +13,7 @@ visibility_layer = 7
 position = Vector2(-10, 8)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_rj4q5")
+lightning_kills_threshold = 1
 upgrades = [ExtResource("2_ushbf"), ExtResource("3_wft4m")]
 
 [node name="ReloadTimer" type="Timer" parent="."]
@@ -49,6 +50,10 @@ offset_bottom = -11.3333
 scale = Vector2(4.18667, 0.4)
 max_value = 2.0
 
+[node name="SpeedBuffDuration" type="Timer" parent="."]
+wait_time = 6.0
+
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="SpeedBuffDuration" to="." method="_on_speed_buff_duration_timeout"]

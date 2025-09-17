@@ -21,6 +21,7 @@ var stats : Dictionary[String, float]= {
 	"Armor": baseArmor,
 	"Crit_Chance": baseCritChance,
 	"Crit_Damage" : baseCritDamage,
+	"Base_Speed" : baseSpeed,
 	"Speed" : baseSpeed,
 	"Fuel" : maxFuel,
 	"Recharge_Time" : rechargeTime,
@@ -42,7 +43,8 @@ func ReturnHealth():
 	return stats.Health
 	
 func SetSpeed(value):
-	stats.Speed = value
+	stats.Speed = stats.Base_Speed + value
+	
 
 func ReturnSpeed():
 	return stats.Speed
@@ -113,7 +115,10 @@ func SetDashCooldown(amount : float) :
 
 func ReturnDashCooldown() -> float:
 	return stats.Dash_Cooldown
-	
+
+func ReturnBaseSpeed() -> float :
+	return stats.Base_Speed
+
 func LevelUp():
 	stats.Base_Armor += 1
 	stats.Base_Damage_Mod += 1

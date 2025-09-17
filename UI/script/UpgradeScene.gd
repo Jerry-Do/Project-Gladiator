@@ -52,7 +52,7 @@ func _ready():
 		
 
 func _on_skip_btn_pressed():
-	game_manager.DestroyUpgradeSceneAndStartNewWave()
+	game_manager.DestroyUpgradeSceneAndStartNewWave("UpgradeScreen", true)
 
 
 func _on_upgrade_btn_pressed():

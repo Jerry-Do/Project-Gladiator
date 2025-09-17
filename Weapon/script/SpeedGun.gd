@@ -1,7 +1,8 @@
 
 extends Weapon
 
-
+var lightning_hit_no : int = 0
+var og_speed: float = 0
 var lightning_kills : int = 0
 var _cMaxAmmo = 15
 var _cRateOfFire = 0.75
@@ -20,6 +21,7 @@ func _init():
 func _ready():
 	speed_bar.init_speed(0)
 	
+	
 func _process(delta):
 	super._process(delta)	
 	if pickedUpFlag:
@@ -36,6 +38,7 @@ func shoot():
 			for n in 3:
 				var BULLET = load(self.bulletName)
 				var new_bullet = BULLET.instantiate()
+				new_bullet.weapon_parent = self
 				new_bullet.global_position = %Shootingpoint.global_position
 				new_bullet.global_rotation = %Shootingpoint.global_rotation
 				new_bullet.faction = _cFaction
@@ -55,3 +58,14 @@ func IncreaseLightningKills():
 	lightning_kills += 1
 	if lightning_kills == lightning_kills_threshold:
 		CallGunUpgrade()
+
+func IncreasePlayerSpeed():
+	og_speed = player.stats.ReturnBaseSpeed()
+	lightning_hit_no += 1
+	var amount : float = player.stats.ReturnBaseSpeed() * 0.01 * lightning_hit_no
+	player.stats.SetSpeed(amount)
+	$SpeedBuffDuration.start(6)
+
+func _on_speed_buff_duration_timeout():
+	lightning_hit_no = 0
+	player.stats.SetSpeed(0)

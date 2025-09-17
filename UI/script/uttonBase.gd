@@ -1,8 +1,9 @@
 extends Control
 class_name ButtonBase
 
-func _on_texture_button_pressed():
+func _on_pressed():
 	Action()
+	pass
 
 func Action():
 	pass
