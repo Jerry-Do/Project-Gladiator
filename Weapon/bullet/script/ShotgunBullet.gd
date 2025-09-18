@@ -14,15 +14,14 @@ func _on_area_entered(area):
 	var enemy_id = area.get_instance_id()
 	if player.can_crit:
 		random = RandomNumberGenerator.new().randi_range(player.stats.ReturnCritChance(), 200 - player.stats.ReturnCritChance())
-	if area.has_method("TakingDamageForOther"):
-		
-		#TODO: Add push back when enemy hit
-		PushEnemyBack(area )
+	if area.has_method("TakingDamageForOther"):	
+
+		if weapon_parent.CheckIfEnemyIsTracked(area.get_instance_id()) && weapon_parent.upgrade_chosen == "Push Back":
+			PushEnemyBack(area)
 		damage *= (1 + (player.stats.ReturnDamageMod() / 100.0))
 		damage = (damage if random != 100 else damage * (1 + (player.stats.ReturnCritDamage()/100)))
-		if area.TakingDamageForOther(0, false, faction, random == 100) <= 0:
+		if area.TakingDamageForOther(damage, false, faction, random == 100) <= 0:
 			weapon_parent.CheckIfTrackingEnemyKilled(enemy_id)
-			PushEnemyBack(area)
 			OnEnemyKilled.emit()
 		queue_free()
 
@@ -37,8 +36,8 @@ func PushEnemyBack(area ):
 			velocity.y = -area.get_parent().to_local(self.global_position).y
 		else:
 			velocity.y = area.get_parent().to_local(self.global_position).y
-		area.get_parent().velocity = velocity * 750
+		area.get_parent().velocity = velocity  * 20
 	else:
-		area.get_parent().velocity = -area.get_parent().to_local(self.global_position) * 30
+		area.get_parent().velocity = -area.get_parent().to_local(self.global_position) *20
 		area.SetStatusOther("stun",0.15)
 	area.get_parent().move_and_slide()

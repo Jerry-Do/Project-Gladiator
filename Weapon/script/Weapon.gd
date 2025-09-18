@@ -92,3 +92,6 @@ func StartReloadTimer():
 
 func CallGunUpgrade():
 	game_manager.CreateWeaponUpgradeScreen(self)
+
+func UpgradeGun():
+	pass

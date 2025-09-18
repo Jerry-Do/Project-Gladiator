@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b6whom7i8p46o"]
+
+[ext_resource type="Script" uid="uid://dbtfs137fknr6" path="res://Weapon/upgrades/ShG_TwoShots.gd" id="1_r2qlt"]
+
+[resource]
+script = ExtResource("1_r2qlt")

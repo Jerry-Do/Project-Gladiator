@@ -10,5 +10,5 @@ func init(weapon_upgrade : WeaponUpgradeRes, _weapon : Weapon, _number: int):
 func Action():
 	weapon.upgrade_chosen = %name.text
 	get_tree().get_first_node_in_group("GameManager").DestroyUpgradeSceneAndStartNewWave("WeaponUpgradeScreen", false)
-	
+	weapon.UpgradeGun()
 	

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8vbxre6wijx1"]
+[gd_scene load_steps=7 format=3 uid="uid://8vbxre6wijx1"]
 
 [ext_resource type="Script" uid="uid://oikmytb7dux1" path="res://Weapon/script/Shotgun.gd" id="1_axueq"]
+[ext_resource type="Resource" uid="uid://ckbl6k2yq0vts" path="res://Weapon/upgrades/ShG_PushBack.tres" id="2_g5vai"]
 [ext_resource type="Texture2D" uid="uid://bfvrcs68ko660" path="res://Sprite/Player/Gun.png" id="2_m5c1o"]
+[ext_resource type="Resource" uid="uid://b6whom7i8p46o" path="res://Weapon/upgrades/ShG_TwoShots.tres" id="3_sv7hb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6idm"]
 
@@ -11,8 +13,9 @@ radius = 157.61
 [node name="Shotgun" type="Node2D" groups=["Gun"]]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_axueq")
-evolved_threshhold = 99
+evolved_threshhold = 1
 pellet = 3
+upgrades = [ExtResource("2_g5vai"), ExtResource("3_sv7hb")]
 
 [node name="ReloadTimer" type="Timer" parent="."]
 unique_name_in_owner = true

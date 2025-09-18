@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://ckbl6k2yq0vts"]
 
-[ext_resource type="Script" uid="uid://dxjlo6vpmssr5" path="res://Weapon/upgrades/SG_SpeedUp.gd" id="1_n77ch"]
+[ext_resource type="Script" uid="uid://cjaljt02gdyn6" path="res://Weapon/upgrades/ShG_PushBack.gd" id="1_n77ch"]
 
 [resource]
 script = ExtResource("1_n77ch")

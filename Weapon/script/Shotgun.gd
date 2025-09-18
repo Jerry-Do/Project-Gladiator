@@ -2,6 +2,7 @@ extends Weapon
 
 var tracking_enemies : Array
 var current_killed_amount : int = 0
+var damage : float = 2
 var _cMaxAmmo = 5
 var _cRateOfFire = 1
 var _cReloadTime = 1
@@ -25,7 +26,7 @@ func shoot():
 				new_bullet.position = %Shootingpoint.global_position 
 				new_bullet.rotation = %Shootingpoint.global_rotation + n
 				new_bullet.faction = _cFaction
-				new_bullet.damage = 2
+				new_bullet.damage = damage
 				player.get_parent().add_child(new_bullet)			
 				shootFlag = false	
 			currentAmmo -=1
@@ -38,15 +39,23 @@ func _on_area_2d_area_entered(area):
 		tracking_enemies.append(area.get_instance_id())
 
 func CheckIfTrackingEnemyKilled(id):
-	var index = tracking_enemies.find(id)
-	if index != -1:
+	if CheckIfEnemyIsTracked(id):
 		current_killed_amount += 1
-	if current_killed_amount == evolved_threshhold:
+		if upgrade_chosen == "Two Shots":
+			currentAmmo += 1 if currentAmmo < 2 else 0
+	if (current_killed_amount == evolved_threshhold) && upgrade_chosen == "":
 		CallGunUpgrade()
 		
 		
-
+func CheckIfEnemyIsTracked(id):
+	return tracking_enemies.find(id) != -1
 
 func _on_area_2d_area_exited(area):
 	if area.has_method("TakingDamageForOther"):
-		tracking_enemies.append(area.get_instance_id())
+		tracking_enemies.remove_at(tracking_enemies.find((area.get_instance_id())))
+
+func UpgradeGun():
+	maxAmmo = 2
+	currentAmmo = currentAmmo if currentAmmo <= 2 else 2
+	damage *= 2
+	

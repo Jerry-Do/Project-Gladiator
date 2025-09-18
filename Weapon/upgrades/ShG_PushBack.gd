@@ -1,5 +1,5 @@
 extends WeaponUpgradeRes
 
 func _init():
-	init("Speed Up", "Lightning will bounce give the player a small speed boost. This effect stacks")
+	init("Push Back", "Knocks enemies back when they are hit in close range.")
 	
